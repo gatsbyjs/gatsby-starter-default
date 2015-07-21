@@ -1,0 +1,21 @@
+{
+  "name": "gatsby-starter-default",
+  "version": "1.0.0",
+  "description": "Gatsby default starter",
+  "main": "n/a",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "gatsby"
+  ],
+  "author": "Kyle Mathews <mathews.kyle@gmail.com>",
+  "license": "MIT",
+  "dependencies": {
+    "react": "^0.13.3",
+    "react-document-title": "^1.0.2",
+    "react-responsive-grid": "^0.2.0",
+    "react-router": "^0.13.3",
+    "typography": "^0.3.6"
+  }
+}
