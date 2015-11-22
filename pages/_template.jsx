@@ -1,10 +1,8 @@
 import React from 'react';
 import { RouteHandler, Link, State } from 'react-router';
 import { Container, Grid, Breakpoint, Span } from 'react-responsive-grid';
-import Typography from 'typography';
 
-var typography = new Typography();
-var rhythm = typography.rhythm, fontSizeToMS = typography.fontSizeToMS;
+import { rhythm, fontSizeToMS } from 'utils/typography';
 
 module.exports = React.createClass({
   mixins: [State],
@@ -19,7 +17,7 @@ module.exports = React.createClass({
             paddingTop: 0
           }}
         >
-          <RouteHandler typography={typography} {...this.props}/>
+          <RouteHandler {...this.props}/>
         </Container>
       </div>
     );
