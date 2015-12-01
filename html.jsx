@@ -5,12 +5,6 @@ import { TypographyStyle } from 'utils/typography'
 
 
 module.exports = React.createClass({
-  getDefaultProps: function() {
-    return {
-      body: ""
-    };
-  },
-
   render: function() {
     var title;
     title = DocumentTitle.rewind();
