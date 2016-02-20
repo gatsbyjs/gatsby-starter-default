@@ -7,7 +7,7 @@ module.exports = React.createClass({
     }
   },
   render () {
-    const post = this.props.router.page.data
+    const post = this.props.route.page.data
     return (
       <div>
         <h1>{post.title}</h1>
