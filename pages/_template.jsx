@@ -1,25 +1,27 @@
-import React from 'react';
-import { RouteHandler, Link, State } from 'react-router';
-import { Container, Grid, Breakpoint, Span } from 'react-responsive-grid';
+import React from 'react'
+import { Container } from 'react-responsive-grid'
 
-import { rhythm, fontSizeToMS } from 'utils/typography';
+import { rhythm } from 'utils/typography'
 
 module.exports = React.createClass({
-  mixins: [State],
-
-  render: function() {
+  propTypes () {
+    return {
+      children: React.PropTypes.any,
+    }
+  },
+  render () {
     return (
       <div>
         <Container
           style={{
             maxWidth: 960,
             padding: `${rhythm(1)} ${rhythm(1/2)}`,
-            paddingTop: 0
+            paddingTop: 0,
           }}
         >
-          <RouteHandler {...this.props}/>
+          {this.props.children}
         </Container>
       </div>
-    );
-  }
-});
+    )
+  },
+})

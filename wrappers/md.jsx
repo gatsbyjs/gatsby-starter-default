@@ -1,13 +1,18 @@
-import React from 'react';
+import React from 'react'
 
 module.exports = React.createClass({
-  render: function() {
-    var post = this.props.page.data
+  propTypes () {
+    return {
+      router: React.PropTypes.object,
+    }
+  },
+  render () {
+    const post = this.props.router.page.data
     return (
       <div>
         <h1>{post.title}</h1>
-        <div dangerouslySetInnerHTML={{__html: post.body}}/>
+        <div dangerouslySetInnerHTML={{ __html: post.body }}/>
       </div>
-    );
-  }
-});
+    )
+  },
+})
