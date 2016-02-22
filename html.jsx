@@ -17,6 +17,11 @@ module.exports = React.createClass({
       title = this.props.title
     }
 
+    let cssLink
+    if (process.env.NODE_ENV === 'production') {
+      cssLink = <link rel="stylesheet" href={link('/styles.css')} />
+    }
+
     return (
       <html lang="en">
         <head>
@@ -29,6 +34,7 @@ module.exports = React.createClass({
           <title>{title}</title>
           <link rel="shortcut icon" href={this.props.favicon}/>
           <TypographyStyle/>
+          {cssLink}
         </head>
         <body>
           <div id="react-mount" dangerouslySetInnerHTML={{ __html: this.props.body }} />
