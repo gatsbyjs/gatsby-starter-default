@@ -1,0 +1,7 @@
+title = "Create pages from TOML!"
+imagine = "What you can do with raw data"
+
+[integrationsWithOtherSystems]
+possible = true
+awesome = true
+
