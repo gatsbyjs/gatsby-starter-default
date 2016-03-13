@@ -13,7 +13,7 @@ module.exports = React.createClass({
       <div>
         <h1>{data.title}</h1>
         <p>Raw view of toml file</p>
-        <pre dangerouslySetInnerHTML={{ __html: toml.dump(data) }}/>
+        <pre dangerouslySetInnerHTML={{ __html: toml.dump(data) }} />
       </div>
     )
   },

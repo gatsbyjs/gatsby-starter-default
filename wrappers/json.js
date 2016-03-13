@@ -12,7 +12,7 @@ module.exports = React.createClass({
       <div>
         <h1>{data.title}</h1>
         <p>Raw view of json file</p>
-        <pre dangerouslySetInnerHTML={{ __html: JSON.stringify(data, null, 4) }}/>
+        <pre dangerouslySetInnerHTML={{ __html: JSON.stringify(data, null, 4) }} />
       </div>
     )
   },

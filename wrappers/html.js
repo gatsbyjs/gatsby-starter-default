@@ -10,8 +10,8 @@ module.exports = React.createClass({
     const post = this.props.route.page.data
     return (
       <div className="markdown">
-        <h1 dangerouslySetInnerHTML={{ __html: post.title }}/>
-        <div dangerouslySetInnerHTML={{ __html: post.body }}/>
+        <h1 dangerouslySetInnerHTML={{ __html: post.title }} />
+        <div dangerouslySetInnerHTML={{ __html: post.body }} />
       </div>
     )
   },

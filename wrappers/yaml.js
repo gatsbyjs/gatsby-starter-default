@@ -13,7 +13,7 @@ module.exports = React.createClass({
       <div>
         <h1>{data.title}</h1>
         <p>Raw view of yaml file</p>
-        <pre dangerouslySetInnerHTML={{ __html: yaml.safeDump(data) }}/>
+        <pre dangerouslySetInnerHTML={{ __html: yaml.safeDump(data) }} />
       </div>
     )
   },
