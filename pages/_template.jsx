@@ -20,13 +20,13 @@ module.exports = React.createClass({
           }}
           style={{
             background: 'lightgray',
-            padding: rhythm(1),
           }}
         >
           <Container
             style={{
               maxWidth: 960,
               paddingTop: 0,
+              padding: `${rhythm(1)} ${rhythm(1/2)}`,
             }}
           >
             <Link
