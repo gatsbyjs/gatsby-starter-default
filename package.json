@@ -16,9 +16,11 @@
     "react": "^0.14.7",
     "react-document-title": "^2.0.1",
     "react-dom": "^0.14.7",
+    "react-headroom": "^1.8.0",
     "react-responsive-grid": "^0.3.0",
     "react-router": "^2.0.0",
     "safe-access": "^0.1.0",
+    "toml-js": "0.0.8",
     "typography": "^0.7.0"
   },
   "devDependencies": {
