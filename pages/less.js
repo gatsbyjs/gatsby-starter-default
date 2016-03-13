@@ -14,13 +14,13 @@ export default class Less extends React.Component {
           <h2>Nav example</h2>
           <ul>
             <li>
-              <a href="google.com">Store</a>
+              <a href="#">Store</a>
             </li>
             <li>
-              <a href="yahoo.com">Help</a>
+              <a href="#">Help</a>
             </li>
             <li>
-              <a href="amazon.com">Logout</a>
+              <a href="#">Logout</a>
             </li>
           </ul>
         </div>
