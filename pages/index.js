@@ -1,5 +1,6 @@
 import React from 'react'
 import { Link } from 'react-router'
+import { link } from 'gatsby-helpers'
 // Styles for highlighted code blocks.
 import 'css/zenburn.css'
 
@@ -15,37 +16,37 @@ export default class Sass extends React.Component {
         <h4>Supported file types</h4>
         <ul>
           <li>
-            <Link to="/markdown/">Markdown</Link>
+            <Link to={link('/markdown/')}>Markdown</Link>
           </li>
           <li>
-            <Link to="/react/">JSX (React components)</Link>
+            <Link to={link('/react/')}>JSX (React components)</Link>
           </li>
           <li>
-            <Link to="/coffee-react/">CJSX (Coffeescript React components)</Link>
+            <Link to={link('/coffee-react/')}>CJSX (Coffeescript React components)</Link>
           </li>
           <li>
-            <Link to="/html/">HTML</Link>
+            <Link to={link('/html/')}>HTML</Link>
           </li>
           <li>
-            <Link to="/json/">JSON</Link>
+            <Link to={link('/json/')}>JSON</Link>
           </li>
           <li>
-            <Link to="/yaml/">YAML</Link>
+            <Link to={link('/yaml/')}>YAML</Link>
           </li>
           <li>
-            <Link to="/toml/">TOML</Link>
+            <Link to={link('/toml/')}>TOML</Link>
           </li>
         </ul>
         <h4>Supported CSS Preprocessors</h4>
         <ul>
           <li>
-            <Link to="/postcss/">PostCSS</Link>
+            <Link to={link('/postcss/')}>PostCSS</Link>
           </li>
           <li>
-            <Link to="/sass/">Sass</Link>
+            <Link to={link('/sass/')}>Sass</Link>
           </li>
           <li>
-            <Link to="/less/">Less</Link>
+            <Link to={link('/less/')}>Less</Link>
           </li>
         </ul>
       </div>

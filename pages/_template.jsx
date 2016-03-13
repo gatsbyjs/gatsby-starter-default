@@ -1,6 +1,7 @@
 import React from 'react'
 import { Container } from 'react-responsive-grid'
 import { Link } from 'react-router'
+import { link } from 'gatsby-helpers'
 import Headroom from 'react-headroom'
 
 import { rhythm } from 'utils/typography'
@@ -30,7 +31,7 @@ module.exports = React.createClass({
             }}
           >
             <Link
-              to="/"
+              to={link('/')}
               style={{
                 color: 'black',
                 textDecoration: 'none',
