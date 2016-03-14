@@ -27,7 +27,7 @@ And **lots** of other *fun* stuff.
 ## Enable additional syntax with Markdown-it plugins
 
 You can add additional Markdown-it plugins with
-a custom markdown loader.
+[a custom markdown loader](https://github.com/gatsbyjs/gatsby-starter-default/blob/master/loaders/markdown-loader/index.js#L22-L32).
 
 ### Subscript
 H~2~0
