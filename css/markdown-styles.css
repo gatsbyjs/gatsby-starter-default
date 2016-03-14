@@ -1,0 +1,9 @@
+.warning {
+  color: #9F6000;
+  background-color: #FEEFB3;
+  padding: 18px;
+}
+.warning:before {
+  content:'\26A0';
+  margin-right: 9px;
+}

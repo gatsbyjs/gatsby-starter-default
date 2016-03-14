@@ -24,6 +24,41 @@ And **lots** of other *fun* stuff.
 > They can span multiple paragraphs,
 > if you like.
 
+## Enable additional syntax with Markdown-it plugins
+
+You can add additional Markdown-it plugins with
+a custom markdown loader.
+
+### Subscript
+H~2~0
+
+### Footnote
+Here is an inline note.^[Inlines notes are easier to write, since
+you don't have to pick an identifier and move down to type the
+note.]
+
+### Definition lists
+Term 1
+
+:   Definition 1
+
+Term 2 with *inline markup*
+
+:   Definition 2
+
+        { some code, part of Definition 2 }
+
+    Third paragraph of definition 2.
+
+### Abbriviation
+*[HTML]: Hyper Text Markup Language
+*[W3C]:  World Wide Web Consortium
+The HTML specification
+is maintained by the W3C.
+
+### Add a class or other attributes to content.
+here be dragons {.warning}
+
 ## Some code
 
 Javascript

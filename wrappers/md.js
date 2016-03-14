@@ -1,4 +1,5 @@
 import React from 'react'
+import 'css/markdown-styles.css'
 
 module.exports = React.createClass({
   propTypes () {
