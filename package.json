@@ -13,9 +13,10 @@
   "author": "Kyle Mathews <mathews.kyle@gmail.com>",
   "license": "MIT",
   "dependencies": {
-    "history": "^2.0.0",
     "front-matter": "^2.0.6",
     "highlight.js": "^9.2.0",
+    "history": "^2.0.0",
+    "js-yaml": "^3.5.5",
     "markdown-it": "^6.0.0",
     "markdown-it-abbr": "^1.0.3",
     "markdown-it-attrs": "^0.1.8",
