@@ -1,7 +1,7 @@
 import React from 'react'
 import DocumentTitle from 'react-document-title'
 
-import { link } from 'gatsby-helpers'
+import { prefixLink } from 'gatsby-helpers'
 import { TypographyStyle } from 'utils/typography'
 
 
@@ -12,14 +12,11 @@ module.exports = React.createClass({
     }
   },
   render () {
-    let title = DocumentTitle.rewind()
-    if (this.props.title) {
-      title = this.props.title
-    }
+    const title = DocumentTitle.rewind()
 
     let cssLink
     if (process.env.NODE_ENV === 'production') {
-      cssLink = <link rel="stylesheet" href={link('/styles.css')} />
+      cssLink = <link rel="stylesheet" href={prefixLink('/styles.css')} />
     }
 
     return (
@@ -38,7 +35,7 @@ module.exports = React.createClass({
         </head>
         <body>
           <div id="react-mount" dangerouslySetInnerHTML={{ __html: this.props.body }} />
-          <script src={link('/bundle.js')} />
+          <script src={prefixLink('/bundle.js')} />
         </body>
       </html>
     )

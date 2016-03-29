@@ -6,11 +6,11 @@ const options = {
   headerFontFamily: '"Avenir Next", "Helvetica Neue", "Segoe UI", Helvetica, Arial, sans-serif',
   bodyFontFamily: 'georgia, serif',
   bodyWeight: 300,
-  headerWeight: 700,
-  boldWeight: 700,
+  headerWeight: 600,
+  boldWeight: 600,
   modularScales: [
     {
-      scale: 'diminished fourth',
+      scale: 'minor third',
     },
   ],
 }
