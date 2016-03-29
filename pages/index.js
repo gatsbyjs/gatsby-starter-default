@@ -1,6 +1,7 @@
 import React from 'react'
 import { Link } from 'react-router'
-import { link } from 'gatsby-helpers'
+import { prefixLink } from 'gatsby-helpers'
+
 // Styles for highlighted code blocks.
 import 'css/zenburn.css'
 
@@ -12,41 +13,41 @@ export default class Sass extends React.Component {
           Hi people
         </h1>
         <p>Welcome to your new Gatsby site</p>
-        <h3>Below are some pages showing different capabilities built-in to Gatsby</h3>
-        <h4>Supported file types</h4>
+        <h2>Below are some pages showing different capabilities built-in to Gatsby</h2>
+        <h3>Supported file types</h3>
         <ul>
           <li>
-            <Link to={link('/markdown/')}>Markdown</Link>
+            <Link to={prefixLink('/markdown/')}>Markdown</Link>
           </li>
           <li>
-            <Link to={link('/react/')}>JSX (React components)</Link>
+            <Link to={prefixLink('/react/')}>JSX (React components)</Link>
           </li>
           <li>
-            <Link to={link('/coffee-react/')}>CJSX (Coffeescript React components)</Link>
+            <Link to={prefixLink('/coffee-react/')}>CJSX (Coffeescript React components)</Link>
           </li>
           <li>
-            <Link to={link('/html/')}>HTML</Link>
+            <Link to={prefixLink('/html/')}>HTML</Link>
           </li>
           <li>
-            <Link to={link('/json/')}>JSON</Link>
+            <Link to={prefixLink('/json/')}>JSON</Link>
           </li>
           <li>
-            <Link to={link('/yaml/')}>YAML</Link>
+            <Link to={prefixLink('/yaml/')}>YAML</Link>
           </li>
           <li>
-            <Link to={link('/toml/')}>TOML</Link>
+            <Link to={prefixLink('/toml/')}>TOML</Link>
           </li>
         </ul>
-        <h4>Supported CSS Preprocessors</h4>
+        <h3>Supported CSS processors</h3>
         <ul>
           <li>
-            <Link to={link('/postcss/')}>PostCSS</Link>
+            <Link to={prefixLink('/postcss/')}>PostCSS</Link>
           </li>
           <li>
-            <Link to={link('/sass/')}>Sass</Link>
+            <Link to={prefixLink('/sass/')}>Sass</Link>
           </li>
           <li>
-            <Link to={link('/less/')}>Less</Link>
+            <Link to={prefixLink('/less/')}>Less</Link>
           </li>
         </ul>
       </div>
