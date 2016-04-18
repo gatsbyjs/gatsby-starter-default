@@ -20,8 +20,8 @@ export default class ReactComponent extends React.Component {
         <h1>React.js components</h1>
         <h3>Counter example</h3>
         <p>{this.state.count}</p>
-        <button onClick={this.handlePlusClick.bind(this)}>+</button>
-        <button onClick={this.handleMinusClick.bind(this)}>-</button>
+        <button onClick={() => this.handlePlusClick()}>+</button>
+        <button onClick={() => this.handleMinusClick()}>-</button>
       </div>
     )
   }
