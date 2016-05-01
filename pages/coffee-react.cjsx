@@ -1,4 +1,6 @@
 React = require 'react'
+DocumentTitle = require 'react-document-title'
+config = require 'config'
 
 module.exports = React.createClass
   getInitialState: ->
@@ -11,10 +13,12 @@ module.exports = React.createClass
     @setState count: @state.count - 1
 
   render: ->
-    <div>
-      <h1>Coffeescript React.js components</h1>
-      <h3>Counter example</h3>
-      <p>{@state.count}</p>
-      <button onClick={@handlePlusClick}>+</button>
-      <button onClick={@handleMinusClick}>-</button>
-    </div>
+    <DocumentTitle title={config.config.siteTitle + ' | Coffeescript React.js components'}>
+      <div>
+        <h1>Coffeescript React.js components</h1>
+        <h3>Counter example</h3>
+        <p>{@state.count}</p>
+        <button onClick={@handlePlusClick}>+</button>
+        <button onClick={@handleMinusClick}>-</button>
+      </div>
+    </DocumentTitle>
