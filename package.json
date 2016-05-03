@@ -15,23 +15,25 @@
     "js-yaml": "^3.6.0",
     "markdown-it": "^6.0.1",
     "markdown-it-abbr": "^1.0.3",
-    "markdown-it-attrs": "^0.1.8",
+    "markdown-it-attrs": "^0.2.0",
     "markdown-it-deflist": "^2.0.1",
     "markdown-it-footnote": "^2.0.0",
     "markdown-it-sub": "^1.0.0",
-    "object-assign": "^4.0.1",
+    "object-assign": "^4.1.0",
     "react-document-title": "^2.0.1",
     "react-headroom": "^1.8.2",
     "react-responsive-grid": "^0.3.3",
-    "react-router": "^2.2.4",
+    "react-router": "^2.4.0",
     "toml-js": "0.0.8",
     "typography": "^0.7.0"
   },
   "devDependencies": {
     "babel-preset-react-hmre": "^1.1.1",
-    "eslint": "^2.8.0",
-    "eslint-config-airbnb": "^7.0.0",
-    "eslint-plugin-react": "^4.3.0"
+    "eslint": "^2.9.0",
+    "eslint-config-airbnb": "^8.0.0",
+    "eslint-plugin-import": "^1.6.1",
+    "eslint-plugin-jsx-a11y": "^1.0.4",
+    "eslint-plugin-react": "^5.0.1"
   },
   "keywords": [
     "gatsby"
