@@ -7,7 +7,7 @@ import { config } from 'config'
 // Styles for highlighted code blocks.
 import 'css/zenburn.css'
 
-export default class Sass extends React.Component {
+export default class Index extends React.Component {
   render () {
     return (
       <DocumentTitle title={config.siteTitle}>
