@@ -27,7 +27,8 @@
     "react-responsive-grid": "^0.3.3",
     "react-router": "^2.4.0",
     "toml-js": "0.0.8",
-    "typography": "^0.8.3"
+    "typography": "^0.10.2",
+    "typography-react": "^0.10.3"
   },
   "devDependencies": {
     "babel-core": "^6.9.1",
