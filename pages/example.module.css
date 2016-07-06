@@ -1,3 +1,7 @@
+:root {
+  --color: pink;
+}
+
 .css-modules-nav-example {
   & ul {
     margin: 0;
@@ -8,6 +12,7 @@
   & li { display: inline-block; }
 
   & a {
+    background: var(--color);
     border-radius: 3px;
     display: block;
     margin-right: 6px;
