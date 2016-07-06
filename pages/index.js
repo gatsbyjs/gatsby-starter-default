@@ -47,6 +47,9 @@ export default class Index extends React.Component {
               <Link to={prefixLink('/postcss/')}>PostCSS</Link>
             </li>
             <li>
+              <Link to={prefixLink('/css-modules/')}>CSS Modules</Link>
+            </li>
+            <li>
               <Link to={prefixLink('/sass/')}>Sass</Link>
             </li>
             <li>

@@ -1,0 +1,22 @@
+.css-modules-nav-example {
+  & ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  & li { display: inline-block; }
+
+  & a {
+    border-radius: 3px;
+    display: block;
+    margin-right: 6px;
+    padding: 3px 9px;
+    text-decoration: none;
+  }
+}
+
+.the-css-module-class {
+  text-decoration: underline;
+}
+
