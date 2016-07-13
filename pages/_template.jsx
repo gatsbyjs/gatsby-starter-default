@@ -27,7 +27,7 @@ module.exports = React.createClass({
             style={{
               maxWidth: 960,
               paddingTop: 0,
-              padding: `${rhythm(1)} ${rhythm(1/2)}`,
+              padding: `${rhythm(1)} ${rhythm(3/4)}`,
             }}
           >
             <Link
@@ -44,7 +44,7 @@ module.exports = React.createClass({
         <Container
           style={{
             maxWidth: 960,
-            padding: `${rhythm(1)} ${rhythm(1/2)}`,
+            padding: `${rhythm(1)} ${rhythm(3/4)}`,
             paddingTop: 0,
           }}
         >
