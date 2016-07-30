@@ -9,14 +9,9 @@ module.exports = React.createClass({
     }
   },
   render () {
-    const post = this.props.route.page.data
+    const page = this.props.route.page.data
     return (
-      <DocumentTitle title={`${config.siteTitle} | ${post.title}`}>
-        <div className="markdown">
-          <h1 dangerouslySetInnerHTML={{ __html: post.title }} />
-          <div dangerouslySetInnerHTML={{ __html: post.body }} />
-        </div>
-      </DocumentTitle>
+      <div dangerouslySetInnerHTML={{ __html: page.body }} />
     )
   },
 })
