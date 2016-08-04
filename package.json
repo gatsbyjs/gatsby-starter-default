@@ -26,9 +26,9 @@
     "react-headroom": "^2.1.2",
     "react-responsive-grid": "^0.3.3",
     "react-router": "^2.6.1",
+    "react-typography": "^0.12.0",
     "toml-js": "0.0.8",
-    "typography": "^0.12.1",
-    "typography-react": "^0.10.4"
+    "typography": "^0.12.1"
   },
   "devDependencies": {
     "babel-core": "^6.9.1",
@@ -55,10 +55,10 @@
   "license": "MIT",
   "main": "n/a",
   "scripts": {
-    "lint": "./node_modules/.bin/eslint --ext .js,.jsx --ignore-pattern public .",
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "develop": "gatsby develop",
     "build": "gatsby build",
-    "deploy": "gatsby build --prefix-links && gh-pages -d public"
+    "deploy": "gatsby build --prefix-links && gh-pages -d public",
+    "develop": "gatsby develop",
+    "lint": "./node_modules/.bin/eslint --ext .js,.jsx --ignore-pattern public .",
+    "test": "echo \"Error: no test specified\" && exit 1"
   }
 }

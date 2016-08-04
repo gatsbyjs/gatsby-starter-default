@@ -2,7 +2,7 @@ import React from 'react'
 import DocumentTitle from 'react-document-title'
 
 import { prefixLink } from 'gatsby-helpers'
-import { TypographyStyle } from 'typography-react'
+import { TypographyStyle, GoogleFont } from 'react-typography'
 import typography from './utils/typography'
 
 const BUILD_TIME = new Date().getTime()
@@ -33,6 +33,7 @@ module.exports = React.createClass({
           <title>{title}</title>
           <link rel="shortcut icon" href={this.props.favicon} />
           <TypographyStyle typography={typography} />
+          <GoogleFont typography={typography} />
           {css}
         </head>
         <body>
