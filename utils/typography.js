@@ -12,9 +12,9 @@ const options = {
     'sans-serif',
   ],
   bodyFontFamily: ['georgia', 'serif'],
-  bodyWeight: 300,
+  bodyWeight: 400,
   headerWeight: 600,
-  boldWeight: 600,
+  boldWeight: 700,
 }
 
 const typography = new Typography(options)
