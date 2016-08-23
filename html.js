@@ -31,7 +31,6 @@ module.exports = React.createClass({
             content="width=device-width, initial-scale=1.0"
           />
           <title>{title}</title>
-          <link rel="shortcut icon" href={this.props.favicon} />
           <TypographyStyle typography={typography} />
           <GoogleFont typography={typography} />
           {css}
