@@ -10,7 +10,7 @@ const BUILD_TIME = new Date().getTime()
 module.exports = React.createClass({
   propTypes () {
     return {
-      title: React.PropTypes.string,
+      body: React.PropTypes.string,
     }
   },
   render () {
