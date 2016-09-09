@@ -25,11 +25,6 @@
     "typography-plugin-code": "^0.13.0"
   },
   "devDependencies": {
-    "eslint": "^3.3.1",
-    "eslint-config-airbnb": "^10.0.1",
-    "eslint-plugin-import": "^1.13.0",
-    "eslint-plugin-jsx-a11y": "^2.1.0",
-    "eslint-plugin-react": "^6.1.2",
     "gh-pages": "^0.11.0"
   },
   "keywords": [
@@ -41,7 +36,6 @@
     "build": "gatsby build",
     "deploy": "gatsby build --prefix-links && gh-pages -d public",
     "develop": "gatsby develop",
-    "lint": "./node_modules/.bin/eslint --ext .js,.jsx --ignore-pattern public .",
     "test": "echo \"Error: no test specified\" && exit 1"
   }
 }
