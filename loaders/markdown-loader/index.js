@@ -1,9 +1,9 @@
-import frontMatter from 'front-matter'
-import markdownIt from 'markdown-it'
-import hljs from 'highlight.js'
-import objectAssign from 'object-assign'
+var frontMatter = require('front-matter')
+var markdownIt = require('markdown-it')
+var hljs = require('highlight.js')
+var objectAssign = require('object-assign')
 
-const highlight = (str, lang) => {
+var highlight = function (str, lang) {
   if ((lang !== null) && hljs.getLanguage(lang)) {
     try {
       return hljs.highlight(lang, str).value
@@ -19,7 +19,7 @@ const highlight = (str, lang) => {
   return ''
 }
 
-const md = markdownIt({
+var md = markdownIt({
   html: true,
   linkify: true,
   typographer: true,
