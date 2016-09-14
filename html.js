@@ -1,5 +1,5 @@
 import React from 'react'
-import DocumentTitle from 'react-document-title'
+import Helmet from "react-helmet"
 
 import { prefixLink } from 'gatsby-helpers'
 import { TypographyStyle, GoogleFont } from 'react-typography'
@@ -14,7 +14,7 @@ module.exports = React.createClass({
     }
   },
   render () {
-    const title = DocumentTitle.rewind()
+    const head = Helmet.rewind()
 
     let css
     if (process.env.NODE_ENV === 'production') {
@@ -30,7 +30,8 @@ module.exports = React.createClass({
             name="viewport"
             content="width=device-width, initial-scale=1.0"
           />
-          <title>{title}</title>
+          {head.title.toComponent()}
+          {head.meta.toComponent()}
           <TypographyStyle typography={typography} />
           <GoogleFont typography={typography} />
           {css}

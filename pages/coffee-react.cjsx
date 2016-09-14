@@ -1,5 +1,5 @@
 React = require 'react'
-DocumentTitle = require 'react-document-title'
+Helmet = require 'react-helmet'
 config = require 'config'
 
 module.exports = React.createClass
@@ -13,12 +13,13 @@ module.exports = React.createClass
     @setState count: @state.count - 1
 
   render: ->
-    <DocumentTitle title={config.config.siteTitle + ' | Coffeescript React.js components'}>
-      <div>
-        <h1>Coffeescript React.js components</h1>
-        <h3>Counter example</h3>
-        <p>{@state.count}</p>
-        <button onClick={@handlePlusClick}>+</button>
-        <button onClick={@handleMinusClick}>-</button>
-      </div>
-    </DocumentTitle>
+    <div>
+      <Helmet
+        title={config.config.siteTitle + ' | Coffeescript React.js components'} 
+      />
+      <h1>Coffeescript React.js components</h1>
+      <h3>Counter example</h3>
+      <p>{@state.count}</p>
+      <button onClick={@handlePlusClick}>+</button>
+      <button onClick={@handleMinusClick}>-</button>
+    </div>
