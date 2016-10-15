@@ -16,13 +16,13 @@
     "markdown-it-footnote": "^3.0.1",
     "markdown-it-sub": "^1.0.0",
     "object-assign": "^4.1.0",
-    "react-helmet": "^3.1.0",
     "react-headroom": "^2.1.2",
+    "react-helmet": "^3.1.0",
     "react-responsive-grid": "^0.3.3",
-    "react-typography": "^0.12.0",
+    "react-typography": "^0.14.0",
     "toml-js": "0.0.8",
-    "typography": "^0.13.0",
-    "typography-plugin-code": "^0.13.0"
+    "typography": "^0.14.0",
+    "typography-plugin-code": "^0.14.0"
   },
   "devDependencies": {
     "gh-pages": "^0.11.0"
