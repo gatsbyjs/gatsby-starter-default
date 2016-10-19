@@ -50,7 +50,7 @@ Term 2 with *inline markup*
 
     Third paragraph of definition 2.
 
-### Abbriviation
+### Abbreviation
 *[HTML]: Hyper Text Markup Language
 *[W3C]:  World Wide Web Consortium
 The HTML specification
