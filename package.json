@@ -5,10 +5,10 @@
   "author": "Kyle Mathews <mathews.kyle@gmail.com>",
   "dependencies": {
     "front-matter": "^2.0.7",
-    "gatsby": "^0.12.6",
-    "highlight.js": "^9.6.0",
+    "gatsby": "^0.12.19",
+    "highlight.js": "^9.8.0",
     "history": "^2.0.2",
-    "js-yaml": "^3.6.0",
+    "js-yaml": "^3.7.0",
     "markdown-it": "^7.0.1",
     "markdown-it-abbr": "^1.0.3",
     "markdown-it-attrs": "^0.6.3",
@@ -17,12 +17,12 @@
     "markdown-it-sub": "^1.0.0",
     "object-assign": "^4.1.0",
     "react-headroom": "^2.1.2",
-    "react-helmet": "^3.1.0",
+    "react-helmet": "^3.2.2",
     "react-responsive-grid": "^0.3.3",
-    "react-typography": "^0.14.0",
+    "react-typography": "^0.15.0",
     "toml-js": "0.0.8",
-    "typography": "^0.14.0",
-    "typography-plugin-code": "^0.14.0"
+    "typography": "^0.15.0",
+    "typography-plugin-code": "^0.15.0"
   },
   "devDependencies": {
     "gh-pages": "^0.11.0"
