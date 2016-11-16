@@ -1,5 +1,5 @@
 import React from 'react'
-import Helmet from "react-helmet"
+import Helmet from 'react-helmet'
 
 import { prefixLink } from 'gatsby-helpers'
 import { TypographyStyle, GoogleFont } from 'react-typography'
