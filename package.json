@@ -4,8 +4,8 @@
   "version": "1.0.0",
   "author": "Kyle Mathews <mathews.kyle@gmail.com>",
   "dependencies": {
-    "front-matter": "^2.0.7",
-    "gatsby": "^0.12.19",
+    "front-matter": "^2.1.1",
+    "gatsby": "^0.12.20",
     "highlight.js": "^9.8.0",
     "history": "^2.0.2",
     "js-yaml": "^3.7.0",
@@ -25,7 +25,7 @@
     "typography-plugin-code": "^0.15.0"
   },
   "devDependencies": {
-    "gh-pages": "^0.11.0"
+    "gh-pages": "^0.12.0"
   },
   "keywords": [
     "gatsby"
