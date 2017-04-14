@@ -4,9 +4,9 @@
   "version": "1.0.0",
   "author": "Kyle Mathews <mathews.kyle@gmail.com>",
   "dependencies": {
-    "gatsby": "^0.12.42",
+    "gatsby": "^0.12.44",
     "object-assign": "^4.1.1",
-    "react-helmet": "^3.2.2",
+    "react-helmet": "^5.0.3",
     "react-typography": "^0.15.0",
     "typography": "^0.15.8",
     "typography-plugin-code": "^0.15.9"
