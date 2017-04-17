@@ -1,9 +1,9 @@
-import React from "react"
-import Helmet from "react-helmet"
+import React from 'react'
+import Helmet from 'react-helmet'
 
-import { prefixLink } from "gatsby-helpers"
-import { TypographyStyle } from "react-typography"
-import typography from "./utils/typography"
+import { prefixLink } from 'gatsby-helpers'
+import { TypographyStyle } from 'react-typography'
+import typography from './utils/typography'
 
 const BUILD_TIME = new Date().getTime()
 
@@ -17,11 +17,11 @@ module.exports = React.createClass({
     const head = Helmet.rewind()
 
     let css
-    if (process.env.NODE_ENV === "production") {
+    if (process.env.NODE_ENV === 'production') {
       css = (
         <style
           dangerouslySetInnerHTML={{
-            __html: require("!raw!./public/styles.css"),
+            __html: require('!raw!./public/styles.css'),
           }}
         />
       )
