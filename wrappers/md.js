@@ -1,14 +1,14 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 import 'css/markdown-styles.css'
 import Helmet from 'react-helmet'
 import { config } from 'config'
 
-module.exports = React.createClass({
-  propTypes() {
-    return {
-      router: React.PropTypes.object,
-    }
-  },
+export default class Markdown extends React.Component {
+  static propTypes = {
+    router: PropTypes.object,
+  }
+
   render() {
     const post = this.props.route.page.data
     return (
@@ -18,5 +18,5 @@ module.exports = React.createClass({
         <div dangerouslySetInnerHTML={{ __html: post.body }} />
       </div>
     )
-  },
-})
+  }
+}

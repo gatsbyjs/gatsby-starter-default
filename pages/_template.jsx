@@ -1,16 +1,16 @@
-import React from "react"
-import { Link } from "react-router"
-import { prefixLink } from "gatsby-helpers"
-import Helmet from "react-helmet"
-import { config } from "config"
-import { rhythm } from "../utils/typography"
+import React from 'react'
+import PropTypes from 'prop-types'
+import { Link } from 'react-router'
+import { prefixLink } from 'gatsby-helpers'
+import Helmet from 'react-helmet'
+import { config } from 'config'
+import { rhythm } from '../utils/typography'
 
-module.exports = React.createClass({
-  propTypes() {
-    return {
-      children: React.PropTypes.any,
-    }
-  },
+export default class Template extends React.Component {
+  static propTypes = {
+    children: PropTypes.any
+  }
+
   render() {
     return (
       <div>
@@ -59,5 +59,5 @@ module.exports = React.createClass({
         </div>
       </div>
     )
-  },
-})
+  }
+}
