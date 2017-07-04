@@ -1,21 +1,19 @@
-import React from 'react'
-import PropTypes from 'prop-types'
-import { Link } from 'react-router'
-import { prefixLink } from 'gatsby-helpers'
-import Helmet from 'react-helmet'
-import { config } from 'config'
-import { rhythm } from '../utils/typography'
+import React from "react"
+import PropTypes from "prop-types"
+import Link from "gatsby-link"
+import Helmet from "react-helmet"
+import { rhythm } from "../utils/typography"
 
 export default class Template extends React.Component {
   static propTypes = {
-    children: PropTypes.any
+    children: PropTypes.func,
   }
 
   render() {
     return (
       <div>
         <Helmet
-          title={config.siteTitle}
+          title="Gatsby Default Starter"
           meta={[
             { name: "description", content: "Sample" },
             { name: "keywords", content: "sample, something" },
@@ -36,7 +34,7 @@ export default class Template extends React.Component {
           >
             <h1 style={{ margin: 0 }}>
               <Link
-                to={prefixLink("/")}
+                to="/"
                 style={{
                   color: "white",
                   textDecoration: "none",
@@ -55,7 +53,7 @@ export default class Template extends React.Component {
             paddingTop: 0,
           }}
         >
-          {this.props.children}
+          {this.props.children()}
         </div>
       </div>
     )
