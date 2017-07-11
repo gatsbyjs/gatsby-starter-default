@@ -1,6 +1,5 @@
 import React from "react"
 import PropTypes from "prop-types"
-import Helmet from "react-helmet"
 
 const BUILD_TIME = new Date().getTime()
 
@@ -10,8 +9,6 @@ export default class HTML extends React.Component {
   }
 
   render() {
-    const head = Helmet.rewind()
-
     let css
     if (process.env.NODE_ENV === "production") {
       css = (
