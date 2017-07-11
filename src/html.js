@@ -2,9 +2,6 @@ import React from "react"
 import PropTypes from "prop-types"
 import Helmet from "react-helmet"
 
-import { TypographyStyle } from "react-typography"
-import typography from "./utils/typography"
-
 const BUILD_TIME = new Date().getTime()
 
 export default class HTML extends React.Component {
@@ -36,7 +33,6 @@ export default class HTML extends React.Component {
             content="width=device-width, initial-scale=1.0"
           />
           {this.props.headComponents}
-          <TypographyStyle typography={typography} />
           {css}
         </head>
         <body>

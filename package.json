@@ -6,11 +6,7 @@
   "dependencies": {
     "gatsby": "^1.0.1",
     "gatsby-link": "^1.0.1",
-    "gatsby-plugin-react-helmet": "^1.0.1",
-    "react-typography": "^0.15.0",
-    "typography": "^0.15.8",
-    "typography-breakpoint-constants": "^0.14.0",
-    "typography-plugin-code": "^0.15.9"
+    "gatsby-plugin-react-helmet": "^1.0.1"
   },
   "devDependencies": {
     "gh-pages": "^0.12.0"
