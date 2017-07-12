@@ -1,5 +1,5 @@
-import React from "react"
-import PropTypes from "prop-types"
+import React from 'react'
+import PropTypes from 'prop-types'
 
 const BUILD_TIME = new Date().getTime()
 
@@ -10,11 +10,11 @@ export default class HTML extends React.Component {
 
   render() {
     let css
-    if (process.env.NODE_ENV === "production") {
+    if (process.env.NODE_ENV === 'production') {
       css = (
         <style
           dangerouslySetInnerHTML={{
-            __html: require("!raw!../public/styles.css"),
+            __html: require('!raw!../public/styles.css'),
           }}
         />
       )
