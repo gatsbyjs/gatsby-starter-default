@@ -233,7 +233,7 @@ h1 {
   font-weight: bold;
   text-rendering: optimizeLegibility;
   font-size: 2.25rem;
-  line-height: 2.9rem;
+  line-height: 1.1;
 }
 h2 {
   margin-left: 0;
@@ -250,7 +250,7 @@ h2 {
   font-weight: bold;
   text-rendering: optimizeLegibility;
   font-size: 1.62671rem;
-  line-height: 2.175rem;
+  line-height: 1.1;
 }
 h3 {
   margin-left: 0;
@@ -267,7 +267,7 @@ h3 {
   font-weight: bold;
   text-rendering: optimizeLegibility;
   font-size: 1.38316rem;
-  line-height: 2.175rem;
+  line-height: 1.1;
 }
 h4 {
   margin-left: 0;
@@ -284,7 +284,7 @@ h4 {
   font-weight: bold;
   text-rendering: optimizeLegibility;
   font-size: 1rem;
-  line-height: 1.45rem;
+  line-height: 1.1;
 }
 h5 {
   margin-left: 0;
@@ -301,7 +301,7 @@ h5 {
   font-weight: bold;
   text-rendering: optimizeLegibility;
   font-size: 0.85028rem;
-  line-height: 1.45rem;
+  line-height: 1.1;
 }
 h6 {
   margin-left: 0;
@@ -318,7 +318,7 @@ h6 {
   font-weight: bold;
   text-rendering: optimizeLegibility;
   font-size: 0.78405rem;
-  line-height: 1.45rem;
+  line-height: 1.1;
 }
 hgroup {
   margin-left: 0;
