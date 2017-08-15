@@ -2591,9 +2591,9 @@ gatsby-plugin-react-helmet@^1.0.1:
   dependencies:
     react-helmet "^5.1.3"
 
-gatsby@^1.8.9:
-  version "1.8.9"
-  resolved "https://registry.yarnpkg.com/gatsby/-/gatsby-1.8.9.tgz#1813de3bc3ddeafaf50b6a925bcb00bbd0ac4998"
+gatsby@^1.8.10:
+  version "1.8.10"
+  resolved "https://registry.yarnpkg.com/gatsby/-/gatsby-1.8.10.tgz#7acd034ca9c3101cc51e8c7aaebe39c9cd315ce0"
   dependencies:
     async "^2.1.2"
     babel-code-frame "^6.22.0"
