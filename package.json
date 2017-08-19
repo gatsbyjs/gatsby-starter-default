@@ -4,9 +4,9 @@
   "version": "1.0.0",
   "author": "Kyle Mathews <mathews.kyle@gmail.com>",
   "dependencies": {
-    "gatsby": "^1.8.10",
-    "gatsby-link": "^1.6.5",
-    "gatsby-plugin-react-helmet": "^1.0.1"
+    "gatsby": "^1.8.12",
+    "gatsby-link": "^1.6.8",
+    "gatsby-plugin-react-helmet": "^1.0.3"
   },
   "keywords": [
     "gatsby"
