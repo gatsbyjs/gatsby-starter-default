@@ -5,7 +5,7 @@ import Helmet from 'react-helmet'
 
 import './index.css'
 
-const Header = () =>
+const Header = () => (
   <div
     style={{
       background: 'rebeccapurple',
@@ -32,8 +32,9 @@ const Header = () =>
       </h1>
     </div>
   </div>
+)
 
-const TemplateWrapper = ({ children }) =>
+const TemplateWrapper = ({ children }) => (
   <div>
     <Helmet
       title="Gatsby Default Starter"
@@ -54,6 +55,7 @@ const TemplateWrapper = ({ children }) =>
       {children()}
     </div>
   </div>
+)
 
 TemplateWrapper.propTypes = {
   children: PropTypes.func,
