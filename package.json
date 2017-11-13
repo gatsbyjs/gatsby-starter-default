@@ -4,8 +4,8 @@
   "version": "1.0.0",
   "author": "Kyle Mathews <mathews.kyle@gmail.com>",
   "dependencies": {
-    "gatsby": "^1.9.102",
-    "gatsby-link": "^1.6.24",
+    "gatsby": "^1.9.109",
+    "gatsby-link": "^1.6.26",
     "gatsby-plugin-react-helmet": "^1.0.8"
   },
   "keywords": [
@@ -20,6 +20,6 @@
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "devDependencies": {
-    "prettier": "^1.8.1"
+    "prettier": "^1.8.2"
   }
 }
