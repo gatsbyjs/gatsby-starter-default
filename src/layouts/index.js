@@ -5,7 +5,7 @@ import Helmet from 'react-helmet'
 import Header from '../components/header'
 import './index.css'
 
-const Layout = ({ children, data }) => (
+export default ({ children, data }) => (
   <div>
     <Helmet
       title={data.site.siteMetadata.title}
@@ -31,8 +31,6 @@ const Layout = ({ children, data }) => (
 Layout.propTypes = {
   children: PropTypes.func,
 }
-
-export default Layout
 
 export const query = graphql`
   query SiteTitleQuery {
