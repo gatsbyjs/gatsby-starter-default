@@ -18,7 +18,7 @@ gatsby new gatsby-example-site
 Then you can run it by:
 ```sh
 cd gatsby-example-site
-npm run develop
+gatsby develop
 ```
 
 ## Deploy
