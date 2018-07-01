@@ -6,7 +6,7 @@ import { StaticQuery, graphql } from "gatsby"
 import Header from './header'
 import './layout.css'
 
-const Layout = ({ children, data }) => (
+const Layout = ({ children }) => (
   <StaticQuery
     query={graphql`
       query SiteTitleQuery {
