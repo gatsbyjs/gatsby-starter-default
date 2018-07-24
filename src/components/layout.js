@@ -1,7 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import Helmet from 'react-helmet'
-import { StaticQuery } from "gatsby"
+import { StaticQuery, graphql } from "gatsby"
 
 import Header from './header'
 import './layout.css'
@@ -43,7 +43,7 @@ const Layout = ({ children, data }) => (
 )
 
 Layout.propTypes = {
-  children: PropTypes.element.isRequired,
+  children: PropTypes.node.isRequired,
 }
 
 export default Layout
