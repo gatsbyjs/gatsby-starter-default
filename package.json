@@ -19,8 +19,9 @@
   "scripts": {
     "build": "gatsby build",
     "develop": "gatsby develop",
-    "format": "prettier --write '**/*.js'",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "format": "npm run prettier -- --write",
+    "prettier": "prettier \"**/*.{js,json,md,scss,yaml,yml}\"",
+    "test": "npm run prettier -- --list-different"
   },
   "devDependencies": {
     "prettier": "^1.14.2"
