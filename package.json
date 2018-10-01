@@ -8,6 +8,7 @@
     "gatsby-plugin-manifest": "^2.0.2",
     "gatsby-plugin-offline": "^2.0.5",
     "gatsby-plugin-react-helmet": "^3.0.0",
+    "prop-types": "^15.6.2",
     "react": "^16.5.1",
     "react-dom": "^16.5.1",
     "react-helmet": "^5.2.0"
