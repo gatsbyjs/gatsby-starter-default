@@ -1,3 +1,9 @@
+# IDE
+.vscode
+
+# Environment Configuration
+.env*
+
 # Project dependencies
 .cache
 node_modules

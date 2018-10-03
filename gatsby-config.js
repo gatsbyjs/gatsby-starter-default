@@ -1,3 +1,9 @@
+require('dotenv').config({
+  path: `.env.${process.env.NODE_ENV}`,
+});
+
+const config = require('./src/utils/config.ts').default;
+
 module.exports = {
   siteMetadata: {
     title: 'Ueno Gatsby Starter',
@@ -7,6 +13,13 @@ module.exports = {
     'gatsby-plugin-typescript',
     'gatsby-plugin-sharp',
     'gatsby-transformer-sharp',
+    {
+      resolve: 'gatsby-source-prismic',
+      options: {
+        repositoryName: config.PRISMIC_ENDPOINT,
+        accessToken: config.PRISMIC_ACCESS_TOKEN,
+      },
+    },
     {
       resolve: 'gatsby-plugin-manifest',
       options: {

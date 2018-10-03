@@ -1,3 +1,4 @@
+declare module 'prismic-reactjs';
 declare module 'utils/config';
 declare module '*.scss';
 declare module '*.css';

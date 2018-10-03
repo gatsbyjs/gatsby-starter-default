@@ -44,3 +44,32 @@ exports.onCreateWebpackConfig = ({ stage, loaders, actions }, { postCssPlugins, 
     },
   });
 }
+
+exports.createPages = ({ graphql, actions }) => {
+  return new Promise((resolve, reject) => {
+    graphql(`
+      query CreatePages {
+        allPrismicArticle {
+          edges {
+            node {
+              uid
+              prismicId
+            }
+          }
+        }
+      }
+    `)
+    .then((result) => {
+      result.data.allPrismicArticle.edges.forEach(({ node }) => {
+        actions.createPage({
+          path: `articles/${node.uid}`,
+          component: path.resolve('./src/pages/article.tsx'),
+          context: {
+            prismicId: node.prismicId,
+          },
+        });
+      });
+      resolve();
+    });
+  });
+}
