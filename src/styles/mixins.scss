@@ -1,0 +1,183 @@
+@mixin fit {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+}
+
+@function strip-unit($number) {
+  @if type-of($number) == 'number' and not unitless($number) {
+    @return $number / ($number * 0 + 1);
+  }
+
+  @return $number;
+}
+
+@mixin responsive-font($min-size: $font-size-min, $size: $font-size, $limit: $page-limit) {
+
+  $unitless-min: strip-unit($min-size);
+  $unitless-size: strip-unit($size);
+  $baseline: strip-unit($min-mobile);
+
+  $font-multiplier: (($unitless-size - $unitless-min) / (strip-unit($limit) - $baseline));
+  $font-baseline: ($unitless-min - $font-multiplier * $baseline);
+
+  @if $unitless-min >= $unitless-size {
+    @warn 'Responsive font: min-size equal or greater than size';
+  }
+
+  font-size: #{$unitless-min}px;
+  font-size: calc(#{$unitless-min}px * #{var(--scale-font)});
+
+  @media (min-width: $min-mobile) {
+    font-size: #{$unitless-min}px;
+    font-size: calc((#{$font-multiplier} * #{100vw} + (#{$font-baseline}px)) * #{var(--scale-font)});
+  }
+
+  @media (min-width: $limit) {
+    font-size: #{$unitless-size}px;
+    font-size: calc(#{$unitless-size}px * #{var(--scale-font)});
+  }
+}
+
+@mixin vertically-responsive($property, $number) {
+  #{$property}: $number;
+
+  @supports (--css: variables) {
+    #{$property}: calc(#{$number} * var(--scale-element));
+  }
+}
+
+// segment customisable per-component / instance rather than being forced to work around defaults.
+@mixin segment (
+  $padding-top: $segment-padding,
+  $padding-bottom: $segment-padding,
+  $padding-top-mobile: $segment-padding-mobile,
+  $padding-bottom-mobile: $segment-padding-mobile) {
+
+  // set up unitless values
+  $padding-top-mobile-unitless: strip-unit($padding-top-mobile);
+  $padding-bottom-mobile-unitless: strip-unit($padding-bottom-mobile);
+  $padding-top-unitless: strip-unit($padding-top);
+  $padding-bottom-unitless: strip-unit($padding-bottom);
+
+  @include vertically-responsive(padding-top, $padding-top-mobile-unitless * 1px);
+  @include vertically-responsive(padding-bottom, $padding-bottom-mobile-unitless * 1px);
+
+  @media (min-width: $min-tablet) {
+    @include vertically-responsive(padding-top, percentage(($padding-top-unitless * 1px) / $page-limit));
+    @include vertically-responsive(padding-bottom, percentage(($padding-bottom-unitless * 1px) / $page-limit));
+  }
+
+  @media (min-width: $page-limit) {
+    @include vertically-responsive(padding-top, $padding-top-unitless * 1px);
+    @include vertically-responsive(padding-bottom, $padding-bottom-unitless * 1px);
+  }
+}
+
+@mixin container() {
+  margin: 0 auto;
+
+  padding-left: $container-gutter-mobile;
+  padding-right: $container-gutter-mobile;
+
+  max-width: $page-width + $container-gutter-mobile * 1;
+
+  @media (min-width: $min-mobile) {
+    max-width: $page-width + $container-gutter-mobile * 2;
+  }
+
+  @media (min-width: $min-tablet) {
+    padding-left: $container-gutter-tablet;
+    padding-right: $container-gutter-tablet;
+    max-width: $page-width + $container-gutter-tablet * 2;
+  }
+
+  @media (min-width: $min-desktop) {
+    padding-left: $container-gutter-desktop;
+    padding-right: $container-gutter-desktop;
+    max-width: $page-width + $container-gutter-desktop * 2;
+  }
+}
+
+// change below to reflect your project
+@mixin heading() {
+  // per project
+}
+
+@mixin subheading() {
+  // per project
+}
+
+// html.js / html.no-js will not compile?!
+// hence these workaround selectors
+@mixin js-only {
+  html:not(:global(.no-js)) & {
+    @content;
+  }
+}
+
+@mixin no-js {
+  html:not(:global(.js)) & {
+    @content;
+  }
+}
+
+// deprecated viewport stuff
+@mixin viewport($media) {
+  @warn 'viewport mixin is deprecated and will be removed in a future version';
+
+  @if $media == handset {
+    @media only screen and (max-width: $min-600) { @content; }
+  }
+
+  @else if $media == tablet {
+    @media only screen and (min-width: $min-tablet) { @content; }
+  }
+
+  @else if $media == desktop {
+    @media only screen and (min-width: $min-desktop) { @content; }
+  }
+
+  /* stylelint-disable */
+  @else if $media == retina {
+    @media only screen and (-webkit-min-device-pixel-ratio: 1.3),
+      only screen and (-o-min-device-pixel-ratio: 13/10),
+      only screen and (min-resolution: 120dpi) {
+      @content;
+    }
+  }
+
+  @else if $media == oldIE {
+    @media screen and (-ms-high-contrast: active), (-ms-high-contrast: none) {
+      @content;
+    }
+  }
+}
+
+@mixin retina {
+  @media only screen and (-webkit-min-device-pixel-ratio: 1.3),
+    only screen and (-o-min-device-pixel-ratio: 13/10),
+    only screen and (min-resolution: 120dpi) {
+    @content;
+  }
+}
+
+// gsap trans-in defaults
+@mixin will-animate($transform: true, $opacity: true) {
+
+  @include js-only {
+    @if $opacity == true {
+      opacity: 0;
+    }
+
+    @if $transform == true {
+      will-change: opacity, transform;
+    }
+
+    @else {
+      will-change: opacity;
+    }
+  }
+}

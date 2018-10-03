@@ -1,32 +1,55 @@
 {
-  "name": "gatsby-starter-default",
-  "description": "Gatsby default starter",
+  "name": "ueno-gatsby-starter",
+  "description": "Opinionated Gatsby starter by Ueno",
   "version": "1.0.0",
-  "author": "Kyle Mathews <mathews.kyle@gmail.com>",
+  "author": "Birkir Gudjonsson <birkir.gudjonsson@gmail.com>",
   "dependencies": {
-    "gatsby": "^2.0.0",
-    "gatsby-plugin-manifest": "^2.0.2",
-    "gatsby-plugin-offline": "^2.0.5",
-    "gatsby-plugin-react-helmet": "^3.0.0",
-    "react": "^16.5.1",
-    "react-dom": "^16.5.1",
-    "react-helmet": "^5.2.0"
+    "@babel/plugin-proposal-decorators": "7.0.0",
+    "classnames": "2.2.6",
+    "classnames-loader": "2.0.0",
+    "gatsby": "2.0.8",
+    "gatsby-image": "2.0.9",
+    "gatsby-plugin-layout": "1.0.2",
+    "gatsby-plugin-manifest": "2.0.3",
+    "gatsby-plugin-react-helmet": "3.0.0",
+    "gatsby-plugin-react-svg": "2.0.0",
+    "gatsby-plugin-sharp": "2.0.5",
+    "gatsby-plugin-typescript": "2.0.0",
+    "gatsby-source-prismic": "2.0.0-alpha.5",
+    "gatsby-transformer-sharp": "2.1.2",
+    "lodash": "4.17.11",
+    "node-sass": "4.9.3",
+    "prismic-reactjs": "0.3.1",
+    "react": "16.5.2",
+    "react-dom": "16.5.2",
+    "react-helmet": "5.2.0",
+    "sass-loader": "7.1.0",
+    "typescript": "3.0.3"
   },
   "keywords": [
     "gatsby"
   ],
   "license": "MIT",
   "scripts": {
+    "start": "gatsby serve --port ${PORT:-3000}",
     "build": "gatsby build",
     "develop": "gatsby develop",
-    "format": "prettier --write '**/*.js'",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "devDependencies": {
-    "prettier": "^1.14.2"
+    "@babel/core": "7.1.2",
+    "@types/lodash": "4.14.116",
+    "@types/react-helmet": "5.0.7",
+    "@ueno/stylelint-config": "1.0.4",
+    "husky": "1.0.0-rc.14",
+    "patch-package": "5.1.1",
+    "postinstall-prepare": "1.0.1",
+    "stylelint": "9.6.0",
+    "tslint": "5.11.0",
+    "tslint-react": "3.6.0"
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/gatsbyjs/gatsby-starter-default"
+    "url": "https://github.com/ueno-llc/ueno-gatsby-starter"
   }
 }

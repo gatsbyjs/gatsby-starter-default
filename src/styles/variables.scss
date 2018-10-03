@@ -1,0 +1,101 @@
+$gutter: 30px;
+$container-gutter-mobile: $gutter;
+$container-gutter-tablet: 50px;
+$container-gutter-desktop: 70px;
+
+// grid
+$grid-column-count: 12;
+$grid-baseline: 16px;
+
+// page dimensions
+$page-width: 1290px;
+$page-limit: $page-width + ($container-gutter-desktop * 2);
+
+// Fonts
+$font-family: 'Roboto', sans-serif;
+$font-size: 16px;
+$font-size-min: 13px;
+$line-height: 1.5;
+
+// Colors
+$color-font: #333;
+$color-background: #fff;
+$color-light: #777;
+$color-dark: #111;
+$color-pink: #aa0078;
+$color-primary: $color-pink;
+$color-placeholder: #ddd;
+
+// Timings
+$transition-enter: 200ms;
+$transition-leave: 500ms;
+
+// Custom break point (Min)
+$min-1800: 1800px;
+$min-1440: 1440px;
+$min-1280: 1280px;
+$min-1200: 1200px;
+$min-1080: 1080px;
+$min-1024: 1024px;
+$min-960: 960px;
+$min-840: 840px;
+$min-768: 768px;
+$min-720: 720px;
+$min-640: 640px;
+$min-600: 600px;
+$min-560: 560px;
+$min-540: 540px;
+$min-480: 480px;
+$min-420: 420px;
+$min-375: 375px;
+$min-360: 360px;
+
+// Custom break points (Max)
+$max-1280: 1279px;
+$max-1200: 1199px;
+$max-1080: 1079px;
+$max-1024: 1023px;
+$max-960: 959px;
+$max-840: 839px;
+$max-768: 767px;
+$max-720: 719px;
+$max-640: 639px;
+$max-600: 599px;
+$max-540: 539px;
+$max-480: 479px;
+$max-420: 419px;
+$max-375: 374px;
+$max-360: 359px;
+
+// Predefined breakpoints
+$min-mobile: $min-420;
+$min-tablet: $min-720;
+$min-desktop: $min-1080;
+
+// Segment
+$segment-padding-mobile: $gutter * 3;
+$segment-padding: 200px; //percentage-based segments spacing
+
+// vertically responsive breakpoints
+// might need to fine-tune these
+$scale-height-sm: 685px;
+$scale-height-md: 805px;
+$scale-height-lg: 920px;
+
+// vertical scaling baselines
+$scale: 1;
+$scale-lg: 0.9;
+$scale-md: 0.8;
+$scale-sm: 0.7;
+
+// element scaling
+$scale-element: $scale;
+$scale-element-lg: $scale-lg;
+$scale-element-md: $scale-md;
+$scale-element-sm: $scale-sm;
+
+// font-scaling
+$scale-font: $scale;
+$scale-font-lg: $scale-lg;
+$scale-font-md: $scale-md;
+$scale-font-sm: $scale-sm;

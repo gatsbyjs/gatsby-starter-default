@@ -1,0 +1,13 @@
+@import '~styles/config';
+
+:global {
+  @import '~styles/base';
+}
+
+.layout {
+  display: block;
+
+  &__container {
+    @include container;
+  }
+}

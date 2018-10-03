@@ -1,0 +1,100 @@
+/***
+*  This file is imported in components/app-layout/AppLayout.scss
+*/
+
+/* stylelint-disable selector-max-type  */
+@-ms-viewport {
+  width: device-width;
+}
+
+@-o-viewport {
+  width: device-width;
+}
+
+@viewport {
+  width: device-width;
+}
+
+:root {
+  --scale-element: $scale;
+  --scale-font: $scale;
+
+  @media (max-height: $scale-height-lg) {
+    --scale-element: $scale-element-lg;
+    --scale-font: $scale-font-lg;
+  }
+
+  @media (max-height: $scale-height-md) {
+    --scale-element: $scale-element-md;
+    --scale-font: $scale-font-md;
+  }
+
+  @media (max-height: $scale-height-sm) {
+    --scale-element: $scale-element-sm;
+    --scale-font: $scale-font-sm;
+  }
+}
+
+html,
+body {
+  min-height: 100vh;
+
+  background: $color-background;
+}
+
+html {
+  -webkit-overflow-scrolling: touch;
+  overflow-x: hidden;
+  // always show the vertical scrollbar so that content doesn't jump
+  overflow-y: scroll;
+
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+
+  box-sizing: border-box;
+}
+
+// inherited from <html>
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
+}
+
+body {
+  @include responsive-font($font-size-min, $font-size);
+  position: relative;
+
+  margin: 0;
+
+  font-family: $font-family;
+  line-height: $line-height;
+  color: $color-font;
+
+  // iOS on orientation change
+  text-size-adjust: 100%;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+// placeholders
+input,
+textarea,
+select {
+  &::-webkit-input-placeholder {
+    color: $color-placeholder;
+  }
+
+  &::-moz-placeholder {
+    opacity: 1;
+    color: $color-placeholder;
+  }
+
+  &:-ms-input-placeholder {
+    color: $color-placeholder;
+  }
+}

@@ -1,0 +1,146 @@
+@import '~styles/config';
+
+:root {
+  --grid-column-count: $grid-column-count;
+  --grid-baseline: $grid-baseline;
+  --grid-baseline-calc: unitless($grid-baseline);
+}
+
+.grid {
+  z-index: 9001; // over 9000 !!!
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+
+  overflow: hidden;
+  pointer-events: none;
+
+  transform-origin: 50% 0%;
+
+  &__container {
+    @include container;
+
+    opacity: 0;
+    height: 100%;
+
+    transition: opacity 0.2s;
+  }
+
+  &.verticalIsVisible &__container {
+    opacity: 1;
+  }
+
+  &.horizontalIsVisible {
+    background:
+      linear-gradient(to bottom, rgba(0, 0, 0, 0) calc(100% - (1 / var(--grid-baseline-calc) * 100%)), rgba(0, 0, 0, 0.05) calc(100% - (1 / var(--grid-baseline-calc) * 100%))),
+      linear-gradient(to bottom, rgba(0, 0, 0, 0) calc(100% - (1 / var(--grid-baseline-calc) * 100%)), rgba(255, 255, 255, 0.15) calc(100% - (1 / var(--grid-baseline-calc) * 100%)));
+    background-size: var(--grid-baseline) var(--grid-baseline);
+  }
+
+  &__row {
+    @include grid-row;
+
+    height: 100%;
+  }
+
+  &__column {
+    @include grid-col(calc(100% / var(--grid-column-count, #{$grid-column-count})));
+
+    position: relative;
+    height: 100%;
+  }
+
+  &__visualize {
+    position: relative;
+    width: 100%;
+    height: 100%;
+
+    &::before,
+    &::after {
+      content: '';
+      display: block;
+
+      width: 100%;
+      height: 100%;
+
+      background: rgba(255, 255, 255, 0.1);
+    }
+
+    &::after {
+      position: absolute;
+      top: 0;
+      left: 0;
+
+      background: rgba(0, 0, 0, 0.05);
+    }
+  }
+
+  &__button {
+    @include reset-button;
+
+    position: fixed;
+    right: 180px;
+    top: 0;
+    z-index: 9001; // over 9000 !!!
+    opacity: 1;
+
+    padding: 0 15px;
+    height: 26px;
+
+    font-size: 12px;
+    color: #999;
+    text-transform: uppercase;
+
+    cursor: pointer;
+    pointer-events: all;
+
+    background-color: #fff;
+
+    border-style: solid;
+    border-width: 0 1px 1px;
+    border-color: rgba(0, 0, 0, 0.1);
+    border-radius: 0 0 2px 2px;
+
+    transition: opacity 0.25s, transform 0.1s;
+
+    &:hover {
+      color: #000;
+
+      g { // stylelint-disable-line
+        fill: #000;
+      }
+    }
+
+    &:first-of-type {
+      right: 236px;
+    }
+
+    &__svg {
+      margin-top: 4px;
+
+      g { // stylelint-disable-line
+        fill: #8d8d8d;
+      }
+    }
+
+    // stylelint-disable
+    &.horizontalIsVisible,
+    &.verticalIsVisible {
+      g,
+      &:hover g {
+        fill: #328bf3;
+      }
+    }
+    // stylelint-enable
+  }
+}
+
+// Polyfill for browsers without css variables
+// Like Safari 9
+@for $i from 1 through $grid-column-count {
+  [data-columns='#{$i}'] .grid__column {
+    min-width: 100% / $i;
+  }
+}
