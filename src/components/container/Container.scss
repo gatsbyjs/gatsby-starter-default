@@ -1,0 +1,17 @@
+@import '~styles/config';
+
+.container {
+  @include container;
+
+  .full {
+    max-width: none;
+
+    @media (min-width: $min-tablet) {
+      max-width: none;
+    }
+
+    @media (min-width: $min-desktop) {
+      max-width: none;
+    }
+  }
+}

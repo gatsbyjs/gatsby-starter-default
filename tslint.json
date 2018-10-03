@@ -1,0 +1,15 @@
+{
+  "extends": [
+    "tslint:recommended",
+    "tslint-react"
+  ],
+  "rules": {
+    "ordered-imports": false,
+    "quotemark": false,
+    "jsx-no-multiline-js": false,
+    "member-access": false,
+    "member-ordering": false,
+    "object-literal-sort-keys": false,
+    "react/jsx-indent": [2, 2]
+  }
+}
