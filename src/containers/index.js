@@ -28,6 +28,8 @@ const IndexPage = () => (
         </EventCategoryList>
       </LeftPanel>
       <RightPanel>
+        <EventCategoryList>
+        </EventCategoryList>
       </RightPanel>
     </ActivityArea>
   </Layout>
