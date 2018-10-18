@@ -10,7 +10,8 @@ import EventCategoryList from './EventCategoryList';
 import Moment from 'moment'
 import momentLocalizer from 'react-widgets-moment';
 
-import Layout from '../components/layout'
+import 'react-widgets/dist/css/react-widgets.css';
+import Layout from '../components/layout';
 
 Moment.locale('en');
 momentLocalizer();
