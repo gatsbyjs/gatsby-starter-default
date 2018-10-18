@@ -15,8 +15,6 @@ const EventSummaryListWrapper = styled.ul`
   li:selected {
     background-color: #A2D539;
   }
-
-  border: 2px solid #00ff00;
 `;
 
 class EventSummaryList extends React.Component {

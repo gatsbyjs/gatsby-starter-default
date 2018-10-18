@@ -6,6 +6,4 @@ export default styled.div`
   margin-bottom: 1em;
   padding: 0em 1em;
   min-height: 40em;
-
-  border: 2px solid #00ffff;
 `;

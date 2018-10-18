@@ -5,6 +5,4 @@ export default styled.div`
   display: flex;
   min-height: 20vh;
   flex-direction: row;
-
-  border: 2px solid #ff0000;
 `;

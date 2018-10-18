@@ -5,6 +5,4 @@ export default styled.div`
   margin-bottom: 1em;
   min-height: 20em;
   min-width: 18em;
-
-  border: 2px solid #00ff00;
 `;
