@@ -15,5 +15,5 @@ export default styled.ul`
     background-color: #A2D539;
   }
 
-  background-color: #00ff00;
+  border: 2px solid #00ff00;
 `;

@@ -5,7 +5,4 @@ export default styled.div`
   margin: 1em;
   display: flex;
   flex-direction: column;
-
-  background-color: #0000ff;
-
 `;

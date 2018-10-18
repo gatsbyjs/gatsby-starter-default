@@ -6,5 +6,5 @@ export default styled.div`
   min-height: 20vh;
   flex-direction: row;
 
-  background-color: #ff0000;
+  border: 2px solid #ff0000;
 `;

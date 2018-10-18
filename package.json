@@ -11,6 +11,8 @@
     "react": "^16.5.1",
     "react-dom": "^16.5.1",
     "react-helmet": "^5.2.0",
+    "react-widgets": "^4.4.6",
+    "react-widgets-moment": "^4.0.22",
     "styled-components": "^4.0.0"
   },
   "keywords": [
