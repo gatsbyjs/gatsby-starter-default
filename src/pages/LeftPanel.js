@@ -5,4 +5,6 @@ export default styled.div`
   margin: 1em;
   display: flex;
   flex-direction: column;
+
+  border: 2px solid #00ffff;
 `;
