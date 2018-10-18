@@ -1,9 +1,9 @@
 import React from 'react'
 import styled from 'styled-components';
 import EventSummary from './EventSummary';
+import H1 from '../components/H1';
 
 const EventSummaryListWrapper = styled.ul`
-  flex: 1;
   list-style-type: none;
   margin-top: 0;
   margin-left: 0;
@@ -23,6 +23,7 @@ class EventSummaryList extends React.Component {
   render() {
     return (
       <EventSummaryListWrapper>
+        <H1>All Events</H1>
         <EventSummary label={'View All'}></EventSummary>
         <EventSummary label={'Arts Concert / Performance'}></EventSummary>
         <EventSummary label={'Alumni Events'}></EventSummary>
