@@ -111,9 +111,11 @@ export default class GridOverlay extends React.Component<IProps, IState> {
       isHorizontalVisible,
     });
 
-    this.ref.current.style.setProperty('--grid-column-count', String(columns));
-    this.ref.current.style.setProperty('--grid-baseline', `${baseline}px`);
-    this.ref.current.style.setProperty('--grid-baseline-calc', String(baseline));
+    if (this.ref.current) {
+      this.ref.current.style.setProperty('--grid-column-count', String(columns));
+      this.ref.current.style.setProperty('--grid-baseline', `${baseline}px`);
+      this.ref.current.style.setProperty('--grid-baseline-calc', String(baseline));
+    }
   }
 
   /**

@@ -1,7 +1,6 @@
 const path = require('path');
-const fs = require('fs');
 
-exports.onCreateBabelConfig = ({ actions }, pluginOptions) => {
+exports.onCreateBabelConfig = ({ actions }) => {
   actions.setBabelPlugin({
     name: '@babel/plugin-proposal-decorators',
     options: {
@@ -42,34 +41,5 @@ exports.onCreateWebpackConfig = ({ stage, loaders, actions }, { postCssPlugins, 
         'node_modules'
       ],
     },
-  });
-}
-
-exports.createPages = ({ graphql, actions }) => {
-  return new Promise((resolve, reject) => {
-    graphql(`
-      query CreatePages {
-        allPrismicArticle {
-          edges {
-            node {
-              uid
-              prismicId
-            }
-          }
-        }
-      }
-    `)
-    .then((result) => {
-      result.data.allPrismicArticle.edges.forEach(({ node }) => {
-        actions.createPage({
-          path: `articles/${node.uid}`,
-          component: path.resolve('./src/pages/article.tsx'),
-          context: {
-            prismicId: node.prismicId,
-          },
-        });
-      });
-      resolve();
-    });
   });
 }

@@ -1,10 +1,9 @@
 import React from 'react';
 import { StaticQuery, graphql } from 'gatsby';
 import Helmet from 'react-helmet';
-import get from 'lodash/get';
+import { get } from 'lodash';
 
 import Header from 'components/header/Header';
-// import Footer from 'components/footer/Footer';
 import Devtools from 'components/devtools/Devtools';
 import s from './AppLayout.scss';
 

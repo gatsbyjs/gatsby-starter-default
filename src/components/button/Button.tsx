@@ -26,7 +26,7 @@ export default class Button extends React.PureComponent<IButtonProps> {
     const passProps = { ...rest };
 
     const isLink = (typeof to !== 'undefined');
-    const isExternal = isLink && /^((https?:)?\/\/|[0-9a-zA-Z]+:)/.test(to);
+    const isExternal = isLink && /^((https?:)?\/\/|[0-9a-zA-Z]+:)/.test(to || '');
 
     // Extend className of the rest
     passProps.className = s(s.button, className, { disabled, secondary, block });
@@ -39,7 +39,7 @@ export default class Button extends React.PureComponent<IButtonProps> {
 
     // Everything else
     if (isLink) {
-      return <Link to={to} {...passProps}>{children}</Link>;
+      return <Link to={to || '#'} {...passProps}>{children}</Link>;
     }
 
     // Default

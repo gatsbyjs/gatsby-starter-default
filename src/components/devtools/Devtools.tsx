@@ -1,5 +1,5 @@
 import React from 'react';
-import config from 'utils/config';
+import config from 'gatsby-plugin-config';
 import GridOverlay from './GridOverlay';
 
 export default class Devtools extends React.PureComponent {
