@@ -1,0 +1,37 @@
+.awards {
+  display: grid;
+  grid-gap: 2rem;
+  padding-top: 15vmin;
+  padding-bottom: 15vmin;
+}
+
+.awards svg {
+  opacity: 0.25;
+  margin-bottom: 1rem;
+}
+
+.awards h3 {
+  font-weight: normal;
+  font-size: 0.75rem;
+  margin-top: 0;
+  margin-bottom: 0.25rem;
+  color: var(--accent-color);
+}
+
+.awards h4 {
+  font-weight: normal;
+  font-size: 0.75rem;
+  margin-top: 0;
+  margin-bottom: 0.5rem;
+}
+
+.awards span {
+  opacity: 0.5;
+  font-size: 0.75rem;
+}
+
+@media only screen and (min-width: 480px) {
+  .awards {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
