@@ -1,0 +1,25 @@
+:root {
+  --accent-color: #65b891;
+}
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'avenir next', avenir,
+    'helvetica neue', helvetica, ubuntu, roboto, noto, 'segoe ui', arial,
+    sans-serif;
+}
+a {
+  text-decoration: none;
+  color: var(--accent-color);
+}
+a:active,
+a:hover {
+  outline-width: 0;
+}
+button,
+.button {
+  background-color: var(--accent-color);
+  box-shadow: 0 16px 64px rgba(101, 184, 145, 0.5);
+  color: white;
+  padding: 0.75rem 2rem;
+  border-radius: 8rem;
+  display: inline-block;
+}
