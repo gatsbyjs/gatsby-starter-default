@@ -8,14 +8,6 @@
     "NODE_ENV": {
       "description": "Environment to build",
       "required": false
-    },
-    "GATSBY_PRISMIC_ENDPOINT": {
-      "description": "Prismic endpoint",
-      "required": true
-    },
-    "PRISMIC_ACCESS_TOKEN": {
-      "description": "Prismic access token",
-      "required": true
     }
   },
   "formation": {
