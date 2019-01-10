@@ -1,39 +1,17 @@
-require('dotenv').config();
-
-// const config = require('gatsby-plugin-config');
-
 module.exports = {
   siteMetadata: {
     title: 'Ueno Gatsby Starter',
   },
   plugins: [
+    'gatsby-plugin-ueno',
     'gatsby-plugin-react-helmet',
     'gatsby-plugin-typescript',
     'gatsby-plugin-sharp',
     'gatsby-transformer-sharp',
-
-    // {
-    //   resolve: 'gatsby-source-prismic',
-    //   options: {
-    //     repositoryName: config.PRISMIC_ENDPOINT,
-    //     accessToken: config.PRISMIC_ACCESS_TOKEN,
-    //     linkResolver: () => require('./src/utils/linkResolver'),
-    //   },
-    // },
-
-    // {
-    //   resolve: 'gatsby-plugin-prismic-preview',
-    //   options: {
-    //     path: '/preview',
-    //     repositoryName: config.PRISMIC_ENDPOINT,
-    //     linkResolver: require('./src/utils/linkResolver'),
-    //   }
-    // },
-
     {
       resolve: 'gatsby-plugin-manifest',
       options: {
-        name: 'gatsby-starter-default',
+        name: 'ueno-gatsby-starter',
         short_name: 'starter',
         start_url: '/',
         background_color: '#663399',

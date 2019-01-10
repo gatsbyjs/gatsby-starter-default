@@ -1,6 +1,6 @@
 <p align="center">
-  <a href="https://next.gatsbyjs.org">
-    <img alt="Gatsby" src="https://www.gatsbyjs.org/monogram.svg" width="60" />
+  <a href="https://ueno.co">
+    <img alt="Gatsby" src="https://i.imgur.com/kXCdETH.png" />
   </a>
 </p>
 <h1 align="center">
@@ -59,7 +59,7 @@ A quick look at the top-level files and directories you'll see in a Gatsby proje
     │   ├── styles
     │   ├── utils
     │   └── typings.d.ts
-    ├── .stylelintrc.json
+    ├── .stylelintrc
     ├── .editorconfig
     ├── .gitignore
     ├── app.json
