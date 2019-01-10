@@ -48,7 +48,7 @@ Kick off your project with this opinionated boilerplate. This barebones starter 
     
 ## 🧐 What's inside?
 
-A quick look at the top-level files and directories you'll see in a Gatsby project.
+A quick look at the top-level files and directories you'll see in a Ueno Gatsby project.
 
     .
     ├── node_modules
@@ -74,48 +74,71 @@ A quick look at the top-level files and directories you'll see in a Gatsby proje
     ├── tslint.json
     └── yarn.lock
 
-  1.  **`/node_modules`**: The directory where all of the modules of code that your project depends on (npm packages) are automatically installed.  
-  
-  2.  **`/src`**: This directory will contain all of the code related to what you will see on the front-end of your site (what you see in the browser), like your site header, or a page template. “Src” is a convention for “source code”.
+See [Gatsby default starter](https://github.com/gatsbyjs/gatsby-starter-default#-whats-inside) for details.
 
-  3.  **`/src/assets`**: This directory will contain all of the assets you will need for your site. We recommend dividing assets into subdirectories like `images`, `videos`, etc. Also there is a special directory `svg`, that when files from that directory have the extension `.svg`, will be imported as React components.
+  1.  **`/src/assets`**: This directory will contain all of the assets you will need for your site. We recommend dividing assets into subdirectories like `images`, `videos`, etc. Also there is a special directory `svg`, that when files from that directory have the extension `.svg`, will be imported as React components.
   
-  4.  **`/src/pages`**: This directory will include all the rendered pages with `index.tsx` being `/`.
+  2.  **`/src/pages`**: This directory will include all the rendered pages with `index.tsx` being `/`.
   
-  5.  **`/src/typings.d.ts`**: You can add typing definitions here for weird things like assets and other non-typed things. Also if you can't find typing definitions for a package with @types, you can declare the module here.
+  3.  **`/src/typings.d.ts`**: You can add typing definitions here for weird things like assets and other non-typed things. Also if you can't find typing definitions for a package with @types, you can declare the module here.
   
-  6.  **`.stylelintrc.json`**: This is a configuration file for making sure the css is up to a opinionated standard. You can add or remove rules here.
+  4.  **`.stylelintrc`**: This is a configuration file for making sure the css is up to a opinionated standard. You can add or remove rules here.
 
-  7.  **`.editorconfig`**: This file tells the editor what indentation rules to use. Make sure you have the Editorconfig extension installed in your editor.
+  5.  **`.editorconfig`**: This file tells the editor what indentation rules to use. Make sure you have the Editorconfig extension installed in your editor.
 
-  8.  **`.gitignore`**: This file tells git which files it should not track / not maintain a version history for.
-
-  9.  **`app.json`**: This is a configuration file for platforms like Heroku. We can define required environment variables and so on.
+  6.  **`app.json`**: This is a configuration file for platforms like Heroku. We can define required environment variables and so on.
   
-  10.  **`gatsby-browser.js`**: This file is where Gatsby expects to find any usage of the [Gatsby browser APIs](https://next.gatsbyjs.org/docs/browser-apis/) (if any). These allow customization/extension of default Gatsby settings affecting the browser.
+  7.  **`tsconfig.json`**: A configuration file for the typescript engine, similar to babelrc.
   
-  11.  **`gatsby-config.js`**: This is the main configuration file for a Gatsby site. This is where you can specify information about your site (metadata) like the site title and description, which Gatsby plugins you’d like to include, etc. (Check out the [config docs](https://next.gatsbyjs.org/docs/gatsby-config/) for more detail).
+  8.  **`tslint.json`**: A configuration file for typescript rules, similar to eslint.
   
-  12.  **`gatsby-node.js`**: This file is where Gatsby expects to find any usage of the [Gatsby node APIs](https://next.gatsbyjs.org/docs/node-apis/) (if any). These allow customization/extension of default Gatsby settings affecting pieces of the site build process.
-  
-  13.  **`gatsby-ssr.js`**: This file is where Gatsby expects to find any usage of the [Gatsby server-side rendering APIs](https://next.gatsbyjs.org/docs/ssr-apis/) (if any). These allow customization of default Gatsby settings affecting server-side rendering.
-  
-  14.  **`LICENSE`**: Gatsby is licensed under the MIT license.
-  
-  15.  **`package.json`**: A manifest file for Node.js projects, which includes things like metadata (the project’s name, author, etc). This manifest is how npm knows which packages to install for your project.
-  
-  16.  **`README.md`**: A text file containing useful reference information about your project.
-  
-  17.  **`tsconfig.json`**: A configuration file for the typescript engine, similar to babelrc.
-  
-  18.  **`tslint.json`**: A configuration file for typescript rules, similar to eslint.
-  
-  19.  **`yarn.lock`**: This is an automatically generated file based on the exact versions of your npm dependencies that were installed for your project. (You won’t change this file directly).
 
 ## Things to know
 
- - All scss imports are treated as css modules.
- - Imported svg files from `./src/assets/svg` will be React Compontents.
+There are couple of things that are good to know about this starter, compared to the default gatsby starter.
+
+### TypeScript
+
+We encourage TypeScript usage and have included basic linting.
+
+- Avoid `export default ...` - the only place you absolutely need to do this is in `./pages/*`. Rather `export const Module = ...` and `import { Module } from './file'` ([details](https://basarat.gitbooks.io/typescript/docs/tips/defaultIsBad.html))
+
+See the [TypeScript Handbook](https://basarat.gitbooks.io/typescript) for more tips and tricks
+
+
+### SCSS
+
+All `.scss` and `.sass` imports will:
+
+- include the [classnames package](https://www.npmjs.com/package/classnames-loader)
+- output [css modules](https://github.com/css-modules/css-modules)
+
+Take the following code snippet as an example:
+
+```tsx
+import React from 'react';
+import s from './my-styles.scss';
+ 
+export const Button = ({ disabled, children }: { disabled: boolean, children: React.ReactNode }) => (
+  <button className={s('button', { disabled })}>{children}</button>
+);
+```
+
+### SVG
+
+You can import SVG files as React components by placing them in the `./src/assets/svg` folder.
+
+Usage:
+```tsx
+import React from 'react';
+import Logo from 'assets/svg/logo.svg';
+
+export const Header = () => (
+  <header>
+    <Logo style={{ color: 'blue' }} />
+  </header>
+);
+```
 
 
 ## 🎓 Learning Gatsby
