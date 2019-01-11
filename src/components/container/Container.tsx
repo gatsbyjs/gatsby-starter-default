@@ -5,7 +5,7 @@ interface IContainerProps {
   children?: React.ReactNode;
 }
 
-export default class Container extends React.PureComponent<IContainerProps> {
+export class Container extends React.PureComponent<IContainerProps> {
   public render() {
     return (
       <section className={s.container}>

@@ -3,8 +3,8 @@ import { StaticQuery, graphql } from 'gatsby';
 import Helmet from 'react-helmet';
 import { get } from 'lodash';
 
-import Header from 'components/header/Header';
-import Devtools from 'components/devtools/Devtools';
+import { Header } from 'components/header/Header';
+import { Devtools } from 'components/devtools/Devtools';
 import s from './AppLayout.scss';
 
 interface IProps {

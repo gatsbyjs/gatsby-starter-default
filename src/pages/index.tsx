@@ -1,7 +1,7 @@
 import React from 'react';
 import Helmet from 'react-helmet';
-import Segment from 'components/segment/Segment';
-import Button from 'components/button/Button';
+import { Segment } from 'components/segment/Segment';
+import { Button } from 'components/button/Button';
 
 export default class Home extends React.PureComponent<any> {
   render() {

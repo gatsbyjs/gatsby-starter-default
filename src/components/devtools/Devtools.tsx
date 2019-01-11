@@ -1,17 +1,47 @@
 import React from 'react';
-import config from 'gatsby-plugin-config';
-import GridOverlay from './GridOverlay';
+import { GridOverlay } from './GridOverlay';
+import { GsapTools } from './GsapTools';
 
-export default class Devtools extends React.PureComponent {
+const LOCAL_STORAGE_KEY_VISIBLE = '_devtoolsVisible';
+
+export class Devtools extends React.PureComponent {
+
+  state = {
+    visible: localStorage.getItem(LOCAL_STORAGE_KEY_VISIBLE) === 'true',
+  }
+
+  componentDidMount() {
+    document.addEventListener('keydown', this.onKeyDown, false);
+  }
+
+  componentWillUnmount() {
+    document.removeEventListener('keydown', this.onKeyDown, false);
+  }
+
+  onKeyDown = (e: KeyboardEvent) => {
+    if (e.ctrlKey && e.keyCode === 75) {
+      this.onToggleDisplay();
+    }
+  }
+
+  onToggleDisplay = () => {
+    const { visible } = this.state;
+    this.setState({ visible: !visible });
+    localStorage.setItem(LOCAL_STORAGE_KEY_VISIBLE, String(!visible));
+  }
+
   render() {
-    if (config.NODE_ENV !== 'development') {
+    const { visible } = this.state;
+
+    if (!visible && process.env.NODE_ENV !== 'development') {
       return null;
     }
 
     return (
-      <React.Fragment>
-        <GridOverlay columns={12} />
-      </React.Fragment>
+      <>
+        <GridOverlay button={visible} columns={12} />
+        <GsapTools button={visible} />
+      </>
     );
   }
 }

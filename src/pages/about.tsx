@@ -1,6 +1,6 @@
 import React from 'react';
 import Helmet from 'react-helmet';
-import Segment from 'components/segment/Segment';
+import { Segment } from 'components/segment/Segment';
 
 export default class About extends React.PureComponent<any> {
   render() {

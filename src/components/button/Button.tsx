@@ -10,7 +10,7 @@ interface IButtonProps {
   [key: string]: any;
 }
 
-export default class Button extends React.PureComponent<IButtonProps> {
+export class Button extends React.PureComponent<IButtonProps> {
 
   render() {
     const {

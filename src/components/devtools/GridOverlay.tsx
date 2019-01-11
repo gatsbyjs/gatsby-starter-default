@@ -7,7 +7,7 @@ const LOCAL_STORAGE_KEY_VERTICAL = '_devtoolsVerticalGridVisible';
 interface IProps {
   columns: number;
   baseline: number;
-  noPanel: boolean;
+  button: boolean;
 }
 
 interface IState {
@@ -18,12 +18,12 @@ interface IState {
 /**
  * Grid Overlay component
  */
-export default class GridOverlay extends React.Component<IProps, IState> {
+export class GridOverlay extends React.Component<IProps, IState> {
 
   static defaultProps = {
     columns: 12,
     baseline: 16,
-    noPanel: true,
+    button: false,
   };
 
   ref: React.RefObject<HTMLDivElement> = React.createRef();
@@ -123,7 +123,7 @@ export default class GridOverlay extends React.Component<IProps, IState> {
    * @return {Component}
    */
   render() {
-    const { columns, noPanel } = this.props;
+    const { columns, button } = this.props;
     const verticalIsVisible = this.state.isVerticalVisible;
     const horizontalIsVisible = this.state.isHorizontalVisible;
 
@@ -142,7 +142,7 @@ export default class GridOverlay extends React.Component<IProps, IState> {
           </div>
         </div>
 
-        {!noPanel ? [
+        {button ? [
           <button key="v" className={s('grid__button', { verticalIsVisible })} onClick={this.onToggleVertical}>
             <svg className={s.grid__button__svg} width="14px" height="14px" viewBox="0 0 14 14">
               <g stroke="none" strokeWidth="1" fill="none" fillRule="evenodd">

@@ -1,6 +1,5 @@
 import React from 'react';
 import { Link } from 'gatsby';
-
 import Logo from 'assets/svg/logo.svg';
 import s from './Header.scss';
 
@@ -9,7 +8,7 @@ interface IProps {
   title?: string;
 }
 
-export default class Header extends React.PureComponent<IProps> {
+export class Header extends React.PureComponent<IProps> {
 
   render() {
     return (

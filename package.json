@@ -16,11 +16,11 @@
     "gatsby-plugin-react-svg": "2.0.0",
     "gatsby-plugin-sharp": "2.0.17",
     "gatsby-plugin-typescript": "2.0.3",
-    "gatsby-plugin-ueno": "^2.0.0",
+    "gatsby-plugin-ueno": "2.0.1",
     "gatsby-source-graphql-universal": "^2.0.4",
     "gatsby-transformer-sharp": "2.1.10",
-    "lodash": "4.17.11",
-    "prismic-reactjs": "0.3.2",
+    "gsap": "2.0.2",
+    "gsap-tools": "1.0.3",
     "react": "16.7.0",
     "react-dom": "16.7.0",
     "react-helmet": "5.2.0"
@@ -37,7 +37,6 @@
     "clean": "rimraf .cache public",
     "test": "tsc && npm run lint",
     "lint": "tslint --fix 'src/**/*.{ts,tsx}' -p .",
-    "deploy": "gatsby build --prefix-paths && gh-pages -d public",
     "dev": "gatsby develop"
   },
   "devDependencies": {
@@ -47,10 +46,9 @@
     "@types/react-dom": "16.0.11",
     "@types/react-helmet": "5.0.8",
     "@ueno/stylelint-config": "1.0.5",
-    "gh-pages": "2.0.1",
     "rimraf": "2.6.3",
     "stylelint": "9.9.0",
-    "tslint": "5.12.0",
+    "tslint": "5.12.1",
     "tslint-react": "3.6.0",
     "typescript": "3.2.2"
   },

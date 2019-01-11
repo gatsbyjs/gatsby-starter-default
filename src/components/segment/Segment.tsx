@@ -1,5 +1,5 @@
 import React from 'react';
-import Container from 'components/container/Container';
+import { Container } from 'components/container/Container';
 import s from './Segment.scss';
 
 interface ISegmentProps {
@@ -7,7 +7,7 @@ interface ISegmentProps {
   container?: boolean;
 }
 
-export default class Segment extends React.PureComponent<ISegmentProps> {
+export class Segment extends React.PureComponent<ISegmentProps> {
 
   static defaultProps = {
     container: true,
