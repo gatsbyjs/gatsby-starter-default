@@ -1,0 +1,3 @@
+[submodule "foo"]
+	path = foo
+	url = git@github.com:ueno-llc/template-www.git
