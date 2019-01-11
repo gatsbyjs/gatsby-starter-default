@@ -21,8 +21,8 @@
     "gatsby-transformer-sharp": "2.1.10",
     "gsap": "2.0.2",
     "gsap-tools": "1.0.3",
-    "react": "16.7.0",
-    "react-dom": "16.7.0",
+    "react": "16.7.0-alpha.2",
+    "react-dom": "16.7.0-alpha.2",
     "react-helmet": "5.2.0"
   },
   "keywords": [
@@ -35,8 +35,9 @@
     "start": "gatsby serve --port ${PORT:-3000}",
     "build": "gatsby build",
     "clean": "rimraf .cache public",
-    "test": "tsc && npm run lint",
+    "test": "tsc && npm run lint && npm run stylelint",
     "lint": "tslint --fix 'src/**/*.{ts,tsx}' -p .",
+    "stylelint": "stylelint 'src/**/*.scss' --syntax scss",
     "dev": "gatsby develop"
   },
   "devDependencies": {

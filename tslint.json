@@ -21,6 +21,8 @@
       "limit": 140,
       "ignore-pattern": "^import |^export {(.*?)}"
     }],
+    // Not required to specified true boolean
+    "jsx-boolean-value": false,
     // Disallows multiline JS expressions inside JSX blocks to promote readability
     "jsx-no-multiline-js": false
   }
