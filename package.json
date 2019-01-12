@@ -1,11 +1,22 @@
 {
   "name": "ueno-gatsby-starter",
   "description": "Opinionated Gatsby starter by Ueno",
-  "version": "1.0.3",
+  "version": "1.0.0",
   "main": "noop",
+  "license": "MIT",
   "contributors": [
-    "Birkir Gudjonsson <birkir.gudjonsson@gmail.com>"
+    "Birkir Gudjonsson <birkir.gudjonsson@gmail.com>",
+    "Jérémy Barbet <jeremgraph@gmail.com>"
   ],
+  "scripts": {
+    "start": "gatsby serve --port ${PORT:-3000}",
+    "build": "gatsby build",
+    "clean": "rimraf .cache public",
+    "test": "tsc && npm run lint && npm run stylelint",
+    "lint": "tslint --fix 'src/**/*.{ts,tsx}' -p .",
+    "stylelint": "stylelint 'src/**/*.scss' --syntax scss",
+    "dev": "gatsby develop"
+  },
   "dependencies": {
     "gatsby": "2.0.91",
     "gatsby-image": "2.0.26",
@@ -25,21 +36,6 @@
     "react-dom": "16.7.0-alpha.2",
     "react-helmet": "5.2.0"
   },
-  "keywords": [
-    "gatsby",
-    "gatsby-starter",
-    "ueno"
-  ],
-  "license": "MIT",
-  "scripts": {
-    "start": "gatsby serve --port ${PORT:-3000}",
-    "build": "gatsby build",
-    "clean": "rimraf .cache public",
-    "test": "tsc && npm run lint && npm run stylelint",
-    "lint": "tslint --fix 'src/**/*.{ts,tsx}' -p .",
-    "stylelint": "stylelint 'src/**/*.scss' --syntax scss",
-    "dev": "gatsby develop"
-  },
   "devDependencies": {
     "@babel/core": "7.2.2",
     "@types/lodash": "4.14.119",
@@ -54,6 +50,11 @@
     "tslint-react": "3.6.0",
     "typescript": "3.2.2"
   },
+  "keywords": [
+    "gatsby",
+    "gatsby-starter",
+    "ueno"
+  ],
   "repository": {
     "type": "git",
     "url": "https://github.com/ueno-llc/ueno-gatsby-starter"
