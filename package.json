@@ -32,8 +32,8 @@
     "gatsby-transformer-sharp": "2.1.10",
     "gsap": "2.0.2",
     "gsap-tools": "1.0.3",
-    "react": "16.7.0-alpha.2",
-    "react-dom": "16.7.0-alpha.2",
+    "react": "16.8.0-alpha.2",
+    "react-dom": "16.8.0-alpha.2",
     "react-helmet": "5.2.0"
   },
   "devDependencies": {
