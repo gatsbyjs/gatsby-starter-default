@@ -1,6 +1,42 @@
 {
-  "extends": "./node_modules/@ueno/tslint-config/tsconfig-react",
   "compilerOptions": {
-    "baseUrl": "./src"
-  }
+    // Base directory to resolve non-relative module names.
+    "baseUrl": "./src",
+    // Specify module code generation
+    "module": "commonjs",
+    // Generates corresponding '.map' file.
+    "sourceMap": true,
+    // Enables experimental support for ES7 decorators.
+    "experimentalDecorators": true,
+    // Target latest version of ECMAScript.
+    "target": "esnext",
+    // Search under node_modules for non-relative imports.
+    "moduleResolution": "node",
+    // Process & infer types from .js files.
+    "allowJs": true,
+    // Don't emit; allow Babel to transform files.
+    "noEmit": true,
+    // Enable strictest settings like strictNullChecks & noImplicitAny.
+    "strict": true,
+    // Disallow features that require cross-file information for emit.
+    "isolatedModules": true,
+    // Import non-ES modules as default imports.
+    "esModuleInterop": true,
+    // Type declaration files to be included in compilation.
+    "types": ["node"],
+    // Specify library file to be included in the compilation.
+    "lib": ["dom", "es2015", "es2017"],
+    // Specify JSX code generation
+    "jsx": "preserve",
+    // Report errors on unused locals.
+    "noUnusedLocals": true,
+    // Report errors on unused parameters.
+    "noUnusedParameters": true,
+    // Do not emit comments to output.
+    "removeComments": false,
+    // Do not erase const enum declarations in generated code.
+    "preserveConstEnums": true
+  },
+  // Specifies a list of glob patterns that match files to be included in compilation.
+  "include": ["./src/**/*"]
 }
