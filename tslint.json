@@ -1,29 +1,3 @@
 {
-  "extends": [
-    "tslint:recommended",
-    "tslint-react"
-  ],
-  "rules": {
-    // Requires that import statements be alphabetized and grouped.
-    "ordered-imports": false,
-    // Enforces quote character for string literals.
-    "quotemark": [true, "single", "jsx-double"],
-    // Requires explicit visibility declarations for class members.
-    "member-access": false,
-    // Enforces member ordering.
-    "member-ordering": false,
-    // Checks ordering of keys in object literals.
-    "object-literal-sort-keys": false,
-    // Checks variable names for various errors.
-    "variable-name": [true, "allow-pascal-case", "ban-keywords", "check-format"],
-    // Requires lines to be under a certain max length.
-    "max-line-length": [true, {
-      "limit": 140,
-      "ignore-pattern": "^import |^export {(.*?)}"
-    }],
-    // Not required to specified true boolean
-    "jsx-boolean-value": false,
-    // Disallows multiline JS expressions inside JSX blocks to promote readability
-    "jsx-no-multiline-js": false
-  }
+  "extends": "@ueno/tslint-config/react"
 }
