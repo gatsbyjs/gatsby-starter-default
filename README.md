@@ -26,7 +26,7 @@ Kick off your project with this opinionated boilerplate. This barebones starter 
 
     ```sh
     # create a new Gatsby site using Ueno's starter
-    gatsby new test-www https://github.com/ueno-llc/ueno-gatsby-starter
+    gatsby new test-www "https://github.com/ueno-llc/ueno-gatsby-starter#master --recursive"
     ```
 
 3.  **Start developing.**
