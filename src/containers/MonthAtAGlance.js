@@ -5,4 +5,5 @@ export default styled.div`
   margin-bottom: 1em;
   min-height: 20em;
   min-width: 18em;
+  flex-grow: 0;
 `;
