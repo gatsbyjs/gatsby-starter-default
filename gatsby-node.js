@@ -1,8 +1,8 @@
 const axios = require('axios');
 const crypto = require('crypto');
 
-exports.sourceNodes = async ({ boundActionCreators }) => {
-    const { createNode } = boundActionCreators;
+exports.sourceNodes = async ({ actions }) => {
+    const { createNode } = actions;
 
     // fetch all event data from Astra Facade api
     // const fetchEventData = () => axios.get('');
@@ -45,9 +45,6 @@ exports.sourceNodes = async ({ boundActionCreators }) => {
             days: 'not yet available',
             canView: 'not yet available',
         }
-
-        // console.log('#### found one ' + JSON.stringify(event) + '#######');
-        console.log('#### found one ' + JSON.stringify(eventNode) + '#######');
         
         // Get content digest of node. (Required field)
         const contentDigest = crypto
