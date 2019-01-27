@@ -17,22 +17,60 @@ Moment.locale('en');
 momentLocalizer();
 
 
-const IndexPage = () => (
-  <Layout>
-    <ActivityArea>
-      <LeftPanel>
-        <MonthAtAGlance>
-          <Calendar defaultValue={new Date()}/>
-        </MonthAtAGlance>
-        <EventCategoryList>
-        </EventCategoryList>
-      </LeftPanel>
-      <RightPanel>
-        <EventSummaryList>
-        </EventSummaryList>
-      </RightPanel>
-    </ActivityArea>
-  </Layout>
-)
+const IndexPage = (props) => {
+  
+  const users = props.data.allRandomUser.edges;
+
+  return (
+    <Layout>
+      <ActivityArea>
+        <LeftPanel>
+          <MonthAtAGlance>
+            <Calendar defaultValue={new Date()}/>
+          </MonthAtAGlance>
+          <EventCategoryList>
+          </EventCategoryList>
+        </LeftPanel>
+        <RightPanel>
+          <EventSummaryList>
+          </EventSummaryList>
+          <div>
+            {users.map((user, i) => {
+              const userData = user.node;
+              return (
+                <div key={i}>
+                  <p>Name: {userData.name.first}</p>
+                  <img src={userData.picture.medium} />
+                </div>
+              )
+            })}
+          </div>
+        </RightPanel>
+      </ActivityArea>
+    </Layout>
+  );
+};
 
 export default IndexPage
+
+export const query = graphql`
+  query RandomUserQuery {
+    allRandomUser {
+      edges {
+        node {
+          gender
+          name {
+            title
+            first
+            last
+          }
+          picture {
+            large
+            medium
+            thumbnail
+          }
+        }
+      }
+    }
+  }
+`;
