@@ -2,53 +2,65 @@ const axios = require('axios');
 const crypto = require('crypto');
 
 exports.sourceNodes = async ({ boundActionCreators }) => {
-  const { createNode } = boundActionCreators;
+    const { createNode } = boundActionCreators;
 
-  // fetch raw data from the randomuser api
-  const fetchRandomUser = () => axios.get(`https://randomuser.me/api/?results=500`);
-  // await for results
-  const res = await fetchRandomUser();
+    // fetch all event data from Astra Facade api
+    // const fetchEventData = () => axios.get('');
+    const fetchEventData = () => axios.get(`http://localhost:3000/activities/all`);
 
-  // map into these results and create nodes
-  res.data.results.map((user, i) => {
-    // Create your node object
-    const userNode = {
-      // Required fields
-      id: `${i}`,
-      parent: `__SOURCE__`,
-      internal: {
-        type: `RandomUser`, // name of the graphQL query --> allRandomUser {}
-        // contentDigest will be added just after
-        // but it is required
-      },
-      children: [],
+    // await for results
+    const eventResult = await fetchEventData();
 
-      // Other fields that you want to query with graphQl
-      gender: user.gender,
-      name: {
-        title: user.name.title,
-        first: user.name.first,
-        last: user.name.last,
-      },
-      picture: {
-        large: user.picture.large,
-        medium: user.picture.medium,
-        thumbnail: user.picture.thumbnail,
-      }
-      // etc...
-    }
+    // map into event results and create nodes
+    eventResult.data.map((event, i) => {
+        
+        // Create node object for event
+        const eventNode = {
+            // Required fields
+            id: `${'event ' + i}`,
+            parent: `__SOURCE__`,
+            internal: {
+                type: `EventInfo`, // name of the graphQL query --> allEventInfo {}
+                // contentDigest will be added just after
+                // but it is required
+            },
+            children: [],
+                    
+            // Other fields that you want to query with graphQl
+            astraId: event.activityId,
+            name: event.activityName,
+            date: {
+                start: event.startDate,
+                startTime: event.startDateTime,
+                endTime: event.endDateTime,
+            },
+            location: {
+                campus: event.campusName,
+                building: event.buildingCode,
+                room: event.roomNumber,
+                description: event.locationName,
+            },
+            typeCode: event.activityTypeCode,
+            instructor: 'not yet available',
+            days: 'not yet available',
+            canView: 'not yet available',
+        }
 
-    // Get content digest of node. (Required field)
-    const contentDigest = crypto
-      .createHash(`md5`)
-      .update(JSON.stringify(userNode))
-      .digest(`hex`);
-    // add it to userNode
-    userNode.internal.contentDigest = contentDigest;
+        // console.log('#### found one ' + JSON.stringify(event) + '#######');
+        console.log('#### found one ' + JSON.stringify(eventNode) + '#######');
+        
+        // Get content digest of node. (Required field)
+        const contentDigest = crypto
+            .createHash(`md5`)
+            .update(JSON.stringify(eventNode))
+            .digest(`hex`);
+        // add it to eventNode
+        eventNode.internal.contentDigest = contentDigest;
+        
+        // Create node with the gatsby createNode() API
+        createNode(eventNode);  
+        
+    });
 
-    // Create node with the gatsby createNode() API
-    createNode(userNode);
-  });
-
-  return;
+    return;
 }

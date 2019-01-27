@@ -1,6 +1,5 @@
 import React from 'react'
 import { Calendar } from 'react-widgets'
-import H1 from '../components/H1';
 import RightPanel from '../containers/RightPanel';
 import LeftPanel from '../containers/LeftPanel';
 import ActivityArea from '../containers/ActivityArea';
@@ -9,6 +8,7 @@ import EventCategoryList from '../containers/EventCategoryList';
 import EventSummaryList from '../containers/EventSummaryList';
 import Moment from 'moment'
 import momentLocalizer from 'react-widgets-moment';
+import { graphql } from 'gatsby';
 
 import 'react-widgets/dist/css/react-widgets.css';
 import Layout from '../components/layout';
@@ -19,7 +19,7 @@ momentLocalizer();
 
 const IndexPage = (props) => {
   
-  const users = props.data.allRandomUser.edges;
+  const events = props.data.allEventInfo.edges;
 
   return (
     <Layout>
@@ -35,12 +35,11 @@ const IndexPage = (props) => {
           <EventSummaryList>
           </EventSummaryList>
           <div>
-            {users.map((user, i) => {
-              const userData = user.node;
+            {events.map((event, i) => {
+              const eventData = event.node;
               return (
                 <div key={i}>
-                  <p>Name: {userData.name.first}</p>
-                  <img src={userData.picture.medium} />
+                  <p>Name: {eventData.name}</p>
                 </div>
               )
             })}
@@ -53,23 +52,29 @@ const IndexPage = (props) => {
 
 export default IndexPage
 
-export const query = graphql`
-  query RandomUserQuery {
-    allRandomUser {
+export const query = graphql`  
+  query EventInfoQuery {
+    allEventInfo {
       edges {
         node {
-          gender
-          name {
-            title
-            first
-            last
+          astraId
+          name
+          date {
+            start
+            startTime
+            endTime
           }
-          picture {
-            large
-            medium
-            thumbnail
+          typeCode
+          location {
+            # campus
+            building
+            room    
+            description
           }
-        }
+          instructor
+          days
+          canView 
+        }        
       }
     }
   }
