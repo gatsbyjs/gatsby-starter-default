@@ -1,4 +1,4 @@
 [submodule "src"]
 	path = src
-	url = git@github.com:ueno-llc/template-www.git
+	url = https://github.com/ueno-llc/template-www.git
 	branch = master
