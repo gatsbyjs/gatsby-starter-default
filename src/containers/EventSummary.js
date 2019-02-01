@@ -66,13 +66,13 @@ const EventSummaryLocation = styled.span`
 `;
 
 
-export default class EventSummary extends React.Component { // eslint-disable-line react/prefer-stateless-function
+export default class EventSummary extends React.Component { 
 
-  static propTypes = {
-    label: PropTypes.string.isRequired,
-  }
-
-  render() {
+  render() {    
+    const eventInfo = this.props.eventData;
+    if (!eventInfo) {
+      return null;
+    }
     return (
       <EventSummaryWrapper>
         <EventThumbnail>
@@ -81,7 +81,7 @@ export default class EventSummary extends React.Component { // eslint-disable-li
           <EventThumbnailDayOfWeek>Mon</EventThumbnailDayOfWeek>
         </EventThumbnail>
         <EventSummaryContainer>
-          <EventSummaryHeadline>Student Dialog on the Environment</EventSummaryHeadline>
+          <EventSummaryHeadline>{eventInfo.name}</EventSummaryHeadline>
           <EventSummaryTimespan>10:00am - 11:00am</EventSummaryTimespan>
           <EventSummaryLocation>WVPCA - WV304, Lincoln Theater</EventSummaryLocation>
         </EventSummaryContainer>
