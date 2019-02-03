@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
+import Moment from 'react-moment';
 import PropTypes from 'prop-types';
 
 const EventSummaryWrapper = styled.li`
@@ -76,14 +77,33 @@ export default class EventSummary extends React.Component {
     return (
       <EventSummaryWrapper>
         <EventThumbnail>
-          <EventThumbnailMonth>Jan</EventThumbnailMonth>
-          <EventThumbnailDay>31</EventThumbnailDay>
-          <EventThumbnailDayOfWeek>Mon</EventThumbnailDayOfWeek>
+          <EventThumbnailMonth>
+              <Moment format="MMM">
+              {eventInfo.date.start}
+              </Moment>
+            </EventThumbnailMonth>
+          <EventThumbnailDay>
+            <Moment format="D">
+              {eventInfo.date.start}
+            </Moment>
+          </EventThumbnailDay>
+          <EventThumbnailDayOfWeek>
+            <Moment format="ddd">
+              {eventInfo.date.start}
+            </Moment>          
+          </EventThumbnailDayOfWeek>
         </EventThumbnail>
         <EventSummaryContainer>
           <EventSummaryHeadline>{eventInfo.name}</EventSummaryHeadline>
-          <EventSummaryTimespan>10:00am - 11:00am</EventSummaryTimespan>
-          <EventSummaryLocation>WVPCA - WV304, Lincoln Theater</EventSummaryLocation>
+          <EventSummaryTimespan>
+            <Moment format="h:mma - ">
+              {eventInfo.date.startTime}
+            </Moment>
+            <Moment format="h:mma">
+              {eventInfo.date.endTime}
+            </Moment>
+          </EventSummaryTimespan>
+          <EventSummaryLocation>{eventInfo.location.description}</EventSummaryLocation>
         </EventSummaryContainer>
       </EventSummaryWrapper>
     );
