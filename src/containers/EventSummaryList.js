@@ -2,7 +2,7 @@ import React from 'react'
 import styled from 'styled-components';
 import EventSummary from './EventSummary';
 import H1 from '../components/H1';
-import { StaticQuery } from 'gatsby';
+import { StaticQuery, graphql } from 'gatsby';
 
 const EventSummaryListWrapper = styled.ul`
   list-style-type: none;
