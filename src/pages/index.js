@@ -4,11 +4,13 @@ import RightPanel from '../containers/RightPanel';
 import LeftPanel from '../containers/LeftPanel';
 import ActivityArea from '../containers/ActivityArea';
 import MonthAtAGlance from '../containers/MonthAtAGlance';
-import EventCategoryList from '../containers/EventCategoryList';
+import EventCategoryListContainer from '../containers/EventCategoryListContainer';
 import EventSummaryList from '../containers/EventSummaryList';
 import Moment from 'moment'
 import momentLocalizer from 'react-widgets-moment';
 import { createStore, applyMiddleware } from 'redux';
+import { composeWithDevTools } from 'redux-devtools-extension';
+import { Provider } from 'react-redux'
 import thunk from 'redux-thunk';
 import rootReducer from '../redux/reducers';
 import { fetchAllActivityCategories} from '../redux/actions';
@@ -19,27 +21,31 @@ import Layout from '../components/layout';
 Moment.locale('en');
 momentLocalizer();
 
-const store = createStore(rootReducer, applyMiddleware(thunk));
+const store = createStore(rootReducer, composeWithDevTools(
+  applyMiddleware(thunk),
+));
 
 store.dispatch(fetchAllActivityCategories())
 
 const IndexPage = (props) => {
   return (
-    <Layout>
-      <ActivityArea>
-        <LeftPanel>
-          <MonthAtAGlance>
-            <Calendar defaultValue={new Date()}/>
-          </MonthAtAGlance>
-          <EventCategoryList>
-          </EventCategoryList>
-        </LeftPanel>
-        <RightPanel>
-          <EventSummaryList>
-          </EventSummaryList>
-        </RightPanel>
-      </ActivityArea>
-    </Layout>
+    <Provider store={store}>
+      <Layout>
+        <ActivityArea>
+          <LeftPanel>
+            <MonthAtAGlance>
+              <Calendar defaultValue={new Date()}/>
+            </MonthAtAGlance>
+            <EventCategoryListContainer>
+            </EventCategoryListContainer>
+          </LeftPanel>
+          <RightPanel>
+            <EventSummaryList>
+            </EventSummaryList>
+          </RightPanel>
+        </ActivityArea>
+      </Layout>
+    </Provider>
   );
 };
 
