@@ -13,8 +13,11 @@
     "react-dom": "^16.5.1",
     "react-helmet": "^5.2.0",
     "react-moment": "^0.8.4",
+    "react-redux": "^6.0.0",
     "react-widgets": "^4.4.6",
     "react-widgets-moment": "^4.0.22",
+    "redux": "^4.0.1",
+    "redux-thunk": "^2.3.0",
     "styled-components": "^4.0.0"
   },
   "keywords": [
