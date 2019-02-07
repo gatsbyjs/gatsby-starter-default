@@ -2,7 +2,7 @@
 .vscode
 
 # Environment Configuration
-.env*
+.env
 
 # Project dependencies
 .cache
