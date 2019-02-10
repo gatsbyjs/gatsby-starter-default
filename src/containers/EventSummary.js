@@ -1,7 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
 import Moment from 'react-moment';
-import PropTypes from 'prop-types';
 
 const EventSummaryWrapper = styled.li`
   color: #1B77B7;
@@ -79,31 +78,31 @@ export default class EventSummary extends React.Component {
         <EventThumbnail>
           <EventThumbnailMonth>
               <Moment format="MMM">
-              {eventInfo.date.start}
+              {eventInfo.startDate}
               </Moment>
             </EventThumbnailMonth>
           <EventThumbnailDay>
             <Moment format="D">
-              {eventInfo.date.start}
+              {eventInfo.startDate}
             </Moment>
           </EventThumbnailDay>
           <EventThumbnailDayOfWeek>
             <Moment format="ddd">
-              {eventInfo.date.start}
+              {eventInfo.startDate}
             </Moment>          
           </EventThumbnailDayOfWeek>
         </EventThumbnail>
         <EventSummaryContainer>
-          <EventSummaryHeadline>{eventInfo.name}</EventSummaryHeadline>
+          <EventSummaryHeadline>{eventInfo.activityName}</EventSummaryHeadline>
           <EventSummaryTimespan>
             <Moment format="h:mma - ">
-              {eventInfo.date.startTime}
+              {eventInfo.startDateTime}
             </Moment>
             <Moment format="h:mma">
-              {eventInfo.date.endTime}
+              {eventInfo.endDateTimes}
             </Moment>
           </EventSummaryTimespan>
-          <EventSummaryLocation>{eventInfo.location.description}</EventSummaryLocation>
+          <EventSummaryLocation>{eventInfo.locationName}</EventSummaryLocation>
         </EventSummaryContainer>
       </EventSummaryWrapper>
     );

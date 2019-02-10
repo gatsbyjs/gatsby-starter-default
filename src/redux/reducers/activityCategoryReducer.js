@@ -1,4 +1,4 @@
-import { FETCH_ACTIVITY_CATEGORIES } from '../actions'
+import { FETCH_ACTIVITY_CATEGORIES } from '../actions/activityCategoryActions'
 
 export default function activityCategoryReducer(state = [], action) {
     switch (action.type) {

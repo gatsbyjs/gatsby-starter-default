@@ -17,7 +17,6 @@ const EventCategoryListWrapper = styled.ul`
   }
 `;
 
-// this is a presentational component, style junk would go in here
 const EventCategoryList = ({ categories }) => (
   <EventCategoryListWrapper>    
     <EventCategory label={'View All'}></EventCategory>

@@ -5,7 +5,7 @@ import LeftPanel from '../containers/LeftPanel';
 import ActivityArea from '../containers/ActivityArea';
 import MonthAtAGlance from '../containers/MonthAtAGlance';
 import EventCategoryListContainer from '../containers/EventCategoryListContainer';
-import EventSummaryList from '../containers/EventSummaryList';
+import EventSummaryListContainer from '../containers/EventSummaryListContainer';
 import Moment from 'moment'
 import momentLocalizer from 'react-widgets-moment';
 import { createStore, applyMiddleware } from 'redux';
@@ -13,7 +13,8 @@ import { composeWithDevTools } from 'redux-devtools-extension';
 import { Provider } from 'react-redux'
 import thunk from 'redux-thunk';
 import rootReducer from '../redux/reducers';
-import { fetchAllActivityCategories} from '../redux/actions';
+import { fetchAllActivityCategories } from '../redux/actions/activityCategoryActions';
+import { fetchAllActivitiesByDateRange } from '../redux/actions/activityActions';
 
 import 'react-widgets/dist/css/react-widgets.css';
 import Layout from '../components/layout';
@@ -26,6 +27,7 @@ const store = createStore(rootReducer, composeWithDevTools(
 ));
 
 store.dispatch(fetchAllActivityCategories())
+store.dispatch(fetchAllActivitiesByDateRange())
 
 const IndexPage = (props) => {
   return (
@@ -40,8 +42,8 @@ const IndexPage = (props) => {
             </EventCategoryListContainer>
           </LeftPanel>
           <RightPanel>
-            <EventSummaryList>
-            </EventSummaryList>
+            <EventSummaryListContainer>
+            </EventSummaryListContainer>
           </RightPanel>
         </ActivityArea>
       </Layout>
