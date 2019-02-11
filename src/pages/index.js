@@ -1,5 +1,6 @@
 import React from 'react'
 import { Calendar } from 'react-widgets'
+import SummaryCalendar from '../components/SummaryCalendar';
 import RightPanel from '../containers/RightPanel';
 import LeftPanel from '../containers/LeftPanel';
 import ActivityArea from '../containers/ActivityArea';
@@ -36,7 +37,7 @@ const IndexPage = (props) => {
         <ActivityArea>
           <LeftPanel>
             <MonthAtAGlance>
-              <Calendar defaultValue={new Date()}/>
+              <SummaryCalendar initialValue={new Date()}/>
             </MonthAtAGlance>
             <EventCategoryListContainer>
             </EventCategoryListContainer>
