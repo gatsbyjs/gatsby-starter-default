@@ -1,6 +1,6 @@
 module.exports = {
   siteMetadata: {
-    title: 'Astra Event Calendar',
+    title: 'Astra University Event Calendar'      
   },
   plugins: [
     'gatsby-plugin-react-helmet',

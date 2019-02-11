@@ -1,8 +1,5 @@
 import axios from 'axios'
-
-export const FETCH_ACTIVITY_CATEGORIES = 'FETCH_ACTIVITY_CATEGORIES'
-
-const apiActivityTypeUrl = 'https://limitless-inlet-88615.herokuapp.com/activity-types/all';
+import { FETCH_ACTIVITY_CATEGORIES, FETCH_ALL_ACTIVITY_CATEGORIES } from './actionTypes';
 
 export const fetchActivityCategories = (categories) => {
   return {
@@ -12,13 +9,7 @@ export const fetchActivityCategories = (categories) => {
 };
   
 export const fetchAllActivityCategories = () => {
-  return (dispatch) => {
-    return axios.get(apiActivityTypeUrl)
-      .then(response => {
-        dispatch(fetchActivityCategories(response.data))
-      })
-      .catch(error => {
-        throw(error);
-      });
-  };
+  return {
+    type: FETCH_ALL_ACTIVITY_CATEGORIES,
+  }  
 };

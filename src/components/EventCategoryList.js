@@ -20,7 +20,7 @@ const EventCategoryListWrapper = styled.ul`
 const EventCategoryList = ({ categories }) => (
   <EventCategoryListWrapper>    
     <EventCategory label={'View All'}></EventCategory>
-    {categories.map(category => (
+    {categories.categories.map(category => (
       <EventCategory key={category.index} label={category.activityTypeName}></EventCategory>  
     ))}
   </EventCategoryListWrapper>

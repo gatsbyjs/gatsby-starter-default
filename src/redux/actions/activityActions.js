@@ -1,8 +1,18 @@
-import axios from 'axios'
+import { GET_ACTIVITY_RANGE, SET_ACTIVITY_RANGE, } from './actionTypes';
 
-export const FETCH_ACTIVITIES_BY_RANGE = 'FETCH_ACTIVITIES_BY_RANGE'
+export const getActivityRange = (range) => {
+  return {
+    type: GET_ACTIVITY_RANGE,
+    range
+  }
+};
 
-const apiActivityRangeUrl = 'https://limitless-inlet-88615.herokuapp.com/activities/findByDateRange?start=2019-01-01&end=2019-02-28';
+export const setActivityRange = (range) => {
+  return {
+    type: SET_ACTIVITY_RANGE,
+    range
+  }
+}
 
 export const fetchActivitiesByDateRange = (activities) => {
   return {
@@ -10,15 +20,17 @@ export const fetchActivitiesByDateRange = (activities) => {
     activities
   }
 };
-  
-export const fetchAllActivitiesByDateRange = () => {
-  return (dispatch) => {
-    return axios.get(apiActivityRangeUrl)
-      .then(response => {
-        dispatch(fetchActivitiesByDateRange(response.data))
-      })
-      .catch(error => {
-        throw(error);
-      });
-  };
+ 
+export const onActivityRangeModified = (range) => {
+  return {
+    type: ACTIVITY_RANGE_MODIFIED, 
+    range
+  }
+};
+
+export const onActivitiesReceived = (activities) => {
+  return {
+    type: ACTIVITIES_RECEIVED,
+    activities
+  }
 };

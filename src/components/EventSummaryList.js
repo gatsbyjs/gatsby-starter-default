@@ -20,7 +20,7 @@ const EventSummaryListWrapper = styled.ul`
 const EventSummaryList = ({ activities }) => (
   <EventSummaryListWrapper>
     <H1>All Events</H1>
-    {activities.map((activity, i) => (       
+    {activities.activities.map((activity, i) => (       
       <EventSummary key={i} eventData={activity}></EventSummary>  
      ))}
   </EventSummaryListWrapper>

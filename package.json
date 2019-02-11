@@ -17,6 +17,7 @@
     "react-widgets": "^4.4.6",
     "react-widgets-moment": "^4.0.22",
     "redux": "^4.0.1",
+    "redux-saga": "^1.0.1",
     "redux-thunk": "^2.3.0",
     "styled-components": "^4.0.0"
   },
