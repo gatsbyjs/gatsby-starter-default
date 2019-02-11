@@ -14,6 +14,7 @@ import { Provider } from 'react-redux'
 import createSagaMiddleware from 'redux-saga';
 import rootReducer from '../redux/reducers';
 import { fetchAllActivityCategories } from '../redux/actions/activityCategoryActions';
+import { fetchAllActivitiesByDateRange } from '../redux/actions/activityActions';
 
 import 'react-widgets/dist/css/react-widgets.css';
 import Layout from '../components/layout';
@@ -31,6 +32,7 @@ const store = createStore(rootReducer, composeWithDevTools(
 sagaMiddleware.run(rootSaga);
 
 store.dispatch(fetchAllActivityCategories())
+store.dispatch(fetchAllActivitiesByDateRange())
 
 const IndexPage = (props) => {
   return (
