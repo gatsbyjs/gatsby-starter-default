@@ -1,10 +1,11 @@
 import React from 'react'
 import { Calendar } from 'react-widgets'
+import moment from 'moment';
 
 class SummaryCalendar extends React.Component {
   constructor(...args) {
     super(...args)
-    this.state = { value: this.props.initialValue }
+    this.state = { value: new Date() }
   }
 
   render() {
