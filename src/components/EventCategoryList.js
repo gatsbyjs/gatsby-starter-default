@@ -9,11 +9,11 @@ const EventCategoryListWrapper = styled.ul`
   margin-left: 0;
 
   li:active {
-    background-color: #A2D539;
+    background-color: #aaaaaa;
   }
 
   li:selected {
-    background-color: #A2D539;
+    background-color: #aaaaaa;
   }
 `;
 
