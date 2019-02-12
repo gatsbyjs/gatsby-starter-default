@@ -35,7 +35,7 @@
     "gatsby-source-graphql-universal": "^2.0.4",
     "gatsby-transformer-sharp": "2.1.10",
     "gsap": "2.0.2",
-    "gsap-tools": "1.0.3",
+    "gsap-tools": "1.0.6",
     "lodash": "4.17.11",
     "react": "16.8.0",
     "react-dom": "16.8.0",
