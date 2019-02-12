@@ -99,7 +99,7 @@ export default class EventSummary extends React.Component {
               {eventInfo.startDateTime}
             </Moment>
             <Moment format="h:mma">
-              {eventInfo.endDateTimes}
+              {eventInfo.endDateTime}
             </Moment>
           </EventSummaryTimespan>
           <EventSummaryLocation>{eventInfo.locationName}</EventSummaryLocation>
