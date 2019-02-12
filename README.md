@@ -1,6 +1,6 @@
 [![logo](https://user-images.githubusercontent.com/937328/51597521-57c62380-1ef3-11e9-99ed-7f9ac3f2804e.png)](https://ueno.co/?utm_source=github&utm_campaign=ueno-gatsby-starter)
 <br /><br />
-![banner](https://user-images.githubusercontent.com/937328/51598014-8c86aa80-1ef4-11e9-8d92-5dc66187f637.png)
+![banner](https://user-images.githubusercontent.com/937328/52640361-3f33a280-2ece-11e9-9a87-5644b9730a6c.png)
 <br /><br />
 [![about](https://user-images.githubusercontent.com/937328/51540139-999c8e80-1e4d-11e9-866d-284657a34744.png)](https://ueno.co/contact/?utm_source=github&utm_campaign=ueno-gatsby-starter)
 <br /><br />
@@ -11,21 +11,27 @@ Kick off your project with this opinionated boilerplate. This barebones starter 
 
 ## Quick start
 
-**1. Install the Gatsby CLI and create an app.**
+**1. Install create-ueno-app and create an app.**
 
-The Gatsby CLI helps you create new sites using the starter you want
-
-```bash
-npm install -g gatsby-cli
-gatsby new my-app "https://github.com/ueno-llc/ueno-gatsby-starter#master --recursive"
-```
-
-We also published [Create Ueno App](https://github.com/ueno-llc/create-ueno-app) to easily create projects with different stacks: Gatsby, Next.js, Create React App or React Native, with our config and starters. To create an app using the `ueno-gatsby-starter`:
+You can check [Create Ueno App's documentation](https://github.com/ueno-llc/create-ueno-app) for more informations.
 
 ```bash
 npm install -g create-ueno-app
 create-ueno-app gatsby my-app
 ```
+
+<details>
+  <summary>Alternative installation</summary>
+
+  You also have the choice to use `gatsby-cli` to setup your project without installing `create-ueno-app`.
+
+  ```bash
+  npm install -g gatsby-cli
+  gatsby new my-app "https://github.com/ueno-llc/ueno-gatsby-starter#master --recursive"
+  ```
+
+  We recommend you changing straight away `src/components/link/Link.tsx` which is use for our 3 starter kits. You probably want something similar to that: [Link.tsx](https://github.com/ueno-llc/create-ueno-app/blob/master/overwrites/gatsby/Link.tsx).
+</details>
 
 **2. Start developing.**
 
