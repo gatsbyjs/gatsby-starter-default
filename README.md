@@ -17,11 +17,15 @@ You can check [Create Ueno App's documentation](https://github.com/ueno-llc/crea
 
 ```bash
 npm install -g create-ueno-app
+yarn global add create-ueno-app
+```
+
+```bash
 create-ueno-app gatsby my-app
 ```
 
 <details>
-  <summary>Alternative installation</summary>
+  <summary>Alternative setup</summary>
 
   You also have the choice to use `gatsby-cli` to setup your project without installing `create-ueno-app`.
 
@@ -33,13 +37,15 @@ create-ueno-app gatsby my-app
   We recommend you changing straight away `src/components/link/Link.tsx` which is use for our 3 starter kits. You probably want something similar to that: [Link.tsx](https://github.com/ueno-llc/create-ueno-app/blob/master/overwrites/gatsby/Link.tsx).
 </details>
 
+<br/>
+
 **2. Start developing.**
 
 Navigate into your new site’s directory and start it up.
 
 ```bash
 cd my-app
-gatsby develop
+yarn dev
 ```
 
 **3. Open the source code and start editing!**
