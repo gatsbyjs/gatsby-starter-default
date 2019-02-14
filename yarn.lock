@@ -5405,10 +5405,10 @@ graphql@^14.0.2:
   dependencies:
     iterall "^1.2.2"
 
-gsap-tools@1.0.8:
-  version "1.0.8"
-  resolved "https://registry.yarnpkg.com/gsap-tools/-/gsap-tools-1.0.8.tgz#dcb1f30f0a06f37c242715bf30ea5dc7c8eaeb3a"
-  integrity sha512-NmsTZlzDoWq68exY4waKmkBildLPqdMM1R16sApkoNzIGN7LKg1n27OLiUIMSLiMHe0JG0Yn2cz0emswtFSU0g==
+gsap-tools@1.0.9:
+  version "1.0.9"
+  resolved "https://registry.yarnpkg.com/gsap-tools/-/gsap-tools-1.0.9.tgz#9104f0c18da3ebce3ab54a40b25aacd2be5f086d"
+  integrity sha512-T6Izvd9nc3BC8HY7kJijbfEAU611/MK/9GhABX0ymqH1zjEHZuhFXvyeOoa4SM2/uOIc+WQG3HgQ62yXgA6QJw==
   dependencies:
     "@types/gsap" "1.20.1"
     copy-webpack-plugin "4.6.0"
