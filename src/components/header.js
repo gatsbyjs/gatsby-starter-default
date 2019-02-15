@@ -1,5 +1,4 @@
 import React from 'react'
-import { Link } from 'gatsby'
 
 const Header = ({ siteTitle }) => (
   <div
@@ -16,15 +15,13 @@ const Header = ({ siteTitle }) => (
       }}
     >
       <h1 style={{ margin: 0 }}>
-        <Link
-          to="/"
+        <div
           style={{
             color: 'white',
-            textDecoration: 'none',
           }}
         >
           {siteTitle}
-        </Link>
+        </div>
       </h1>
     </div>
   </div>

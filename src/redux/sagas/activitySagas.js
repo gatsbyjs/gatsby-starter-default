@@ -19,7 +19,7 @@ function* searchByActivityRange() {
 }
 
 export function* activityActionWatcher() {
-    yield takeLatest(SET_ACTIVITY_RANGE, searchByActivityRange),
-    yield takeLatest(FETCH_ALL_ACTIVITIES_BY_RANGE, searchByActivityRange)
+    yield takeLatest(SET_ACTIVITY_RANGE, searchByActivityRange);
+    yield takeLatest(FETCH_ALL_ACTIVITIES_BY_RANGE, searchByActivityRange);
 }
 

@@ -1,4 +1,3 @@
-import axios from 'axios'
 import { FETCH_ACTIVITY_CATEGORIES, FETCH_ALL_ACTIVITY_CATEGORIES } from './actionTypes';
 
 export const fetchActivityCategories = (categories) => {

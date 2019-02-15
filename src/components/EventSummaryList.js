@@ -4,7 +4,7 @@ import EventSummary from '../containers/EventSummary';
 import H1 from './H1';
 
 import { css } from '@emotion/core';
-import { PulseLoader, RingLoader, SyncLoader } from 'react-spinners';
+import { PulseLoader } from 'react-spinners';
 
 const override = css`    
     margin: 0 auto;

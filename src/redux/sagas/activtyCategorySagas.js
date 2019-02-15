@@ -1,4 +1,4 @@
-import { put, takeLatest, select } from 'redux-saga/effects'
+import { put, takeLatest } from 'redux-saga/effects'
 import { BASE_API_URL } from './sagaConfig'
 import { 
     FETCH_ALL_ACTIVITY_CATEGORIES,
