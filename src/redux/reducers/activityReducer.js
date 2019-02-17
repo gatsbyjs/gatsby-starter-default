@@ -20,7 +20,6 @@ const initialState = {
 export default function activityRangeReducer(state = initialState, action) {
     switch (action.type) {
         case ACTIVITIES_REQUESTED:
-            console.log('abc1');
             return { ...state, loading: true };
         case ACTIVITIES_RECEIVED:
             return { ...state, activities: action.activities, loading: false };
