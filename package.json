@@ -49,7 +49,7 @@
     "@types/react": "16.8.2",
     "@types/react-dom": "16.8.0",
     "@types/react-helmet": "5.0.8",
-    "@ueno/stylelint-config": "1.1.0",
+    "@ueno/stylelint-config": "1.1.2",
     "@ueno/tslint-config": "1.0.3",
     "rimraf": "2.6.3",
     "stylelint": "9.9.0",

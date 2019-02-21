@@ -812,10 +812,10 @@
   version "0.8.0"
   resolved "https://registry.yarnpkg.com/@types/zen-observable/-/zen-observable-0.8.0.tgz#8b63ab7f1aa5321248aad5ac890a485656dcea4d"
 
-"@ueno/stylelint-config@1.1.0":
-  version "1.1.0"
-  resolved "https://registry.yarnpkg.com/@ueno/stylelint-config/-/stylelint-config-1.1.0.tgz#609f36ea55a79fab35905353bc84b6202e688b96"
-  integrity sha512-TgsY9cLPvKhpo17XoLc+55GkBJdUkQArosCU+L35GZbeRZ+jrM54LLSTiwroUtKI32trcY7EeaA1N+0V6fNGgQ==
+"@ueno/stylelint-config@1.1.2":
+  version "1.1.2"
+  resolved "https://registry.yarnpkg.com/@ueno/stylelint-config/-/stylelint-config-1.1.2.tgz#340b6b8d92866151ab0097b9a929df00a7371cb8"
+  integrity sha512-LFi82PI7kO9luIy2R3uIMvmgDbH9vhlKLoydHefH9CG0fvGpuhdxZS2dtaNC8GyVmtc1tEXuJZWj30/KICYStw==
   dependencies:
     stylelint-config-primer "3.0.1"
     stylelint-order "2.0.0"
