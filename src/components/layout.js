@@ -6,10 +6,10 @@ import Header from "./header"
 import "./layout.css"
 
 const Layout = ({ children }) => {
-  const site = useStaticQuery(graphql`
+  const { site } = useStaticQuery(graphql`
     query SiteTitleQuery {
-        site {
-          siteMetadata {
+      site {
+        siteMetadata {
           title
         }
       }
