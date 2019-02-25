@@ -1,3 +1,5 @@
+const path = require('path');
+
 module.exports = {
   siteMetadata: {
     title: 'Ueno Gatsby Starter',
@@ -24,7 +26,7 @@ module.exports = {
       resolve: 'gatsby-plugin-react-svg',
       options: {
         rule: {
-          include: /assets\/svg/,
+          include: path.resolve(__dirname, 'src/assets/svg'),
         },
       },
     },
