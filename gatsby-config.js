@@ -1,11 +1,19 @@
 module.exports = {
   siteMetadata: {
-    title: `Gatsby Default Starter`,
-    description: `Kick off your next, great Gatsby project with this default starter. This barebones starter ships with the main Gatsby configuration files you might need.`,
-    author: `@gatsbyjs`,
+    title: `TOYO Cure Natural Aqua Gel`,
+    description: `Hydrogen Activated Water Skin Exfoliator Suitable for All Skin Types (8.5 Ounce / 250 Milliliter)`,
+    author: `@bbingllc`,
+    siteUrl: `https://priceless-beaver-8f05b4.netlify.com/`,
   },
   plugins: [
     `gatsby-plugin-react-helmet`,
+    `gatsby-plugin-sitemap`,
+    {
+      resolve: `gatsby-plugin-styled-components`,
+      options: {
+        // Add any options here
+      },
+    },
     {
       resolve: `gatsby-source-filesystem`,
       options: {
