@@ -1,2 +1,2 @@
-export const BASE_API_URL='https://limitless-inlet-88615.herokuapp.com/'
+export const BASE_API_URL='http://localhost:3000/'
 

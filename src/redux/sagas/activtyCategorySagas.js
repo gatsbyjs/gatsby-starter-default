@@ -6,7 +6,7 @@ import {
     CATEGORIES_RECEIVED } from '../actions/actionTypes'
 
 function* fetchAllCategories() {        
-    const url = BASE_API_URL + 'activity-types/all';
+    const url = BASE_API_URL + 'activity-types/eventtypes';
     yield put({ type: CATEGORIES_REQUESTED});            
     const json = yield fetch(url)
         .then(response => response.json(), );

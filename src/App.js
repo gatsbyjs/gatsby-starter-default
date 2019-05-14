@@ -30,7 +30,7 @@ const store = createStore(rootReducer, composeWithDevTools(
 
 sagaMiddleware.run(rootSaga);
 
-// store.dispatch(fetchAllActivityCategories())
+store.dispatch(fetchAllActivityCategories())
 store.dispatch(fetchAllActivitiesByDateRange())
 
 class App extends Component {
@@ -43,8 +43,8 @@ class App extends Component {
               <MonthAtAGlance>
                 <SummaryCalendarContainer/>
               </MonthAtAGlance>
-              {/* <EventCategoryListContainer>
-              </EventCategoryListContainer> */}
+              { <EventCategoryListContainer>
+              </EventCategoryListContainer> }
             </LeftPanel>
             <RightPanel>
               <EventSummaryListContainer>
