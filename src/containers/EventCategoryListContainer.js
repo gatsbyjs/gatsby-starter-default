@@ -1,14 +1,14 @@
 
 import { connect } from 'react-redux';
-import EventCategoryList from '../components/EventCategoryList';
+import EventtypeList from '../components/EventTypeList';
 
-const mapStateToProps = (state, ownProps) => {  
+const mapStateToProps = (state) => {  
   return { categories: state.categories };
 }
 
 const mapDispatchToProps = {
 }
 
-const EventCategoryListContainer = connect(mapStateToProps, mapDispatchToProps)(EventCategoryList);
+const EventCategoryListContainer = connect(mapStateToProps, mapDispatchToProps)(EventtypeList);
 
 export default EventCategoryListContainer;

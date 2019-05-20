@@ -43,8 +43,9 @@ class App extends Component {
               <MonthAtAGlance>
                 <SummaryCalendarContainer/>
               </MonthAtAGlance>
-              { <EventCategoryListContainer>
-              </EventCategoryListContainer> }
+               Filter by Event Type
+               <EventCategoryListContainer>
+               </EventCategoryListContainer> 
             </LeftPanel>
             <RightPanel>
               <EventSummaryListContainer>

@@ -8,9 +8,17 @@ import {
 import * as selectors from '../selectors';
 
 function* searchByActivityRange() {
-    const range = yield select(selectors.activityRange);        
+    const range = yield select(selectors.activityRange); 
+
+    var url = BASE_API_URL;   
+    console.log(range.eventType);    
     if (range && range.startDate && range.endDate) {                                        
-        const url = BASE_API_URL + `activities/findByDateRange?start=${range.startDate}&end=${range.endDate}`;        
+        if (range.eventType !== 'View All' && range.eventType !== ''){
+            url += `activities/filterbyActivityType?start=${range.startDate}&end=${range.endDate}`;   
+            url += `&activitytype=EventType&typename=${range.eventType}`;
+        } else {
+            url += `activities/findByDateRange?start=${range.startDate}&end=${range.endDate}`;        
+        }
         yield put({ type: ACTIVITIES_REQUESTED});            
         const json = yield fetch(url)
             .then(response => response.json(), );

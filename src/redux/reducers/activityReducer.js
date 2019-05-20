@@ -11,7 +11,8 @@ import {
 const initialState = {
     activityRange: {
         startDate: moment().format('YYYY-MM-01'), 
-        endDate: moment().add(1, 'months').date(0).format('YYYY-MM-DD')
+        endDate: moment().add(1, 'months').date(0).format('YYYY-MM-DD'),
+        eventType: ''
     },
     activities: [], 
     loading: false,
