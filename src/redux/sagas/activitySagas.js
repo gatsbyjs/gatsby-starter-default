@@ -11,7 +11,6 @@ function* searchByActivityRange() {
     const range = yield select(selectors.activityRange); 
 
     var url = BASE_API_URL;   
-    console.log(range.eventType);    
     if (range && range.startDate && range.endDate) {                                        
         if (range.eventType !== 'View All' && range.eventType !== ''){
             url += `activities/filterbyActivityType?start=${range.startDate}&end=${range.endDate}`;   

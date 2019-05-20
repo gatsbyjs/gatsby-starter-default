@@ -1,11 +1,8 @@
 import React from 'react'
 import { DropdownList } from 'react-widgets';
 
-
-
 function handleChange(e) {
     mycategory = e;
-    console.log(mycategory);
     }
 
 function createitemlist(categories){
@@ -17,8 +14,8 @@ function createitemlist(categories){
       var itemprops = itemelements.map(function(item) {
         return item['props'];
         });
-        var items = itemprops.map(function(item){return item['value']});        
-//    console.log(items);
+        var items = itemprops.map(function(item){return item['value']});  
+        mycategory = '';      
     return items;
 }  
 
@@ -35,5 +32,5 @@ const EventtypeList = ({categories}) =>
         /> 
 )
 
-export var mycategory;
+export var mycategory: String;
 export default EventtypeList;

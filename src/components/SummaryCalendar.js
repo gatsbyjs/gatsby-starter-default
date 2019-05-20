@@ -12,7 +12,6 @@ const SummaryCalendar = (props) => {
         defaultValue={props.value}
         onChange={value => {
             const selectedDate = moment(value).format('YYYY-MM-DD');
-            console.log(mycategory);
             props.setActivityRange( {
                 startDate: selectedDate, 
                 endDate: selectedDate,
@@ -28,7 +27,6 @@ const SummaryCalendar = (props) => {
                     endDate: moment(date).add(1, 'months').date(0).format('YYYY-MM-DD'),
                     eventType: mycategory
                 } );                
-                console.log(mycategory);
             }
           }
         }
