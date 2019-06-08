@@ -1,1 +1,55 @@
-@import '~bulma/bulma.sass';
+body {
+  text-align: center;
+  font-family: "Helvetica Neue",Helvetica,Tahoma,Arial,sans-serif;
+  background-image: url(/images/undraw_working_late_pukg.svg);
+  padding: 30px;
+}
+
+h1 {
+  margin-bottom: 0;
+}
+
+.box {
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  padding: 20px 30px;
+  max-width: 500px;
+  background-color: #fff;
+  margin-top: 25px;
+}
+
+.flex-center-column {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+
+.button {
+  margin-top: 10px;
+  background-color: #611f69;
+  color: #fff;
+  fill: #fff;
+  font-size: .875rem;
+  border: none;
+  cursor: pointer;
+  border-radius: 4px;
+  text-align: center;
+  font-weight: 700;
+  line-height: 1.28571429;
+  letter-spacing: .8px;
+  text-transform: uppercase;
+  text-decoration: none;
+  padding: 19px 40px 20px;
+  display: block;
+  width: 100%;
+  transition: box-shadow 420ms;
+
+  &:disabled {
+    background-color: rgba(97, 31, 105, 0.3);
+    cursor: not-allowed;
+  }
+}
+
+.avatar {
+  border-radius: 50%;
+}

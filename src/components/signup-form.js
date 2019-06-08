@@ -1,4 +1,6 @@
 import React, { Component } from 'react'
+
+import Image from '../components/image'
 import '../styles/main.scss'
 
 export default class SignupForm extends Component {
@@ -17,6 +19,7 @@ export default class SignupForm extends Component {
   render() {
     return (
       <div className="box">
+        <Image className="avatar"/>
         <h2 className="subtitle">Join us</h2>
         <div>
           <label class="checkbox">
@@ -25,7 +28,7 @@ export default class SignupForm extends Component {
           </label>
         </div>
         <button
-          className="button is-primary is-medium"
+          className="button"
           type="submit"
           disabled={!this.state.isAccepted}
           onClick={this.signUpRedirect}
