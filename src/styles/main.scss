@@ -14,6 +14,7 @@ h1 {
   border-radius: 5px;
   padding: 60px 40px;
   max-width: 450px;
+  min-width: 350px;
   min-height: 350px;
   background-color: #fff;
   margin-top: 25px;
@@ -21,7 +22,7 @@ h1 {
   flex-direction: column;
   align-items: center;
   justify-content: space-between;
-  0 10px 25px rgba(0,0,0,0.1), 0 5px 10px rgba(0,0,0,0.2)
+  box-shadow: 0 10px 25px rgba(0,0,0,0.1), 0 5px 10px rgba(0,0,0,0.2);
   
   > * {
     width: 100%;
