@@ -19,22 +19,26 @@ export default class SignupForm extends Component {
   render() {
     return (
       <div className="box">
-        <Image className="avatar"/>
-        <h2 className="subtitle">Join us</h2>
         <div>
-          <label class="checkbox">
-            <input type="checkbox" onChange={(event) => this.handleAcceptChange(event)} /> {' '}
-            I agree to the <a href="https://github.com/yyjtech/code-of-conduct/blob/master/reporting_guidelines.md">code of conduct!</a>
-          </label>
+          <Image className="avatar"/>
+          <h2 className="subtitle">Join us</h2>
         </div>
-        <button
-          className="button"
-          type="submit"
-          disabled={!this.state.isAccepted}
-          onClick={this.signUpRedirect}
-        >
-          Sign Up
-        </button>
+        <div>
+          <div>
+            <label class="checkbox">
+              <input type="checkbox" onChange={(event) => this.handleAcceptChange(event)} /> {' '}
+              I agree to the <a href="https://github.com/yyjtech/code-of-conduct/blob/master/reporting_guidelines.md">code of conduct!</a>
+            </label>
+          </div>
+          <button
+            className="button"
+            type="submit"
+            disabled={!this.state.isAccepted}
+            onClick={this.signUpRedirect}
+          >
+            Sign Up
+          </button>
+        </div>
       </div>
 
     )
