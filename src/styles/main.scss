@@ -29,7 +29,7 @@ p {
 p {
   font-size: 24px;
   font-style: italic;
-  width: 700px;
+  max-width: 700px;
   line-height: 1.4;
   letter-spacing: .25px;
 }
@@ -88,4 +88,17 @@ p {
 
 .avatar {
   border-radius: 50%;
+}
+
+// Remove background image and adjust box alignment and size on mobile
+@media (min-width < 1281px) {
+  body {
+    background: none;
+  }
+}
+
+@media (min-widthh <= 768px) {
+  .box {
+    min-width: 95%;
+  }
 }
