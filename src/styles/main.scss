@@ -91,13 +91,13 @@ p {
 }
 
 // Remove background image and adjust box alignment and size on mobile
-@media (min-width < 1281px) {
+@media only screen and (min-width<1281px) {
   body {
     background: none;
   }
 }
 
-@media (min-widthh <= 768px) {
+@media only screen and (min-width<=768px) {
   .box {
     min-width: 95%;
   }
