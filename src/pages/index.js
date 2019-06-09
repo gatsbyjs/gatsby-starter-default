@@ -10,7 +10,7 @@ const IndexPage = ({siteDescription}) => (
   <Layout>
     <div className="flex-center-column">
       <SEO title="YYJ Tech" />
-      <p>We're a self-organizing slack community for people who are looking to discuss topics related to technology + Victoria, BC. </p>
+      <p>We are a self-organizing Slack community for people who are looking to discuss topics related to technology + Victoria, BC. </p>
       <SignupForm />
     </div>
   </Layout>
