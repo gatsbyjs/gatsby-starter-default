@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 
+import Checkbox from '../components/checkbox'
 import Button from '../components/button'
 import Image from '../components/image'
 import '../styles/main.scss'
@@ -25,12 +26,10 @@ export default class SignupForm extends Component {
           <h2 className="subtitle">Join us</h2>
         </div>
         <div>
-          <div>
-            <label class="checkbox">
-              <input type="checkbox" onChange={(event) => this.handleAcceptChange(event)} /> {' '}
-              I agree to the <a href="https://github.com/yyjtech/code-of-conduct/blob/master/README.md">code of conduct!</a>
-            </label>
-          </div>
+          <Checkbox
+            onChange={(event) => this.handleAcceptChange(event)}
+            text={<span>I agree to the <a href="https://github.com/yyjtech/code-of-conduct/blob/master/README.md">code of conduct!</a></span>}
+          />
           <Button
             type="submit"
             disabled={!this.state.isAccepted}
@@ -39,7 +38,6 @@ export default class SignupForm extends Component {
           />
         </div>
       </div>
-
     )
   }
 }
