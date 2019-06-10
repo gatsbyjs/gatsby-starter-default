@@ -28,7 +28,7 @@ export default class SignupForm extends Component {
           <div>
             <label class="checkbox">
               <input type="checkbox" onChange={(event) => this.handleAcceptChange(event)} /> {' '}
-              I agree to the <a href="https://github.com/yyjtech/code-of-conduct/blob/master/reporting_guidelines.md">code of conduct!</a>
+              I agree to the <a href="https://github.com/yyjtech/code-of-conduct/blob/master/README.md">code of conduct!</a>
             </label>
           </div>
           <Button
