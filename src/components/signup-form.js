@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 
+import Button from '../components/button'
 import Image from '../components/image'
 import '../styles/main.scss'
 
@@ -30,14 +31,12 @@ export default class SignupForm extends Component {
               I agree to the <a href="https://github.com/yyjtech/code-of-conduct/blob/master/reporting_guidelines.md">code of conduct!</a>
             </label>
           </div>
-          <button
-            className="button"
+          <Button
             type="submit"
             disabled={!this.state.isAccepted}
             onClick={this.signUpRedirect}
-          >
-            Sign Up
-          </button>
+            text="Sign Up"
+          />
         </div>
       </div>
 
