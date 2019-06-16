@@ -49,7 +49,6 @@ p {
   display: flex;
   justify-content: flex-end;
   width: 100%;
-  box-shadow: $box-shadow;
 }
 
 .footer__link {
@@ -138,5 +137,9 @@ p {
 @media only screen and (max-width: 767px) {
   .box {
     min-width: 95%;
+  }
+
+  .footer {
+    justify-content: center;
   }
 }
