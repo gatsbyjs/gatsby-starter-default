@@ -7,7 +7,7 @@ import '../styles/main.scss'
 
 export default class SignupForm extends Component {
   state = {
-    isAccecpted: false
+    isAccepted: false
   };
 
   handleAcceptChange(event) {
