@@ -14,7 +14,7 @@ const SummaryCalendar = (props) => {
             const selectedDate = moment(value).format('YYYY-MM-DD');
             props.setActivityRange( {
                 startDate: selectedDate, 
-                endDate: selectedDate,
+                endDate: moment(selectedDate).format('YYYY-MM-DDT23:59:59'),
                 eventType: mycategory
             } );
           }
@@ -24,7 +24,7 @@ const SummaryCalendar = (props) => {
                 props.setActivityRange( {
                     startDate: moment(date).format('YYYY-MM-01'), 
                     // todo extract "end of month" logic into helper function
-                    endDate: moment(date).add(1, 'months').date(0).format('YYYY-MM-DD'),
+                    endDate: moment(date).add(1, 'months').date(0).format('YYYY-MM-DDT23:59:59'),
                     eventType: mycategory
                 } );                
             }

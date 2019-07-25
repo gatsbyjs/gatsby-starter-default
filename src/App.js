@@ -3,6 +3,7 @@ import Layout from './components/layout';
 import RightPanel from './containers/RightPanel';
 import LeftPanel from './containers/LeftPanel';
 import ActivityArea from './containers/ActivityArea';
+import EventReqArea from './containers/EventReqArea';
 import MonthAtAGlance from './containers/MonthAtAGlance';
 import SummaryCalendarContainer from './containers/SummaryCalendarContainer';
 import EventCategoryListContainer from './containers/EventCategoryListContainer';
@@ -16,6 +17,7 @@ import createSagaMiddleware from 'redux-saga';
 import rootReducer from './redux/reducers';
 import { fetchAllActivityCategories } from './redux/actions/activityCategoryActions';
 import { fetchAllActivitiesByDateRange } from './redux/actions/activityActions';
+import {fetch_permission} from './redux/actions/eventRequestActions';
 import rootSaga from './redux/sagas';
 
 import 'react-widgets/dist/css/react-widgets.css';
@@ -32,6 +34,7 @@ sagaMiddleware.run(rootSaga);
 
 store.dispatch(fetchAllActivityCategories())
 store.dispatch(fetchAllActivitiesByDateRange())
+//store.dispatch(fetch_permission())
 
 class App extends Component {
   render() {
@@ -46,6 +49,8 @@ class App extends Component {
                Filter by Event Type
                <EventCategoryListContainer>
                </EventCategoryListContainer> 
+               <EventReqArea>
+               </EventReqArea>
             </LeftPanel>
             <RightPanel>
               <EventSummaryListContainer>
