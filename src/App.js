@@ -34,7 +34,7 @@ sagaMiddleware.run(rootSaga);
 
 store.dispatch(fetchAllActivityCategories())
 store.dispatch(fetchAllActivitiesByDateRange())
-//store.dispatch(fetch_permission())
+store.dispatch(fetch_permission())
 
 class App extends Component {
   render() {

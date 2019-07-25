@@ -4,7 +4,7 @@ import {
     PERMISSION_RECEIVED } from '../actions/actionTypes'
 
 const initialState = {    
-    ReqEvent: [], 
+    reqEvent: 0, 
     loading: false,
     }
     
@@ -13,9 +13,9 @@ export default function eventRequestReducer(state = initialState, action) {
         case PERMISSION_REQUESTED:
             return { ...state, loading: true };
         case PERMISSION_RECEIVED:
-            return { ...state, ReqEvent: action.ReqEvent, loading: false };
-        case FETCH_PERMISSION:            
-            return action.ReqEvent;
+            return { ...state, reqEvent: action.reqEvent, loading: false };
+        case FETCH_PERMISSION:       
+           return { ...state, reqEvent: action.reqEvent, loading: false }; 
         default: 
             return state;
     }

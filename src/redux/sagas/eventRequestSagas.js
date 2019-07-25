@@ -7,8 +7,12 @@ function* fetch_permission() {
     yield put({ type: PERMISSION_REQUESTED});            
     const json = yield fetch(url)
         .then(response => response.json(), );
-        console.log(json().length);
-    yield put({ type: PERMISSION_RECEIVED, ReqEvent: json});
+
+    if (json.length === 0){
+        yield put({ type: PERMISSION_RECEIVED, ReqEvent: 0});
+    } else {
+        yield put({ type: PERMISSION_RECEIVED, ReqEvent: 1});
+    }
 }
 
 export function* eventRequestActionWatcher() {

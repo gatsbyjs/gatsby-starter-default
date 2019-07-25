@@ -15,9 +15,6 @@ const ERArea = styled.div`
     `;
 
 export default class EventReqArea extends React.Component { // eslint-disable-line react/prefer-stateless-function
-
-
-
     render() {
         if (1 == 1) {  // todo: get eventRequestAction to verify guest event request permissions dynamically
             return (
