@@ -126,6 +126,13 @@ p {
   }
 }
 
+.styleCalendar {
+  border: 0;
+  frameborder: 0;
+  width: 800px;
+  height: 600px;
+  scrolling: no;
+}
 
 // Remove background image and adjust box alignment and size on mobile
 @media only screen and (max-width: 1281px) {
