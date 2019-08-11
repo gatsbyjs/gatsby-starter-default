@@ -5,7 +5,7 @@ import SEO from "../components/seo"
 
 import '../styles/main.scss'
 
-const ResourcesPage = ({siteDescription}) => (
+const ResourcesPage = () => (
   <Layout>
     <div className="flex-center-column">
       <div className="box">
