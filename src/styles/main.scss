@@ -126,11 +126,18 @@ p {
   }
 }
 
+.calendarContainer {
+  width: 800px;
+  height: 600px;
+  
+  > * {
+    width: 100%
+  }
+}
+
 .styleCalendar {
   border: 0;
   frameborder: 0;
-  width: 800px;
-  height: 600px;
   scrolling: no;
 }
 
