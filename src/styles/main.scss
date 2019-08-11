@@ -127,11 +127,14 @@ p {
 }
 
 .calendarContainer {
-  width: 800px;
-  height: 600px;
+  width: 1000px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
   
   > * {
-    width: 100%;
+    max-width: 100%;
     margin-bottom: 20px;
   }
 }
@@ -140,6 +143,8 @@ p {
   border: 0;
   frameborder: 0;
   scrolling: no;
+  width: 800px;
+  height: 600px;
 }
 
 // Remove background image and adjust box alignment and size on mobile
