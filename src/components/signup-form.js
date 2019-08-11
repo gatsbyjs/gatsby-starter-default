@@ -35,6 +35,7 @@ export default class SignupForm extends Component {
             disabled={!this.state.isAccepted}
             onClick={this.signUpRedirect}
             text="Sign Up"
+            className="button--full-width"
           />
         </div>
       </div>
