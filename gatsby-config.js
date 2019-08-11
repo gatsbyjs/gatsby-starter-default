@@ -1,8 +1,8 @@
 module.exports = {
   siteMetadata: {
-    title: `Join the YYJ Tech Community`,
+    title: `YYJ Tech`,
     description: `We are a self-organizing slack community for people who are looking to discuss topics related to technology + Victoria, BC`,
-    author: `@gatsbyjs`,
+    author: `yyjtech`,
   },
   plugins: [
     `gatsby-plugin-react-helmet`,
