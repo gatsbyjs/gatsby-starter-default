@@ -9,7 +9,7 @@ const CalendarPage = () => (
   <Layout>
     <div className="flex-center-column">
       <SEO title="YYJ Tech Events" />
-      <a href="http://bit.ly/yyjtech-events" className="button">Add an event</a> 
+      <a href="http://bit.ly/yyjtech-events" className="button" target="_blank">Add an event</a> 
       <iframe src="https://calendar.google.com/calendar/embed?src=techyyj@gmail.com&ctz=America%2FVancouver" className="styleCalendar"></iframe>
   </div>
   </Layout>
