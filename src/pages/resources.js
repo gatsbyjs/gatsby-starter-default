@@ -18,4 +18,4 @@ const IndexPage = ({siteDescription}) => (
   </Layout>
 )
 
-export default IndexPage
+export default ResourcesPage
