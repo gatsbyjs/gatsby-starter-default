@@ -4,6 +4,13 @@ const Footer = () => (
   <footer className="footer">
     <div className="footer__link">
       <a
+        href="/resources">
+        <span className="footer__link-icon" role="img" aria-hidden="true">🗂️</span>
+        Resources
+      </a>
+    </div>
+    <div className="footer__link">
+      <a
         href="/calendar">
         <span className="footer__link-icon" role="img" aria-hidden="true">📅</span>
         Events
