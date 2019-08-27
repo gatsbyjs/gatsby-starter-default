@@ -1,5 +1,5 @@
 {
-  "name": "gatsby-starter-default",
+  "name": "gatsby-blog",
   "private": true,
   "description": "A simple starter to get up and developing quickly with Gatsby",
   "version": "0.1.0",
@@ -21,9 +21,7 @@
   "devDependencies": {
     "prettier": "^1.18.2"
   },
-  "keywords": [
-    "gatsby"
-  ],
+  "keywords": [],
   "license": "MIT",
   "scripts": {
     "build": "gatsby build",
