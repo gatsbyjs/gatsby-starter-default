@@ -1,6 +1,6 @@
 import React from "react"
 import { Link } from "gatsby"
-import Layout from '../components/Layout'
+import Layout from "../components/Layout"
 
 export const IndexPage = () => (
   <>
@@ -15,7 +15,7 @@ export const IndexPage = () => (
 
 const LayoutIndexPage = () => (
   <Layout>
-    <IndexPage/>
+    <IndexPage />
   </Layout>
 )
 

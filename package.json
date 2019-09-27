@@ -22,6 +22,8 @@
     "@types/react": "^16.9.0",
     "@types/react-dom": "^16.9.0",
     "@types/react-helmet": "^5.0.10",
+    "eslint-config-prettier": "^6.3.0",
+    "eslint-plugin-prettier": "^3.1.1",
     "gatsby-plugin-typescript": "^2.1.11",
     "prettier": "^1.18.2",
     "typescript": "^3.6.3"
@@ -36,8 +38,11 @@
     "format": "prettier --write \"**/*.{js,jsx,json,md}\"",
     "start": "npm run develop",
     "serve": "gatsby serve",
-    "test": "echo \"Write tests! -> https://gatsby.dev/unit-testing \"",
-    "type-check": "tsc --noEmit"
+    "prebuild": "yarn lint && yarn test",
+    "lint": "eslint '{__mocks__,src,test}/**/*.{js,ts,tsx}'",
+    "lint:fix": "eslint --fix '{__mocks__,src,test}/**/*.{js,ts,tsx}'",
+    "type-check": "tsc --noEmit",
+    "test": "echo \"Write tests! -> https://gatsby.dev/unit-testing \""
   },
   "repository": {
     "type": "git",

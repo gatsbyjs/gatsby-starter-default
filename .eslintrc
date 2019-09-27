@@ -1,0 +1,75 @@
+{
+  "parser": "@typescript-eslint/parser",
+  "extends": [
+    "plugin:@typescript-eslint/recommended",
+    "plugin:react/recommended",
+    "prettier/@typescript-eslint",
+    "prettier/react",
+    "plugin:prettier/recommended"
+  ],
+  "plugins": [
+    "@typescript-eslint",
+    "prettier",
+    "react"
+  ],
+  "parserOptions": {
+    "ecmaVersion": 2018,
+    "sourceType": "module",
+    "ecmaFeatures": {
+      "jsx": true
+    }
+  },
+  "rules": {
+    "@typescript-eslint/explicit-function-return-type": "off",
+    "@typescript-eslint/no-useless-constructor": "off",
+    "no-useless-constructor": "off",
+    "react/prop-types": "off"
+  },
+  "overrides": [
+    {
+      "files": [
+        "__mocks__/**/*.js",
+        "**/*.spec.{ts,tsx}"
+      ],
+      "env": {
+        "jest": true
+      },
+      "rules": {
+        "no-restricted-globals": [
+          "error",
+          {
+            "name": "fit",
+            "message": "Use it instead."
+          },
+          {
+            "name": "fdescribe",
+            "message": "Use describe instead."
+          }
+        ],
+        "no-restricted-properties": [
+          "error",
+          {
+            "object": "describe",
+            "property": "only",
+            "message": "Use describe instead."
+          },
+          {
+            "object": "it",
+            "property": "only",
+            "message": "Use it instead."
+          },
+          {
+            "object": "test",
+            "property": "only",
+            "message": "Use test instead."
+          }
+        ]
+      }
+    }
+  ],
+  "settings": {
+    "react": {
+      "version": "detect"
+    }
+  }
+}

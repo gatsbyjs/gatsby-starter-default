@@ -10,16 +10,16 @@ import PropTypes from "prop-types"
 import Helmet from "react-helmet"
 import { useStaticQuery, graphql } from "gatsby"
 
-type metaObject = {
-  name: string,
-  content: string,
+interface MetaObject {
+  name: string
+  content: string
 }
 
 interface SEOProps {
-  description: string,
-  lang: string,
-  meta: metaObject[],
-  title: string,
+  description: string
+  lang: string
+  meta: MetaObject[]
+  title: string
 }
 
 function SEO({ description, lang, meta, title }: SEOProps) {
