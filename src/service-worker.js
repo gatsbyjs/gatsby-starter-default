@@ -1,5 +1,3 @@
-console.log("service-worker.ts")
-
 const requestNotificationPermission = async () => {
   const permission = await Notification.requestPermission()
   // value of permission can be 'granted', 'default', 'denied'
@@ -38,4 +36,9 @@ self.addEventListener("activate", function() {
 
 self.addEventListener("fetch", function(event) {
   console.log("Fetch!", event)
+})
+
+self.addEventListener("push", function(event) {
+  console.log("Push!", event)
+  self.registration.showNotification("push notification works!")
 })

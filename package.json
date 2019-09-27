@@ -1,8 +1,8 @@
 {
-  "name": "gatsby-starter-default",
-  "private": true,
-  "description": "A simple starter to get up and developing quickly with Gatsby",
-  "version": "0.1.0",
+  "name": "gatsby-starter-typescript-PWA",
+  "private": false,
+  "description": "A simple starter to get up and developing quickly with Gatsby, added TypeScript and PWA support",
+  "version": "1.0.0",
   "author": "Kyle Mathews <mathews.kyle@gmail.com>",
   "dependencies": {
     "gatsby": "^2.15.28",
@@ -33,8 +33,8 @@
   ],
   "license": "MIT",
   "scripts": {
-    "build": "gatsby build",
-    "develop": "gatsby develop",
+    "build": "yarn type-check && yarn lint && gatsby build",
+    "develop": "NODE_TLS_REJECT_UNAUTHORIZED=0 gatsby develop --https",
     "format": "prettier --write \"**/*.{js,jsx,json,md}\"",
     "start": "npm run develop",
     "serve": "gatsby serve",
@@ -44,11 +44,12 @@
     "type-check": "tsc --noEmit",
     "test": "echo \"Write tests! -> https://gatsby.dev/unit-testing \""
   },
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/gatsbyjs/gatsby-starter-default"
-  },
+  "repository": "https://github.com/markselby9/gatsby-starter-default.git",
   "bugs": {
     "url": "https://github.com/gatsbyjs/gatsby/issues"
-  }
+  },
+  "contributors": [
+    "Mark Feng <markselbyfcy@gmail.com>"
+  ],
+  "main": "index.js"
 }
