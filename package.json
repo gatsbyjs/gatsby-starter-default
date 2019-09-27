@@ -19,7 +19,12 @@
     "react-helmet": "^5.2.1"
   },
   "devDependencies": {
-    "prettier": "^1.18.2"
+    "@types/react": "^16.9.0",
+    "@types/react-dom": "^16.9.0",
+    "@types/react-helmet": "^5.0.10",
+    "gatsby-plugin-typescript": "^2.1.11",
+    "prettier": "^1.18.2",
+    "typescript": "^3.6.3"
   },
   "keywords": [
     "gatsby"
@@ -31,7 +36,8 @@
     "format": "prettier --write \"**/*.{js,jsx,json,md}\"",
     "start": "npm run develop",
     "serve": "gatsby serve",
-    "test": "echo \"Write tests! -> https://gatsby.dev/unit-testing \""
+    "test": "echo \"Write tests! -> https://gatsby.dev/unit-testing \"",
+    "type-check": "tsc --noEmit"
   },
   "repository": {
     "type": "git",
