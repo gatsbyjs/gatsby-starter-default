@@ -15,7 +15,7 @@ export default class SignupForm extends Component {
   }
 
   signUpRedirect() {
-    window.location = "https://join.slack.com/t/yyjtech/shared_invite/enQtNjQ3NTkzMDg2MDk4LTI4NDdiNjJjNTRmMmI0NTlmNzJkNDg2OWJmNjY5N2IwZWQxMTRkOWNkZTMzYmExMzE1NmY2ZWJmYjY3ZDg1NTc"
+    window.location = "https://join.slack.com/t/yyjtech/shared_invite/enQtNjQ3NTkzMDg2MDk4LTM3YTc5OTY1MDgyZjhmNTkxOWY1MTNjM2I3ZTQ3ZWRjNDIzYWM2MDM5ZGNmYzQ1ZjUxZGMzZjUxMzJiZWJlYjg"
   }
 
   render() {
