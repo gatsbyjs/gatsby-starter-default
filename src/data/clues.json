@@ -1,0 +1,19 @@
+{
+  "id": 51423,
+  "answer": "transformer",
+  "question": "American electrical engineer William Stanley invents this device for changing energy from AC to DC",
+  "value": 1000,
+  "airdate": "2003-07-10T12:00:00.000Z",
+  "created_at": "2014-02-11T23:17:23.065Z",
+  "updated_at": "2014-02-11T23:17:23.065Z",
+  "category_id": 6492,
+  "game_id": null,
+  "invalid_count": null,
+  "category": {
+    "id": 6492,
+    "title": "science & tech digest: 1885",
+    "created_at": "2014-02-11T23:17:22.381Z",
+    "updated_at": "2014-02-11T23:17:22.381Z",
+    "clues_count": 5
+  }
+}
