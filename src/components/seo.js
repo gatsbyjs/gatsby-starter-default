@@ -10,7 +10,7 @@ import PropTypes from "prop-types"
 import Helmet from "react-helmet"
 import { useStaticQuery, graphql } from "gatsby"
 
-function SEO({ description, lang, meta, title }) {
+function SEO({ description, lang, meta, title, img }) {
   const { site } = useStaticQuery(
     graphql`
       query {
@@ -39,6 +39,7 @@ function SEO({ description, lang, meta, title }) {
           name: `description`,
           content: metaDescription,
         },
+
         {
           property: `og:title`,
           content: title,
@@ -51,6 +52,15 @@ function SEO({ description, lang, meta, title }) {
           property: `og:type`,
           content: `website`,
         },
+        {
+          property: `og:image`,
+          content: img,
+        },
+        {
+          property: `og:site_name`,
+          content: `Ask your dog guru`,
+        },
+
         {
           name: `twitter:card`,
           content: `summary`,
@@ -66,6 +76,10 @@ function SEO({ description, lang, meta, title }) {
         {
           name: `twitter:description`,
           content: metaDescription,
+        },
+        {
+          name: `twitter:image`,
+          content: img,
         },
       ].concat(meta)}
     />
@@ -86,3 +100,19 @@ SEO.propTypes = {
 }
 
 export default SEO
+
+// {/* <meta name="twitter:card" content="summary">
+// <meta name="twitter:site" content="@publisher_handle">
+// <meta name="twitter:title" content="Page Title">
+// <meta name="twitter:description" content="Page description less than 200 characters">
+// <meta name="twitter:creator" content="@author_handle">
+// <meta name="twitter:image" content="http://www.example.com/image.jpg"> */}
+
+// {/* <meta property="og:title" content="Title Here" />
+// <meta property="og:type" content="article" />
+// <meta property="og:description" content="Description Here" />
+// <meta property="og:image" content="http://example.com/image.jpg" />
+// <meta property="og:site_name" content="Site Name, i.e. Moz" />
+
+// <meta property="og:url" content="http://www.example.com/" />
+// <meta property="fb:admins" content="Facebook numeric ID" /> */}

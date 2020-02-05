@@ -1,0 +1,184 @@
+.shadow {
+  /* box-shadow: 0px 25px 50px 0px rgba(0, 0, 0, 0.25); */
+  box-shadow: 0px 25px 50px 0px rgba(0, 0, 0, 0.5);
+}
+.shadowSmall {
+  box-shadow: 0px 25px 50px 0px rgba(0, 0, 0, 0.25);
+  /* box-shadow: 0px 25px 50px 0px rgba(0, 0, 0, 0.5); */
+  /* box-shadow: 0 13px 27px -5px rgba(50,50,93,.25), 0 8px 16px -8px rgba(0,0,0,.3), 0 -6px 16px -6px rgba(0,0,0,.025); */
+}
+
+.box {
+  box-shadow: 0px 4px 10px 0px rgba(0, 0, 0, 0.13);
+}
+
+.box:hover {
+  box-shadow: 0 13px 27px -5px rgba(50, 50, 93, 0.25),
+    0 8px 16px -8px rgba(0, 0, 0, 0.3), 0 -6px 16px -6px rgba(0, 0, 0, 0.025);
+}
+
+.podcastBox {
+  /* box-shadow: 0px 4px 15px 0px rgba(0, 0, 0, 0.25); */
+  box-shadow: 0 13px 27px -5px rgba(50, 50, 93, 0.25),
+    0 8px 16px -8px rgba(0, 0, 0, 0.3), 0 -6px 16px -6px rgba(0, 0, 0, 0.025);
+}
+
+.podcastBox:hover {
+  box-shadow: 0 30px 60px -12px rgba(50, 50, 93, 0.25),
+    0 18px 36px -18px rgba(0, 0, 0, 0.3), 0 -12px 36px -8px rgba(0, 0, 0, 0.025);
+}
+
+.player {
+  text-align: center;
+  /* margin-top: 120px; */
+  position: -webkit-sticky;
+  position: sticky;
+  bottom: 0;
+  width: 100%;
+  border-top: 1px solid #f4f5f9;
+  padding: 16px;
+  /* padding-top: 32px; */
+  padding-bottom: 24px;
+  /* padding-left: 16px;/ */
+  /* padding-right: 16px; */
+}
+
+@media (min-width: 1024px) {
+  .player {
+    padding-bottom: 32px;
+  }
+}
+
+.slope {
+  position: absolute;
+  width: 100%;
+  height: 28%;
+  overflow: hidden;
+  -webkit-transform: skewY(-12deg);
+  transform: skewY(-7deg);
+  -webkit-transform-origin: 0;
+  transform-origin: 0;
+  /* background: linear-gradient(150deg,#53f 15%,#05d5ff 70%,#a6ffcb 94%); */
+  /* background: aliceblue; */
+  /* background: #edf2f7; */
+  /* background: rgb(10, 51, 67); */
+  /* background: rgb(3, 152, 149); */
+  background: rgb(6, 136, 142);
+}
+
+.footer {
+  /* background: rgb(10, 51, 67); */
+  /* background: rgb(27, 76, 115); */
+  /* background: rgb(3, 152, 149); */
+  background: rgb(6, 136, 142);
+}
+
+/* position: relative; */
+/* padding-top: 80px !important; */
+
+/* @media screen and (min-width: 1024px) {
+  .slope {
+    height: 30% !important;
+    min-height: 400px !important;
+    transform: skewY(-5deg) !important;
+  }
+} */
+
+/* @media screen and (min-width: 768px) {
+  .slope {
+    height: 30%;
+    min-height: 0px;
+    transform: skewY(-5deg);
+  }
+} */
+
+/* @media screen and (max-width: 767px) { */
+/* .slope { */
+/* height: 52%; */
+/* min-height: 375px; */
+
+/* height: 50vh !important; */
+/* max-height: 375px; */
+/* -webkit-transform: skewY(-12deg); */
+/* transform: skewY(-20deg); */
+/* } */
+/* } */
+
+/* @media screen and (min-width: 540px) {
+  .slope {
+    min-height: 450px;
+  }
+} */
+
+/* @media screen and (max-width: 320px) {
+  .slope {
+    height: 50vh !important;
+    max-height: 300px;
+    min-height: 0;
+    -webkit-transform: skewY(-12deg);
+    transform: skewY(-16deg);
+  }
+} */
+
+@media screen and (max-width: 320px) {
+  .slope {
+    height: 50vh !important;
+    max-height: 300px !important;
+    min-height: 0;
+    -webkit-transform: skewY(-12deg);
+    transform: skewY(-16deg) !important;
+  }
+}
+
+@media screen and (min-width: 540px) {
+  .slope {
+    min-height: 450px;
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .slope {
+    height: 50vh !important;
+    max-height: 375px;
+    -webkit-transform: skewY(-12deg);
+    transform: skewY(-20deg);
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .slope {
+    height: 30%;
+    min-height: 0px;
+    transform: skewY(-5deg);
+  }
+}
+
+@media (min-width: 768px) and (max-height: 768px) {
+  .slope {
+    min-height: 300px;
+  }
+}
+
+@media screen and (min-width: 1024px) {
+  .slope {
+    height: 30% !important;
+    min-height: 310px !important;
+    transform: skewY(-5deg) !important;
+  }
+}
+
+@media screen and (min-width: 1134px) {
+  .slope {
+    height: 30% !important;
+    min-height: 400px !important;
+    transform: skewY(-5deg) !important;
+  }
+}
+
+@media screen and (min-width: 1600px) {
+  .slope {
+    height: 30% !important;
+    min-height: 450px !important;
+    transform: skewY(-5deg) !important;
+  }
+}
