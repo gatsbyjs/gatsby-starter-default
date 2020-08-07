@@ -1,8 +1,14 @@
-/**
- * Implement Gatsby's Node APIs in this file.
- *
- * See: https://www.gatsbyjs.org/docs/node-apis/
- */
+const path = require("path")
 
-// You can delete this file if you're not using it
-console.log("Hello world!")
+exports.createPages = async ({ actions }) => {
+  const { createPage } = actions
+
+  createPage({
+    path: "aPage",
+    component: path.resolve(`./src/templates/index.jsx`),
+    context: {
+      locale: "es-ES",
+      categoryPageId: "75WIKPg3mdGcMauu3TBNCS",
+    },
+  })
+}
