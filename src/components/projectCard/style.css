@@ -1,0 +1,12 @@
+.projects-container {
+  border-radius: 0.5em;
+  background-color: transparent;
+}
+.projects-container .project-container {
+  border-radius: 0.5em;
+  background-color: #fff;
+  display: flex;
+  flex-direction: column;
+  padding: 1em;
+  margin: 1em;
+}
