@@ -8,7 +8,8 @@ exports.createPages = async ({ actions }) => {
     component: path.resolve(`./src/templates/index.jsx`),
     context: {
       locale: "es-ES",
-      categoryPageId: "75WIKPg3mdGcMauu3TBNCS",
+      // categoryPageId: "75WIKPg3mdGcMauu3TBNCS", // Business cards
+      categoryPageId: "01HPMWw7VuJVYd2gVmNXmy", // Stationary
     },
   })
 }

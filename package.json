@@ -6,7 +6,8 @@
   "author": "Kyle Mathews <mathews.kyle@gmail.com>",
   "dependencies": {
     "@vp/gatsby-pages-issues-tracker-plugin": "^6.1.1",
-    "@vp/gatsby-transformer-links": "^1.12.1",
+    "@vp/gatsby-source-gallery-url": "^0.1.1",
+    "@vp/gatsby-transformer-links": "^1.13.0",
     "core-js": "2.6.8",
     "gatsby": "^2.24.34",
     "gatsby-image": "^2.4.4",

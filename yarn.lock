@@ -2643,18 +2643,18 @@
   dependencies:
     wonka "^4.0.10"
 
-"@vp/contentful-link-transformer@^1.12.0":
-  version "1.12.0"
-  resolved "https://vistaprint.jfrog.io/vistaprint/api/npm/npm/@vp/contentful-link-transformer/-/@vp/contentful-link-transformer-1.12.0.tgz#74f40f2fcc261c472e0ed571c2b15bfbff3d84c1"
-  integrity sha1-dPQPL8wmHEcuDtVxwrFb+/89hME=
+"@vp/contentful-link-transformer@^1.13.1":
+  version "1.13.1"
+  resolved "https://vistaprint.jfrog.io/vistaprint/api/npm/npm/@vp/contentful-link-transformer/-/@vp/contentful-link-transformer-1.13.1.tgz#b0fb35e4163854f75d28f6ab8b495f58ffce3d9f"
+  integrity sha1-sPs15BY4VPddKPari0lfWP/OPZ8=
   dependencies:
     "@vp/link-services" "^1.0.1"
     node-cache "^5.1.1"
 
 "@vp/gatsby-pages-issues-tracker-plugin@^6.1.1":
-  version "6.1.1"
-  resolved "https://vistaprint.jfrog.io/vistaprint/api/npm/npm/@vp/gatsby-pages-issues-tracker-plugin/-/@vp/gatsby-pages-issues-tracker-plugin-6.1.1.tgz#6d054d583f26bc141733a194cb7ddf681d246197"
-  integrity sha1-bQVNWD8mvBQXM6GUy33faB0kYZc=
+  version "6.5.0"
+  resolved "https://vistaprint.jfrog.io/vistaprint/api/npm/npm/@vp/gatsby-pages-issues-tracker-plugin/-/@vp/gatsby-pages-issues-tracker-plugin-6.5.0.tgz#d8e0a613f9cb2a700bf881177e0875ce8bde07ed"
+  integrity sha1-2OCmE/nLKnAL+IEXfgh1zoveB+0=
   dependencies:
     "@babel/core" "7.9.6"
     "@babel/generator" "7.9.6"
@@ -2670,15 +2670,24 @@
     lodash.get "4.4.2"
     lodash.groupby "4.6.0"
     react-countdown "2.2.1"
+    react-portal-tooltip "2.4.7"
     react-ssr-error-boundary "1.0.1"
     require-from-string "2.0.2"
+    uuid "^8.3.0"
 
-"@vp/gatsby-transformer-links@^1.12.1":
-  version "1.12.1"
-  resolved "https://vistaprint.jfrog.io/vistaprint/api/npm/npm/@vp/gatsby-transformer-links/-/@vp/gatsby-transformer-links-1.12.1.tgz#d446e41b77e8b6a3a0357651d5e4395fd50886d2"
-  integrity sha1-1EbkG3fotqOgNXZR1eQ5X9UIhtI=
+"@vp/gatsby-source-gallery-url@^0.1.1":
+  version "0.1.1"
+  resolved "https://vistaprint.jfrog.io/vistaprint/api/npm/npm/@vp/gatsby-source-gallery-url/-/@vp/gatsby-source-gallery-url-0.1.1.tgz#27a373d0d0484f287fbfd746cf11a48af8327d21"
+  integrity sha1-J6Nz0NBITyh/v9dGzxGkivgyfSE=
   dependencies:
-    "@vp/contentful-link-transformer" "^1.12.0"
+    axios "^0.19.2"
+
+"@vp/gatsby-transformer-links@^1.13.0":
+  version "1.13.0"
+  resolved "https://vistaprint.jfrog.io/vistaprint/api/npm/npm/@vp/gatsby-transformer-links/-/@vp/gatsby-transformer-links-1.13.0.tgz#c6eff3ebc634da9d1c13d642a1bd113954feb843"
+  integrity sha1-xu/z68Y02p0cE9ZCob0ROVT+uEM=
+  dependencies:
+    "@vp/contentful-link-transformer" "^1.13.1"
 
 "@vp/hopper-live-site@^1.4.0":
   version "1.4.0"
@@ -12425,6 +12434,11 @@ react-lifecycles-compat@^3.0.4:
   resolved "https://registry.yarnpkg.com/react-lifecycles-compat/-/react-lifecycles-compat-3.0.4.tgz#4f1a273afdfc8f3488a8c516bfda78f872352362"
   integrity sha512-fBASbA6LnOU9dOU2eW7aQ8xmYBSXUIWr+UmF9b1efZBazGNO+rcXT/icdKnYm2pTwcRylVUYwW7H1PHfLekVzA==
 
+react-portal-tooltip@2.4.7:
+  version "2.4.7"
+  resolved "https://registry.yarnpkg.com/react-portal-tooltip/-/react-portal-tooltip-2.4.7.tgz#77fd4a75760afecd116736c480485aa22cbbb740"
+  integrity sha512-ZOuCKpvu8rr6aS6nNjckd78qEgWyHZnKidZ9Yqrd0HR5K9NYJ7csb4duc0kEXeG8DiCWsLPU70o1EVP+MxlINg==
+
 react-reconciler@^0.24.0:
   version "0.24.0"
   resolved "https://registry.yarnpkg.com/react-reconciler/-/react-reconciler-0.24.0.tgz#5a396b2c2f5efe8554134a5935f49f546723f2dd"
@@ -15094,7 +15108,7 @@ uuid@3.4.0, uuid@^3.0.0, uuid@^3.0.1, uuid@^3.3.2, uuid@^3.4.0:
   resolved "https://registry.yarnpkg.com/uuid/-/uuid-3.4.0.tgz#b23e4358afa8a202fe7a100af1f5f883f02007ee"
   integrity sha512-HjSDRw6gZE5JMggctHBcjVak08+KEVhSIiDzFnT9S9aegmp85S/bReBVTb4QTFaRNptJ9kuYaNhnbNEOkbKb/A==
 
-uuid@^8.2.0:
+uuid@^8.2.0, uuid@^8.3.0:
   version "8.3.0"
   resolved "https://registry.yarnpkg.com/uuid/-/uuid-8.3.0.tgz#ab738085ca22dc9a8c92725e459b1d507df5d6ea"
   integrity sha512-fX6Z5o4m6XsXBdli9g7DtWgAx+osMsRRZFKma1mIUsLCz6vRvv+pz5VNbyu9UEDzpMWulZfvpgb/cmDXVulYFQ==

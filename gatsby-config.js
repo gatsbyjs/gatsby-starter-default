@@ -12,16 +12,18 @@ module.exports = {
         optionsUrlField: "targetUrl",
         optionsMPVField: "targetUrl",
         resolvedLinkfieldName: "transformedTargetUrl",
-        tenant: process.env.GATSBY_TENANT,
-        /**
-         * Acceptable failure level 0-5
-         * 0 - All exceptions are thrown
-         * 1 - Author exceptions are consumed silently and not thrown
-         * 2 - Data model exceptions are consumed silently and not thrown
-         * 3 - Url Service 400 level errors are consumed silently and are not thrown
-         * 4 - Url Service 500 level errors are consumed silently and are not thrown
-         * 5 - Consume everything possible
-         */
+        tenant: "vistaprint",
+        acceptableFailureLevel: 5,
+      },
+    },
+    {
+      resolve: "@vp/gatsby-transformer-links",
+      options: {
+        containingComponent: "ContentfulProductTile",
+        optionsUrlField: "url",
+        optionsMPVField: ["merchandisingElement", "mpvId"],
+        resolvedLinkfieldName: "transformedUrl",
+        tenant: "vistaprint",
         acceptableFailureLevel: 5,
       },
     },
@@ -64,9 +66,18 @@ module.exports = {
         spaceId: "olowdmhx072v",
         environment: "master",
         tenant: "vistaprint",
-        isPreview: true,
+        requestor: "local-test",
+        isPreview: false,
+        slackChannelName: "testing-issues-tracker",
         authoringLink:
           "https://vistaprint.atlassian.net/wiki/spaces/MT/pages/193168378/Category+Page+Setup#Authoring-Content",
+      },
+    },
+    {
+      resolve: `@vp/gatsby-source-gallery-url`,
+      options: {
+        spaceId: "olowdmhx072v",
+        environment: "master",
       },
     },
   ],
