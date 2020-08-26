@@ -53,9 +53,9 @@ export default ({ data }) => {
           <div>Transformed target url: {marqueeCta.transformedTargetUrl}</div>
         </div>
       )}
-      {/* <div>Sidebar section links</div>
-      {SideBarSectionLinks(sidebarSections)} */}
-      <div>Category page sections</div>
+      <h3>Sidebar section links</h3>
+      {SideBarSectionLinks(sidebarSections)}
+      <h3>Category page sections</h3>
       {CategoryPageSections(categoryPageSections)}
     </div>
   )
@@ -68,13 +68,13 @@ export const IndexPage = graphql`
       node_locale: { eq: $locale }
     ) {
       showSidebar
-      #seo {
-      #  metaDescription {
-      #    internal {
-      #      content
-      #    }
-      #  }
-      #}
+      seo {
+        metaDescription {
+          internal {
+            content
+          }
+        }
+      }
       #marqueeCta {
       #  text
       #  targetUrl {
@@ -82,16 +82,16 @@ export const IndexPage = graphql`
       #  }
       #  transformedTargetUrl(locale: $locale)
       #}
-      #sidebarSections {
-      #  sectionHeader
-      #  sectionLinks {
-      #    text
-      #    targetUrl {
-      #      contentfulUrl
-      #    }
-      #    transformedTargetUrl(locale: $locale)
-      #  }
-      #}
+      sidebarSections {
+        sectionHeader
+        sectionLinks {
+          text
+          targetUrl {
+            contentfulUrl
+          }
+          transformedTargetUrl(locale: $locale)
+        }
+      }
       categoryPageSections {
         sectionHeader
         productTiles {
@@ -137,11 +137,34 @@ export const validateData = ({ issuesRegistry, helpers, pageData }) => {
   //     { group: "sidebar" }
   //   )
   // }
-  // issuesRegistry.registerDataIssueIfEmpty(
-  //   [
-  //     "contentfulPageCategoryPage.seo.metaDescription.internal[].content",
-  //     "contentfulPageCategoryPage.seo[].metaDescription.internal.content",
-  //   ],
-  //   { group: "seo" }
-  // )
+  issuesRegistry.registerDataIssueIfEmpty(
+    [
+      "contentfulPageCategoryPage.seo.metaDescription.internal[].content",
+      "contentfulPageCategoryPage.seo[].metaDescription.internal.content",
+    ],
+    { group: "seo" }
+  )
+
+  issuesRegistry.registerDataIssueIf(
+    "contentfulPageCategoryPage.seo.metaDescription",
+    value => value !== "critical",
+    { group: "critical", message: "Critical issue detected" }
+  )
+
+  issuesRegistry.registerDataIssueIf(
+    "contentfulPageCategoryPage.seo.metaDescription",
+    value => value !== "criticalDeveloper",
+    { group: "critical", isDeveloper: true, message: "Critical developer issue detected" }
+  )
+
+  issuesRegistry.registerDataIssueIf(
+    "contentfulPageCategoryPage.seo.metaDescription",
+    value => value !== "developer",
+    { group: "developer", isDeveloper: true, message: "Developer issue detected" }
+  )
+  issuesRegistry.registerDataIssueIf(
+    "contentfulPageCategoryPage.seo.metaDescription",
+    value => value !== "normal",
+    { group: "normal", message: "Normal issue detected" }
+  )
 }

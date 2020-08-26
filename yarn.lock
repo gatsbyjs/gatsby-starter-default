@@ -2651,10 +2651,8 @@
     "@vp/link-services" "^1.0.1"
     node-cache "^5.1.1"
 
-"@vp/gatsby-pages-issues-tracker-plugin@^6.1.1":
-  version "6.5.0"
-  resolved "https://vistaprint.jfrog.io/vistaprint/api/npm/npm/@vp/gatsby-pages-issues-tracker-plugin/-/@vp/gatsby-pages-issues-tracker-plugin-6.5.0.tgz#d8e0a613f9cb2a700bf881177e0875ce8bde07ed"
-  integrity sha1-2OCmE/nLKnAL+IEXfgh1zoveB+0=
+"@vp/gatsby-pages-issues-tracker-plugin@file:.yalc/@vp/gatsby-pages-issues-tracker-plugin":
+  version "7.8.0"
   dependencies:
     "@babel/core" "7.9.6"
     "@babel/generator" "7.9.6"
@@ -2667,8 +2665,8 @@
     axios "0.19.2"
     babel-preset-gatsby "^0.4.7"
     camelcase "^6.0.0"
+    is-promise "4.0.0"
     lodash.get "4.4.2"
-    lodash.groupby "4.6.0"
     react-countdown "2.2.1"
     react-portal-tooltip "2.4.7"
     react-ssr-error-boundary "1.0.1"
@@ -2682,10 +2680,8 @@
   dependencies:
     axios "^0.19.2"
 
-"@vp/gatsby-transformer-links@^1.13.0":
+"@vp/gatsby-transformer-links@file:.yalc/@vp/gatsby-transformer-links":
   version "1.13.0"
-  resolved "https://vistaprint.jfrog.io/vistaprint/api/npm/npm/@vp/gatsby-transformer-links/-/@vp/gatsby-transformer-links-1.13.0.tgz#c6eff3ebc634da9d1c13d642a1bd113954feb843"
-  integrity sha1-xu/z68Y02p0cE9ZCob0ROVT+uEM=
   dependencies:
     "@vp/contentful-link-transformer" "^1.13.1"
 
@@ -9152,6 +9148,11 @@ is-png@^1.0.0:
   resolved "https://registry.yarnpkg.com/is-png/-/is-png-1.1.0.tgz#d574b12bf275c0350455570b0e5b57ab062077ce"
   integrity sha1-1XSxK/J1wDUEVVcLDltXqwYgd84=
 
+is-promise@4.0.0:
+  version "4.0.0"
+  resolved "https://registry.yarnpkg.com/is-promise/-/is-promise-4.0.0.tgz#42ff9f84206c1991d26debf520dd5c01042dd2f3"
+  integrity sha512-hvpoI6korhJMnej285dSg6nu1+e6uxs7zG3BYAm5byqDsgJNWwxzM6z6iZiAgQR4TJ30JmBTOwqZUw3WlyH3AQ==
+
 is-regex@^1.0.4, is-regex@^1.0.5:
   version "1.0.5"
   resolved "https://registry.yarnpkg.com/is-regex/-/is-regex-1.0.5.tgz#39d589a358bf18967f726967120b8fc1aed74eae"
@@ -9757,11 +9758,6 @@ lodash.get@4.4.2:
   version "4.4.2"
   resolved "https://registry.yarnpkg.com/lodash.get/-/lodash.get-4.4.2.tgz#2d177f652fa31e939b4438d5341499dfa3825e99"
   integrity sha1-LRd/ZS+jHpObRDjVNBSZ36OCXpk=
-
-lodash.groupby@4.6.0:
-  version "4.6.0"
-  resolved "https://registry.yarnpkg.com/lodash.groupby/-/lodash.groupby-4.6.0.tgz#0b08a1dcf68397c397855c3239783832df7403d1"
-  integrity sha1-Cwih3PaDl8OXhVwyOXg4Mt90A9E=
 
 lodash.map@^4.6.0:
   version "4.6.0"

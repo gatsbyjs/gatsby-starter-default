@@ -1,3 +1,7 @@
+require("dotenv").config({
+  path: `.env.development`,
+})
+
 module.exports = {
   siteMetadata: {
     title: `Gatsby Default Starter`,
@@ -14,6 +18,7 @@ module.exports = {
         resolvedLinkfieldName: "transformedTargetUrl",
         tenant: "vistaprint",
         acceptableFailureLevel: 5,
+        convertToAbsoluteUrls: false,
       },
     },
     {
@@ -25,6 +30,7 @@ module.exports = {
         resolvedLinkfieldName: "transformedUrl",
         tenant: "vistaprint",
         acceptableFailureLevel: 5,
+        convertToAbsoluteUrls: false,
       },
     },
     `gatsby-plugin-react-helmet`,
@@ -35,8 +41,6 @@ module.exports = {
         path: `${__dirname}/src/images`,
       },
     },
-    `gatsby-transformer-sharp`,
-    `gatsby-plugin-sharp`,
     `gatsby-plugin-sass`,
     {
       resolve: `gatsby-plugin-manifest`,
@@ -53,11 +57,11 @@ module.exports = {
     {
       resolve: `gatsby-source-contentful`,
       options: {
-        spaceId: "olowdmhx072v",
-        accessToken: "w52kGuO0utnkP3dHQYRNjy369tgL3QoS8t8hl3AlmvQ",
+        spaceId: process.env.SPACE_ID,
+        accessToken: process.env.ACCESS_TOKEN,
         environment: "master",
         forceFullSync: true,
-        localeFilter: locale => locale.code === "es-ES",
+        localeFilter: locale => ["en-GB", "es-ES"].includes(locale.code),
       },
     },
     {
@@ -68,7 +72,7 @@ module.exports = {
         tenant: "vistaprint",
         requestor: "local-test",
         isPreview: false,
-        slackChannelName: "testing-issues-tracker",
+        developerNotificationsSlackChannel: "testing-issues-tracker",
         authoringLink:
           "https://vistaprint.atlassian.net/wiki/spaces/MT/pages/193168378/Category+Page+Setup#Authoring-Content",
       },
