@@ -5,51 +5,29 @@
  * See: https://www.gatsbyjs.com/docs/use-static-query/
  */
 
-import * as React from "react"
-import PropTypes from "prop-types"
+import React from "react"
 import { useStaticQuery, graphql } from "gatsby"
-
+import { Box } from "@theme-ui/components"
+import { i18nContext, languages } from "../context/i18nContext"
 import Header from "./header"
-import "./layout.css"
 
-const Layout = ({ children }) => {
+const Layout = ({ children, locale }) => {
   const data = useStaticQuery(graphql`
     query SiteTitleQuery {
-      site {
-        siteMetadata {
-          title
-        }
+      site: datoCmsSite {
+        locale
       }
     }
   `)
 
   return (
-    <>
-      <Header siteTitle={data.site.siteMetadata?.title || `Title`} />
-      <div
-        style={{
-          margin: `0 auto`,
-          maxWidth: 960,
-          padding: `0 1.0875rem 1.45rem`,
-        }}
-      >
-        <main>{children}</main>
-        <footer
-          style={{
-            marginTop: `2rem`,
-          }}
-        >
-          © {new Date().getFullYear()}, Built with
-          {` `}
-          <a href="https://www.gatsbyjs.com">Gatsby</a>
-        </footer>
-      </div>
-    </>
+    <i18nContext.Provider
+      value={languages[locale] || languages[data.site.locale]}
+    >
+      <Header />
+      <Box as="main">{children}</Box>
+    </i18nContext.Provider>
   )
-}
-
-Layout.propTypes = {
-  children: PropTypes.node.isRequired,
 }
 
 export default Layout
