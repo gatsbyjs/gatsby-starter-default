@@ -20,7 +20,7 @@ const Nav = () => {
     if (item.link) {
       switch (item.link.model.apiKey) {
         case "page":
-          return <Link to={getPagePath(item.link)}>{item.anchor}</Link>
+          return <Link to={getPagePath(item.link, locale)}>{item.anchor}</Link>
         case "blog_page":
           return <Link to={getBlogPath(item.link)}>{item.anchor}</Link>
         case "article":
