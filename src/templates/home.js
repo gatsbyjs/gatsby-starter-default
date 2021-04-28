@@ -2,11 +2,18 @@ import React from "react"
 import { graphql } from "gatsby"
 import { Container, Heading } from "@theme-ui/components"
 import Layout from "../components/layout"
+import { LanguageSwitcherContext } from "../context/languageSwitcherContext"
+import { getHomePath } from "../utils/path"
 
-const Home = ({ data: { page } }) => {
-  // console.log(page)
+const Home = ({ data: { page, site } }) => {
+  const i18nPaths = site.locales.map(locale => {
+    return {
+      locale: locale,
+      value: getHomePath(locale),
+    }
+  })
   return (
-    <Layout locale={page.locale}>
+    <Layout locale={page.locale} i18nPaths={i18nPaths}>
       <Container>
         <Heading as="h1">{page.title}</Heading>
       </Container>
@@ -22,6 +29,9 @@ export const query = graphql`
       id
       title
       locale
+    }
+    site: datoCmsSite {
+      locales
     }
   }
 `

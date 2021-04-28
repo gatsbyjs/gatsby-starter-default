@@ -16,6 +16,7 @@ export const useMenu = lang => {
             ... on DatoCmsPage {
               ...PageDetails
               ...PageTreeParent
+              ...AllSlugLocales
             }
             ... on DatoCmsExternalLink {
               id
@@ -40,6 +41,7 @@ export const useMenu = lang => {
               ... on DatoCmsPage {
                 ...PageDetails
                 ...PageTreeParent
+                ...AllSlugLocales
               }
               ... on DatoCmsExternalLink {
                 id
@@ -64,6 +66,7 @@ export const useMenu = lang => {
                 ... on DatoCmsPage {
                   ...PageDetails
                   ...PageTreeParent
+                  ...AllSlugLocales
                 }
                 ... on DatoCmsExternalLink {
                   id
