@@ -94,7 +94,7 @@ exports.createPages = async function ({ actions, graphql }) {
     actions.createPage({
       path: getBlogPath(page),
       component: require.resolve(`./src/templates/blog.js`),
-      context: { id: page.id },
+      context: { id: page.id, locale: page.locale },
     })
   )
 
@@ -102,7 +102,7 @@ exports.createPages = async function ({ actions, graphql }) {
     actions.createPage({
       path: getArticlePath(page),
       component: require.resolve(`./src/templates/article.js`),
-      context: { id: page.id },
+      context: { id: page.id, locale: page.locale },
     })
   )
 }

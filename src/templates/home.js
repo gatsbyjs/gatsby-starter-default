@@ -2,7 +2,6 @@ import React from "react"
 import { graphql } from "gatsby"
 import { Container, Heading } from "@theme-ui/components"
 import Layout from "../components/layout"
-import { LanguageSwitcherContext } from "../context/languageSwitcherContext"
 import { getHomePath } from "../utils/path"
 
 const Home = ({ data: { page, site } }) => {

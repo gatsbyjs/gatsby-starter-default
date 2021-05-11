@@ -7,7 +7,6 @@ const Header = () => {
   return (
     <Box as="header">
       <Nav />
-      <LanguageSwitcher />
     </Box>
   )
 }

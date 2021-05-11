@@ -31,6 +31,7 @@ export const useMenu = lang => {
             }
             ... on DatoCmsArticle {
               ...ArticleDetails
+              ...ArticleAllSlugLocales
             }
           }
           treeChildren {
@@ -56,6 +57,7 @@ export const useMenu = lang => {
               }
               ... on DatoCmsArticle {
                 ...ArticleDetails
+                ...ArticleAllSlugLocales
               }
             }
             treeChildren {
@@ -81,6 +83,7 @@ export const useMenu = lang => {
                 }
                 ... on DatoCmsArticle {
                   ...ArticleDetails
+                  ...ArticleAllSlugLocales
                 }
               }
             }

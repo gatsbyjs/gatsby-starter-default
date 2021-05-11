@@ -1,16 +1,25 @@
 import React from "react"
 import { graphql } from "gatsby"
-import { Container, Heading } from "@theme-ui/components"
+import { Container } from "@theme-ui/components"
 import Layout from "../components/layout"
-import Breadcrumbs from "../components/breadcrumbs"
+import { getBlogPath } from "../utils/path"
+import ArticlesList from "./articlesList"
+import PageTitle from "../components/pageTitle"
 
-const Blog = ({ data: { page } }) => {
-  // console.log(page)
+const Blog = ({ data: { page, articles, site } }) => {
+  // console.log(articles)
+  const i18nPaths = site.locales.map(locale => {
+    return {
+      locale: locale,
+      value: getBlogPath(locale),
+    }
+  })
+
   return (
-    <Layout locale={page.locale}>
-      <Container>
-        <Heading as="h1">{page.title}</Heading>
-        <Breadcrumbs page={page} />
+    <Layout locale={page.locale} i18nPaths={i18nPaths}>
+      <PageTitle page={page} />
+      <Container variant="md">
+        <ArticlesList articles={articles.nodes} />
       </Container>
     </Layout>
   )
@@ -19,9 +28,21 @@ const Blog = ({ data: { page } }) => {
 export default Blog
 
 export const query = graphql`
-  query BlogQuery($id: String!) {
+  query BlogQuery($id: String!, $locale: String!) {
     page: datoCmsBlogPage(id: { eq: $id }) {
       ...BlogDetails
+    }
+    articles: allDatoCmsArticle(
+      filter: { slug: { ne: null }, locale: { eq: $locale } }
+    ) {
+      nodes {
+        ...ArticleDetails
+        ...ArticleAllSlugLocales
+        ...ArticleMeta
+      }
+    }
+    site: datoCmsSite {
+      locales
     }
   }
 
@@ -33,5 +54,4 @@ export const query = graphql`
       apiKey
     }
   }
-
 `

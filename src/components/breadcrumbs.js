@@ -1,6 +1,6 @@
 import React from "react"
-import { Box } from "@theme-ui/components"
-import Link from "./link"
+import { Box, Flex } from "@theme-ui/components"
+import {Link} from "./link"
 import { getBlogPath, getHomePath, getPagePath } from "../utils/path"
 
 const Breadcrumbs = ({ page }) => {
@@ -17,40 +17,86 @@ const Breadcrumbs = ({ page }) => {
   }
 
   const PageBreadcrumbs = ({ page }) => (
-    <Box as="ul">
-      <Box as="li">
+    <List>
+      <Item>
         <Link to={getHomePath(page.locale)}>Home</Link>
-      </Box>
+      </Item>
       {page.treeParent && page.treeParent.treeParent && (
-        <Box as="li">
+        <Item>
           <Link to={getPagePath(page.treeParent.treeParent)}>
             {page.treeParent.treeParent.title ||
               page.treeParent.treeParent.name}
           </Link>
-        </Box>
+        </Item>
       )}
       {page.treeParent && (
-        <Box as="li">
+        <Item>
           <Link to={getPagePath(page.treeParent)}>{page.treeParent.title}</Link>
-        </Box>
+        </Item>
       )}
-      <Box as="li">{page.title}</Box>
-    </Box>
+      <Item>{page.title}</Item>
+    </List>
   )
 
   const ArticleBreadcrumbs = ({ page }) => (
-    <Box as="ul">
-      <Box as="li">
+    <List>
+      <Item>
         <Link to={getHomePath(page.locale)}>Home</Link>
-      </Box>
-      <Box as="li">
-        <Link to={getBlogPath(page)}>Blog</Link>
-      </Box>
-      <Box as="li">{page.title}</Box>
-    </Box>
+      </Item>
+      <Item>
+        <Link to={getBlogPath(page.locale)}>Blog</Link>
+      </Item>
+      {/* <Item>{page.title}</Item> */}
+    </List>
   )
 
   return <>{renderSwitch(page)}</>
+}
+
+const List = props => {
+  return (
+    <Flex
+      {...props}
+      sx={{
+        flexDirection: "row",
+        margin: 0,
+        padding: 0,
+        listStyle: "none",
+        a: {
+          textDecoration: "none",
+          color: "lightGrey",
+          "&:hover": {
+            textDecoration: "underline",
+          },
+        },
+      }}
+      as="ul"
+    />
+  )
+}
+
+const Item = props => {
+  return (
+    <Box
+      {...props}
+      sx={{
+        marginRight: 2,
+        "&::after": {
+          content: '"|"',
+          color: "lightGrey",
+          marginLeft: 2,
+          display: ["none", "none", "inline"],
+        },
+        "&:last-child": {
+          marginRight: 0,
+          "&::after": {
+            display: "none",
+          },
+        },
+      }}
+      as="li"
+    />
+  )
 }
 
 export default Breadcrumbs

@@ -1,77 +1,70 @@
-import { Box } from "@theme-ui/components"
+import { Box, Container, Flex } from "@theme-ui/components"
 import React from "react"
 import { i18nContext } from "../context/i18nContext"
 import { useMenu } from "../hooks/useMenu"
-import {
-  getArticlePath,
-  getBlogPath,
-  getHomePath,
-  getPagePath,
-} from "../utils/path"
-import Link from "./link"
-import { Link as ThemeUiLink } from "theme-ui"
+import { getHomePath } from "../utils/path"
+import { Link } from "./link"
+import linkSwitch from "../utils/linkSwitch"
+import LanguageSwitcher from "./languageSwitcher"
 
 const Nav = () => {
   const locale = React.useContext(i18nContext).locale
   const menu = useMenu(locale)
   //   console.log(menu)
 
-  function renderSwitch(item) {
-    if (item.link) {
-      switch (item.link.model.apiKey) {
-        case "page":
-          return <Link to={getPagePath(item.link, locale)}>{item.anchor}</Link>
-        case "blog_page":
-          return <Link to={getBlogPath(item.link)}>{item.anchor}</Link>
-        case "article":
-          return <Link to={getArticlePath(item.link)}>{item.anchor}</Link>
-        case "external_link":
-          return (
-            <ThemeUiLink
-              href={item.link.url}
-              target="blank"
-              rel="nofollow noopener"
-            >
-              {item.anchor}
-            </ThemeUiLink>
-          )
-        default:
-          return null
-      }
-    }
-    return <Box>{item.anchor}</Box>
-  }
-
-  const TextComponent = ({ item }) => (
-    <>
-      {item.treeChildren && (
-        <Box as="ul">
-          {item.treeChildren.map(item =>
-            item.anchor ? (
-              <Box as="li" key={item.id}>
-                {renderSwitch(item)}
-                {item.treeChildren && <TextComponent item={item} />}
-              </Box>
-            ) : null
-          )}
-        </Box>
-      )}
-    </>
-  )
-
   return (
     <Box as="nav">
-      <Box as="ul">
-        <Box as="li">
-          <Link to={getHomePath(locale)}>Home</Link>
-        </Box>
-        {menu.map(item => (
-          <Box as="li" key={item.id}>
-            {renderSwitch(item)}
-            <TextComponent item={item} />
+      <Container variant="fw">
+        <Flex sx={{ flexDirection: "row", justifyContent: "space-between" }}>
+          <Box>
+            <Link to={getHomePath(locale)}>Home</Link>
           </Box>
-        ))}
-      </Box>
+          <Flex
+            sx={{
+              flexDirection: "row",
+              padding: 0,
+              margin: 0,
+              listStyle: "none",
+            }}
+            as="ul"
+          >
+            {menu.map(item => (
+              <Box as="li" key={item.id} sx={{ position: "relative" }}>
+                {linkSwitch(item, locale)}
+                {item.treeChildren.length > 0 && (
+                  <Box
+                    sx={{
+                      padding: 3,
+                      backgroundColor: "lightBackground",
+                      position: "absolute",
+                      top: 20,
+                      width: "max-content",
+                    }}
+                  >
+                    <TextComponent item={item} locale={locale} />
+                  </Box>
+                )}
+              </Box>
+            ))}
+          </Flex>
+          <LanguageSwitcher />
+        </Flex>
+      </Container>
+    </Box>
+  )
+}
+
+const TextComponent = ({ item, locale }) => {
+  return (
+    <Box as="ul" sx={{ listStyle: "none", padding: 0, margin: 0 }}>
+      {item.treeChildren.map(item =>
+        item.anchor ? (
+          <Box as="li" key={item.id}>
+            {linkSwitch(item, locale)}
+            {item.treeChildren && <TextComponent item={item} />}
+          </Box>
+        ) : null
+      )}
     </Box>
   )
 }

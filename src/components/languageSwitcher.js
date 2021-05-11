@@ -1,7 +1,7 @@
 import React from "react"
 import { Box } from "@theme-ui/components"
 import { LanguageSwitcherContext } from "../context/languageSwitcherContext"
-import Link from "./link"
+import {Link} from "./link"
 
 const LanguageSwitcher = () => {
   return (
