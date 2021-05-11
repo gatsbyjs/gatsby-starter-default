@@ -2,10 +2,12 @@ const theme = {
   colors: {
     text: "#1D1D1B",
     background: "#ffffff",
+    lightBackground: "#fafafa",
     primary: "#E54415",
     secondary: "#1D1D1B",
     light: "#ffffff",
     dark: "#1D1D1B",
+    lightGrey: "#999999",
   },
   fonts: {
     body:
@@ -13,14 +15,14 @@ const theme = {
     heading:
       'system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", sans-serif',
   },
-  space: [0, 4, 8, 16, 32, 64, 96, 128, 192, 256, 512],
+  space: [0, 4, 8, 16, 32, 48, 64, 96, 128, 192, 256, 512],
   fontSizes: [12, 14, 16, 20, 24, 32, 48, 64],
   fontWeights: {
     body: 400,
     heading: 700,
   },
   lineHeights: {
-    body: 1.3,
+    body: 1.5,
     heading: 1.125,
   },
   sizes: {
@@ -28,10 +30,10 @@ const theme = {
   },
   radii: {
     none: "0",
-    small: ".5rem",
-    medium: "1rem",
-    large: "2rem",
-    rounded: "9999px",
+    sm: ".5rem",
+    md: "1rem",
+    lg: "2rem",
+    full: "9999px",
   },
   shadows: {
     none: "none",
@@ -39,6 +41,9 @@ const theme = {
       "0 13px 27px -5px rgb(50 50 93 / 25%), 0 8px 16px -8px rgb(0 0 0 / 30%), 0 -6px 16px -6px rgb(0 0 0 / 3%)",
   },
   text: {
+    default: {
+      lineHeight: "body",
+    },
     display: {
       fontSize: [5, 7],
       fontFamily: "heading",
@@ -62,7 +67,7 @@ const theme = {
       color: "primary",
     },
     headingSmall: {
-      fontSize: 3,
+      fontSize: 5,
       fontWeight: "bold",
       color: "primary",
     },
@@ -75,10 +80,24 @@ const theme = {
     },
     caption: {
       fontSize: 0,
+      color: "lightGrey",
+      fontWeight: "bold",
     },
   },
   layout: {
     container: {
+      padding: [3, 4],
+    },
+    sm: {
+      maxWidth: "720px",
+      padding: [3, 4],
+    },
+    md: {
+      maxWidth: "1020px",
+      padding: [3, 4],
+    },
+    fw: {
+      maxWidth: "100%",
       padding: [3, 4],
     },
   },
@@ -99,6 +118,8 @@ const theme = {
           textDecoration: "none",
         },
       },
+      "--swiper-theme-color": "#E54415",
+      ".swiper-container": { pb: 5 },
     },
   },
 }

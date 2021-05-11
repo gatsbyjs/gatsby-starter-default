@@ -1,7 +1,6 @@
 const defaultLocale = "it"
 
 export function getPagePath(page, locale) {
-  console.log(page)
   const pageLocale = locale || page.locale
   let lang = pageLocale === defaultLocale ? "" : `/${pageLocale}`
   let path = `/${page._allSlugLocales.find(x => x.locale === pageLocale).value}`
@@ -26,12 +25,15 @@ export function getHomePath(locale) {
   return locale === defaultLocale ? "/" : `/${locale}`
 }
 
-export function getBlogPath(page) {
-  return page.locale === defaultLocale ? `/blog` : `/${page.locale}/blog`
+export function getBlogPath(locale) {
+  return locale === defaultLocale ? `/blog` : `/${locale}/blog`
 }
 
-export function getArticlePath(page) {
-  return page.locale === defaultLocale
-    ? `/blog/${page.slug}`
-    : `/${page.locale}/blog/${page.slug}`
+export function getArticlePath(page, locale) {
+  const pageLocale = locale
+  return locale === defaultLocale
+    ? `/blog/${page._allSlugLocales.find(x => x.locale === pageLocale).value}`
+    : `/${locale}/blog/${
+        page._allSlugLocales.find(x => x.locale === pageLocale).value
+      }`
 }

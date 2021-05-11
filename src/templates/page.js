@@ -4,7 +4,6 @@ import { Container, Heading } from "@theme-ui/components"
 import Layout from "../components/layout"
 import Breadcrumbs from "../components/breadcrumbs"
 import { getPagePath } from "../utils/path"
-import { LanguageSwitcherContext } from "../context/languageSwitcherContext"
 
 const Page = ({ data: { page } }) => {
   const i18nPaths = page._allSlugLocales.map(locale => {
