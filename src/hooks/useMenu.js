@@ -9,14 +9,36 @@ export const useMenu = lang => {
       ) {
         nodes {
           id
-          anchor
           locale
           root
+          anchor
           link {
-            ... on DatoCmsPage {
-              ...PageDetails
-              ...PageTreeParent
-              ...AllSlugLocales
+            ... on DatoCmsInternalLink {
+              id
+              anchor
+              locale
+              anchor
+              model {
+                apiKey
+              }
+              link {
+                ... on DatoCmsBlogPage {
+                  ...BlogDetails
+                }
+                ... on DatoCmsPage {
+                  ...PageDetails
+                  ...PageTreeParent
+                  ...AllSlugLocales
+                }
+                ... on DatoCmsArticle {
+                  ...ArticleDetails
+                  ...ArticleAllSlugLocales
+                }
+                ... on DatoCmsArticleCategory {
+                  ...ArticleCategoryDetails
+                  ...ArticleCategoryAllSlugLocales
+                }
+              }
             }
             ... on DatoCmsExternalLink {
               id
@@ -26,23 +48,39 @@ export const useMenu = lang => {
                 apiKey
               }
             }
-            ... on DatoCmsBlogPage {
-              ...BlogDetails
-            }
-            ... on DatoCmsArticle {
-              ...ArticleDetails
-              ...ArticleAllSlugLocales
-            }
           }
           treeChildren {
             id
-            anchor
             locale
+            root
+            anchor
             link {
-              ... on DatoCmsPage {
-                ...PageDetails
-                ...PageTreeParent
-                ...AllSlugLocales
+              ... on DatoCmsInternalLink {
+                id
+                anchor
+                locale
+                anchor
+                model {
+                  apiKey
+                }
+                link {
+                  ... on DatoCmsBlogPage {
+                    ...BlogDetails
+                  }
+                  ... on DatoCmsPage {
+                    ...PageDetails
+                    ...PageTreeParent
+                    ...AllSlugLocales
+                  }
+                  ... on DatoCmsArticle {
+                    ...ArticleDetails
+                    ...ArticleAllSlugLocales
+                  }
+                  ... on DatoCmsArticleCategory {
+                    ...ArticleCategoryDetails
+                    ...ArticleCategoryAllSlugLocales
+                  }
+                }
               }
               ... on DatoCmsExternalLink {
                 id
@@ -52,23 +90,39 @@ export const useMenu = lang => {
                   apiKey
                 }
               }
-              ... on DatoCmsBlogPage {
-                ...BlogDetails
-              }
-              ... on DatoCmsArticle {
-                ...ArticleDetails
-                ...ArticleAllSlugLocales
-              }
             }
             treeChildren {
               id
-              anchor
               locale
+              root
+              anchor
               link {
-                ... on DatoCmsPage {
-                  ...PageDetails
-                  ...PageTreeParent
-                  ...AllSlugLocales
+                ... on DatoCmsInternalLink {
+                  id
+                  anchor
+                  locale
+                  anchor
+                  model {
+                    apiKey
+                  }
+                  link {
+                    ... on DatoCmsBlogPage {
+                      ...BlogDetails
+                    }
+                    ... on DatoCmsPage {
+                      ...PageDetails
+                      ...PageTreeParent
+                      ...AllSlugLocales
+                    }
+                    ... on DatoCmsArticle {
+                      ...ArticleDetails
+                      ...ArticleAllSlugLocales
+                    }
+                    ... on DatoCmsArticleCategory {
+                      ...ArticleCategoryDetails
+                      ...ArticleCategoryAllSlugLocales
+                    }
+                  }
                 }
                 ... on DatoCmsExternalLink {
                   id
@@ -77,13 +131,6 @@ export const useMenu = lang => {
                   model {
                     apiKey
                   }
-                }
-                ... on DatoCmsBlogPage {
-                  ...BlogDetails
-                }
-                ... on DatoCmsArticle {
-                  ...ArticleDetails
-                  ...ArticleAllSlugLocales
                 }
               }
             }
@@ -97,7 +144,7 @@ export const useMenu = lang => {
     link => link.locale === lang
   )
 
-  //   console.log(i18nMenu)
+  // console.log(i18nMenu)
 
   return i18nMenu
 }

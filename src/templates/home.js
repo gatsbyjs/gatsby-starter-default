@@ -3,6 +3,7 @@ import { graphql } from "gatsby"
 import { Container, Heading } from "@theme-ui/components"
 import Layout from "../components/layout"
 import { getHomePath } from "../utils/path"
+import { HelmetDatoCms } from "gatsby-source-datocms"
 
 const Home = ({ data: { page, site } }) => {
   const i18nPaths = site.locales.map(locale => {
@@ -13,6 +14,9 @@ const Home = ({ data: { page, site } }) => {
   })
   return (
     <Layout locale={page.locale} i18nPaths={i18nPaths}>
+      <HelmetDatoCms seo={page.seoMetaTags}>
+        <html lang={page.locale} />
+      </HelmetDatoCms>
       <Container>
         <Heading as="h1">{page.title}</Heading>
       </Container>
@@ -28,6 +32,9 @@ export const query = graphql`
       id
       title
       locale
+      seoMetaTags {
+        ...GatsbyDatoCmsSeoMetaTags
+      }
     }
     site: datoCmsSite {
       locales

@@ -4,11 +4,12 @@ import { Helmet } from "react-helmet"
 const Hreflang = ({ siteUrl, paths }) => {
   return (
     <Helmet>
-      {paths.map(link => (
+      {paths.map((link, index) => (
         <link
           rel="alternate"
           hrefLang={link.locale}
           href={siteUrl + link.value}
+          key={index}
         />
       ))}
       <link rel="alternate" hrefLang="x-default" href={siteUrl} />

@@ -1,7 +1,7 @@
 import React from "react"
 import { Box } from "@theme-ui/components"
 import { LanguageSwitcherContext } from "../context/languageSwitcherContext"
-import {Link} from "./link"
+import { Link } from "./link"
 
 const LanguageSwitcher = () => {
   return (
@@ -11,13 +11,14 @@ const LanguageSwitcher = () => {
           <Box>
             {paths
               .sort((a, b) => b.locale.localeCompare(a.locale))
-              .map(link => (
+              .map((link, index) => (
                 <Link
                   to={link.value}
                   sx={{
                     marginLeft: 3,
                     color: activeLocale === link.locale ? "primary" : "dark",
                   }}
+                  key={index}
                 >
                   {link.locale}
                 </Link>

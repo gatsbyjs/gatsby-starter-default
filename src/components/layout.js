@@ -40,7 +40,7 @@ const Layout = ({ children, locale, i18nPaths }) => {
           siteUrl={data.gatsbySite.siteMetadata.siteUrl}
         />
         <Header />
-        <Box as="main">{children}</Box>
+        <Box as="main" sx={{pt: 7}}>{children}</Box>
         <Footer />
       </LanguageSwitcherContext.Provider>
     </i18nContext.Provider>

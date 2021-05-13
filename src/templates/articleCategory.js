@@ -1,19 +1,19 @@
 import React from "react"
 import { graphql } from "gatsby"
-import { Container, Heading } from "@theme-ui/components"
+import { Container } from "@theme-ui/components"
 import Layout from "../components/layout"
-import { getBlogPath } from "../utils/path"
+import { getArticleCategoryPath } from "../utils/path"
 import ArticlesList from "./articlesList"
 import CategoriesList from "./categoriesList"
 import BlogTitle from "../components/blogTitle"
 import { HelmetDatoCms } from "gatsby-source-datocms"
 
-const Blog = ({ data: { page, articles, articleCategories, site } }) => {
-  // console.log(articleCategories)
-  const i18nPaths = site.locales.map(locale => {
+const ArticleCategory = ({ data: { page, articles, articleCategories } }) => {
+  // console.log(page, articles, articleCategories)
+  const i18nPaths = page._allSlugLocales.map(path => {
     return {
-      locale: locale,
-      value: getBlogPath(locale),
+      locale: path.locale,
+      value: getArticleCategoryPath(page, path.locale),
     }
   })
 
@@ -31,19 +31,24 @@ const Blog = ({ data: { page, articles, articleCategories, site } }) => {
   )
 }
 
-export default Blog
+export default ArticleCategory
 
 export const query = graphql`
-  query BlogQuery($id: String!, $locale: String!) {
-    page: datoCmsBlogPage(id: { eq: $id }) {
-      ...BlogDetails
+  query ArticleCategoryQuery($id: String!, $locale: String!) {
+    page: datoCmsArticleCategory(id: { eq: $id }) {
+      ...ArticleCategoryDetails
+      ...ArticleCategoryAllSlugLocales
       seoMetaTags {
         ...GatsbyDatoCmsSeoMetaTags
       }
     }
     articles: allDatoCmsArticle(
       sort: { fields: meta___firstPublishedAt, order: DESC }
-      filter: { slug: { ne: null }, locale: { eq: $locale } }
+      filter: {
+        slug: { ne: null }
+        locale: { eq: $locale }
+        category: { id: { eq: $id } }
+      }
     ) {
       nodes {
         ...ArticleDetails
@@ -65,10 +70,18 @@ export const query = graphql`
     }
   }
 
-  fragment BlogDetails on DatoCmsBlogPage {
+  fragment ArticleCategoryAllSlugLocales on DatoCmsArticleCategory {
+    _allSlugLocales {
+      value
+      locale
+    }
+  }
+
+  fragment ArticleCategoryDetails on DatoCmsArticleCategory {
     id
     locale
     title
+    slug
     model {
       apiKey
     }

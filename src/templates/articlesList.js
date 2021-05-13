@@ -12,7 +12,7 @@ const ArticlesList = ({ articles }) => {
       }}
     >
       {articles.map(article => (
-        <ArticleThumb article={article} />
+        <ArticleThumb article={article} key={article.id} />
       ))}
     </Box>
   )

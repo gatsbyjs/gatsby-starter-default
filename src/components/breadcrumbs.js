@@ -1,7 +1,12 @@
 import React from "react"
 import { Box, Flex } from "@theme-ui/components"
-import {Link} from "./link"
-import { getBlogPath, getHomePath, getPagePath } from "../utils/path"
+import { Link } from "./link"
+import {
+  getArticleCategoryPath,
+  getBlogPath,
+  getHomePath,
+  getPagePath,
+} from "../utils/path"
 
 const Breadcrumbs = ({ page }) => {
   // console.log(page)
@@ -46,7 +51,13 @@ const Breadcrumbs = ({ page }) => {
       <Item>
         <Link to={getBlogPath(page.locale)}>Blog</Link>
       </Item>
-      {/* <Item>{page.title}</Item> */}
+      {page.category && (
+        <Item>
+          <Link to={getArticleCategoryPath(page.category, page.locale)}>
+            {page.category.title}
+          </Link>
+        </Item>
+      )}
     </List>
   )
 
