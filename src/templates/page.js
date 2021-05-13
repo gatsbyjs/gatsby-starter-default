@@ -1,9 +1,16 @@
 import React from "react"
 import { graphql } from "gatsby"
-import { Container, Heading } from "@theme-ui/components"
+import { Box, Container, Heading } from "@theme-ui/components"
 import Layout from "../components/layout"
 import Breadcrumbs from "../components/breadcrumbs"
 import { getPagePath } from "../utils/path"
+import { HelmetDatoCms } from "gatsby-source-datocms"
+import TitleAndBody from "../components/blocks/titleAndBody"
+import PageCarousel from "../components/blocks/pageCarousel"
+import Image from "../components/blocks/image"
+import ImageGallery from "../components/blocks/imageGallery"
+import OrderedList from "../components/blocks/orderedList"
+import ItemCarousel from "../components/blocks/itemCarousel"
 
 const Page = ({ data: { page } }) => {
   const i18nPaths = page._allSlugLocales.map(locale => {
@@ -14,10 +21,43 @@ const Page = ({ data: { page } }) => {
   })
   return (
     <Layout locale={page.locale} i18nPaths={i18nPaths}>
+      <HelmetDatoCms seo={page.seoMetaTags}>
+        <html lang={page.locale} />
+      </HelmetDatoCms>
       <Container>
-        <Heading as="h1">{page.title}</Heading>
+        <Heading as="h1" variant="display">
+          {page.title}
+        </Heading>
         <Breadcrumbs page={page} />
       </Container>
+      {page.content.map(block => (
+        <Box as="section" key={block.id}>
+          {block.model.apiKey === "title_and_body" && (
+            <Container>
+              <TitleAndBody title={block.content.title} body={block.content.body} />
+            </Container>
+          )}
+          {block.model.apiKey === "ordered_list" && (
+            <OrderedList
+              title={block.title}
+              subtitle={block.subtitle}
+              body={block.body}
+            />
+          )}
+          {block.model.apiKey === "page_carousel" && (
+            <PageCarousel title={block.title} pages={block.pages} />
+          )}
+          {block.model.apiKey === "item_carousel" && (
+            <ItemCarousel items={block.items} />
+          )}
+          {block.model.apiKey === "image" && <Image image={block.image} />}
+          {block.model.apiKey === "image_gallery" && (
+            <Container>
+              <ImageGallery images={block.images} />
+            </Container>
+          )}
+        </Box>
+      ))}
     </Layout>
   )
 }
@@ -30,6 +70,90 @@ export const query = graphql`
       ...PageDetails
       ...PageTreeParent
       ...AllSlugLocales
+      seoMetaTags {
+        ...GatsbyDatoCmsSeoMetaTags
+      }
+      content {
+        ... on DatoCmsImage {
+          id
+          image {
+            gatsbyImageData(
+              width: 1480
+              placeholder: BLURRED
+              forceBlurhash: false
+            )
+          }
+          model {
+            apiKey
+          }
+        }
+        ... on DatoCmsImageGallery {
+          id
+          ...ImageGallery
+        }
+        ... on DatoCmsTitleAndBody {
+          id
+          content {
+            ... on DatoCmsRichContent {
+              ...RichContent
+            }
+          }
+          model {
+            apiKey
+          }
+        }
+        ... on DatoCmsOrderedList {
+          id
+          title
+          subtitle
+          body {
+            blocks
+            links
+            value
+          }
+          model {
+            apiKey
+          }
+        }
+        ... on DatoCmsPageCarousel {
+          id
+          title
+          pages {
+            ... on DatoCmsPage {
+              ...PageDetails
+              ...PageTreeParent
+              ...AllSlugLocales
+            }
+          }
+          model {
+            apiKey
+          }
+        }
+        ... on DatoCmsItemCarousel {
+          id
+          items {
+            ... on DatoCmsRichContent {
+              ...RichContent
+            }
+          }
+          model {
+            apiKey
+          }
+        }
+      }
+    }
+  }
+
+  fragment RichContent on DatoCmsRichContent {
+    title
+    subtitle
+    body {
+      blocks
+      links
+      value
+    }
+    model {
+      apiKey
     }
   }
 

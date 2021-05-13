@@ -31,6 +31,15 @@ exports.createPages = async function ({ actions, graphql }) {
           locale
         }
       }
+      articleCategory: allDatoCmsArticleCategory(
+        filter: { slug: { ne: null } }
+      ) {
+        nodes {
+          id
+          slug
+          locale
+        }
+      }
       page: allDatoCmsPage(filter: { slug: { ne: null } }) {
         nodes {
           id
@@ -50,6 +59,15 @@ exports.createPages = async function ({ actions, graphql }) {
     }
   `)
 
+  const i18nPath = {
+    it: {
+      category: "categoria",
+    },
+    en: {
+      category: "category",
+    },
+  }
+
   function getPagePath(page) {
     let lang = page.locale === data.site.locale ? "" : `${page.locale}/`
     let path = page.slug
@@ -66,6 +84,12 @@ exports.createPages = async function ({ actions, graphql }) {
 
   function getBlogPath(page) {
     return page.locale === data.site.locale ? `/blog` : `/${page.locale}/blog`
+  }
+
+  function getArticleCategoryPath(page) {
+    return page.locale === data.site.locale
+      ? `/blog/${i18nPath[page.locale].category}/${page.slug}`
+      : `/${page.locale}/blog/${i18nPath[page.locale].category}/${page.slug}`
   }
 
   function getArticlePath(page) {
@@ -102,6 +126,14 @@ exports.createPages = async function ({ actions, graphql }) {
     actions.createPage({
       path: getArticlePath(page),
       component: require.resolve(`./src/templates/article.js`),
+      context: { id: page.id, locale: page.locale },
+    })
+  )
+
+  data.articleCategory.nodes.map(page =>
+    actions.createPage({
+      path: getArticleCategoryPath(page),
+      component: require.resolve(`./src/templates/articleCategory.js`),
       context: { id: page.id, locale: page.locale },
     })
   )

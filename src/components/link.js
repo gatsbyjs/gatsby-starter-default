@@ -11,7 +11,7 @@ const NavLink = props => {
 }
 
 const AsLink = props => {
-  return <GatsbyLink {...props} />
+  return <GatsbyLink {...props} activeClassName="active" />
 }
 
 export { Link, NavLink }

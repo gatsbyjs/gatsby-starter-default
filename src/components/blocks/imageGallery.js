@@ -12,13 +12,7 @@ SwiperCore.use([Mousewheel, Pagination, A11y])
 const ImageGallery = ({ images }) => {
   console.log(images)
   return (
-    <Box
-      mb={4}
-      mt={4}
-      sx={{
-        marginX: [0, 0, -7],
-      }}
-    >
+    <Box>
       {images.length > 1 ? (
         <Swiper
           spaceBetween={16}
@@ -40,15 +34,22 @@ const ImageGallery = ({ images }) => {
 
 const StyledImage = ({ image }) => (
   <>
-    <Box sx={{ mb: 2, ".gatsby-image-wrapper": { borderRadius: "md" } }}>
-      <GatsbyImage image={image.gatsbyImageData} />
+    <Box
+      sx={{
+        mb: 2,
+        ".gatsby-image-wrapper": {
+          borderRadius: "md",
+          width: "100%",
+          img: {
+            height: "auto",
+          },
+        },
+      }}
+    >
+      <GatsbyImage image={image.gatsbyImageData} alt="" />
     </Box>
-    <Box sx={{ paddingX: [0, 0, 7] }}>
-      <Text
-        variant="caption"
-      >
-        {image.title}
-      </Text>
+    <Box>
+      <Text variant="caption">{image.title}</Text>
     </Box>
   </>
 )

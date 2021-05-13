@@ -11,10 +11,11 @@ import Layout from "../components/layout"
 import { getArticlePath } from "../utils/path"
 import { GatsbyImage } from "gatsby-plugin-image"
 import ImageGallery from "../components/blocks/imageGallery"
-import PageTitle from "../components/pageTitle"
+import ArticleTitle from "../components/articleTitle"
+import { HelmetDatoCms } from "gatsby-source-datocms"
 
 const Article = ({ data: { page } }) => {
-  // console.log(page)
+  console.log(page)
   const i18nPaths = page._allSlugLocales.map(path => {
     return {
       locale: path.locale,
@@ -24,8 +25,11 @@ const Article = ({ data: { page } }) => {
 
   return (
     <Layout locale={page.locale} i18nPaths={i18nPaths}>
-      <PageTitle page={page} />
-      <Box sx={{ ".gatsby-image-wrapper": { width: "100%" } }}>
+      <HelmetDatoCms seo={page.seoMetaTags}>
+        <html lang={page.locale} />
+      </HelmetDatoCms>
+      <ArticleTitle page={page} />
+      <Box sx={{ mb: 5, ".gatsby-image-wrapper": { width: "100%" } }}>
         <GatsbyImage image={page.heroImage.gatsbyImageData} />
       </Box>
       <Container variant="sm">
@@ -54,7 +58,7 @@ const Article = ({ data: { page } }) => {
                 return renderNode(
                   () => {
                     return (
-                      <Text as="p" mb={3}>
+                      <Text as="p" mb={3} variant="article">
                         {children}
                       </Text>
                     )
@@ -69,7 +73,11 @@ const Article = ({ data: { page } }) => {
             // console.log(record)
             switch (record.__typename) {
               case "DatoCmsImageGallery":
-                return <ImageGallery images={record.images} key={record.id} />
+                return (
+                  <Box mt={5} mb={5}>
+                    <ImageGallery images={record.images} key={record.id} />
+                  </Box>
+                )
               default:
                 return null
             }
@@ -90,6 +98,9 @@ export const query = graphql`
       ...ArticleMeta
       meta {
         firstPublishedAt(locale: $locale, formatString: "DD MMMM Y")
+      }
+      seoMetaTags {
+        ...GatsbyDatoCmsSeoMetaTags
       }
     }
   }
@@ -118,10 +129,15 @@ export const query = graphql`
     heroImage {
       gatsbyImageData(
         width: 1480
-        height: 740
+        height: 986
         placeholder: BLURRED
         forceBlurhash: false
       )
+    }
+    category {
+      title
+      slug
+      ...ArticleCategoryAllSlugLocales
     }
     ...ArticleBody
   }
@@ -133,17 +149,20 @@ export const query = graphql`
         __typename
         ... on DatoCmsImageGallery {
           id: originalId
-          images {
-            gatsbyImageData(
-              width: 1024
-              placeholder: BLURRED
-              forceBlurhash: false
-            )
-            alt
-            title
-          }
+          ...ImageGallery
         }
       }
+    }
+  }
+
+  fragment ImageGallery on DatoCmsImageGallery {
+    images {
+      gatsbyImageData(width: 1480, placeholder: BLURRED, forceBlurhash: false)
+      alt
+      title
+    }
+    model {
+      apiKey
     }
   }
 `

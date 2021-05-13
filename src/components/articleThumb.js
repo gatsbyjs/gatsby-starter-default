@@ -2,7 +2,7 @@ import React from "react"
 import { Box, Flex, Grid, Heading, Text } from "@theme-ui/components"
 import { getArticlePath } from "../utils/path"
 import { GatsbyImage } from "gatsby-plugin-image"
-import {Link} from "./link"
+import { Link } from "./link"
 
 const ArticleThumb = ({ article }) => {
   return (
@@ -25,7 +25,10 @@ const ArticleThumb = ({ article }) => {
               },
             }}
           >
-            <GatsbyImage image={article.heroImage.gatsbyImageData} />
+            <GatsbyImage
+              image={article.heroImage.gatsbyImageData}
+              alt=""
+            />
           </Box>
           <Flex
             sx={{
@@ -41,7 +44,10 @@ const ArticleThumb = ({ article }) => {
             >
               {article.title}
             </Heading>
-            <Text variant="caption">{article.meta.firstPublishedAt}</Text>
+            <Text variant="caption">
+              {article.meta.firstPublishedAt}
+              {article.category ? ` - ${article.category.title}` : null}
+            </Text>
           </Flex>
         </Grid>
       </Link>

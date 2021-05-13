@@ -1,13 +1,21 @@
 const theme = {
+  initialColorModeName: "light",
   colors: {
-    text: "#1D1D1B",
+    text: "#1d1d1f",
     background: "#ffffff",
-    lightBackground: "#fafafa",
-    primary: "#E54415",
-    secondary: "#1D1D1B",
+    lightBackground: "#EFEFEF",
+    primary: "#00a889",
+    secondary: "#E36256",
     light: "#ffffff",
-    dark: "#1D1D1B",
+    dark: "#1d1d1f",
     lightGrey: "#999999",
+    modes: {
+      dark: {
+        text: "#ffffff",
+        light: "#1d1d1f",
+        dark: "#ffffff",
+      },
+    },
   },
   fonts: {
     body:
@@ -49,25 +57,24 @@ const theme = {
       fontFamily: "heading",
       lineHeight: "heading",
       fontWeight: "heading",
-      textTransform: "uppercase",
+      color: "primary",
     },
     displaySmall: {
-      fontSize: [5],
+      fontSize: [5, 6],
       fontFamily: "heading",
       lineHeight: "heading",
       fontWeight: "heading",
-      textTransform: "uppercase",
-      color: "dark",
+      color: "primary",
     },
     heading: {
-      fontSize: 7,
+      fontSize: [4, 5],
       fontFamily: "heading",
       lineHeight: "heading",
       fontWeight: "heading",
       color: "primary",
     },
     headingSmall: {
-      fontSize: 5,
+      fontSize: 4,
       fontWeight: "bold",
       color: "primary",
     },
@@ -82,6 +89,10 @@ const theme = {
       fontSize: 0,
       color: "lightGrey",
       fontWeight: "bold",
+    },
+    article: {
+      fontSize: 3,
+      lineHeight: 1.5,
     },
   },
   layout: {
@@ -98,13 +109,24 @@ const theme = {
     },
     fw: {
       maxWidth: "100%",
-      padding: [3, 4],
     },
   },
   links: {
     nav: {
+      paddingX: 3,
+      paddingY: 3,
+      backgroundColor: "primary",
       "&.active": {
         color: "primary",
+      },
+    },
+    tab: {
+      textDecoration: "none",
+      mr: 3,
+      color: "text",
+      "&.active": {
+        color: "primary",
+        fontWeight: "bold",
       },
     },
   },
@@ -118,7 +140,7 @@ const theme = {
           textDecoration: "none",
         },
       },
-      "--swiper-theme-color": "#E54415",
+      "--swiper-theme-color": "#00a889",
       ".swiper-container": { pb: 5 },
     },
   },

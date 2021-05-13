@@ -4,10 +4,12 @@ export const languages = {
   en: {
     locale: "en",
     discoverMore: "Discover more",
+    all: "All",
   },
   it: {
     locale: "it",
     discoverMore: "Scopri di più",
+    all: "Tutti",
   },
 }
 

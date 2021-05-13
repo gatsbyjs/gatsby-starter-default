@@ -1,5 +1,14 @@
 const defaultLocale = "it"
 
+const i18nPath = {
+  it: {
+    category: "categoria",
+  },
+  en: {
+    category: "category",
+  },
+}
+
 export function getPagePath(page, locale) {
   const pageLocale = locale || page.locale
   let lang = pageLocale === defaultLocale ? "" : `/${pageLocale}`
@@ -29,11 +38,20 @@ export function getBlogPath(locale) {
   return locale === defaultLocale ? `/blog` : `/${locale}/blog`
 }
 
-export function getArticlePath(page, locale) {
-  const pageLocale = locale
+export function getArticleCategoryPath(page, locale) {
   return locale === defaultLocale
-    ? `/blog/${page._allSlugLocales.find(x => x.locale === pageLocale).value}`
+    ? `/blog/${i18nPath[locale].category}/${
+        page._allSlugLocales.find(x => x.locale === locale).value
+      }`
+    : `/${locale}/blog/${i18nPath[locale].category}/${
+        page._allSlugLocales.find(x => x.locale === locale).value
+      }`
+}
+
+export function getArticlePath(page, locale) {
+  return locale === defaultLocale
+    ? `/blog/${page._allSlugLocales.find(x => x.locale === locale).value}`
     : `/${locale}/blog/${
-        page._allSlugLocales.find(x => x.locale === pageLocale).value
+        page._allSlugLocales.find(x => x.locale === locale).value
       }`
 }

@@ -1,14 +1,16 @@
 import React from "react"
 import { Box, Text, Container, Heading, Flex } from "@theme-ui/components"
 import Breadcrumbs from "./breadcrumbs"
+import { Link } from "./link"
+import { getArticleCategoryPath } from "../utils/path"
 
-const PageTitle = ({ page }) => {
+const ArticleTitle = ({ page }) => {
   return (
     <Container>
       <Flex sx={{ justifyContent: "center", mb: 4 }}>
         <Breadcrumbs page={page} />
       </Flex>
-      <Heading as="h1" sx={{ textAlign: "center" }}>
+      <Heading as="h1" variant="display" sx={{ textAlign: "center" }}>
         {page.title}
       </Heading>
       {page.meta && page.meta.firstPublishedAt && (
@@ -22,4 +24,4 @@ const PageTitle = ({ page }) => {
   )
 }
 
-export default PageTitle
+export default ArticleTitle

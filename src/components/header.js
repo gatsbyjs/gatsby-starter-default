@@ -1,11 +1,20 @@
 import { Box } from "@theme-ui/components"
 import React from "react"
-import LanguageSwitcher from "./languageSwitcher"
 import Nav from "./nav"
 
 const Header = () => {
   return (
-    <Box as="header">
+    <Box
+      as="header"
+      sx={{
+        backgroundColor: "light",
+        borderBottom: "1px solid",
+        borderColor: "lightGray",
+        position: "fixed",
+        width: "100%",
+        zIndex: "2",
+      }}
+    >
       <Nav />
     </Box>
   )
