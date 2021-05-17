@@ -14,7 +14,7 @@ const Nav = () => {
 
   return (
     <Box as="nav">
-      <Container variant="fw" sx={{ paddingX: [3, 4] }}>
+      <Container variant="header" sx={{ paddingX: [3, 4] }}>
         <Flex sx={{ flexDirection: "row", justifyContent: "space-between" }}>
           <Box sx={{ paddingX: 2, paddingY: 3 }}>
             <Link to={getHomePath(locale)}>Home</Link>

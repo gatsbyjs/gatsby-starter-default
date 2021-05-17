@@ -12,6 +12,7 @@ import ImageGallery from "../components/blocks/imageGallery"
 import OrderedList from "../components/blocks/orderedList"
 import ItemCarousel from "../components/blocks/itemCarousel"
 import Accordion from "../components/blocks/accordion"
+import DocumentCollection from "../components/blocks/documentCollection"
 
 const Page = ({ data: { page } }) => {
   const i18nPaths = page._allSlugLocales.map(locale => {
@@ -57,6 +58,13 @@ const Page = ({ data: { page } }) => {
           {block.model.apiKey === "accordion" && (
             <Accordion title={block.title} items={block.items} />
           )}
+          {block.model.apiKey === "document_collection" && (
+            <DocumentCollection
+              title={block.title}
+              documents={block.documents}
+              showPublicationDate={block.showPublicationDate}
+            />
+          )}
           {block.model.apiKey === "image" && <Image image={block.image} />}
           {block.model.apiKey === "image_gallery" && (
             <Container>
@@ -72,7 +80,7 @@ const Page = ({ data: { page } }) => {
 export default Page
 
 export const query = graphql`
-  query PageQuery($id: String!) {
+  query PageQuery($id: String!, $locale: String!) {
     page: datoCmsPage(id: { eq: $id }) {
       ...PageDetails
       ...PageTreeParent
@@ -97,6 +105,26 @@ export const query = graphql`
         ... on DatoCmsImageGallery {
           id
           ...ImageGallery
+        }
+        ... on DatoCmsDocumentCollection {
+          id
+          title
+          showPublicationDate
+          documents {
+            title
+            subtitle
+            documents {
+              url
+              title
+              format
+            }
+            meta {
+              firstPublishedAt(locale: $locale, formatString: "DD MMMM Y")
+            }
+          }
+          model {
+            apiKey
+          }
         }
         ... on DatoCmsAccordion {
           id
@@ -173,12 +201,20 @@ export const query = graphql`
           id: originalId
           ...ImageGallery
         }
+        ... on DatoCmsNumbersGroup {
+          id: originalId
+          numbers {
+            legend
+            float
+            suffix
+            prefix
+          }
+        }
       }
       links {
         __typename
         ... on DatoCmsInternalLink {
           id: originalId
-
           anchor
           locale
           model {
