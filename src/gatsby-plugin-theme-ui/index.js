@@ -126,6 +126,9 @@ const theme = {
       maxWidth: "100%",
       padding: [3, 4],
     },
+    header: {
+      maxWidth: "100%",
+    },
   },
   buttons: {
     primary: {

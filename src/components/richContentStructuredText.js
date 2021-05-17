@@ -9,6 +9,7 @@ import {
 } from "datocms-structured-text-utils"
 import ImageGallery from "./blocks/imageGallery"
 import linkSwitch from "../utils/linkSwitch"
+import NumbersGroup from "./blocks/numbersGroup"
 
 const RichContentStructuredText = ({ text, theme }) => {
   const compoenentTheme = theme || "light"
@@ -52,6 +53,12 @@ const RichContentStructuredText = ({ text, theme }) => {
               return (
                 <Box mt={5} mb={5}>
                   <ImageGallery images={record.images} key={record.id} />
+                </Box>
+              )
+            case "DatoCmsNumbersGroup":
+              return (
+                <Box mt={5} mb={5}>
+                  <NumbersGroup numbers={record.numbers} key={record.id} />
                 </Box>
               )
             default:

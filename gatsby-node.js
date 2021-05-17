@@ -113,7 +113,7 @@ exports.createPages = async function ({ actions, graphql }) {
     actions.createPage({
       path: getPagePath(page),
       component: require.resolve(`./src/templates/page.js`),
-      context: { id: page.id },
+      context: { id: page.id, locale: page.locale },
     })
   )
 
