@@ -2,7 +2,7 @@ import { Box, Container, Flex } from "@theme-ui/components"
 import React, { useState } from "react"
 import { i18nContext } from "../context/i18nContext"
 import { useMenu } from "../hooks/useMenu"
-import { getHomePath } from "../utils/path"
+import { getHomePath, getSearchPath } from "../utils/path"
 import { Link } from "./link"
 import linkSwitch from "../utils/linkSwitch"
 import LanguageSwitcher from "./languageSwitcher"
@@ -32,9 +32,17 @@ const Nav = () => {
               <TextComponent item={item} locale={locale} key={item.id} />
             ))}
           </Flex>
-          <Box sx={{ paddingX: 2, paddingY: 3 }}>
+          <Flex
+            sx={{
+              flexDirection: "row",
+              padding: 3,
+              margin: 0,
+              listStyle: "none",
+            }}
+          >
+            <Link to={getSearchPath(locale)}>Search</Link>
             <LanguageSwitcher />
-          </Box>
+          </Flex>
         </Flex>
       </Container>
     </Box>
@@ -51,7 +59,11 @@ const TextComponent = ({ item, locale }) => {
       onMouseEnter={() => setShow(!show)}
       onMouseLeave={() => setShow(!show)}
     >
-      {linkSwitch(item, locale)}
+      {item.link ? (
+        linkSwitch(item.link, locale)
+      ) : (
+        <Box sx={{ cursor: "default" }}>{item.anchor}</Box>
+      )}
       {item.treeChildren.length > 0 && show && (
         <Box
           as="ul"
@@ -71,7 +83,11 @@ const TextComponent = ({ item, locale }) => {
           {item.treeChildren.map(item =>
             item.anchor ? (
               <Box as="li" key={item.id}>
-                {linkSwitch(item, locale)}
+                {item.link ? (
+                  linkSwitch(item.link, locale)
+                ) : (
+                  <Box sx={{ cursor: "default" }}>{item.anchor}</Box>
+                )}
               </Box>
             ) : null
           )}

@@ -15,7 +15,7 @@ const PageCarousel = ({ title, pages }) => {
   return (
     <Box>
       <Container>
-        <Heading variant="heading" sx={{ mb: [2, 2, 4] }}>
+        <Heading variant="h3" sx={{ mb: [2, 2, 4], mt: 0 }}>
           {title}
         </Heading>
         <Swiper

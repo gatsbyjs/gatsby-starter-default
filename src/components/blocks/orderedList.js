@@ -1,6 +1,6 @@
 import React from "react"
 import { Box, Text, Grid, Heading, Container } from "@theme-ui/components"
-import StyledStructuredText from "../styledStructuredText"
+import RichContentStructuredText from "../richContentStructuredText"
 
 const OrderedList = ({ title, subtitle, body }) => {
   return (
@@ -14,14 +14,14 @@ const OrderedList = ({ title, subtitle, body }) => {
             mb: 6,
           }}
         >
-          <Heading variant="displaySmall">{title}</Heading>
+          <Heading variant="h2">{title}</Heading>
         </Box>
         <Grid columns={[1, 1, "2fr 4fr"]} gap={[32, 64, 128]}>
           <Box>
             <Text sx={{ color: "light" }}>{subtitle}</Text>
           </Box>
           <Box>
-            <StyledStructuredText text={body} theme={"dark"} />
+            <RichContentStructuredText text={body} theme={"dark"} />
           </Box>
         </Grid>
       </Container>

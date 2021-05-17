@@ -11,6 +11,7 @@ import Image from "../components/blocks/image"
 import ImageGallery from "../components/blocks/imageGallery"
 import OrderedList from "../components/blocks/orderedList"
 import ItemCarousel from "../components/blocks/itemCarousel"
+import Accordion from "../components/blocks/accordion"
 
 const Page = ({ data: { page } }) => {
   const i18nPaths = page._allSlugLocales.map(locale => {
@@ -25,7 +26,7 @@ const Page = ({ data: { page } }) => {
         <html lang={page.locale} />
       </HelmetDatoCms>
       <Container>
-        <Heading as="h1" variant="display">
+        <Heading as="h1" variant="h1">
           {page.title}
         </Heading>
         <Breadcrumbs page={page} />
@@ -34,7 +35,10 @@ const Page = ({ data: { page } }) => {
         <Box as="section" key={block.id}>
           {block.model.apiKey === "title_and_body" && (
             <Container>
-              <TitleAndBody title={block.content.title} body={block.content.body} />
+              <TitleAndBody
+                title={block.content.title}
+                body={block.content.body}
+              />
             </Container>
           )}
           {block.model.apiKey === "ordered_list" && (
@@ -49,6 +53,9 @@ const Page = ({ data: { page } }) => {
           )}
           {block.model.apiKey === "item_carousel" && (
             <ItemCarousel items={block.items} />
+          )}
+          {block.model.apiKey === "accordion" && (
+            <Accordion title={block.title} items={block.items} />
           )}
           {block.model.apiKey === "image" && <Image image={block.image} />}
           {block.model.apiKey === "image_gallery" && (
@@ -90,6 +97,18 @@ export const query = graphql`
         ... on DatoCmsImageGallery {
           id
           ...ImageGallery
+        }
+        ... on DatoCmsAccordion {
+          id
+          title
+          items: content {
+            ... on DatoCmsRichContent {
+              ...RichContent
+            }
+          }
+          model {
+            apiKey
+          }
         }
         ... on DatoCmsTitleAndBody {
           id
@@ -148,8 +167,43 @@ export const query = graphql`
     title
     subtitle
     body {
-      blocks
-      links
+      blocks {
+        __typename
+        ... on DatoCmsImageGallery {
+          id: originalId
+          ...ImageGallery
+        }
+      }
+      links {
+        __typename
+        ... on DatoCmsInternalLink {
+          id: originalId
+
+          anchor
+          locale
+          model {
+            apiKey
+          }
+          link {
+            ... on DatoCmsBlogPage {
+              ...BlogDetails
+            }
+            ... on DatoCmsPage {
+              ...PageDetails
+              ...PageTreeParent
+              ...AllSlugLocales
+            }
+            ... on DatoCmsArticle {
+              ...ArticleDetails
+              ...ArticleAllSlugLocales
+            }
+            ... on DatoCmsArticleCategory {
+              ...ArticleCategoryDetails
+              ...ArticleCategoryAllSlugLocales
+            }
+          }
+        }
+      }
       value
     }
     model {

@@ -10,7 +10,7 @@ const ArticleTitle = ({ page }) => {
       <Flex sx={{ justifyContent: "center", mb: 4 }}>
         <Breadcrumbs page={page} />
       </Flex>
-      <Heading as="h1" variant="display" sx={{ textAlign: "center" }}>
+      <Heading as="h1" variant="h1" sx={{ textAlign: "center" }}>
         {page.title}
       </Heading>
       {page.meta && page.meta.firstPublishedAt && (

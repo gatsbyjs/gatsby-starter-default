@@ -39,7 +39,7 @@ const ArticleThumb = ({ article }) => {
           >
             <Heading
               as="h2"
-              variant="headingSmall"
+              variant="h4"
               sx={{ mb: 3, color: "text" }}
             >
               {article.title}

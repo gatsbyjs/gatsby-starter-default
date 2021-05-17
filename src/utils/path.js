@@ -3,9 +3,11 @@ const defaultLocale = "it"
 const i18nPath = {
   it: {
     category: "categoria",
+    search: "cerca",
   },
   en: {
     category: "category",
+    search: "search",
   },
 }
 
@@ -32,6 +34,12 @@ export function getPagePath(page, locale) {
 
 export function getHomePath(locale) {
   return locale === defaultLocale ? "/" : `/${locale}`
+}
+
+export function getSearchPath(locale) {
+  return locale === defaultLocale
+    ? `/${i18nPath[locale].search}`
+    : `/${locale}/${i18nPath[locale].search}`
 }
 
 export function getBlogPath(locale) {

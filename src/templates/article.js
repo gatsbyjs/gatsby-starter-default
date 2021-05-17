@@ -42,7 +42,7 @@ const Article = ({ data: { page } }) => {
                 return renderNode(
                   () => {
                     return (
-                      <Text as={`h${node.level}`} variant={`h${node.level}`}>
+                      <Text as={`h${node.level}`} variant={`h${node.level}`} sx={{mb: 3}}>
                         {children}
                       </Text>
                     )
