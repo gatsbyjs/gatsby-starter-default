@@ -7,8 +7,10 @@ import {
   isList,
   renderRule,
 } from "datocms-structured-text-utils"
+import ImageGallery from "./blocks/imageGallery"
+import linkSwitch from "../utils/linkSwitch"
 
-const StyledStructuredText = ({ text, theme }) => {
+const RichContentStructuredText = ({ text, theme }) => {
   const compoenentTheme = theme || "light"
   const light = compoenentTheme === "light" ? "light" : "dark"
   const dark = compoenentTheme === "light" ? "dark" : "light"
@@ -18,10 +20,44 @@ const StyledStructuredText = ({ text, theme }) => {
         "*:first-child": {
           marginTop: 0,
         },
+        "*:last-child": {
+          marginBottom: 0,
+        },
       }}
     >
       <StructuredText
         data={text}
+        renderLinkToRecord={({ record }) => {
+          // console.log(record)
+          switch (record.__typename) {
+            case "DatoCmsInternalLink":
+              return linkSwitch(record, record.locale)
+            default:
+              return null
+          }
+        }}
+        renderInlineRecord={({ record }) => {
+          // console.log(record)
+          switch (record.__typename) {
+            case "DatoCmsInternalLink":
+              return <Box>{linkSwitch(record, record.locale)}</Box>
+            default:
+              return null
+          }
+        }}
+        renderBlock={({ record }) => {
+          // console.log(record)
+          switch (record.__typename) {
+            case "DatoCmsImageGallery":
+              return (
+                <Box mt={5} mb={5}>
+                  <ImageGallery images={record.images} key={record.id} />
+                </Box>
+              )
+            default:
+              return null
+          }
+        }}
         customRules={[
           renderRule(
             isHeading,
@@ -32,7 +68,7 @@ const StyledStructuredText = ({ text, theme }) => {
                     <Text
                       as={`h${node.level}`}
                       variant={`h${node.level}`}
-                      color={dark}
+                      color={"primary"}
                     >
                       {children}
                     </Text>
@@ -116,4 +152,4 @@ const StyledStructuredText = ({ text, theme }) => {
   )
 }
 
-export default StyledStructuredText
+export default RichContentStructuredText

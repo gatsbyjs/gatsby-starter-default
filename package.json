@@ -5,6 +5,7 @@
   "version": "0.1.0",
   "author": "Kyle Mathews <mathews.kyle@gmail.com>",
   "dependencies": {
+    "datocms-search": "^0.1.8",
     "gatsby": "^3.3.1",
     "gatsby-plugin-advanced-sitemap": "^1.6.0",
     "gatsby-plugin-gatsby-cloud": "^2.2.0",
@@ -19,6 +20,7 @@
     "gatsby-transformer-sharp": "^3.2.0",
     "prop-types": "^15.7.2",
     "react": "^17.0.1",
+    "react-accessible-accordion": "^3.3.4",
     "react-datocms": "^1.6.3",
     "react-dom": "^17.0.1",
     "react-helmet": "^6.1.0",

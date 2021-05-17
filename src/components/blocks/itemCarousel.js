@@ -5,7 +5,7 @@ import { Box, Container, Flex, Grid, Heading, Text } from "@theme-ui/components"
 import SwiperCore, { Pagination, Mousewheel, A11y } from "swiper"
 import { Swiper, SwiperSlide } from "swiper/react"
 import "swiper/swiper-bundle.min.css"
-import StyledStructuredText from "../styledStructuredText"
+import RichContentStructuredText from "../richContentStructuredText"
 SwiperCore.use([Mousewheel, Pagination, A11y])
 // End swiper
 
@@ -17,7 +17,7 @@ const ItemCarousel = ({ items }) => {
         spaceBetween={0}
         slidesPerView={1}
         pagination={{ clickable: true }}
-        grabCursor={true}
+        autoHeight={true}
       >
         {items.map(item => (
           <SwiperSlide key={item.originalId}>
@@ -30,19 +30,19 @@ const ItemCarousel = ({ items }) => {
 }
 
 const Item = ({ richContent }) => (
-  <Grid columns={[1,1,2]} gap={0}>
+  <Grid columns={[1, 1, 2]} gap={0}>
     <Flex
       sx={{
         backgroundColor: "secondary",
         alignItems: "center",
         justifyContent: "center",
         padding: 7,
-        minHeight: "30rem",
+        minHeight: ["20rem", "30rem"],
       }}
     >
-      <Heading sx={{ color: "light", textAlign: "center" }}>
+      <Text variant="h3" sx={{ color: "light", textAlign: "center", mt: 0 }}>
         {richContent.title}
-      </Heading>
+      </Text>
     </Flex>
     <Flex
       sx={{
@@ -50,11 +50,14 @@ const Item = ({ richContent }) => (
         justifyContent: "space-between",
         backgroundColor: "lightBackground",
         padding: 4,
+        minHeight: ["20rem"],
       }}
     >
-      <Heading variant="lead">{richContent.subtitle}</Heading>
+      <Heading variant="h3" sx={{ mt: 0 }}>
+        {richContent.subtitle}
+      </Heading>
       <Box>
-        <StyledStructuredText text={richContent.body} />
+        <RichContentStructuredText text={richContent.body} />
       </Box>
     </Flex>
   </Grid>

@@ -1,21 +1,13 @@
 const theme = {
-  initialColorModeName: "light",
   colors: {
     text: "#1d1d1f",
     background: "#ffffff",
     lightBackground: "#EFEFEF",
     primary: "#00a889",
-    secondary: "#E36256",
+    secondary: "#00a889",
     light: "#ffffff",
     dark: "#1d1d1f",
     lightGrey: "#999999",
-    modes: {
-      dark: {
-        text: "#ffffff",
-        light: "#1d1d1f",
-        dark: "#ffffff",
-      },
-    },
   },
   fonts: {
     body:
@@ -52,38 +44,61 @@ const theme = {
     default: {
       lineHeight: "body",
     },
-    display: {
+    heading: {
+      fontSize: [5],
+      fontFamily: "heading",
+      lineHeight: "heading",
+      fontWeight: "heading",
+      color: "primary",
+    },
+    h1: {
       fontSize: [5, 7],
       fontFamily: "heading",
       lineHeight: "heading",
       fontWeight: "heading",
       color: "primary",
+      mb: 3,
     },
-    displaySmall: {
+    h2: {
       fontSize: [5, 6],
       fontFamily: "heading",
       lineHeight: "heading",
       fontWeight: "heading",
       color: "primary",
+      mb: 3,
+      mt: 4,
     },
-    heading: {
-      fontSize: [4, 5],
+    h3: {
+      fontSize: [5],
       fontFamily: "heading",
       lineHeight: "heading",
       fontWeight: "heading",
       color: "primary",
+      mb: 3,
+      mt: 4,
     },
-    headingSmall: {
+    h4: {
       fontSize: 4,
       fontWeight: "bold",
       color: "primary",
+      mb: 2,
+      mt: 4,
     },
-    lead: {
+    h5: {
       fontSize: 4,
       color: "dark",
-      textTransform: "uppercase",
       fontWeight: "body",
       lineHeight: "heading",
+      mb: 2,
+      mt: 4,
+    },
+    h6: {
+      fontSize: 3,
+      color: "dark",
+      fontWeight: "body",
+      lineHeight: "heading",
+      mb: 2,
+      mt: 4,
     },
     caption: {
       fontSize: 0,
@@ -109,6 +124,21 @@ const theme = {
     },
     fw: {
       maxWidth: "100%",
+      padding: [3, 4],
+    },
+  },
+  buttons: {
+    primary: {
+      cursor: "pointer",
+      color: "light",
+      bg: "primary",
+      "&:hover": {
+        bg: "dark",
+      },
+    },
+    secondary: {
+      color: "background",
+      bg: "secondary",
     },
   },
   links: {

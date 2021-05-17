@@ -6,7 +6,7 @@ import {
   isParagraph,
   renderRule,
 } from "datocms-structured-text-utils"
-import StyledStructuredText from "../styledStructuredText"
+import RichContentStructuredText from "../richContentStructuredText"
 
 const TitleAndBody = ({ title, body }) => {
   return (
@@ -16,7 +16,7 @@ const TitleAndBody = ({ title, body }) => {
           <Heading>{title}</Heading>
         </Box>
         <Box>
-          <StyledStructuredText text={body} />
+          <RichContentStructuredText text={body} />
         </Box>
       </Grid>
     </Box>

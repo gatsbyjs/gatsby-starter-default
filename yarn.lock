@@ -4668,6 +4668,18 @@ datocms-listen@^0.1.3:
   resolved "https://registry.yarnpkg.com/datocms-listen/-/datocms-listen-0.1.3.tgz#e69f0587e3a67b2e3c1081a13651a8be28cd3c27"
   integrity sha512-k1UfXMdPqZgKw/6Q6TXSXLbrwKzXpbsaG/d1/9H7sKMbWD87HU7FT6ilNFjda7ODPLZozC1SmF2GEHXg83MfPQ==
 
+datocms-search@^0.1.8:
+  version "0.1.8"
+  resolved "https://registry.yarnpkg.com/datocms-search/-/datocms-search-0.1.8.tgz#ac089938fb1b8315c4a0320c93ef87f3db06fcd8"
+  integrity sha512-X9ctDEbotJZH4QhYKst7yFpSYnyWibAv7QD6x+b+5IZHP8w3KWklLxRgX20Ui0JBInl1SBjagUkQ4Ld8bScBJw==
+  dependencies:
+    inferno "^3.9.0"
+    inferno-component "^3.9.0"
+    inferno-create-element "^3.9.0"
+    nanoajax "^0.4.3"
+    object-assign "^4.1.1"
+    promise-polyfill "^6.0.2"
+
 datocms-structured-text-generic-html-renderer@^1.1.0:
   version "1.1.4"
   resolved "https://registry.yarnpkg.com/datocms-structured-text-generic-html-renderer/-/datocms-structured-text-generic-html-renderer-1.1.4.tgz#f68e8bf5326fae3e9ce236c3cf1b53b304639fe3"
@@ -7929,6 +7941,43 @@ infer-owner@^1.0.3, infer-owner@^1.0.4:
   resolved "https://registry.yarnpkg.com/infer-owner/-/infer-owner-1.0.4.tgz#c4cefcaa8e51051c2a40ba2ce8a3d27295af9467"
   integrity sha512-IClj+Xz94+d7irH5qRyfJonOdfTzuDaifE6ZPWfx0N0+/ATZCbuTPq2prFl526urkQd90WyUKIh1DfBQ2hMz9A==
 
+inferno-component@3.10.1, inferno-component@^3.9.0:
+  version "3.10.1"
+  resolved "https://registry.yarnpkg.com/inferno-component/-/inferno-component-3.10.1.tgz#2242409dab4c1f165f3af7c89e4945bcb359b1b3"
+  integrity sha512-8tXc4XXx7U2P22NLd21g4TLR+jJ0X+KyeznodlGjWYzQ6A6uy5AXsDyfStZl8GxeNzq3otTrrSV5n5yPcVZI2Q==
+  dependencies:
+    inferno "3.10.1"
+    inferno-shared "3.10.1"
+    inferno-vnode-flags "3.10.1"
+
+inferno-create-element@^3.9.0:
+  version "3.10.1"
+  resolved "https://registry.yarnpkg.com/inferno-create-element/-/inferno-create-element-3.10.1.tgz#acb921e6c0cc9b0f3d90516062375247c0273df9"
+  integrity sha512-1Sn6d+FknSIZSEyEeRqwT6E2DMZUhRBBZCW2c4IHYXECozLXMwR7IgIHkVDQwWBoyJABRFeZE2UbfQ/nyJDuqw==
+  dependencies:
+    inferno "3.10.1"
+    inferno-component "3.10.1"
+    inferno-shared "3.10.1"
+    inferno-vnode-flags "3.10.1"
+
+inferno-shared@3.10.1:
+  version "3.10.1"
+  resolved "https://registry.yarnpkg.com/inferno-shared/-/inferno-shared-3.10.1.tgz#6ad59d64ca03c0fdcc8495d4864410cafee81332"
+  integrity sha512-mzh4qmnQb23W5sdfsR6W93vSqNll7etLSMG4JhlzYXYn1e4zVcAqJRbeVISI3mTkU6nS4gJBHueZtSb1ORuuBw==
+
+inferno-vnode-flags@3.10.1:
+  version "3.10.1"
+  resolved "https://registry.yarnpkg.com/inferno-vnode-flags/-/inferno-vnode-flags-3.10.1.tgz#88a4528a3b4df0f33a3ace68dc45f05b651c0e41"
+  integrity sha512-jqc6yiFy9ZcpDW+6I6cWQUrSXHjpfm2Fut5qLuuXxLwKdfLQUh68sWBHd+y9J+7gIm+0V1QZn4x5Jx4G3m1hPA==
+
+inferno@3.10.1, inferno@^3.9.0:
+  version "3.10.1"
+  resolved "https://registry.yarnpkg.com/inferno/-/inferno-3.10.1.tgz#5d292e6b1e848ef7f09e3e1b6b2029b703b2baf2"
+  integrity sha512-Sm+Wi9TI9REIHsuUlWyCNVZMlk7vMRs2QFjMEfKPsj7p8be8wB+sl8T8jBU2T+2S3oKzbJdKmKNTxWeMjHdypA==
+  dependencies:
+    inferno-shared "3.10.1"
+    inferno-vnode-flags "3.10.1"
+
 inflected@^2.0.4:
   version "2.1.0"
   resolved "https://registry.yarnpkg.com/inflected/-/inflected-2.1.0.tgz#2816ac17a570bbbc8303ca05bca8bf9b3f959687"
@@ -9831,6 +9880,11 @@ nan@^2.12.1:
   resolved "https://registry.yarnpkg.com/nan/-/nan-2.14.2.tgz#f5376400695168f4cc694ac9393d0c9585eeea19"
   integrity sha512-M2ufzIiINKCuDfBSAUr1vWQ+vuVcA9kqx8JJUsbQi6yf1uGRyb7HfpdfUr5qLXf3B/t8dPvcjhKMmlfnP47EzQ==
 
+nanoajax@^0.4.3:
+  version "0.4.3"
+  resolved "https://registry.yarnpkg.com/nanoajax/-/nanoajax-0.4.3.tgz#af7abec108d724fb97f6f75f11c2a63cf315a298"
+  integrity sha1-r3q+wQjXJPuX9vdfEcKmPPMVopg=
+
 nanoid@^3.1.20, nanoid@^3.1.22:
   version "3.1.22"
   resolved "https://registry.yarnpkg.com/nanoid/-/nanoid-3.1.22.tgz#b35f8fb7d151990a8aebd5aa5015c03cf726f844"
@@ -11320,6 +11374,11 @@ promise-limit@^2.7.0:
   resolved "https://registry.yarnpkg.com/promise-limit/-/promise-limit-2.7.0.tgz#eb5737c33342a030eaeaecea9b3d3a93cb592b26"
   integrity sha512-7nJ6v5lnJsXwGprnGXga4wx6d1POjvi5Qmf1ivTRxTjH4Z/9Czja/UCMLVmB9N93GeWOU93XaFaEt6jbuoagNw==
 
+promise-polyfill@^6.0.2:
+  version "6.1.0"
+  resolved "https://registry.yarnpkg.com/promise-polyfill/-/promise-polyfill-6.1.0.tgz#dfa96943ea9c121fca4de9b5868cb39d3472e057"
+  integrity sha1-36lpQ+qcEh/KTem1hoyznTRy4Fc=
+
 promise-queue@2.2.5:
   version "2.2.5"
   resolved "https://registry.yarnpkg.com/promise-queue/-/promise-queue-2.2.5.tgz#2f6f5f7c0f6d08109e967659c79b88a9ed5e93b4"
@@ -11559,6 +11618,11 @@ rc@^1.2.7, rc@^1.2.8:
     ini "~1.3.0"
     minimist "^1.2.0"
     strip-json-comments "~2.0.1"
+
+react-accessible-accordion@^3.3.4:
+  version "3.3.4"
+  resolved "https://registry.yarnpkg.com/react-accessible-accordion/-/react-accessible-accordion-3.3.4.tgz#84b08015e74d6b3b225e0101b518b2ea8969e292"
+  integrity sha512-EUq+KmVRIIG5u1fR5XIbb2JU7w7NouLjuyfuPvnhuDIfNNWNYap1I8ijn2rdA6OQi1gGSRGbVzHs+3wxH/M0Sw==
 
 react-datocms@^1.6.3:
   version "1.6.3"

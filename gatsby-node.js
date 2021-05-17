@@ -11,6 +11,7 @@ exports.createPages = async function ({ actions, graphql }) {
     query CreatePageQuery {
       site: datoCmsSite {
         locale
+        locales
       }
       home: allDatoCmsHomePage {
         nodes {
@@ -62,9 +63,11 @@ exports.createPages = async function ({ actions, graphql }) {
   const i18nPath = {
     it: {
       category: "categoria",
+      search: "cerca",
     },
     en: {
       category: "category",
+      search: "search",
     },
   }
 
@@ -135,6 +138,17 @@ exports.createPages = async function ({ actions, graphql }) {
       path: getArticleCategoryPath(page),
       component: require.resolve(`./src/templates/articleCategory.js`),
       context: { id: page.id, locale: page.locale },
+    })
+  )
+
+  data.site.locales.map(locale =>
+    actions.createPage({
+      path:
+        data.site.locale === locale
+          ? `/${i18nPath[locale].search}`
+          : `/${locale}/${i18nPath[locale].search}`,
+      component: require.resolve(`./src/templates/search.js`),
+      context: { locale: locale },
     })
   )
 }

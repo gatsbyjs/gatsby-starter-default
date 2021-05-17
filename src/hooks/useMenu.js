@@ -17,7 +17,6 @@ export const useMenu = lang => {
               id
               anchor
               locale
-              anchor
               model {
                 apiKey
               }
@@ -59,7 +58,6 @@ export const useMenu = lang => {
                 id
                 anchor
                 locale
-                anchor
                 model {
                   apiKey
                 }
@@ -101,7 +99,6 @@ export const useMenu = lang => {
                   id
                   anchor
                   locale
-                  anchor
                   model {
                     apiKey
                   }

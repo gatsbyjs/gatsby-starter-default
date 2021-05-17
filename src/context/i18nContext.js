@@ -5,11 +5,17 @@ export const languages = {
     locale: "en",
     discoverMore: "Discover more",
     all: "All",
+    search: "Search",
+    results: "Results",
+    noResults: "No results",
   },
   it: {
     locale: "it",
     discoverMore: "Scopri di più",
     all: "Tutti",
+    search: "Cerca",
+    results: "risultati",
+    noResults: "Nessun risultato",
   },
 }
 

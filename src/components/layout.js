@@ -7,7 +7,7 @@
 
 import React from "react"
 import { useStaticQuery, graphql } from "gatsby"
-import { Box } from "@theme-ui/components"
+import { Box, Flex } from "@theme-ui/components"
 import { i18nContext, languages } from "../context/i18nContext"
 import Header from "./header"
 import { LanguageSwitcherContext } from "../context/languageSwitcherContext"
@@ -39,9 +39,19 @@ const Layout = ({ children, locale, i18nPaths }) => {
           paths={i18nPaths}
           siteUrl={data.gatsbySite.siteMetadata.siteUrl}
         />
-        <Header />
-        <Box as="main" sx={{pt: 7}}>{children}</Box>
-        <Footer />
+        <Flex
+          sx={{
+            flexDirection: "column",
+            justifyContent: "space-between",
+            minHeight: "100vh",
+          }}
+        >
+          <Header />
+          <Box as="main" sx={{ pt: 7 }}>
+            {children}
+          </Box>
+          <Footer />
+        </Flex>
       </LanguageSwitcherContext.Provider>
     </i18nContext.Provider>
   )
