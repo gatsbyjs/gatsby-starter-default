@@ -24,7 +24,7 @@ const SearchResults = ({ locale }) => {
   }
 
   useEffect(() => {
-    console.log(query)
+    // console.log(query)
     // Update the document title using the browser API
     client
       .search(currentQuery, { locale: locale })

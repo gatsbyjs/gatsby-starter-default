@@ -12,8 +12,6 @@ const Breadcrumbs = ({ page }) => {
   // console.log(page)
   function renderSwitch(page) {
     switch (page.model.apiKey) {
-      case "page":
-        return <PageBreadcrumbs page={page} />
       case "article":
         return <ArticleBreadcrumbs page={page} />
       default:
@@ -24,7 +22,7 @@ const Breadcrumbs = ({ page }) => {
   const PageBreadcrumbs = ({ page }) => (
     <List>
       <Item>
-        <Link to={getHomePath(page.locale)}>Home</Link>
+        <Link color="light" to={getHomePath(page.locale)}>Home</Link>
       </Item>
       {page.treeParent && page.treeParent.treeParent && (
         <Item>
@@ -61,7 +59,7 @@ const Breadcrumbs = ({ page }) => {
     </List>
   )
 
-  return <>{renderSwitch(page)}</>
+  return renderSwitch(page)
 }
 
 const List = props => {
@@ -75,7 +73,7 @@ const List = props => {
         listStyle: "none",
         a: {
           textDecoration: "none",
-          color: "lightGrey",
+          color: "#dedede",
           "&:hover": {
             textDecoration: "underline",
           },
@@ -94,9 +92,9 @@ const Item = props => {
         marginRight: 2,
         "&::after": {
           content: '"|"',
-          color: "lightGrey",
+          color: "dedede",
           marginLeft: 2,
-          display: ["none", "none", "inline"],
+          display: ["inline"],
         },
         "&:last-child": {
           marginRight: 0,

@@ -15,7 +15,7 @@ import ArticleTitle from "../components/articleTitle"
 import { HelmetDatoCms } from "gatsby-source-datocms"
 
 const Article = ({ data: { page } }) => {
-  console.log(page)
+  // console.log(page)
   const i18nPaths = page._allSlugLocales.map(path => {
     return {
       locale: path.locale,

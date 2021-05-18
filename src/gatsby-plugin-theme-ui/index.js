@@ -52,7 +52,7 @@ const theme = {
       color: "primary",
     },
     h1: {
-      fontSize: [5, 7],
+      fontSize: [6, 7],
       fontFamily: "heading",
       lineHeight: "heading",
       fontWeight: "heading",

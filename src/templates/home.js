@@ -7,7 +7,7 @@ import { HelmetDatoCms } from "gatsby-source-datocms"
 import LatestArticles from "../components/latestArticles"
 
 const Home = ({ data: { page, site, articles } }) => {
-  console.log(page, articles)
+  // console.log(page, articles)
   const i18nPaths = site.locales.map(locale => {
     return {
       locale: locale,
