@@ -4,8 +4,10 @@ import { Container, Heading } from "@theme-ui/components"
 import Layout from "../components/layout"
 import { getHomePath } from "../utils/path"
 import { HelmetDatoCms } from "gatsby-source-datocms"
+import LatestArticles from "../components/latestArticles"
 
-const Home = ({ data: { page, site } }) => {
+const Home = ({ data: { page, site, articles } }) => {
+  console.log(page, articles)
   const i18nPaths = site.locales.map(locale => {
     return {
       locale: locale,
@@ -20,6 +22,7 @@ const Home = ({ data: { page, site } }) => {
       <Container>
         <Heading as="h1">{page.title}</Heading>
       </Container>
+      <LatestArticles articles={articles.nodes} />
     </Layout>
   )
 }
@@ -27,13 +30,24 @@ const Home = ({ data: { page, site } }) => {
 export default Home
 
 export const query = graphql`
-  query HomeQuery($id: String!) {
+  query HomeQuery($id: String!, $locale: String!) {
     page: datoCmsHomePage(id: { eq: $id }) {
       id
       title
       locale
       seoMetaTags {
         ...GatsbyDatoCmsSeoMetaTags
+      }
+    }
+    articles: allDatoCmsArticle(
+      sort: { fields: meta___firstPublishedAt, order: DESC }
+      filter: { slug: { ne: null }, locale: { eq: $locale } }
+      limit: 6
+    ) {
+      nodes {
+        ...ArticleDetails
+        ...ArticleAllSlugLocales
+        ...ArticleMeta
       }
     }
     site: datoCmsSite {

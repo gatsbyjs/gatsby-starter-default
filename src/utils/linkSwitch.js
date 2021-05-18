@@ -9,7 +9,7 @@ import { Link } from "../components/link"
 import { Link as ThemeUiLink, Box } from "theme-ui"
 
 function linkSwitch(item, locale) {
-  console.log(item)
+  // console.log(item)
   if (item.link) {
     switch (item.link.model.apiKey) {
       case "page":

@@ -25,6 +25,7 @@
     "react-datocms": "^1.6.3",
     "react-dom": "^17.0.1",
     "react-helmet": "^6.1.0",
+    "react-intersection-observer": "^8.32.0",
     "swiper": "^6.5.9",
     "theme-ui": "^0.7.3"
   },

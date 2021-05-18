@@ -9,6 +9,7 @@ export const languages = {
     results: "Results",
     noResults: "No results",
     download: "Download",
+    latestArticles: "Latest news",
   },
   it: {
     locale: "it",
@@ -18,6 +19,7 @@ export const languages = {
     results: "risultati",
     noResults: "Nessun risultato",
     download: "Scarica",
+    latestArticles: "Ultime news",
   },
 }
 
