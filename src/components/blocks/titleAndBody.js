@@ -1,11 +1,5 @@
 import React from "react"
-import { Box, Text, Grid, Heading } from "@theme-ui/components"
-import { StructuredText } from "react-datocms"
-import {
-  isHeading,
-  isParagraph,
-  renderRule,
-} from "datocms-structured-text-utils"
+import { Box, Grid, Heading } from "@theme-ui/components"
 import RichContentStructuredText from "../richContentStructuredText"
 
 const TitleAndBody = ({ title, body }) => {

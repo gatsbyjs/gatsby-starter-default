@@ -3,7 +3,7 @@ import { GatsbyImage } from "gatsby-plugin-image"
 import { Box, Text } from "@theme-ui/components"
 
 const Image = ({ image }) => {
-  console.log(image)
+  // console.log(image)
   return (
     <Box mb={5}>
       <Box

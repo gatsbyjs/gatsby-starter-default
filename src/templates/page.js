@@ -1,8 +1,7 @@
 import React from "react"
 import { graphql } from "gatsby"
-import { Box, Container, Heading } from "@theme-ui/components"
+import { Box, Container } from "@theme-ui/components"
 import Layout from "../components/layout"
-import Breadcrumbs from "../components/breadcrumbs"
 import { getPagePath } from "../utils/path"
 import { HelmetDatoCms } from "gatsby-source-datocms"
 import TitleAndBody from "../components/blocks/titleAndBody"
@@ -13,8 +12,11 @@ import OrderedList from "../components/blocks/orderedList"
 import ItemCarousel from "../components/blocks/itemCarousel"
 import Accordion from "../components/blocks/accordion"
 import DocumentCollection from "../components/blocks/documentCollection"
+import Embed from "../components/blocks/embed"
+import PageHero from "./pageHero"
 
 const Page = ({ data: { page } }) => {
+  // console.log(page)
   const i18nPaths = page._allSlugLocales.map(locale => {
     return {
       locale: locale.locale,
@@ -26,12 +28,7 @@ const Page = ({ data: { page } }) => {
       <HelmetDatoCms seo={page.seoMetaTags}>
         <html lang={page.locale} />
       </HelmetDatoCms>
-      <Container>
-        <Heading as="h1" variant="h1">
-          {page.title}
-        </Heading>
-        <Breadcrumbs page={page} />
-      </Container>
+      <PageHero page={page} image={page.heroImage} />
       {page.content.map(block => (
         <Box as="section" key={block.id}>
           {block.model.apiKey === "title_and_body" && (
@@ -66,6 +63,9 @@ const Page = ({ data: { page } }) => {
             />
           )}
           {block.model.apiKey === "image" && <Image image={block.image} />}
+          {block.model.apiKey === "embed" && (
+            <Embed code={block.code} fullWidth={block.fullWidth} />
+          )}
           {block.model.apiKey === "image_gallery" && (
             <Container>
               <ImageGallery images={block.images} />
@@ -89,6 +89,10 @@ export const query = graphql`
         ...GatsbyDatoCmsSeoMetaTags
       }
       content {
+        ... on DatoCmsEmbed {
+          id
+          ...EmbedDetails
+        }
         ... on DatoCmsImage {
           id
           image {
@@ -201,6 +205,10 @@ export const query = graphql`
           id: originalId
           ...ImageGallery
         }
+        ... on DatoCmsEmbed {
+          id: originalId
+          ...EmbedDetails
+        }
         ... on DatoCmsNumbersGroup {
           id: originalId
           numbers {
@@ -260,6 +268,22 @@ export const query = graphql`
     title
     slug
     root
+    model {
+      apiKey
+    }
+    heroImage {
+      gatsbyImageData(
+        width: 1920
+        placeholder: NONE
+        forceBlurhash: false
+        imgixParams: { monochrome: "00A889" }
+      )
+    }
+  }
+
+  fragment EmbedDetails on DatoCmsEmbed {
+    code
+    fullWidth
     model {
       apiKey
     }

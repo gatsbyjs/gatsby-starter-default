@@ -11,7 +11,7 @@ SwiperCore.use([Mousewheel, Pagination, A11y])
 // End swiper
 
 const PageCarousel = ({ title, pages }) => {
-  console.log(pages)
+  // console.log(pages)
   return (
     <Box>
       <Container>

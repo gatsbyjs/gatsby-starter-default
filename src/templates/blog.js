@@ -1,6 +1,6 @@
 import React from "react"
 import { graphql } from "gatsby"
-import { Container, Heading } from "@theme-ui/components"
+import { Container } from "@theme-ui/components"
 import Layout from "../components/layout"
 import { getBlogPath } from "../utils/path"
 import ArticlesList from "./articlesList"

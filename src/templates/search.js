@@ -8,7 +8,7 @@ import SearchResults from "../components/searchResults"
 import { i18nContext } from "../context/i18nContext"
 
 const SearchPage = ({ data: { site }, pageContext }) => {
-  console.log(pageContext.locale)
+  // console.log(pageContext.locale)
   const i18nPaths = site.locales.map(locale => {
     return {
       locale: locale,

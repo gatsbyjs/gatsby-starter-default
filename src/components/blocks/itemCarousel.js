@@ -10,7 +10,7 @@ SwiperCore.use([Mousewheel, Pagination, A11y])
 // End swiper
 
 const ItemCarousel = ({ items }) => {
-  console.log(items)
+  // console.log(items)
   return (
     <Box>
       <Swiper

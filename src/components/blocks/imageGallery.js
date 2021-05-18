@@ -10,7 +10,7 @@ SwiperCore.use([Mousewheel, Pagination, A11y])
 // End swiper
 
 const ImageGallery = ({ images }) => {
-  console.log(images)
+  // console.log(images)
   return (
     <Box>
       {images.length > 1 ? (

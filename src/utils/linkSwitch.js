@@ -6,7 +6,7 @@ import {
   getPagePath,
 } from "./path"
 import { Link } from "../components/link"
-import { Link as ThemeUiLink, Box } from "theme-ui"
+import { Link as ThemeUiLink } from "theme-ui"
 
 function linkSwitch(item, locale) {
   // console.log(item)
@@ -24,20 +24,15 @@ function linkSwitch(item, locale) {
             {item.anchor}
           </Link>
         )
-      case "external_link":
-        return (
-          <ThemeUiLink
-            href={item.link.url}
-            target="blank"
-            rel="nofollow noopener"
-          >
-            {item.anchor}
-          </ThemeUiLink>
-        )
       default:
         return null
     }
   }
+  return (
+    <ThemeUiLink href={item.url} target="blank" rel="nofollow noopener">
+      {item.anchor}
+    </ThemeUiLink>
+  )
 }
 
 export default linkSwitch

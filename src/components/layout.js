@@ -47,7 +47,7 @@ const Layout = ({ children, locale, i18nPaths }) => {
           }}
         >
           <Header />
-          <Box as="main" sx={{ pt: 7 }}>
+          <Box as="main" sx={{ pt: 5 }}>
             {children}
           </Box>
           <Footer />

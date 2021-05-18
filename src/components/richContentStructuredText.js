@@ -1,4 +1,4 @@
-import React, { useEffect } from "react"
+import React from "react"
 import { Box, Text } from "@theme-ui/components"
 import { StructuredText } from "react-datocms"
 import {
@@ -10,6 +10,7 @@ import {
 import ImageGallery from "./blocks/imageGallery"
 import linkSwitch from "../utils/linkSwitch"
 import NumbersGroup from "./blocks/numbersGroup"
+import Embed from "./blocks/embed"
 
 const RichContentStructuredText = ({ text, theme }) => {
   const compoenentTheme = theme || "light"
@@ -61,6 +62,8 @@ const RichContentStructuredText = ({ text, theme }) => {
                   <NumbersGroup numbers={record.numbers} key={record.id} />
                 </Box>
               )
+            case "DatoCmsEmbed":
+              return <Embed code={record.code} fullWidth={record.fullWidth} />
             default:
               return null
           }
