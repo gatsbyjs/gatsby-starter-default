@@ -1,6 +1,7 @@
 import React from "react"
 import { graphql } from "gatsby"
 import { Box, Container } from "@theme-ui/components"
+import loadable from "@loadable/component"
 import Layout from "../components/layout"
 import { getPagePath } from "../utils/path"
 import { HelmetDatoCms } from "gatsby-source-datocms"
@@ -14,6 +15,10 @@ import Accordion from "../components/blocks/accordion"
 import DocumentCollection from "../components/blocks/documentCollection"
 import Embed from "../components/blocks/embed"
 import PageHero from "./pageHero"
+const LocationsMap = loadable(
+  () => import("../components/blocks/locationMap"),
+  { ssr: false }
+)
 
 const Page = ({ data: { page } }) => {
   // console.log(page)
@@ -63,6 +68,9 @@ const Page = ({ data: { page } }) => {
             />
           )}
           {block.model.apiKey === "image" && <Image image={block.image} />}
+          {block.model.apiKey === "locations_map" && (
+            <LocationsMap locations={block.locations} />
+          )}
           {block.model.apiKey === "embed" && (
             <Embed code={block.code} fullWidth={block.fullWidth} />
           )}
@@ -101,6 +109,21 @@ export const query = graphql`
               placeholder: BLURRED
               forceBlurhash: false
             )
+          }
+          model {
+            apiKey
+          }
+        }
+        ... on DatoCmsLocationsMap {
+          id
+          locations {
+            originalId
+            name
+            body
+            coordinates {
+              latitude
+              longitude
+            }
           }
           model {
             apiKey
