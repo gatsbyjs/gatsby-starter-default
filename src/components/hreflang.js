@@ -7,12 +7,12 @@ const Hreflang = ({ siteUrl, paths }) => {
       {paths.map((link, index) => (
         <link
           rel="alternate"
-          hrefLang={link.locale}
+          hreflang={link.locale}
           href={siteUrl + link.value}
           key={index}
         />
       ))}
-      <link rel="alternate" hrefLang="x-default" href={siteUrl} />
+      <link rel="alternate" hreflang="x-default" href={siteUrl} />
     </Helmet>
   )
 }
