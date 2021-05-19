@@ -12,7 +12,7 @@ const Header = () => {
         borderColor: "lightGray",
         position: "fixed",
         width: "100%",
-        zIndex: "2",
+        zIndex: "9999",
       }}
     >
       <Nav />
