@@ -55,9 +55,9 @@ module.exports = {
 
         // Setup locale fallbacks
         // In this example, if some field value is missing in Italian, fall back to English
-        localeFallbacks: {
-          it: ["en"],
-        },
+        // localeFallbacks: {
+        //   it: ["en"],
+        // },
       },
     },
     `gatsby-plugin-theme-ui`,

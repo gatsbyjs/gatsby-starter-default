@@ -21,7 +21,7 @@ const LocationsMap = loadable(
 )
 
 const Page = ({ data: { page } }) => {
-  // console.log(page)
+  console.log(page.locale)
   const i18nPaths = page._allSlugLocales.map(locale => {
     return {
       locale: locale.locale,

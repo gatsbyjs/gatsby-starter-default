@@ -69,41 +69,45 @@ exports.createPages = async function ({ actions, graphql }) {
       category: "category",
       search: "search",
     },
+    "en-US": {
+      category: "category",
+      search: "search",
+    },
   }
 
   function getPagePath(page) {
     let lang = page.locale === data.site.locale ? "" : `${page.locale}/`
     let path = page.slug
     if (page.root) {
-      return lang + path
+      return lang + `${path}/`
     }
-    path = `${page.treeParent.slug}/${path}`
+    path = `${page.treeParent.slug}/${path}/`
     if (page.treeParent.root) {
       return lang + path
     }
-    path = `${page.treeParent.treeParent.slug}/${path}`
+    path = `${page.treeParent.treeParent.slug}/${path}/`
     return lang + path
   }
 
   function getBlogPath(page) {
-    return page.locale === data.site.locale ? `/blog` : `/${page.locale}/blog`
+    return page.locale === data.site.locale ? `/blog/` : `/${page.locale}/blog/`
   }
 
   function getArticleCategoryPath(page) {
     return page.locale === data.site.locale
-      ? `/blog/${i18nPath[page.locale].category}/${page.slug}`
-      : `/${page.locale}/blog/${i18nPath[page.locale].category}/${page.slug}`
+      ? `/blog/${i18nPath[page.locale].category}/${page.slug}/`
+      : `/${page.locale}/blog/${i18nPath[page.locale].category}/${page.slug}/`
   }
 
   function getArticlePath(page) {
     return page.locale === data.site.locale
-      ? `/blog/${page.slug}`
-      : `/${page.locale}/blog/${page.slug}`
+      ? `/blog/${page.slug}/`
+      : `/${page.locale}/blog/${page.slug}/`
   }
 
   data.home.nodes.map(page =>
     actions.createPage({
-      path: page.locale === data.site.locale ? "/" : `/${page.locale}`,
+      path: page.locale === data.site.locale ? "/" : `/${page.locale}/`,
       component: require.resolve(`./src/templates/home.js`),
       context: { id: page.id, locale: page.locale },
     })
@@ -145,8 +149,8 @@ exports.createPages = async function ({ actions, graphql }) {
     actions.createPage({
       path:
         data.site.locale === locale
-          ? `/${i18nPath[locale].search}`
-          : `/${locale}/${i18nPath[locale].search}`,
+          ? `/${i18nPath[locale].search}/`
+          : `/${locale}/${i18nPath[locale].search}/`,
       component: require.resolve(`./src/templates/search.js`),
       context: { locale: locale },
     })

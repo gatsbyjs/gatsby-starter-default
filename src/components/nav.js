@@ -1,16 +1,15 @@
 import { Box, Container, Flex } from "@theme-ui/components"
 import React, { useState } from "react"
-import { i18nContext } from "../context/i18nContext"
 import { useMenu } from "../hooks/useMenu"
 import { getHomePath, getSearchPath } from "../utils/path"
 import { Link } from "./link"
 import linkSwitch from "../utils/linkSwitch"
 import LanguageSwitcher from "./languageSwitcher"
+import { LanguageSwitcherContext } from "../context/languageSwitcherContext"
 
 const Nav = () => {
-  const locale = React.useContext(i18nContext).locale
-  const menu = useMenu(locale)
-  //   console.log(menu)
+  const locale = React.useContext(LanguageSwitcherContext).activeLocale
+  const menu = useMenu()
 
   return (
     <Box as="nav">

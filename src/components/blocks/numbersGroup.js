@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react"
-import { Box, Text, Grid, Heading, Flex } from "@theme-ui/components"
+import { Box, Text, Heading, Flex } from "@theme-ui/components"
 import CountUp from "react-countup"
 import { useInView } from "react-intersection-observer"
 
