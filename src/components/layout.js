@@ -13,6 +13,7 @@ import Header from "./header"
 import { LanguageSwitcherContext } from "../context/languageSwitcherContext"
 import Hreflang from "./hreflang"
 import Footer from "./footer"
+import Canonical from "./canonical"
 
 const Layout = ({ children, locale, i18nPaths }) => {
   console.log(languages[locale])
@@ -40,6 +41,7 @@ const Layout = ({ children, locale, i18nPaths }) => {
           paths={i18nPaths}
           siteUrl={data.gatsbySite.siteMetadata.siteUrl}
         />
+        <Canonical paths={i18nPaths} />
         <Flex
           sx={{
             flexDirection: "column",
