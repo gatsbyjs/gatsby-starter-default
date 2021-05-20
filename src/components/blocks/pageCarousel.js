@@ -32,7 +32,7 @@ const PageCarousel = ({ title, pages }) => {
             },
             896: {
               slidesPerView: 3,
-            }
+            },
           }}
         >
           {pages.map(page => (

@@ -2,7 +2,6 @@ import React, { useEffect, useState } from "react"
 import {
   Box,
   Button,
-  Container,
   Heading,
   Input,
   Text,
@@ -61,7 +60,7 @@ const SearchResults = ({ locale }) => {
               required
               sx={{ mb: 3, padding: 3, fontSize: 3 }}
             />
-            <Button onClick={handleSubmit}>Search</Button>
+            <Button onClick={handleSubmit}>{t.search}</Button>
           </Box>
           <Box>
             {results.length > 0 ? (

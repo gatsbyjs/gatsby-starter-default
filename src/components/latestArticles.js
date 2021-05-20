@@ -34,8 +34,8 @@ const LatestArticles = ({ articles }) => {
           }}
         >
           {articles.map(article => (
-            <SwiperSlide key={article.originalId}>
-              <ArticleThumb article={article} key={article.id} small />
+            <SwiperSlide key={article.id}>
+              <ArticleThumb article={article} small />
             </SwiperSlide>
           ))}
         </Swiper>

@@ -1,5 +1,5 @@
 import React from "react"
-import { Box, Container, Flex, Grid, Heading, Text } from "@theme-ui/components"
+import { Box, Flex, Grid, Heading, Text } from "@theme-ui/components"
 
 // Begin swiper
 import SwiperCore, { Pagination, Mousewheel, A11y } from "swiper"

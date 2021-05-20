@@ -22,7 +22,9 @@ const Home = ({ data: { page, site, articles } }) => {
       <Container>
         <Heading as="h1">{page.title}</Heading>
       </Container>
-      <LatestArticles articles={articles.nodes} />
+      {articles.nodes.length > 0 && (
+        <LatestArticles articles={articles.nodes} />
+      )}
     </Layout>
   )
 }

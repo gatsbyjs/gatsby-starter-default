@@ -8,7 +8,6 @@ import SearchResults from "../components/searchResults"
 import { i18nContext } from "../context/i18nContext"
 
 const SearchPage = ({ data: { site }, pageContext }) => {
-  // console.log(pageContext.locale)
   const i18nPaths = site.locales.map(locale => {
     return {
       locale: locale,
@@ -17,22 +16,24 @@ const SearchPage = ({ data: { site }, pageContext }) => {
   })
 
   return (
-    <i18nContext.Consumer>
-      {t => (
-        <Layout locale={pageContext.locale} i18nPaths={i18nPaths}>
-          <Helmet>
-            <html lang={pageContext.locale} />
-            <title>{t.search}</title>
-          </Helmet>
-          <Container>
-            <Text as="h1" variant="h1">
-              {t.search}
-            </Text>
-            <SearchResults locale={pageContext.locale} />
-          </Container>
-        </Layout>
-      )}
-    </i18nContext.Consumer>
+    <Layout locale={pageContext.locale} i18nPaths={i18nPaths}>
+      <i18nContext.Consumer>
+        {t => (
+          <>
+            <Helmet>
+              <html lang={pageContext.locale} />
+              <title>{t.search}</title>
+            </Helmet>
+            <Container>
+              <Text as="h1" variant="h1">
+                {t.search}
+              </Text>
+              <SearchResults locale={pageContext.locale} />
+            </Container>
+          </>
+        )}
+      </i18nContext.Consumer>
+    </Layout>
   )
 }
 

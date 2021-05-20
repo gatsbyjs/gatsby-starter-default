@@ -2,10 +2,10 @@ import React from "react"
 import { useStaticQuery, graphql } from "gatsby"
 import { LanguageSwitcherContext } from "../context/languageSwitcherContext"
 
-export const useMenu = () => {
+export const useFooter = () => {
   const menu = useStaticQuery(graphql`
-    query MenuQuery {
-      allDatoCmsMenu(
+    query FooterQuery {
+      allDatoCmsFooter(
         filter: { root: { eq: true }, anchor: { ne: null } }
         sort: { fields: position, order: ASC }
       ) {
@@ -141,9 +141,9 @@ export const useMenu = () => {
 
   const locale = React.useContext(LanguageSwitcherContext).activeLocale
 
-  const i18nMenu = menu.allDatoCmsMenu.nodes.filter(
+  const i18nFooter = menu.allDatoCmsFooter.nodes.filter(
     link => link.locale === locale
   )
 
-  return i18nMenu
+  return i18nFooter
 }

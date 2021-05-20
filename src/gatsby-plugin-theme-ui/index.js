@@ -30,6 +30,7 @@ const theme = {
   },
   radii: {
     none: "0",
+    xs: ".25rem",
     sm: ".5rem",
     md: "1rem",
     lg: "2rem",
@@ -38,7 +39,7 @@ const theme = {
   shadows: {
     none: "none",
     default:
-      "0 13px 27px -5px rgb(50 50 93 / 25%), 0 8px 16px -8px rgb(0 0 0 / 30%), 0 -6px 16px -6px rgb(0 0 0 / 3%)",
+      "0 20px 40px -10px rgba(50,50,93,0.15),0 10px 30px -20px rgba(0,0,0,0.15)",
   },
   text: {
     default: {
