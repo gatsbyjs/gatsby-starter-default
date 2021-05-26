@@ -15,6 +15,7 @@ import Accordion from "../components/blocks/accordion"
 import DocumentCollection from "../components/blocks/documentCollection"
 import Embed from "../components/blocks/embed"
 import PageHero from "./pageHero"
+import ImageAndText from "../components/blocks/imageAndText"
 const LocationsMap = loadable(
   () => import("../components/blocks/locationMap"),
   { ssr: false }
@@ -72,12 +73,26 @@ const Page = ({ data: { page } }) => {
             <LocationsMap locations={block.locations} />
           )}
           {block.model.apiKey === "embed" && (
-            <Embed code={block.code} fullWidth={block.fullWidth} />
+            <Embed
+              title={block.title}
+              code={block.code}
+              fullWidth={block.fullWidth}
+            />
           )}
           {block.model.apiKey === "image_gallery" && (
             <Container>
               <ImageGallery images={block.images} />
             </Container>
+          )}
+          {block.model.apiKey === "image_and_text" && (
+            <ImageAndText
+              label={block.content.label}
+              subtitle={block.content.subtitle}
+              title={block.content.title}
+              body={block.content.body}
+              image={block.image}
+              rightAligned={block.rightAligned}
+            />
           )}
         </Box>
       ))}
@@ -100,6 +115,25 @@ export const query = graphql`
         ... on DatoCmsEmbed {
           id
           ...EmbedDetails
+        }
+        ... on DatoCmsImageAndText {
+          id
+          content {
+            ... on DatoCmsRichContent {
+              ...RichContent
+            }
+          }
+          image {
+            gatsbyImageData(
+              width: 1480
+              placeholder: BLURRED
+              forceBlurhash: false
+            )
+          }
+          rightAligned
+          model {
+            apiKey
+          }
         }
         ... on DatoCmsImage {
           id
@@ -220,6 +254,7 @@ export const query = graphql`
 
   fragment RichContent on DatoCmsRichContent {
     title
+    label
     subtitle
     body {
       blocks {
@@ -305,6 +340,7 @@ export const query = graphql`
   }
 
   fragment EmbedDetails on DatoCmsEmbed {
+    title
     code
     fullWidth
     model {
