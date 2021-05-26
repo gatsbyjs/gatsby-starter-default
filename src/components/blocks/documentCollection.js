@@ -1,4 +1,5 @@
-import React from "react"
+import React, { useEffect, useState } from "react"
+import ReactPaginate from "react-paginate"
 import {
   Box,
   Text,
@@ -11,6 +12,29 @@ import {
 import { i18nContext } from "../../context/i18nContext"
 
 const DocumentCollection = ({ title, documents, showPublicationDate }) => {
+  const documentPerPage = 1
+  const pageCount = Math.ceil(documents.length / documentPerPage)
+  const [selectedPage, setSelectedPage] = useState(0)
+  const [selectedDocuments, setSelectedDocuments] = useState(
+    documents.slice(
+      selectedPage * documentPerPage,
+      selectedPage * documentPerPage + documentPerPage
+    )
+  )
+
+  useEffect(() => {
+    setSelectedDocuments(
+      documents.slice(
+        selectedPage * documentPerPage,
+        selectedPage * documentPerPage + documentPerPage
+      )
+    )
+  }, [selectedPage])
+
+  function handleChange(data) {
+    setSelectedPage(data.selected)
+  }
+
   return (
     <Box>
       <Container>
@@ -20,7 +44,7 @@ const DocumentCollection = ({ title, documents, showPublicationDate }) => {
         </Grid>
       </Container>
       <Box>
-        {documents.map(document => (
+        {selectedDocuments.map(document => (
           <Box
             sx={{
               borderTop: "1px solid",
@@ -81,6 +105,20 @@ const DocumentCollection = ({ title, documents, showPublicationDate }) => {
             </Container>
           </Box>
         ))}
+        {pageCount > 1 && (
+          <ReactPaginate
+            previousLabel={"previous"}
+            nextLabel={"next"}
+            breakLabel={"..."}
+            breakClassName={"break-me"}
+            pageCount={pageCount}
+            marginPagesDisplayed={2}
+            pageRangeDisplayed={5}
+            onPageChange={handleChange}
+            containerClassName={"pagination"}
+            activeClassName={"active"}
+          />
+        )}
       </Box>
     </Box>
   )
