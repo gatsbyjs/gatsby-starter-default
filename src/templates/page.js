@@ -16,6 +16,8 @@ import DocumentCollection from "../components/blocks/documentCollection"
 import Embed from "../components/blocks/embed"
 import PageHero from "./pageHero"
 import ImageAndText from "../components/blocks/imageAndText"
+import NumbersGroup from "../components/blocks/numbersGroup"
+import NumbersCollection from "../components/blocks/numbersCollections"
 const LocationsMap = loadable(
   () => import("../components/blocks/locationMap"),
   { ssr: false }
@@ -84,6 +86,13 @@ const Page = ({ data: { page } }) => {
               <ImageGallery images={block.images} />
             </Container>
           )}
+          {block.model.apiKey === "numbers_collection" && (
+            <NumbersCollection
+              title={block.title}
+              image={block.image}
+              numbers={block.numbers}
+            />
+          )}
           {block.model.apiKey === "image_and_text" && (
             <ImageAndText
               label={block.content.label}
@@ -112,6 +121,27 @@ export const query = graphql`
         ...GatsbyDatoCmsSeoMetaTags
       }
       content {
+        ... on DatoCmsNumbersCollection {
+          id
+          title
+          image {
+            gatsbyImageData(
+              width: 1480
+              placeholder: BLURRED
+              forceBlurhash: false
+            )
+          }
+          numbers {
+            legend
+            float
+            suffix
+            prefix
+          }
+          model {
+            apiKey
+          }
+        }
+
         ... on DatoCmsEmbed {
           id
           ...EmbedDetails
@@ -256,6 +286,9 @@ export const query = graphql`
     title
     label
     subtitle
+    image {
+      gatsbyImageData(width: 1480, placeholder: BLURRED, forceBlurhash: false)
+    }
     body {
       blocks {
         __typename
