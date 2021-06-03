@@ -29,6 +29,9 @@
       "@pages/*": [
         "./src/pages/*"
       ],
+      "@sass/*": [
+        "./src/sass/*"
+      ],
     }
   },
   "include": [

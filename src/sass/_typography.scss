@@ -1,0 +1,89 @@
+@import url('https://fonts.googleapis.com/css2?family=Source+Sans+Pro:ital,wght@0,200;0,300;0,600;0,700;0,900;1,200;1,300;1,400;1,600;1,700;1,900&display=swap');
+$font-family: 'Source Sans Pro', sans-serif;
+
+body {
+  font-size: $base-font-size; /* This overrides the browsers default font size */
+  line-height: 1.25; /* If you change the font-size make sure you change the line-height value as well - the usual ratio is around 1.5 (font-size x 1.5 = line-height) */
+  font-family: $font-family;
+}
+
+button,
+input,
+select,
+textarea {
+  font-family: $font-family;
+}
+select {
+  font-family: $font-family;
+  option {
+    font-family: $font-family;
+  }
+}
+
+body a {
+  text-decoration: none;
+} /* this removes the underline from all links */
+
+body a:link {
+  -webkit-tap-highlight-color: $tap-color;
+} /* this sets the highlight color when links are tapped on Safari (browser) on iPhone */
+
+h1,
+h2,
+h3,
+h4 {
+  font-weight: bold;
+  line-height: 1.2em;
+  margin-bottom: 0.8em;
+}
+
+h1 {
+  font-size: $font-size-h1;
+}
+
+h2 {
+  font-size: $font-size-h2;
+}
+
+h3 {
+  font-size: $font-size-h3;
+}
+
+h4 {
+  font-size: $font-size-h4;
+}
+
+p {
+  margin-bottom: 1em;
+}
+
+.htmleditor,
+.htmlcontent {
+  line-height: 1.3;
+  font-weight: 500;
+  h1 {
+    font-size: $font-size-h2;
+    color: rgba(0, 0, 0, 0.85);
+    a {
+      color: rgba(0, 0, 0, 0.85);
+    }
+  }
+
+  h2 {
+    font-size: $font-size-h3;
+  }
+
+  h3 {
+    font-size: $font-size-h4;
+  }
+  p {
+    font-size: $font-size-content;
+  }
+}
+.htmlcontent {
+  padding: 0.5rem 0;
+}
+
+.black {
+  color: $black;
+}

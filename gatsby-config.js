@@ -17,6 +17,17 @@ module.exports = {
     'gatsby-plugin-resolve-src',
     `gatsby-transformer-sharp`,
     {
+      resolve: `gatsby-plugin-sass`,
+      options: {
+        implementation: require('node-sass'),
+        postCssPlugins: [
+          require(`postcss-preset-env`)({
+            stage: 0,
+          }),
+        ],
+      },
+    },
+    {
       resolve: `gatsby-plugin-typescript`,
       options: {
         isTSX: true,

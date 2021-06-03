@@ -1,0 +1,51 @@
+/***************************************
+* Breakpoints
+**/
+
+@function breakpoint-min($name, $breakpoints: $grid-breakpoints) {
+  $min: map-get($breakpoints, $name);
+  @return if($min != 0, $min, null);
+}
+
+// Media of at least the minimum breakpoint width. No query for the smallest breakpoint.
+// Makes the @content apply to the given breakpoint and wider.
+@mixin media-breakpoint-up($name, $breakpoints: $grid-breakpoints) {
+  $min: breakpoint-min($name, $breakpoints);
+  @if $min {
+    @media (min-width: $min) {
+      @content;
+    }
+  } @else {
+    @content;
+  }
+}
+
+
+// Sizes
+
+@function rem($px) {
+  @return ($px / $base-font-size) * 1rem;
+}
+
+@function em($px) {
+  @return ($px / $base-font-size) * 1em;
+}
+
+@mixin container-padding($v, $h) {
+  padding: $v * 5% $h * 5%;
+}
+
+@mixin absolute-cover {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+}
+@mixin fixed-cover {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+}

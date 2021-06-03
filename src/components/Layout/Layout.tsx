@@ -1,8 +1,7 @@
 import React, { FC } from "react"
 import { useStaticQuery, graphql } from "gatsby"
 import { Header, Footer } from "components"
-import "./layout.css"
-
+import 'sass/style.scss';
 export interface LayoutProps {
   children: JSX.IntrinsicElements["div"]
 }

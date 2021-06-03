@@ -1,0 +1,16 @@
+img {
+  max-width: 100%;
+}
+
+.container {
+  max-width: 90%;
+  margin: 0 auto;
+  @include container-padding(0, 1);
+}
+
+section {
+  padding: 2% 0;
+  + section {
+    padding-top: 0;
+  }
+}

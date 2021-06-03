@@ -1,0 +1,33 @@
+$zindex-highest: 10;
+$zindex-lowest: 1;
+
+// Colors
+$black: #000;
+$white: #fff;
+$tap-color: #2889cc;
+$grey: #918e8e;
+$link-decoration: none;
+
+// Grid breakpoints
+//
+// Define the minimum dimensions at which your layout will change,
+// adapting to different screen sizes, for use in media queries.
+
+$base-font-size: 15px;
+
+$grid-breakpoints: (
+  xs: 0,
+  sm: 576px,
+  md: 768px,
+  lg: 992px,
+  xl: 1200px,
+) !default;
+
+// Heading Font Size
+$font-size-h1: 2rem;
+$font-size-large: 1.8rem;
+$font-size-h2: 1.6rem;
+$font-size-h3: 1.4rem;
+$font-size-h4: 1.25rem;
+$font-size-content: 1.2rem;
+$font-size-normal: 0.9rem;
