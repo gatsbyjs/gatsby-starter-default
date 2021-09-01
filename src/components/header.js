@@ -17,15 +17,11 @@ const Header = ({ siteTitle }) => (
       }}
     >
       <h1 style={{ margin: 0 }}>
-        <Link
-          to="/"
-          style={{
-            color: `white`,
-            textDecoration: `none`,
-          }}
-        >
-          {siteTitle}
-        </Link>
+
+        <Link to="/page-2/" style={{color: `white`, textDecoration: `none`,}}>Page 2</Link>
+        <Link to="/using-typescript/ "style={{color: `yellow`, textDecoration: `none`,}}>"Using TypeScript"</Link>
+        <Link to="/"style={{color: `pink`, textDecoration: `none`,}}>Homepage</Link>
+
       </h1>
     </div>
   </header>
