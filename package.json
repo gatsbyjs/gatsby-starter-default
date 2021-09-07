@@ -5,21 +5,15 @@
   "version": "0.1.0",
   "author": "Kyle Mathews <mathews.kyle@gmail.com>",
   "dependencies": {
-    "@loadable/component": "^5.15.0",
-    "datocms-search": "^0.1.8",
-    "gatsby": "^3.3.1",
-    "gatsby-plugin-advanced-sitemap": "^1.6.0",
-    "gatsby-plugin-gatsby-cloud": "^2.2.0",
-    "gatsby-plugin-image": "^1.2.1",
-    "gatsby-plugin-manifest": "^3.2.0",
-    "gatsby-plugin-offline": "^4.2.0",
-    "gatsby-plugin-react-helmet": "^4.2.0",
-    "gatsby-plugin-sharp": "^3.2.1",
-    "gatsby-plugin-theme-ui": "^0.7.3",
-    "gatsby-source-datocms": "^2.6.13",
-    "gatsby-source-filesystem": "^3.2.0",
-    "gatsby-transformer-sharp": "^3.2.0",
-    "leaflet": "^1.7.1",
+    "gatsby": "^3.13.0",
+    "gatsby-plugin-gatsby-cloud": "^2.11.0",
+    "gatsby-plugin-image": "^1.13.0",
+    "gatsby-plugin-manifest": "^3.13.0",
+    "gatsby-plugin-offline": "^4.13.0",
+    "gatsby-plugin-react-helmet": "^4.13.0",
+    "gatsby-plugin-sharp": "^3.13.0",
+    "gatsby-source-filesystem": "^3.13.0",
+    "gatsby-transformer-sharp": "^3.13.0",
     "prop-types": "^15.7.2",
     "react": "^17.0.1",
     "react-accessible-accordion": "^3.3.4",
@@ -31,10 +25,16 @@
     "react-leaflet": "^3.2.0",
     "react-paginate": "^7.1.3",
     "swiper": "^6.5.9",
+    "@loadable/component": "^5.15.0",
+    "datocms-search": "^0.1.8",
+    "gatsby-plugin-advanced-sitemap": "^1.6.0",
+    "gatsby-plugin-theme-ui": "^0.7.3",
+    "gatsby-source-datocms": "^2.6.13",
+    "leaflet": "^1.7.1",
     "theme-ui": "^0.7.3"
   },
   "devDependencies": {
-    "prettier": "2.2.1"
+    "prettier": "2.3.2"
   },
   "keywords": [
     "gatsby"
@@ -44,7 +44,7 @@
     "build": "gatsby build",
     "develop": "gatsby develop",
     "format": "prettier --write \"**/*.{js,jsx,ts,tsx,json,md}\"",
-    "start": "npm run develop",
+    "start": "gatsby develop",
     "serve": "gatsby serve",
     "clean": "gatsby clean",
     "test": "echo \"Write tests! -> https://gatsby.dev/unit-testing\" && exit 1"
