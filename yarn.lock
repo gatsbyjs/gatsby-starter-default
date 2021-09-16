@@ -5093,7 +5093,7 @@ gatsby-page-utils@^2.0.0-zz-next.1:
     lodash "^4.17.21"
     micromatch "^4.0.4"
 
-gatsby-plugin-image@next:
+gatsby-plugin-image@^2.0.0-zz-next.1:
   version "2.0.0-zz-next.1"
   resolved "https://registry.yarnpkg.com/gatsby-plugin-image/-/gatsby-plugin-image-2.0.0-zz-next.1.tgz#23d4eb5f575e74fab0acc96d63401acf1e527518"
   integrity sha512-i8vCjAz+/NSGILlWQl9HeZvJAJiNDK4nlcySQ0tN0FKFzY8zs1/vfzcgEVPCraNLTB4VQLCG7jYPeha6JFpH+A==
@@ -5112,7 +5112,7 @@ gatsby-plugin-image@next:
     objectFitPolyfill "^2.3.5"
     prop-types "^15.7.2"
 
-gatsby-plugin-manifest@next:
+gatsby-plugin-manifest@^4.0.0-zz-next.1:
   version "4.0.0-zz-next.1"
   resolved "https://registry.yarnpkg.com/gatsby-plugin-manifest/-/gatsby-plugin-manifest-4.0.0-zz-next.1.tgz#cc6f59af5aada923a5e094ccab8075b8ef810119"
   integrity sha512-fQRrQsOB6GHCTcR659O+1xV4MMabnGiNElz40wCodfaax5O6Q64mMjoW4oPxJWLyFHvLDgoDA2Pgc346m6b7nw==
@@ -5123,7 +5123,7 @@ gatsby-plugin-manifest@next:
     semver "^7.3.5"
     sharp "^0.29.0"
 
-gatsby-plugin-offline@next:
+gatsby-plugin-offline@^5.0.0-zz-next.1:
   version "5.0.0-zz-next.1"
   resolved "https://registry.yarnpkg.com/gatsby-plugin-offline/-/gatsby-plugin-offline-5.0.0-zz-next.1.tgz#7838ff642a3abc97f9e74b314efc8cd13350709c"
   integrity sha512-zmVaycj5pRAmkx0P4B9vn8v5JWOPnHex86Y+mL32ColYMOiNresLMS5YdUNZNEkpMmVBOFUFVadWBQbYwc+qPw==
@@ -5153,14 +5153,14 @@ gatsby-plugin-page-creator@^4.0.0-zz-next.1:
     globby "^11.0.4"
     lodash "^4.17.21"
 
-gatsby-plugin-react-helmet@next:
+gatsby-plugin-react-helmet@^5.0.0-zz-next.1:
   version "5.0.0-zz-next.1"
   resolved "https://registry.yarnpkg.com/gatsby-plugin-react-helmet/-/gatsby-plugin-react-helmet-5.0.0-zz-next.1.tgz#7241a0a17550fcb9ae7e95c3216e91dae25505e5"
   integrity sha512-uxJzgo36ZZb6ZYCH19eqpToOq75uAKacU9dqNV3Jxa/Jnsz9JOrW6TJrCX+NEcKp+BSgOGdJwfATFHcXIMICig==
   dependencies:
     "@babel/runtime" "^7.15.4"
 
-gatsby-plugin-sharp@next:
+gatsby-plugin-sharp@^4.0.0-zz-next.1:
   version "4.0.0-zz-next.1"
   resolved "https://registry.yarnpkg.com/gatsby-plugin-sharp/-/gatsby-plugin-sharp-4.0.0-zz-next.1.tgz#43c02beed7332667135051791222ddf02e3d6b76"
   integrity sha512-gd0I8XdPtsfOuD4TT8ts8MLuLL3k2Rnz9yoBdh0gSQpRXQajjDCeHrTKU3Q9P8mUwczWLilvbYrvECAdn/xi6A==
@@ -5277,7 +5277,7 @@ gatsby-recipes@^1.0.0-zz-next.1:
     xstate "^4.9.1"
     yoga-layout-prebuilt "^1.9.6"
 
-gatsby-source-filesystem@next:
+gatsby-source-filesystem@^4.0.0-zz-next.1:
   version "4.0.0-zz-next.1"
   resolved "https://registry.yarnpkg.com/gatsby-source-filesystem/-/gatsby-source-filesystem-4.0.0-zz-next.1.tgz#3b90213c28dec6ee2bb53b117d5390b23efb0761"
   integrity sha512-q/FLQOt9nIHQD7zn1U2kEFigTAg9/Gb0rCWaU0h7dVj/gLMdiMKttQqn/98Z0ta5gNjKgdNUexo+JO3c1BRoyQ==
@@ -5316,7 +5316,7 @@ gatsby-telemetry@^3.0.0-zz-next.1:
     node-fetch "^2.6.1"
     uuid "3.4.0"
 
-gatsby-transformer-sharp@next:
+gatsby-transformer-sharp@^4.0.0-zz-next.1:
   version "4.0.0-zz-next.1"
   resolved "https://registry.yarnpkg.com/gatsby-transformer-sharp/-/gatsby-transformer-sharp-4.0.0-zz-next.1.tgz#88032d5f2c86a1552d36c8e3ebeb6c8b0982caed"
   integrity sha512-GjYahBRf4BuzzGU6BMIQGNLas8/O5eikEuMStKluejOPgetnHId4uflUrfXGoWNIdiVb8sSMWkojoJU4y+Royw==
@@ -5338,7 +5338,7 @@ gatsby-worker@^1.0.0-zz-next.1:
     "@babel/core" "^7.15.5"
     "@babel/runtime" "^7.15.4"
 
-gatsby@next:
+gatsby@^4.0.0-zz-next.1:
   version "4.0.0-zz-next.1"
   resolved "https://registry.yarnpkg.com/gatsby/-/gatsby-4.0.0-zz-next.1.tgz#21c714f984dbe66a1fec14d99966bd4cd0534578"
   integrity sha512-TkB+nBA3QQ+SdEHTDNESlG3/fv0SGceF3KbcOHKpENbE82h3ygZUYeMZmb4OThlXSxJ4Zn+z9SRnYjf7j9UAgA==
