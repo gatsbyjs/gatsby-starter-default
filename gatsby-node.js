@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 /**
  * Implement Gatsby's Node APIs in this file.
  *
@@ -155,4 +156,14 @@ exports.createPages = async function ({ actions, graphql }) {
       context: { locale: locale },
     })
   )
+=======
+exports.createPages = async ({ actions }) => {
+  const { createPage } = actions
+  createPage({
+    path: "/using-dsg",
+    component: require.resolve("./src/templates/using-dsg.js"),
+    context: {},
+    defer: true,
+  })
+>>>>>>> 68dad878dff154832eb1dcd596352bb41ce4f9ff
 }
