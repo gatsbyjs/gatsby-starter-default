@@ -41,7 +41,7 @@ const Layout = ({ children, locale, i18nPaths }) => {
           paths={i18nPaths}
           siteUrl={data.gatsbySite.siteMetadata.siteUrl}
         />
-        <Canonical paths={i18nPaths} />
+        <Canonical  siteUrl={data.gatsbySite.siteMetadata.siteUrl} paths={i18nPaths} />
         <Flex
           sx={{
             flexDirection: "column",

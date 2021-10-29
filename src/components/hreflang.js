@@ -2,6 +2,7 @@ import React from "react"
 import { Helmet } from "react-helmet"
 
 const Hreflang = ({ siteUrl, paths }) => {
+  console.log(paths);
   return (
     <Helmet>
       {paths.map((link, index) => (
@@ -12,7 +13,16 @@ const Hreflang = ({ siteUrl, paths }) => {
           key={index}
         />
       ))}
-      <link rel="alternate" hreflang="x-default" href={siteUrl} />
+      {paths.map(
+        (link, index) =>
+          link.locale === "en" && (
+            <link
+              rel="alternate"
+              hreflang="x-default"
+              href={siteUrl + link.value}
+            />
+          )
+      )}
     </Helmet>
   )
 }
