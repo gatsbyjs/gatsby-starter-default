@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 /**
  * Implement Gatsby's Node APIs in this file.
  *
@@ -8,6 +7,7 @@
 // You can delete this file if you're not using it
 
 exports.createPages = async function ({ actions, graphql }) {
+  const { createPage } = actions
   const { data } = await graphql(`
     query CreatePageQuery {
       site: datoCmsSite {
@@ -156,14 +156,14 @@ exports.createPages = async function ({ actions, graphql }) {
       context: { locale: locale },
     })
   )
-=======
-exports.createPages = async ({ actions }) => {
-  const { createPage } = actions
-  createPage({
-    path: "/using-dsg",
-    component: require.resolve("./src/templates/using-dsg.js"),
-    context: {},
-    defer: true,
-  })
->>>>>>> 68dad878dff154832eb1dcd596352bb41ce4f9ff
+
+
+  
+    createPage({
+      path: "/using-dsg",
+      component: require.resolve("./src/templates/using-dsg.js"),
+      context: {},
+      defer: true,
+    })
+
 }
