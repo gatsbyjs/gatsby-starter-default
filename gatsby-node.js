@@ -7,6 +7,7 @@
 // You can delete this file if you're not using it
 
 exports.createPages = async function ({ actions, graphql }) {
+  const { createPage } = actions
   const { data } = await graphql(`
     query CreatePageQuery {
       site: datoCmsSite {
@@ -155,4 +156,14 @@ exports.createPages = async function ({ actions, graphql }) {
       context: { locale: locale },
     })
   )
+
+
+  
+    createPage({
+      path: "/using-dsg",
+      component: require.resolve("./src/templates/using-dsg.js"),
+      context: {},
+      defer: true,
+    })
+
 }
