@@ -9,7 +9,7 @@ const i18nPath = {
     category: "category",
     search: "search",
   },
-  "en-US": {
+  "en-us": {
     category: "category",
     search: "search",
   },
@@ -17,7 +17,7 @@ const i18nPath = {
 
 export function getPagePath(page, locale) {
   const pageLocale = locale || page.locale
-  let lang = pageLocale === defaultLocale ? "/" : `/${pageLocale}/`
+  let lang = pageLocale === defaultLocale ? "/" : `/${pageLocale.toLowerCase()}/`
   let path = `${page._allSlugLocales.find(x => x.locale === pageLocale).value}`
   if (page.root) {
     return lang + `${path}/`
@@ -37,17 +37,18 @@ export function getPagePath(page, locale) {
 }
 
 export function getHomePath(locale) {
-  return locale === defaultLocale ? "/" : `/${locale}/`
+  return locale === defaultLocale ? "/" : `/${locale.toLowerCase()}/`
 }
 
 export function getSearchPath(locale) {
+  console.log("locale-getSearchPath",locale)
   return locale === defaultLocale
-    ? `/${i18nPath[locale].search}/`
-    : `/${locale}/${i18nPath[locale].search}/`
+    ? `/${i18nPath[locale.toLowerCase()].search}/`
+    : `/${locale.toLowerCase()}/${i18nPath[locale.toLowerCase()].search}/`
 }
 
 export function getBlogPath(locale) {
-  return locale === defaultLocale ? `/blog/` : `/${locale}/blog/`
+  return locale === defaultLocale ? `/blog/` : `/${locale.toLowerCase()}/blog/`
 }
 
 export function getArticleCategoryPath(page, locale) {
@@ -55,7 +56,7 @@ export function getArticleCategoryPath(page, locale) {
     ? `/blog/${i18nPath[locale].category}/${
         page._allSlugLocales.find(x => x.locale === locale).value
       }/`
-    : `/${locale}/blog/${i18nPath[locale].category}/${
+    : `/${locale.toLowerCase()}/blog/${i18nPath[locale].category}/${
         page._allSlugLocales.find(x => x.locale === locale).value
       }/`
 }
@@ -63,7 +64,7 @@ export function getArticleCategoryPath(page, locale) {
 export function getArticlePath(page, locale) {
   return locale === defaultLocale
     ? `/blog/${page._allSlugLocales.find(x => x.locale === locale).value}`
-    : `/${locale}/blog/${
+    : `/${locale.toLowerCase()}/blog/${
         page._allSlugLocales.find(x => x.locale === locale).value
       }/`
 }

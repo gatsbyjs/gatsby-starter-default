@@ -16,7 +16,7 @@ import Footer from "./footer"
 import Canonical from "./canonical"
 
 const Layout = ({ children, locale, i18nPaths }) => {
-  console.log(languages[locale])
+  
   const data = useStaticQuery(graphql`
     query SiteQuery {
       datoCmsSite: datoCmsSite {

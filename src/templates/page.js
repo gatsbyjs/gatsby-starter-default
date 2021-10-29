@@ -18,19 +18,24 @@ import PageHero from "./pageHero"
 import ImageAndText from "../components/blocks/imageAndText"
 import NumbersGroup from "../components/blocks/numbersGroup"
 import NumbersCollection from "../components/blocks/numbersCollections"
+import ContactForm from "../components/blocks/contactFrom"
 const LocationsMap = loadable(
   () => import("../components/blocks/locationMap"),
   { ssr: false }
 )
 
-const Page = ({ data: { page } }) => {
-  console.log(page.locale)
-  const i18nPaths = page._allSlugLocales.map(locale => {
+const Page = ({ data: { page , site } }) => {
+  const pageAllSlugLocales = page._allSlugLocales.sort(function (a, b) {
+    return site.locales.indexOf(a.locale) - site.locales.indexOf(b.locale)
+  })
+
+  const i18nPaths = pageAllSlugLocales.map(locale => {
     return {
       locale: locale.locale,
       value: getPagePath(page, locale.locale),
     }
   })
+
   return (
     <Layout locale={page.locale} i18nPaths={i18nPaths}>
       <HelmetDatoCms seo={page.seoMetaTags}>
@@ -93,6 +98,16 @@ const Page = ({ data: { page } }) => {
               numbers={block.numbers}
             />
           )}
+          {block.model.apiKey === "contact_form" && (
+            <ContactForm
+              kicker={block.kicker}
+              title={block.title}
+              subtitle={block.subtitle}
+              privacyPolicyDescription={block.privacyPolicyDescription}
+              newsletterDescription={block.newsletterDescription}
+            />
+          )}
+          
           {block.model.apiKey === "image_and_text" && (
             <ImageAndText
               label={block.content.label}
@@ -113,6 +128,9 @@ export default Page
 
 export const query = graphql`
   query PageQuery($id: String!, $locale: String!) {
+    site: datoCmsSite {
+      locales
+    }
     page: datoCmsPage(id: { eq: $id }) {
       ...PageDetails
       ...PageTreeParent
@@ -263,6 +281,17 @@ export const query = graphql`
               ...AllSlugLocales
             }
           }
+          model {
+            apiKey
+          }
+        }
+        ... on DatoCmsContactForm {
+          id
+          kicker
+          title
+          subtitle
+          privacyPolicyDescription
+          newsletterDescription
           model {
             apiKey
           }
