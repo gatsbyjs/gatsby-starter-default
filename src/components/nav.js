@@ -11,6 +11,15 @@ const Nav = () => {
   const locale = React.useContext(LanguageSwitcherContext).activeLocale
   const menu = useMenu()
 
+  menu.map(menuItem => {
+    menuItem.treeChildren.sort((a, b) => a.position - b.position)
+    menuItem.treeChildren.map(menuItem => {
+      if (menuItem.treeChildren.length > 0) {
+        menuItem.treeChildren.sort((a, b) => a.position - b.position)
+      }
+    })
+  })
+  
   return (
     <Box as="nav">
       <Container variant="header" sx={{ paddingX: [3, 4] }}>

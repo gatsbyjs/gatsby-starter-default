@@ -5,11 +5,12 @@ import { Link } from "./link"
 
 const LanguageSwitcher = () => {
   const [show, setShow] = useState(false)
+
   const languagesCountry = {
     it: "Italiano",
     en: "English",
-    "en-US": "English (United States)",
-    "en-CA": "English (Canada)",
+    "en-us": "English (United States)",
+    "en-ca": "English (Canada)",
     fr: "Français",
     de: "Deutsch",
     es: "Español",
@@ -17,6 +18,7 @@ const LanguageSwitcher = () => {
     pl: "Polski",
     ru: "Русский",
   }
+  
   return (
     <LanguageSwitcherContext.Consumer>
       {({ activeLocale, paths }) => {
@@ -55,7 +57,6 @@ const LanguageSwitcher = () => {
                 }}
               >
                 {paths
-                  .sort((a, b) => b.locale.localeCompare(a.locale))
                   .map((link, index) => (
                     <Box as="li" key={index}>
                       <Link

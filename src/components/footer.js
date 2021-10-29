@@ -7,7 +7,15 @@ import linkSwitch from "../utils/linkSwitch"
 const Footer = () => {
   const footer = useFooter()
   const company = useCompany()
-  console.log(company)
+
+  footer.map(footerItem => {
+    footerItem.treeChildren.sort((a, b) => a.position - b.position)
+    footerItem.treeChildren.map(footerItem => {
+      if (footerItem.treeChildren.length > 0) {
+        footerItem.treeChildren.sort((a, b) => a.position - b.position)
+      }
+    })
+  })
 
   return (
     <Box as="footer" sx={{ backgroundColor: "dark", py: 5, color: "light" }}>

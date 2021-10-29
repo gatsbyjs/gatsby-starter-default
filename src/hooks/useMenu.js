@@ -55,6 +55,7 @@ export const useMenu = () => {
             locale
             root
             anchor
+            position
             link {
               ... on DatoCmsInternalLink {
                 id
@@ -96,6 +97,7 @@ export const useMenu = () => {
               locale
               root
               anchor
+              position
               link {
                 ... on DatoCmsInternalLink {
                   id
