@@ -5,8 +5,11 @@ import Layout from "../components/layout"
 import { getHomePath } from "../utils/path"
 import { HelmetDatoCms } from "gatsby-source-datocms"
 import LatestArticles from "../components/latestArticles"
+import { useFavicon } from "../hooks/useFavicon"
 
 const Home = ({ data: { page, site, articles } }) => {
+
+  const favicon =  useFavicon().site.faviconMetaTags;
 
   const i18nPaths = site.locales.map(locale => {
     return {
@@ -17,7 +20,7 @@ const Home = ({ data: { page, site, articles } }) => {
 
   return (
     <Layout locale={page.locale} i18nPaths={i18nPaths}>
-      <HelmetDatoCms seo={page.seoMetaTags}>
+      <HelmetDatoCms seo={page.seoMetaTags} favicon={favicon}>
         <html lang={page.locale} />
       </HelmetDatoCms>
       <Container>

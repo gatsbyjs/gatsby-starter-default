@@ -1,7 +1,7 @@
 import React, { useState } from "react"
 import { Box, Flex } from "@theme-ui/components"
 import { LanguageSwitcherContext } from "../context/languageSwitcherContext"
-import { Link } from "./link"
+import { InboundLink } from "./link"
 
 const LanguageSwitcher = () => {
   const [show, setShow] = useState(false)
@@ -30,7 +30,7 @@ const LanguageSwitcher = () => {
             onMouseLeave={() => setShow(!show)}
           >
             <Box>
-              <Link
+              <InboundLink
                 to={activeLink.value}
                 sx={{
                   marginLeft: 3,
@@ -38,7 +38,7 @@ const LanguageSwitcher = () => {
                 }}
               >
                 {activeLink.locale}
-              </Link>
+              </InboundLink>
             </Box>
             {show && (
               <Flex
@@ -59,7 +59,7 @@ const LanguageSwitcher = () => {
                 {paths
                   .map((link, index) => (
                     <Box as="li" key={index}>
-                      <Link
+                      <InboundLink
                         to={link.value}
                         sx={{
                           whiteSpace: "nowrap",
@@ -75,7 +75,7 @@ const LanguageSwitcher = () => {
                         }}
                       >
                         {languagesCountry[link.locale] || link.locale}
-                      </Link>
+                      </InboundLink>
                     </Box>
                   ))}
               </Flex>

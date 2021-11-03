@@ -19,12 +19,18 @@ import ImageAndText from "../components/blocks/imageAndText"
 import NumbersGroup from "../components/blocks/numbersGroup"
 import NumbersCollection from "../components/blocks/numbersCollections"
 import ContactForm from "../components/blocks/contactFrom"
+import Categories from "../components/blocks/categoryBlock"
+import { useFavicon } from "../hooks/useFavicon"
+
 const LocationsMap = loadable(
   () => import("../components/blocks/locationMap"),
   { ssr: false }
 )
 
 const Page = ({ data: { page , site } }) => {
+
+  const favicon = useFavicon().site.faviconMetaTags
+
   const pageAllSlugLocales = page._allSlugLocales.sort(function (a, b) {
     return site.locales.indexOf(a.locale) - site.locales.indexOf(b.locale)
   })
@@ -38,7 +44,7 @@ const Page = ({ data: { page , site } }) => {
 
   return (
     <Layout locale={page.locale} i18nPaths={i18nPaths}>
-      <HelmetDatoCms seo={page.seoMetaTags}>
+      <HelmetDatoCms seo={page.seoMetaTags} favicon={favicon}>
         <html lang={page.locale} />
       </HelmetDatoCms>
       <PageHero page={page} image={page.heroImage} />
@@ -118,6 +124,14 @@ const Page = ({ data: { page , site } }) => {
               rightAligned={block.rightAligned}
             />
           )}
+          {block.model.apiKey === "category" && (
+            <Categories
+              page={page}
+              title={block.title}
+              description={block.description}
+            />
+          )}
+          
         </Box>
       ))}
     </Layout>
@@ -192,6 +206,14 @@ export const query = graphql`
               forceBlurhash: false
             )
           }
+          model {
+            apiKey
+          }
+        }
+        ... on DatoCmsCategory {
+          id
+          title
+          description
           model {
             apiKey
           }
