@@ -23,6 +23,13 @@ export const useMenu = () => {
                 apiKey
               }
               link {
+                ... on DatoCmsProductCategory {
+                  ...ProductCategoryPageDetails
+                }
+                ... on DatoCmsProduct {
+                  ...ProductPageDetails
+                  ...AllProductSlugLocales
+                }
                 ... on DatoCmsBlogPage {
                   ...BlogDetails
                 }
@@ -55,7 +62,6 @@ export const useMenu = () => {
             locale
             root
             anchor
-            position
             link {
               ... on DatoCmsInternalLink {
                 id
@@ -65,6 +71,13 @@ export const useMenu = () => {
                   apiKey
                 }
                 link {
+                  ... on DatoCmsProductCategory {
+                    ...ProductCategoryPageDetails
+                  }
+                  ... on DatoCmsProduct {
+                    ...ProductPageDetails
+                    ...AllProductSlugLocales
+                  }
                   ... on DatoCmsBlogPage {
                     ...BlogDetails
                   }
@@ -97,7 +110,6 @@ export const useMenu = () => {
               locale
               root
               anchor
-              position
               link {
                 ... on DatoCmsInternalLink {
                   id
@@ -107,6 +119,13 @@ export const useMenu = () => {
                     apiKey
                   }
                   link {
+                    ... on DatoCmsProductCategory {
+                      ...ProductCategoryPageDetails
+                    }
+                    ... on DatoCmsProduct {
+                      ...ProductPageDetails
+                      ...AllProductSlugLocales
+                    }
                     ... on DatoCmsBlogPage {
                       ...BlogDetails
                     }

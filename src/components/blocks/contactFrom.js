@@ -70,7 +70,6 @@ const ContactForm = ({
           }
         })
         .catch(function (error) {
-          console.log("error", error)
           setLoading(false)
         })
     else setLoading(false)

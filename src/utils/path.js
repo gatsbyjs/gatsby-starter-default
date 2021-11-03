@@ -4,14 +4,17 @@ const i18nPath = {
   it: {
     category: "categoria",
     search: "cerca",
+    products: "prodotti"
   },
   en: {
     category: "category",
     search: "search",
+    products: "products"
   },
   "en-us": {
     category: "category",
     search: "search",
+    products: "products"
   },
 }
 
@@ -22,10 +25,11 @@ export function getPagePath(page, locale) {
   if (page.root) {
     return lang + `${path}/`
   }
+
   path = `${
     page.treeParent._allSlugLocales.find(x => x.locale === pageLocale).value
   }/${path}`
-  if (page.treeParent.root) {
+  if (page.treeParent.root) { 
     return lang + `${path}/`
   }
   path = `${
@@ -41,7 +45,6 @@ export function getHomePath(locale) {
 }
 
 export function getSearchPath(locale) {
-  console.log("locale-getSearchPath",locale)
   return locale === defaultLocale
     ? `/${i18nPath[locale.toLowerCase()].search}/`
     : `/${locale.toLowerCase()}/${i18nPath[locale.toLowerCase()].search}/`
@@ -61,10 +64,24 @@ export function getArticleCategoryPath(page, locale) {
       }/`
 }
 
+export function getCategoryPath(page, locale) {
+  return page.locale === defaultLocale
+    ? `/${i18nPath[page.locale.toLowerCase()].category}/${page.slug}/`
+    : `/${page.locale.toLowerCase()}/${
+        i18nPath[page.locale.toLowerCase()].category
+      }/${page.slug}/`
+}
+
 export function getArticlePath(page, locale) {
   return locale === defaultLocale
     ? `/blog/${page._allSlugLocales.find(x => x.locale === locale).value}`
     : `/${locale.toLowerCase()}/blog/${
         page._allSlugLocales.find(x => x.locale === locale).value
       }/`
+}
+
+export function getProductPath(page, locale) {
+  return locale === defaultLocale
+  ? `/${i18nPath[locale.toLowerCase()].products}/${page.slug}/`
+  : `/${locale.toLowerCase()}/${i18nPath[page.locale.toLowerCase()].products}/${page.slug}/`
 }

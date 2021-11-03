@@ -1,4 +1,3 @@
-
 /**
  * Implement Gatsby's Node APIs in this file.
  *
@@ -8,10 +7,13 @@
 // You can delete this file if you're not using it
 
 exports.createPages = async function ({ actions, graphql }) {
-  const { createPage } = actions;
+  const { createPage } = actions
   const { data } = await graphql(`
     query CreatePageQuery {
       site: datoCmsSite {
+        faviconMetaTags {
+          ...GatsbyDatoCmsFaviconMetaTags
+        }
         locale
         locales
       }
@@ -43,6 +45,24 @@ exports.createPages = async function ({ actions, graphql }) {
           locale
         }
       }
+      product: allDatoCmsProduct(filter: { slug: { ne: null } }) {
+        nodes {
+          slug
+          id
+          locale
+          category {
+            id
+            slug
+          }
+        }
+      }
+      category: allDatoCmsProductCategory(filter: { slug: { ne: null } }) {
+        nodes {
+          slug
+          id
+          locale
+        }
+      }
       page: allDatoCmsPage(filter: { slug: { ne: null } }) {
         nodes {
           id
@@ -60,29 +80,47 @@ exports.createPages = async function ({ actions, graphql }) {
         }
       }
     }
+
+    fragment GatsbyDatoCmsFaviconMetaTags on DatoCmsFaviconMetaTags {
+      tags
+    }
   `)
 
   const i18nPath = {
     it: {
       category: "categoria",
       search: "cerca",
+      products: "prodotti",
     },
     en: {
       category: "category",
       search: "search",
+      products: "products",
     },
     "en-us": {
       category: "category",
       search: "search",
+      products: "products",
     },
   }
 
+  function getCategoryPath(page) {
+    
+    return page.locale === data.site.locale
+      ? `/${i18nPath[page.locale.toLowerCase()].category}/${page.slug}/`
+      : `/${page.locale.toLowerCase()}/${
+          i18nPath[page.locale.toLowerCase()].category
+        }/${page.slug}/`
+  }
+
   function getPagePath(page) {
-    let lang = page.locale === data.site.locale ? "" : `${page.locale.toLowerCase()}/`
+    let lang =
+      page.locale === data.site.locale ? "" : `${page.locale.toLowerCase()}/`
     let path = page.slug
     if (page.root) {
       return lang + `${path}/`
     }
+
     path = `${page.treeParent.slug}/${path}/`
     if (page.treeParent.root) {
       return lang + path
@@ -92,24 +130,39 @@ exports.createPages = async function ({ actions, graphql }) {
   }
 
   function getBlogPath(page) {
-    return page.locale === data.site.locale ? `/blog/` : `/${page.locale.toLowerCase()}/blog/`
+    return page.locale === data.site.locale
+      ? `/blog/`
+      : `/${page.locale.toLowerCase()}/blog/`
   }
 
   function getArticleCategoryPath(page) {
     return page.locale === data.site.locale
       ? `/blog/${i18nPath[page.locale.toLowerCase()].category}/${page.slug}/`
-      : `/${page.locale.toLowerCase()}/blog/${i18nPath[page.locale.toLowerCase()].category}/${page.slug}/`
+      : `/${page.locale.toLowerCase()}/blog/${
+          i18nPath[page.locale.toLowerCase()].category
+        }/${page.slug}/`
   }
 
   function getArticlePath(page) {
     return page.locale === data.site.locale
       ? `/blog/${page.slug}/`
-      : `/${page.locale}/blog/${page.slug}/`
+      : `/${page.locale.toLowerCase()}/blog/${page.slug}/`
+  }
+
+  function getProductPath(page) {
+    return page.locale === data.site.locale
+      ? `/${i18nPath[page.locale.toLowerCase()].products}/${page.slug}/`
+      : `/${page.locale.toLowerCase()}/${i18nPath[
+          page.locale
+        ].products.toLowerCase()}/${page.slug}/`
   }
 
   data.home.nodes.map(page =>
     actions.createPage({
-      path: page.locale === data.site.locale ? "/" : `/${page.locale.toLowerCase()}/`,
+      path:
+        page.locale === data.site.locale
+          ? "/"
+          : `/${page.locale.toLowerCase()}/`,
       component: require.resolve(`./src/templates/home.js`),
       context: { id: page.id, locale: page.locale },
     })
@@ -119,7 +172,7 @@ exports.createPages = async function ({ actions, graphql }) {
     actions.createPage({
       path: getPagePath(page),
       component: require.resolve(`./src/templates/page.js`),
-      context: { id: page.id, locale: page.locale },
+      context: { id: page.id, locale: page.locale  },
     })
   )
 
@@ -152,10 +205,34 @@ exports.createPages = async function ({ actions, graphql }) {
       path:
         data.site.locale === locale
           ? `/${i18nPath[locale].search}/`
-          : `/${locale.toLowerCase()}/${i18nPath[locale.toLowerCase()].search}/`,
+          : `/${locale.toLowerCase()}/${
+              i18nPath[locale.toLowerCase()].search
+            }/`,
       component: require.resolve(`./src/templates/search.js`),
       context: { locale: locale },
     })
+  )
+
+  data.category.nodes.map(page =>
+    actions.createPage({
+      path: getCategoryPath(page),
+      component: require.resolve(`./src/templates/productCategory.js`),
+      context: { id: page.id, locale: page.locale },
+    })
+  )
+
+  data.product.nodes.map(product =>
+    product.slug
+      ? actions.createPage({
+          path: getProductPath(product),
+          component: require.resolve(`./src/templates/product.js`),
+          context: {
+            categoryId: product.category.id,
+            id: product.id,
+            locale: product.locale
+          },
+        })
+      : null
   )
 
   // createPage({
@@ -164,5 +241,4 @@ exports.createPages = async function ({ actions, graphql }) {
   //   context: {},
   //   defer: true,
   // })
-
 }
