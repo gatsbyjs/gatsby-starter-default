@@ -4,23 +4,24 @@ const i18nPath = {
   it: {
     category: "categoria",
     search: "cerca",
-    products: "prodotti"
+    products: "prodotti",
   },
   en: {
     category: "category",
     search: "search",
-    products: "products"
+    products: "products",
   },
-  "en-us": {
+  "en-US": {
     category: "category",
     search: "search",
-    products: "products"
+    products: "products",
   },
 }
 
 export function getPagePath(page, locale) {
   const pageLocale = locale || page.locale
-  let lang = pageLocale === defaultLocale ? "/" : `/${pageLocale.toLowerCase()}/`
+  let lang =
+    pageLocale === defaultLocale ? "/" : `/${pageLocale.toLowerCase()}/`
   let path = `${page._allSlugLocales.find(x => x.locale === pageLocale).value}`
   if (page.root) {
     return lang + `${path}/`
@@ -29,7 +30,7 @@ export function getPagePath(page, locale) {
   path = `${
     page.treeParent._allSlugLocales.find(x => x.locale === pageLocale).value
   }/${path}`
-  if (page.treeParent.root) { 
+  if (page.treeParent.root) {
     return lang + `${path}/`
   }
   path = `${
@@ -46,8 +47,8 @@ export function getHomePath(locale) {
 
 export function getSearchPath(locale) {
   return locale === defaultLocale
-    ? `/${i18nPath[locale.toLowerCase()].search}/`
-    : `/${locale.toLowerCase()}/${i18nPath[locale.toLowerCase()].search}/`
+    ? `/${i18nPath[locale].search}/`
+    : `/${locale.toLowerCase()}/${i18nPath[locale].search}/`
 }
 
 export function getBlogPath(locale) {
@@ -66,9 +67,9 @@ export function getArticleCategoryPath(page, locale) {
 
 export function getCategoryPath(page, locale) {
   return page.locale === defaultLocale
-    ? `/${i18nPath[page.locale.toLowerCase()].category}/${page.slug}/`
-    : `/${page.locale.toLowerCase()}/${
-        i18nPath[page.locale.toLowerCase()].category
+    ? `/${i18nPath[page.locale].category}/${page.slug}/`
+    : `/${page.locale}/${
+        i18nPath[page.locale].category
       }/${page.slug}/`
 }
 
@@ -82,6 +83,8 @@ export function getArticlePath(page, locale) {
 
 export function getProductPath(page, locale) {
   return locale === defaultLocale
-  ? `/${i18nPath[locale.toLowerCase()].products}/${page.slug}/`
-  : `/${locale.toLowerCase()}/${i18nPath[page.locale.toLowerCase()].products}/${page.slug}/`
+    ? `/${i18nPath[locale].products}/${page.slug}/`
+    : `/${locale.toLowerCase()}/${
+        i18nPath[page.locale].products
+      }/${page.slug}/`
 }

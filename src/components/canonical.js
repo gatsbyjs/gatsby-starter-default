@@ -7,7 +7,6 @@ const Canonical = ({ siteUrl, paths }) => {
   let path = paths.find(x => x.locale === locale)
     ? paths.find(x => x.locale === locale).value
     : null
-  console.log(paths, path)
 
   return (
     <Helmet>

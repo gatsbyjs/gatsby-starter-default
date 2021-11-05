@@ -18,7 +18,7 @@
     "gatsby-plugin-react-helmet": "^5.0.0",
     "gatsby-plugin-sharp": "^4.0.1",
     "gatsby-plugin-theme-ui": "^0.7.3",
-    "gatsby-source-datocms": "^2.6.13",
+    "gatsby-source-datocms": "^3.0.8",
     "gatsby-source-filesystem": "^4.0.0",
     "gatsby-transformer-sharp": "^4.0.0",
     "leaflet": "^1.7.1",
