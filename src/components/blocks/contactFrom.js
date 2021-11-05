@@ -12,9 +12,6 @@ import {
   Link,
   Button,
 } from "@theme-ui/components"
-import { MapContainer, TileLayer, Marker, MapConsumer } from "react-leaflet"
-import L from "leaflet"
-import "leaflet/dist/leaflet.css"
 import { i18nContext } from "../../context/i18nContext"
 import axios from "axios"
 import { useGoogleReCaptcha } from "react-google-recaptcha-v3"

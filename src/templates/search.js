@@ -4,8 +4,14 @@ import Layout from "../components/layout"
 import { Helmet } from "react-helmet"
 import { getSearchPath } from "../utils/path"
 import { Container, Text } from "@theme-ui/components"
-import SearchResults from "../components/searchResults"
+import loadable from "@loadable/component"
 import { i18nContext } from "../context/i18nContext"
+
+const SearchResultsComponents = loadable(
+  () => import("../components/searchResults"),
+  { ssr: false }
+)
+
 
 const SearchPage = ({ data: { site }, pageContext }) => {
   const i18nPaths = site.locales.map(locale => {
@@ -28,7 +34,7 @@ const SearchPage = ({ data: { site }, pageContext }) => {
               <Text as="h1" variant="h1">
                 {t.search}
               </Text>
-              <SearchResults locale={pageContext.locale} />
+              <SearchResultsComponents locale={pageContext.locale} />
             </Container>
           </>
         )}

@@ -2,7 +2,6 @@ import React from "react"
 import { Helmet } from "react-helmet"
 
 const Hreflang = ({ siteUrl, paths }) => {
-  console.log(paths);
   return (
     <Helmet>
       {paths.map((link, index) => (
