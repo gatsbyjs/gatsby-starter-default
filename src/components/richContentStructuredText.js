@@ -8,12 +8,11 @@ import {
   renderRule,
 } from "datocms-structured-text-utils"
 import ImageGallery from "./blocks/imageGallery"
-import linkSwitch from "../utils/linkSwitch"
+import { MagicLink } from "../utils/magicLink"
 import NumbersGroup from "./blocks/numbersGroup"
 import Embed from "./blocks/embed"
 
 const RichContentStructuredText = ({ text, theme }) => {
-  console.log(text)
   const componentTheme = theme || "light"
   const light = componentTheme === "light" ? "light" : "dark"
   const dark = componentTheme === "light" ? "dark" : "light"
@@ -32,19 +31,19 @@ const RichContentStructuredText = ({ text, theme }) => {
         <StructuredText
           data={text}
           renderLinkToRecord={({ record }) => {
-            console.log(record)
             switch (record.__typename) {
               case "DatoCmsInternalLink":
-                return linkSwitch(record, record.locale)
+                return <MagicLink item={record} lcoale={record.locale} />
               default:
                 return null
             }
           }}
           renderInlineRecord={({ record }) => {
-            console.log(record)
             switch (record.__typename) {
               case "DatoCmsInternalLink":
-                return <Box>{linkSwitch(record, record.locale)}</Box>
+                return <Box>{
+                  <MagicLink item={record} lcoale={record.locale} />
+                }</Box>
               default:
                 return null
             }

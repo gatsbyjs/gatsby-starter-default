@@ -29,6 +29,18 @@ module.exports = {
         // theme_color: `#663399`,
         display: `minimal-ui`,
         icon: `src/images/gatsby-icon.png`, // This path is relative to the root of the site.
+        include_favicon: false
+      },
+    },
+    {
+      resolve: `gatsby-plugin-google-gtag`,
+      options: {
+        trackingIds: [
+          "UA-211136956-1",
+        ],
+        pluginConfig: {
+          head: true,
+        },
       },
     },
     // this (optional) plugin enables Progressive Web App + Offline functionality

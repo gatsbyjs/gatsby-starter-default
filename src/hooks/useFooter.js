@@ -55,6 +55,7 @@ export const useFooter = () => {
             locale
             root
             anchor
+            position
             link {
               ... on DatoCmsInternalLink {
                 id
