@@ -2,8 +2,8 @@ import { Box, Container, Flex } from "@theme-ui/components"
 import React, { useState } from "react"
 import { useMenu } from "../hooks/useMenu"
 import { getHomePath, getSearchPath } from "../utils/path"
-import { Link } from "./link"
-import linkSwitch from "../utils/linkSwitch"
+import { InboundLink } from "./link"
+import { MagicLink } from "../utils/magicLink"
 import LanguageSwitcher from "./languageSwitcher"
 import { LanguageSwitcherContext } from "../context/languageSwitcherContext"
 
@@ -11,12 +11,21 @@ const Nav = () => {
   const locale = React.useContext(LanguageSwitcherContext).activeLocale
   const menu = useMenu()
 
+  menu.map(menuItem => {
+    menuItem.treeChildren.sort((a, b) => a.position - b.position)
+    menuItem.treeChildren.map(menuItem => {
+      if (menuItem.treeChildren.length > 0) {
+        menuItem.treeChildren.sort((a, b) => a.position - b.position)
+      }
+    })
+  })
+  
   return (
     <Box as="nav">
       <Container variant="header" sx={{ paddingX: [3, 4] }}>
         <Flex sx={{ flexDirection: "row", justifyContent: "space-between" }}>
           <Box sx={{ paddingX: 2, paddingY: 3 }}>
-            <Link to={getHomePath(locale)}>Home</Link>
+            <InboundLink to={getHomePath(locale)}>Home</InboundLink>
           </Box>
           <Flex
             sx={{
@@ -39,7 +48,7 @@ const Nav = () => {
               listStyle: "none",
             }}
           >
-            <Link to={getSearchPath(locale)}>Search</Link>
+            <InboundLink to={getSearchPath(locale)}>Search</InboundLink>
             <LanguageSwitcher />
           </Flex>
         </Flex>
@@ -59,7 +68,7 @@ const TextComponent = ({ item, locale }) => {
       onMouseLeave={() => setShow(!show)}
     >
       {item.link ? (
-        linkSwitch(item.link, locale)
+        <MagicLink item={item.link} locale={locale}  ></MagicLink>
       ) : (
         <Box sx={{ cursor: "default" }}>{item.anchor}</Box>
       )}
@@ -83,7 +92,7 @@ const TextComponent = ({ item, locale }) => {
             item.anchor ? (
               <Box as="li" key={item.id}>
                 {item.link ? (
-                  linkSwitch(item.link, locale)
+                  <MagicLink item={item.link} locale={locale} />
                 ) : (
                   <Box sx={{ cursor: "default" }}>{item.anchor}</Box>
                 )}

@@ -1,15 +1,16 @@
 import React, { useState } from "react"
 import { Box, Flex } from "@theme-ui/components"
 import { LanguageSwitcherContext } from "../context/languageSwitcherContext"
-import { Link } from "./link"
+import { InboundLink } from "./link"
 
 const LanguageSwitcher = () => {
   const [show, setShow] = useState(false)
+
   const languagesCountry = {
     it: "Italiano",
     en: "English",
-    "en-US": "English (United States)",
-    "en-CA": "English (Canada)",
+    "en-us": "English (United States)",
+    "en-ca": "English (Canada)",
     fr: "Français",
     de: "Deutsch",
     es: "Español",
@@ -17,6 +18,7 @@ const LanguageSwitcher = () => {
     pl: "Polski",
     ru: "Русский",
   }
+  
   return (
     <LanguageSwitcherContext.Consumer>
       {({ activeLocale, paths }) => {
@@ -28,7 +30,7 @@ const LanguageSwitcher = () => {
             onMouseLeave={() => setShow(!show)}
           >
             <Box>
-              <Link
+              <InboundLink
                 to={activeLink.value}
                 sx={{
                   marginLeft: 3,
@@ -36,7 +38,7 @@ const LanguageSwitcher = () => {
                 }}
               >
                 {activeLink.locale}
-              </Link>
+              </InboundLink>
             </Box>
             {show && (
               <Flex
@@ -55,10 +57,9 @@ const LanguageSwitcher = () => {
                 }}
               >
                 {paths
-                  .sort((a, b) => b.locale.localeCompare(a.locale))
                   .map((link, index) => (
                     <Box as="li" key={index}>
-                      <Link
+                      <InboundLink
                         to={link.value}
                         sx={{
                           whiteSpace: "nowrap",
@@ -74,7 +75,7 @@ const LanguageSwitcher = () => {
                         }}
                       >
                         {languagesCountry[link.locale] || link.locale}
-                      </Link>
+                      </InboundLink>
                     </Box>
                   ))}
               </Flex>

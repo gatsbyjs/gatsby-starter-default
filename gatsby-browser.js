@@ -6,6 +6,8 @@
 
 // You can delete this file if you're not using it
 
+import "./src/assets/style/layout.css"
+
 import React from "react"
 import {
     GoogleReCaptchaProvider

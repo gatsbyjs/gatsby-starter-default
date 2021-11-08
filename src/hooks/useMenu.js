@@ -23,6 +23,13 @@ export const useMenu = () => {
                 apiKey
               }
               link {
+                ... on DatoCmsProductCategory {
+                  ...ProductCategoryPageDetails
+                }
+                ... on DatoCmsProduct {
+                  ...ProductPageDetails
+                  ...AllProductSlugLocales
+                }
                 ... on DatoCmsBlogPage {
                   ...BlogDetails
                 }
@@ -64,6 +71,13 @@ export const useMenu = () => {
                   apiKey
                 }
                 link {
+                  ... on DatoCmsProductCategory {
+                    ...ProductCategoryPageDetails
+                  }
+                  ... on DatoCmsProduct {
+                    ...ProductPageDetails
+                    ...AllProductSlugLocales
+                  }
                   ... on DatoCmsBlogPage {
                     ...BlogDetails
                   }
@@ -105,6 +119,13 @@ export const useMenu = () => {
                     apiKey
                   }
                   link {
+                    ... on DatoCmsProductCategory {
+                      ...ProductCategoryPageDetails
+                    }
+                    ... on DatoCmsProduct {
+                      ...ProductPageDetails
+                      ...AllProductSlugLocales
+                    }
                     ... on DatoCmsBlogPage {
                       ...BlogDetails
                     }

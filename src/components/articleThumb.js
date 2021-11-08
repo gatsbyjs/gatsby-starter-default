@@ -2,7 +2,7 @@ import React from "react"
 import { Box, Flex, Grid, Heading, Text } from "@theme-ui/components"
 import { getArticlePath } from "../utils/path"
 import { GatsbyImage } from "gatsby-plugin-image"
-import { Link } from "./link"
+import { InboundLink, OutboundLink  } from "./link"
 
 const ArticleThumb = ({ article, small }) => {
   return (
@@ -14,7 +14,7 @@ const ArticleThumb = ({ article, small }) => {
         height: "100%",
       }}
     >
-      <Link
+      <InboundLink
         to={getArticlePath(article, article.locale)}
         sx={{ textDecoration: "none" }}
       >
@@ -44,7 +44,7 @@ const ArticleThumb = ({ article, small }) => {
             </Text>
           </Flex>
         </Grid>
-      </Link>
+      </InboundLink>
     </Box>
   )
 }
