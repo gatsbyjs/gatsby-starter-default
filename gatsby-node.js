@@ -235,10 +235,11 @@ exports.createPages = async function ({ actions, graphql }) {
       : null
   )
 
-  // createPage({
-  //   path: "/using-dsg",
-  //   component: require.resolve("./src/templates/using-dsg.js"),
-  //   context: {},
-  //   defer: true,
-  // })
+    createPage({
+      path: "/using-dsg",
+      component: require.resolve("./src/templates/using-dsg.js"),
+      context: {},
+      defer: true,
+    })
+
 }

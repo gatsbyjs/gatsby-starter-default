@@ -19,6 +19,7 @@ import ImageAndText from "../components/blocks/imageAndText"
 import NumbersGroup from "../components/blocks/numbersGroup"
 import NumbersCollection from "../components/blocks/numbersCollections"
 import ContactForm from "../components/blocks/contactFrom"
+
 import Categories from "../components/blocks/categoryBlock"
 import { useFavicon } from "../hooks/useFavicon"
 
@@ -84,6 +85,15 @@ const Page = ({ data: { page , site } }) => {
           {block.model.apiKey === "image" && <Image image={block.image} />}
           {block.model.apiKey === "locations_map" && (
             <LocationsMap locations={block.locations} />
+          )}
+          {block.model.apiKey === "contact_form" && (
+            <ContactForm
+              kicker={block.kicker}
+              title={block.title}
+              subtitle={block.subtitle}
+              privacyPolicyDescription={block.privacyPolicyDescription}
+              newsletterDescription={block.newsletterDescription}
+            />
           )}
           {block.model.apiKey === "embed" && (
             <Embed
@@ -173,7 +183,17 @@ export const query = graphql`
             apiKey
           }
         }
-
+        ... on DatoCmsContactForm {
+          id
+          kicker
+          title
+          subtitle
+          privacyPolicyDescription
+          newsletterDescription
+          model {
+            apiKey
+          }
+        }
         ... on DatoCmsEmbed {
           id
           ...EmbedDetails

@@ -12,6 +12,8 @@ import {
   Link,
   Button,
 } from "@theme-ui/components"
+
+import "leaflet/dist/leaflet.css"
 import { i18nContext } from "../../context/i18nContext"
 import axios from "axios"
 import { useGoogleReCaptcha } from "react-google-recaptcha-v3"
@@ -65,6 +67,7 @@ const ContactForm = ({
               event_label: "Contact",
             })
           }
+          
         })
         .catch(function (error) {
           setLoading(false)
