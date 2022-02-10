@@ -27,6 +27,7 @@ const Article = ({ data: { page } }) => {
     }
   })
 
+  
   return (
     <Layout locale={page.locale} i18nPaths={i18nPaths}>
       <HelmetDatoCms seo={page.seoMetaTags} favicon={favicon}>

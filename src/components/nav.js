@@ -5,6 +5,7 @@ import { getHomePath, getSearchPath } from "../utils/path"
 import { InboundLink } from "./link"
 import { MagicLink } from "../utils/magicLink"
 import LanguageSwitcher from "./languageSwitcher"
+import { debounce } from "lodash"
 import { LanguageSwitcherContext } from "../context/languageSwitcherContext"
 
 const Nav = () => {
@@ -57,15 +58,25 @@ const Nav = () => {
   )
 }
 
-const TextComponent = ({ item, locale }) => {
+const TextComponent = ({ item, locale, index }) => {
   const [show, setShow] = useState(false)
+
+  const debouncedHandleMouseEnterMenu = debounce(() => {
+    setShow(true)
+  }, 200)
+
+  const handlOnMouseLeaveMenu = () => {
+    setShow(false)
+    debouncedHandleMouseEnterMenu.cancel()
+  }
+
   return (
     <Box
       as="li"
       key={item.id}
       sx={{ position: "relative", marginX: 1, paddingX: 2, paddingY: 3 }}
-      onMouseEnter={() => setShow(!show)}
-      onMouseLeave={() => setShow(!show)}
+      onMouseEnter={() => debouncedHandleMouseEnterMenu()}
+      onMouseLeave={() => handlOnMouseLeaveMenu()}
     >
       {item.link ? (
         <MagicLink item={item.link} locale={locale}  ></MagicLink>
