@@ -61,11 +61,14 @@ const ContactForm = ({
           setSuccess(true)
           setLoading(false)
 
-          if (typeof window !== "undefined" && window.gtag !== undefined) {
-            window.gtag("event", "Submit", {
-              event_category: "Form",
-              event_label: "Contact",
-            })
+          if (typeof window !== "undefined" && window.dataLayer !== undefined) {
+
+            window.dataLayer = window.dataLayer || [];
+
+            dataLayer.push({
+                'event': 'formSubmission',
+                'formType': 'Contact',
+            });
           }
           
         })
