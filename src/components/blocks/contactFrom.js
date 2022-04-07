@@ -65,7 +65,7 @@ const ContactForm = ({
 
             window.dataLayer = window.dataLayer || [];
 
-            dataLayer.push({
+            window.dataLayer.push({
                 'event': 'formSubmission',
                 'formType': 'Contact',
             });
