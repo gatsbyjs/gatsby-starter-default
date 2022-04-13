@@ -9,7 +9,27 @@ export const useCompany = () => {
         nodes {
           id
           locale
-          body
+          description
+          legalName
+          addresses {
+            id
+            addressCountry
+            addressRegion
+            addressLocality
+            email
+            faxNumber
+            coordinates {
+              latitude
+              longitude
+            }
+            postalCode
+            streetAddress
+            telephone
+            
+          }
+          vatId
+          shareCapital
+          registrationNumber
           model {
             apiKey
           }
