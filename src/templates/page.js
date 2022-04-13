@@ -242,12 +242,21 @@ export const query = graphql`
           id
           locations {
             originalId
+            id
             name
-            body
+            addressCountry
+            addressRegion
+            addressLocality
+            email
+            faxNumber
             coordinates {
               latitude
               longitude
             }
+            postalCode
+            streetAddress
+            telephone
+            locale
           }
           model {
             apiKey
