@@ -35,7 +35,7 @@ module.exports = {
     {
       resolve: "gatsby-plugin-google-tagmanager",
       options: {
-        id: "XXX-XXXXXXX", //"GTM-5H69B7V",
+        id: "GTM-5H69B7V", //"GTM-5H69B7V",
         includeInDevelopment: false,
         // core-web-vitals
         enableWebVitalsTracking: true,
