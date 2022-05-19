@@ -1,24 +1,22 @@
-import React, { useState } from "react"
+import React from "react"
 import { useCategories } from "../../hooks/useCategories"
 import { Box, Grid, Text, Heading, Container } from "@theme-ui/components"
 import { InboundLink } from "../link"
 import { GatsbyImage } from "gatsby-plugin-image"
-import { getPagePath, getProductPath, getCategoryPath } from "../../utils/path"
+import { getCategoryPath } from "../../utils/path"
 
 const Categories = ({ page, title, description }) => {
   const categories = useCategories()
 
   const filteredCategories = categories.filter(
-    category => category.title != page.title
+    category => category.title !== page.title
   )
 
   return (
     <Container>
       <Box>
-        <Heading>
-            {title}
-        </Heading>
-        <Text dangerouslySetInnerHTML={{ __html: description}} />
+        <Heading>{title}</Heading>
+        <Text dangerouslySetInnerHTML={{ __html: description }} />
       </Box>
       <Grid columns={[2, 2, 4]} sx={{ py: [6, 6, 6, 6] }}>
         {filteredCategories.map(category => {
@@ -56,7 +54,6 @@ const Categories = ({ page, title, description }) => {
                   <GatsbyImage
                     alt=""
                     image={category.image.gatsbyImageData}
-                    alt=""
                   />
                 )}
               </Box>

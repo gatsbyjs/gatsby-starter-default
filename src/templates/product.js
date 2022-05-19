@@ -1,26 +1,13 @@
 import React from "react"
 import { graphql } from "gatsby"
-import { Box, Container, Grid, Heading, Flex, Text } from "@theme-ui/components"
-import { Link } from "../components/link"
-import { ChevronLeft, ChevronRight, Plus, Minus } from "react-feather"
-import loadable from "@loadable/component"
+import { Box, Container, Grid, Heading, Text } from "@theme-ui/components"
 import Layout from "../components/layout"
-import { getPagePath, getProductPath } from "../utils/path"
+import { getProductPath } from "../utils/path"
 import { HelmetDatoCms } from "gatsby-source-datocms"
 import PageHero from "./pageHero"
 import { GatsbyImage } from "gatsby-plugin-image"
 import { getColor } from "@theme-ui/color"
-import {
-  Accordion as AccordionWrapper,
-  AccordionItem,
-  AccordionItemHeading,
-  AccordionItemButton,
-  AccordionItemPanel,
-  AccordionItemState,
-} from "react-accessible-accordion"
 import themeUiTheme from "../gatsby-plugin-theme-ui"
-import { i18nContext } from "../context/i18nContext"
-import { Link as ProductLink } from "gatsby"
 import { useFavicon } from "../hooks/useFavicon"
 
 // const LocationsMap = loadable(
@@ -28,7 +15,7 @@ import { useFavicon } from "../hooks/useFavicon"
 //   { ssr: false }
 // )
 
-const Page = ({ data: { page, site, products }, location }) => {
+const Page = ({ data: { page, site }, location }) => {
 const favicon = useFavicon().site.faviconMetaTags
 
   const pageCategory =
@@ -51,10 +38,6 @@ const favicon = useFavicon().site.faviconMetaTags
     }
   })
 
-  const primary = getColor(themeUiTheme, "primary")
-  const dark = getColor(themeUiTheme, "dark")
-  const light = getColor(themeUiTheme, "light")
-
   return (
     <Layout locale={page.locale} i18nPaths={i18nPaths}>
       <HelmetDatoCms seo={page.seoMetaTags} favicon={favicon}>
@@ -75,7 +58,7 @@ const favicon = useFavicon().site.faviconMetaTags
               {page.images.map(image => {
                 return (
                   <Box>
-                    <GatsbyImage alt="" image={image.gatsbyImageData} alt="" />
+                    <GatsbyImage alt="" image={image.gatsbyImageData} />
                   </Box>
                 )
               })}

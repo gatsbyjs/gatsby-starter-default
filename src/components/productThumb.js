@@ -1,8 +1,7 @@
 import React from "react"
-import { Box, Flex, Grid, Heading, Text } from "@theme-ui/components"
+import { Box, Flex } from "@theme-ui/components"
 import { getProductPath } from "../utils/path"
 import { GatsbyImage } from "gatsby-plugin-image"
-import { i18nContext } from "../context/i18nContext"
 import { Plus } from "react-feather"
 import { getColor } from "@theme-ui/color"
 import themeUiTheme from "../gatsby-plugin-theme-ui"
@@ -11,7 +10,6 @@ import { Link } from 'gatsby'
 
 const ProductThumb = ({ product, category }) => {
   const primary = getColor(themeUiTheme, "primary")
-  const dark = getColor(themeUiTheme, "dark")
 
   return (
     <Link

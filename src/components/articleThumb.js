@@ -2,7 +2,7 @@ import React from "react"
 import { Box, Flex, Grid, Heading, Text } from "@theme-ui/components"
 import { getArticlePath } from "../utils/path"
 import { GatsbyImage } from "gatsby-plugin-image"
-import { InboundLink, OutboundLink  } from "./link"
+import { InboundLink  } from "./link"
 
 const ArticleThumb = ({ article, small }) => {
   return (
