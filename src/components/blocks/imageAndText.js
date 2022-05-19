@@ -2,7 +2,6 @@ import React from "react"
 import { Box, Flex, Grid, Heading, Text } from "@theme-ui/components"
 import RichContentStructuredText from "../richContentStructuredText"
 import { GatsbyImage } from "gatsby-plugin-image"
-import { number } from "prop-types"
 
 const ImageAndText = ({
   title,

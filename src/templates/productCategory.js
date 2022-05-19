@@ -1,21 +1,10 @@
 import React, { useState } from "react"
 import { graphql } from "gatsby"
-import {
-  Box,
-  Container,
-  Grid,
-  Heading,
-  Text,
-  Flex,
-  AspectRatio,
-} from "@theme-ui/components"
-import { Link } from "../components/link"
-import loadable from "@loadable/component"
+import { Box, Container, Grid, Heading, Text, Flex } from "@theme-ui/components"
 import Layout from "../components/layout"
-import { getPagePath, getProductPath, getCategoryPath } from "../utils/path"
+import { getCategoryPath } from "../utils/path"
 import { HelmetDatoCms } from "gatsby-source-datocms"
 import PageHero from "./pageHero"
-import { GatsbyImage } from "gatsby-plugin-image"
 import ProductThumb from "../components/productThumb.js"
 import { InboundLink } from "../components/link"
 import { useFavicon } from "../hooks/useFavicon"
@@ -28,7 +17,6 @@ import { useFavicon } from "../hooks/useFavicon"
 const Page = ({
   data: { page, categories, products, site, articles, contactFooter },
 }) => {
-  
   const favicon = useFavicon().site.faviconMetaTags
   const pageAllSlugLocales = page._allSlugLocales.sort(function (a, b) {
     return site.locales.indexOf(a.locale) - site.locales.indexOf(b.locale)
@@ -94,27 +82,6 @@ const Page = ({
                           )}
                         </Heading>
                       </Box>
-                      {/* {category.title == page.title && (
-                        <List>
-                          {products.nodes.map(product => {
-                            return (
-                              category.title == product.category.title && (
-                                <Item>
-                                  <InboundLink
-                                    className="sidebar-product-link"
-                                    variant="links.normalLink"
-                                    state={{ category: product.category.title }}
-                                    sx={{ color: "dark", fontSize: [0] }}
-                                    to={getProductPath(product, page.locale)}
-                                  >
-                                    {product.title}
-                                  </InboundLink>
-                                </Item>
-                              )
-                            )
-                          })}
-                        </List>
-                      )} */}
                     </Box>
                   )
                 })}
@@ -132,32 +99,6 @@ const Page = ({
       </Box>
     </Layout>
   )
-}
-
-const List = props => {
-  return (
-    <Flex
-      {...props}
-      sx={{
-        flexDirection: "column",
-        margin: 0,
-        padding: 0,
-        mb: 0,
-        listStyle: "none",
-        a: {
-          textDecoration: "none",
-          "&:hover": {
-            textDecoration: "underline",
-          },
-        },
-      }}
-      as="ul"
-    />
-  )
-}
-
-const Item = props => {
-  return <Box {...props} as="li" sx={{ mb: 0, "&:last-child": { mb: 0 } }} />
 }
 
 export default Page

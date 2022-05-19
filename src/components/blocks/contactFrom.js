@@ -2,14 +2,12 @@ import React, { useState } from "react"
 import {
   Box,
   Text,
-  Flex,
   Heading,
   Grid,
   Input,
   Textarea,
   Checkbox,
   Label,
-  Link,
   Button,
 } from "@theme-ui/components"
 
@@ -25,7 +23,6 @@ const ContactForm = ({
   newsletterDescription,
 }) => {
   const { executeRecaptcha } = useGoogleReCaptcha()
-  const [token, setToken] = useState("")
 
   const isBrowser = typeof window !== "undefined"
 

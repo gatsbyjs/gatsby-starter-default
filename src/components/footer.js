@@ -5,7 +5,6 @@ import {
   Grid,
   Text,
   Image,
-  Heading,
 } from "@theme-ui/components"
 import React from "react"
 import { useCompany } from "../hooks/useCompany"
@@ -14,9 +13,9 @@ import { MagicLink } from "../utils/magicLink"
 import { useSocial } from "../hooks/useSocial"
 import { useLocation } from "../hooks/useLocation"
 import { i18nContext } from "../context/i18nContext"
-import { Facebook, Instagram, Twitter, Youtube, Linkedin } from "react-feather"
+import { Facebook, Instagram, Youtube, Linkedin } from "react-feather"
 import Logo from "../images/logo.svg"
-import { MapPin, Phone, Mail } from "react-feather"
+import { MapPin, Mail } from "react-feather"
 
 const Footer = () => {
   const footer = useFooter()
