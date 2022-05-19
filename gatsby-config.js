@@ -99,6 +99,5 @@ module.exports = {
       },
     },
     `gatsby-plugin-theme-ui`,
-    `gatsby-plugin-advanced-sitemap`,
   ],
 }
