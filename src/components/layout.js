@@ -16,7 +16,6 @@ import Footer from "./footer"
 import Canonical from "./canonical"
 
 const Layout = ({ children, locale, i18nPaths }) => {
-  
   const data = useStaticQuery(graphql`
     query SiteQuery {
       datoCmsSite: datoCmsSite {
@@ -41,7 +40,10 @@ const Layout = ({ children, locale, i18nPaths }) => {
           paths={i18nPaths}
           siteUrl={data.gatsbySite.siteMetadata.siteUrl}
         />
-        <Canonical  siteUrl={data.gatsbySite.siteMetadata.siteUrl} paths={i18nPaths} />
+        <Canonical
+          siteUrl={data.gatsbySite.siteMetadata.siteUrl}
+          paths={i18nPaths}
+        />
         <Flex
           sx={{
             flexDirection: "column",
