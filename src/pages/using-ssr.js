@@ -27,7 +27,7 @@ const UsingSSR = ({ serverData }) => {
         </a>
         .
       </p>
-      <Link to="/">Go back to the homepage</Link>
+      <Link to="/">Home</Link>
     </Layout>
   )
 }
