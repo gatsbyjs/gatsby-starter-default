@@ -1,0 +1,75 @@
+.footer {
+    font-family: 'Poppins', sans-serif;
+    font-size: 0.7em;
+    font-weight: light;
+    color: #ebf0f5;
+    display: flex;
+    justify-content: space-between;
+    background-color: #FFFFFF;
+    max-width: 100%;
+    background-image: url('../../../img/lines.png'); 
+    background-size: contain;
+    background-position: top; 
+    background-repeat: no-repeat;
+    background-origin: content-box;
+    height: 75px;
+    vertical-align: middle;
+    margin-bottom: 0% !important;
+    margin-top:calc(3% + 10px);
+    left: 0px;
+    right: 0px;
+    bottom: 0px;
+    
+}
+
+.footer-mobile {
+    font-family: 'Poppins', sans-serif;
+    font-size: 0.7em;
+    font-weight: light;
+    color: #ebf0f5;
+    display: flex;
+    justify-content: space-between;
+    background-color: #FFFFFF;
+    max-width: 100%;
+    background-image: url('../../../img/lines.png'); 
+    background-size: contain;
+    background-position: top; 
+    background-repeat: no-repeat;
+    background-origin: content-box;
+    height: 50px;
+    vertical-align: middle;
+    margin-bottom: 0% !important;
+   
+    left: 0px;
+    right: 0px;
+    bottom: 0px;
+}
+
+.footer p {
+    margin:0;
+}
+
+.footertext {
+    padding: 10px;
+}
+
+.left {
+    text-align: start;
+    margin-left: 8px;
+    justify-content: flex-start;
+}
+
+.footerright {
+    display: block;
+    text-align: end;
+    margin-right: 8px;
+    padding-top: 5px;
+}
+
+.blue {
+    color: lightblue;
+}
+
+.black {
+    color: black;
+}
