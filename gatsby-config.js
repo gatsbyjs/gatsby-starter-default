@@ -27,7 +27,7 @@ module.exports = {
         // https://css-tricks.com/meta-theme-color-and-trickery/
         theme_color: `#319197`,
         display: `minimal-ui`,
-        icon: `src/images/army-week-logo-black-font`, // This path is relative to the root of the site.
+        icon: `src/images/army-week-logo-black-font.svg`, // This path is relative to the root of the site.
       },
     },
   ],

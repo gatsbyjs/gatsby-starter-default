@@ -4,7 +4,7 @@ import { Link } from "gatsby"
 import Layout from "../components/layout"
 import Seo from "../components/seo"
 
-import Footer from './components/Footer/footer'
+import Footer from '../components/Footer/footer'
 
 //import { Text, View } from 'react-native';
 import Stack from '@mui/material/Stack';
