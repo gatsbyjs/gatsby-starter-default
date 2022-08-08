@@ -4,7 +4,6 @@ import { Link } from "gatsby"
 import { StaticImage } from "gatsby-plugin-image"
 
 
-import Footer from '../components/Footer/footer'
 import Layout from "../components/layout"
 import Seo from "../components/seo"
 import * as styles from "../components/index.module.css"
@@ -12,9 +11,9 @@ import * as styles from "../components/index.module.css"
 const links = [
   {
     text: "Army Week",
-    url: "https://www.ArmyWeek.com/selectEvent/",
+ url: "https://acims.mil.ca/plan/AGM/Pages/welcome.aspx",
     description:
-      "Find information on Selected Event.",
+      "Army Week on Sharepoint.",
   },
   // {
   //   text: "Calendar View",
@@ -34,24 +33,13 @@ const samplePageLinks = [
   {
     text: "Select Event",
     url: "selectedEvent",
-    badge: true,
-    description:
-      "Get more info on this page",
+    badge: true
   },
-  // { text: "TypeScript", url: "using-typescript" },
-  // { text: "Server Side Rendering", url: "using-ssr" },
-  // { text: "Deferred Static Generation", url: "using-dsg" },
-
-  // {
-  //   text: "Event test dummy",
-  //   url: "page-2",
-  //   badge: true,
-  //   description:
-  //     "Get more info on this page",
-  // },
-  { text: "Profile", url: "profile" },
+  { text: "Profile", url: "Profile" },
   { text: "Calendar", url: "Calendar" },
+  { text: "Lookup Materials", url: "Materials" },
   { text: "FAQ", url: "faq" },
+  { text: "Server Side Rendering", url: "using-ssr" }
 
 ]
 

@@ -26,7 +26,7 @@ import { text } from "stream/consumers";
 
 
 
-function SelectedEvent() {
+function LookupMaterials() {
     return (
         <Layout>
 
@@ -59,7 +59,7 @@ function SelectedEvent() {
 
 
 
-          <h5>Selected Event</h5>
+          <h5>Lookup Materials</h5>
               <h1>
                 Defense in the Digital Age
                </h1>
@@ -119,4 +119,4 @@ function SelectedEvent() {
 
 export const Head = () => <Seo title="Selected Event" />
 
-export default SelectedEvent
+export default LookupMaterials
