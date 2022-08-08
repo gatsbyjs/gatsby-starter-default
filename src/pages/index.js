@@ -51,7 +51,7 @@ const samplePageLinks = [
   // },
   { text: "Profile", url: "profile" },
   { text: "Calendar", url: "Calendar" },
-  { text: "FAQ", url: "FAQ" },
+  { text: "FAQ", url: "faq" },
 
 ]
 
