@@ -2,9 +2,7 @@ import React from 'react';
 import Box from '@mui/material/Box';
 import TextField from '@mui/material/TextField';
 import Button from '@mui/material/Button';
-
 import { styled } from '@mui/material/styles';
-
 import Grid from '@mui/material/Grid';
 import Paper from '@mui/material/Paper';
 import Stack from '@mui/material/Stack';
@@ -43,7 +41,7 @@ const Contact = () => {
                         <Button variant="contained" color="success" href="#contained-buttons">
                             Submit
                         </Button>
-                        <Button variant="contained" color="success" href="#contained-buttons">
+                        <Button variant="contained" color="success" href="/faq">
                             Cancel
                         </Button>
                     </Stack>
