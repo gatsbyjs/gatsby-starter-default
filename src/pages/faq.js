@@ -1,31 +1,39 @@
 import * as React from "react"
-import { Link } from "gatsby"
+// import { Link } from "gatsby"
 
-import Layout from "../components/layout"
-import Seo from "../components/seo"
+// import Layout from "../components/layout"
+// import Seo from "../components/seo"
 
-import Footer from '../components/Footer/footer'
+// import Footer from '../components/Footer/footer'
 
 //import { Text, View } from 'react-native';
-import Stack from '@mui/material/Stack';
+// import Stack from '@mui/material/Stack';
 import Button from '@mui/material/Button';
-import IconButton from '@mui/material/IconButton';
-import Avatar from '@mui/material/Avatar';
+// import IconButton from '@mui/material/IconButton';
+// import Avatar from '@mui/material/Avatar';
 import { styled } from '@mui/material/styles';
-import { deepOrange, deepPurple } from '@mui/material/colors';
-import { green, pink } from '@mui/material/colors';
-import FolderIcon from '@mui/icons-material/Folder';
-import PageviewIcon from '@mui/icons-material/Pageview';
-import AssignmentIcon from '@mui/icons-material/Assignment';
-import Badge from '@mui/material/Badge';
+// import { deepOrange, deepPurple } from '@mui/material/colors';
+// import { green, pink } from '@mui/material/colors';
+// import FolderIcon from '@mui/icons-material/Folder';
+// import PageviewIcon from '@mui/icons-material/Pageview';
+// import AssignmentIcon from '@mui/icons-material/Assignment';
+// import Badge from '@mui/material/Badge';
 
 import Grid from '@mui/material/Grid';
 import Paper from '@mui/material/Paper';
 import Box from '@mui/material/Box';
-import CssBaseline from '@mui/material/CssBaseline';
-import Container from '@mui/material/Container';
+// import CssBaseline from '@mui/material/CssBaseline';
+// import Container from '@mui/material/Container';
 
 import Faq from "react-faq-component";
+
+const Item = styled(Paper)(({ theme }) => ({
+    backgroundColor: theme.palette.mode === 'dark' ? '#1A2027' : '#fff',
+    ...theme.typography.body2,
+    padding: theme.spacing(1),
+    textAlign: 'center',
+    color: theme.palette.text.secondary,
+  }));
 
 const data = {
     title: "FAQ",
@@ -101,8 +109,14 @@ function Help() {
     return (
         <div>
             <Grid container spacing={2}>
+                <Grid item xs={22}>
+                    <Item>
+                        <h2>Help</h2>
+                    </Item>
+
+                </Grid>
                 <Grid item xs={12}>
-                    <Box m={5} pt={5}>
+                    <Box m={5}>
                         <Faq
                             data={data}
                             styles={styles}
@@ -110,6 +124,12 @@ function Help() {
                         />
                     </Box>
                 </Grid>
+                <Box m="auto">
+                <h5>Still have questions?</h5>
+                    <Button variant="contained" color="success" href="#contained-buttons">
+                    Contact Us
+                    </Button>
+                </Box>
             </Grid>
         </div>
     );
