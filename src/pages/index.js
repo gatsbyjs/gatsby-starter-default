@@ -37,7 +37,7 @@ const samplePageLinks = [
   },
   { text: "Profile", url: "Profile" },
   { text: "Calendar", url: "Calendar" },
-  { text: "Lookup Materials", url: "Materials" },
+  { text: "Lookup Materials", url: "lookup-materials" },
   { text: "FAQ", url: "faq" },
   { text: "Server Side Rendering", url: "using-ssr" }
 
