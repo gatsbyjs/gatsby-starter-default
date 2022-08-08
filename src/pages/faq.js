@@ -1,29 +1,20 @@
 import * as React from "react"
-// import { Link } from "gatsby"
 
 // import Layout from "../components/layout"
-// import Seo from "../components/seo"
 
 // import Footer from '../components/Footer/footer'
 
 //import { Text, View } from 'react-native';
-// import Stack from '@mui/material/Stack';
 import Button from '@mui/material/Button';
 // import IconButton from '@mui/material/IconButton';
 // import Avatar from '@mui/material/Avatar';
 import { styled } from '@mui/material/styles';
 // import { deepOrange, deepPurple } from '@mui/material/colors';
 // import { green, pink } from '@mui/material/colors';
-// import FolderIcon from '@mui/icons-material/Folder';
-// import PageviewIcon from '@mui/icons-material/Pageview';
-// import AssignmentIcon from '@mui/icons-material/Assignment';
-// import Badge from '@mui/material/Badge';
 
 import Grid from '@mui/material/Grid';
 import Paper from '@mui/material/Paper';
 import Box from '@mui/material/Box';
-// import CssBaseline from '@mui/material/CssBaseline';
-// import Container from '@mui/material/Container';
 
 import Faq from "react-faq-component";
 
@@ -126,7 +117,7 @@ function Help() {
                 </Grid>
                 <Box m="auto">
                 <h5>Still have questions?</h5>
-                    <Button variant="contained" color="success" href="#contained-buttons">
+                    <Button variant="contained" color="success" href="/contact">
                     Contact Us
                     </Button>
                 </Box>
