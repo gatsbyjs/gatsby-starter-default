@@ -1,6 +1,6 @@
 import * as React from "react"
 
-// import Layout from "../components/layout"
+import Layout from "../components/layout"
 
 // import Footer from '../components/Footer/footer'
 
@@ -98,6 +98,7 @@ const config = {
 function Help() {
 
     return (
+        <Layout>
         <div>
             <Grid container spacing={2}>
                 <Grid item xs={22}>
@@ -123,6 +124,7 @@ function Help() {
                 </Box>
             </Grid>
         </div>
+        </Layout>
     );
 }
 
