@@ -35,13 +35,13 @@ const samplePageLinks = [
     url: "selectedEvent",
     badge: true
   },
-  { text: "Profile", url: "Profile" },
-  { text: "Calendar", url: "Calendar" },
-  { text: "Lookup Materials", url: "lookup-materials" },
-  { text: "FAQ", url: "faq" },
-  { text: "Server Side Rendering", url: "using-ssr" }
-
+{ text: "Profile", url: "Profile" },
+{ text: "Calendar", url: "Calendar" },
+{ text: "Lookup Materials", url: "lookup-materials" },
+{ text: "FAQ", url: "faq" },
+{ text: "Server Side Rendering", url: "using-ssr" }
 ]
+
 
 const moreLinks = [
   // { text: "Join us on Discord", url: "https://gatsby.dev/discord" },
@@ -88,8 +88,8 @@ const IndexPage = () => (
             {i !== samplePageLinks.length - 1 && <> · </>}
           </React.Fragment>
         ))}
-        <br />
-        Fun fact: <code>src/pages/index.js</code> to update this page.
+        {/* <br />
+        Fun fact: <code>src/pages/index.js</code> to update this page. */}
       </p>
     </div>
 
@@ -112,14 +112,13 @@ const IndexPage = () => (
         {i !== moreLinks.length - 1 && <> · </>}
       </React.Fragment>
     ))}
+    
   </Layout>
 )
 
-/**
- * Head export to define metadata for the page
- *
- * See: https://www.gatsbyjs.com/docs/reference/built-in-components/gatsby-head/
- */
-export const Head = () => <Seo title="Home" />
+
+
+
+const Head = () => <Seo title="Home" />
 
 export default IndexPage
