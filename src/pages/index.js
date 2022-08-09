@@ -35,13 +35,15 @@ const samplePageLinks = [
     url: "selectedEvent",
     badge: true
   },
-  { text: "Profile", url: "Profile" },
-  { text: "Calendar", url: "Calendar" },
-  { text: "Lookup Materials", url: "Materials" },
-  { text: "FAQ", url: "faq" },
-  { text: "Server Side Rendering", url: "using-ssr" }
+{ text: "Profile", url: "Profile" },
+{ text: "Calendar", url: "Calendar" },
+{ text: "Lookup Materials", url: "lookup-materials" },
+{ text: "FAQ", url: "faq" },
+  <p> {""} </p>,
+{ text: "Server Side Rendering", url: "using-ssr" }
 
 ]
+
 
 const moreLinks = [
   // { text: "Join us on Discord", url: "https://gatsby.dev/discord" },

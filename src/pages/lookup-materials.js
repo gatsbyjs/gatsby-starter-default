@@ -8,22 +8,18 @@ import Seo from "../components/seo"
 import Stack from '@mui/material/Stack';
 import Button from '@mui/material/Button';
 import Avatar from '@mui/material/Avatar';
-import { styled } from '@mui/material/styles';
-import { deepOrange, deepPurple, lightGreen } from '@mui/material/colors';
-import { green, pink } from '@mui/material/colors';
+//import { styled } from '@mui/material/styles';
+import { deepPurple, green } from '@mui/material/colors';
 import FolderIcon from '@mui/icons-material/Folder';
 import PageviewIcon from '@mui/icons-material/Pageview';
 import AssignmentIcon from '@mui/icons-material/Assignment';
 
-import Paper from '@mui/material/Paper';
+//import Paper from '@mui/material/Paper';
 import Box from '@mui/material/Box';
 import CssBaseline from '@mui/material/CssBaseline';
 import Container from '@mui/material/Container';
 
-
 import Grid from "@mui/material/Grid";
-import { text } from "stream/consumers";
-
 
 
 function LookupMaterials() {
@@ -69,15 +65,18 @@ function LookupMaterials() {
          <h3> Presenter: LCol SoandSo
         </h3>
 
-
-            <p> Status: Open
+             <p>
+{/*            Status: Open
                 <p> {""}</p>
 
-                <b> September 12, 0900 - 1015 </b>
-                <p> {""}
-                    Lorem ipsum and etc, all that good info.</p>
+                <b> September 12, 0900 - 1015 </b> */}
+             <p>
+                {""}
+                    Lorem ipsum and etc, all that good info.
+                 {""}
+                </p>
             </p>
-            <Box sx={{ bgcolor: '#cfd4c7', height: '20vh' }}
+        <Box sx={{ bgcolor: '#cfd4c7', height: '20vh' }}
         />
       </Container>
     </React.Fragment>
