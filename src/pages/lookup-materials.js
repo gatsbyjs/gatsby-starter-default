@@ -180,8 +180,10 @@ function LookupMaterials() {
             alignItems="center"
             justifyContent="space-evenly"
             >
-                <Button variant="contained" color="success" 
-                href="#contained-buttons">Lookup Materials
+
+                <Button variant="contained" color="success"
+                href="/lookup-materials">
+                Lookup Materials
                 </Button>
 
                 <Button variant="contained" href="#contained-buttons" color="success"
