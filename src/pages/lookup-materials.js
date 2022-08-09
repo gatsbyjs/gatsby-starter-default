@@ -180,10 +180,8 @@ function LookupMaterials() {
             alignItems="center"
             justifyContent="space-evenly"
             >
-                <Button variant="contained" color="success" sx={{ bgcolor: green[500] }}
-                href="#contained-buttons">
-                <Link to="/lookup-materials"> Lookup Materials </Link>
-
+                <Button variant="contained" color="success" 
+                href="#contained-buttons">Lookup Materials
                 </Button>
 
                 <Button variant="contained" href="#contained-buttons" color="success"
