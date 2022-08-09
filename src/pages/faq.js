@@ -26,6 +26,7 @@ const Item = styled(Paper)(({ theme }) => ({
     color: theme.palette.text.secondary,
   }));
 
+  //This is placeholder data and will need to be filled with actual Questions/Answers
 const data = {
     title: "FAQ",
     rows: [
