@@ -40,7 +40,6 @@ const samplePageLinks = [
 { text: "Lookup Materials", url: "lookup-materials" },
 { text: "FAQ", url: "faq" },
 { text: "Server Side Rendering", url: "using-ssr" }
-
 ]
 
 

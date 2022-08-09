@@ -20,7 +20,8 @@
     "react": "^18.1.0",
     "react-dom": "^18.1.0",
     "react-faq-component": "^1.3.4",
-    "stream": "^0.0.2"
+    "stream": "^0.0.2",
+    "stream-consumers": "^1.0.2"
   },
   "devDependencies": {
     "prettier": "^2.7.1"
