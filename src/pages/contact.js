@@ -19,12 +19,13 @@ const Contact = () => {
 
   return(
     <div>
-        <Grid container spacing={2}>
-            <Grid item xs={22}>
+        <Grid container spacing={2} alignItems="center" justifyContent="center">
+            <Grid item xs={12}>
                 <Item>
                     <h2>Contact Support</h2>
                 </Item>
             </Grid>
+            <Grid item xs={10}>
             <Box m="auto">
                 <Stack justifyContent="center" spacing={2}>
                     <TextField fullWidth id="outlined-basic" label="Subject" variant="outlined" margin="normal"/>
@@ -37,8 +38,8 @@ const Contact = () => {
                     placeholder="What do you need help with?"
                     margin="normal"
                     />
-                    <Stack direction="row" justifyContent="center" spacing={2}>
-                        <Button variant="contained" color="success" href="#contained-buttons">
+                    <Stack direction="row" justifyContent="center" spacing={3} pt={4}>
+                        <Button variant="contained" color="success" href="#contained-buttons" >
                             Submit
                         </Button>
                         <Button variant="contained" color="success" href="/faq">
@@ -47,6 +48,7 @@ const Contact = () => {
                     </Stack>
                 </Stack>
             </Box>
+            </Grid>
       </Grid>
     </div>
   )
