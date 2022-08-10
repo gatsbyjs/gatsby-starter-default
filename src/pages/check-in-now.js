@@ -45,6 +45,7 @@ import MoreIcon from '@mui/icons-material/MoreVert';
 import HomeIcon from '@mui/icons-material/Home';
 import { MdOutlineHelp} from "react-icons/md";
 import { QrCodeScanner } from "@mui/icons-material";
+import VideoLibraryRoundedIcon from '@mui/icons-material/VideoLibraryRounded';
 import AddTaskIcon from '@mui/icons-material/AddTask';
 import ArrowBackIosSharpIcon from '@mui/icons-material/ArrowBackIosSharp';
 
@@ -162,18 +163,19 @@ function CheckInNow() {
             >
 
               <Button variant="contained"
-                href="/selectedEvent"
                 sx={{ bgcolor: green[500] }}
-                endIcon={< AddTaskIcon />}>
-                Register Now
+                href="/lookup-materials"
+                endIcon={< DownloadRounded />}>
+                Lookup Materials
               </Button>
 
 
-                <Button variant="contained"
-                href="#contained-buttons"
-                color="success"
-                >Zoom Link
-                </Button>
+              <Button variant="contained"
+                href="https://www.zoom.us/"
+                sx={{ bgcolor: green[500] }}
+                endIcon={< VideoLibraryRoundedIcon />}>
+                Zoom Link
+              </Button>
 
             </Stack>
 

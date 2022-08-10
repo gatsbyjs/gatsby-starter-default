@@ -11,6 +11,7 @@ import Avatar from '@mui/material/Avatar';
 import { deepPurple, green } from '@mui/material/colors';
 import FolderIcon from '@mui/icons-material/Folder';
 import { DownloadRounded } from "@mui/icons-material";
+import VideoLibraryRoundedIcon from '@mui/icons-material/VideoLibraryRounded';
 
 
 import Box from '@mui/material/Box';
@@ -184,7 +185,7 @@ function LookupMaterials() {
             >
 
 
-              
+
             <Button variant="contained"
                 href="/check-in-now"
                 sx={{ bgcolor: green[500] }}
@@ -200,15 +201,19 @@ function LookupMaterials() {
               </Button>
 
 
-                <Button variant="contained" color="success"
-                href="/lookup-materials">
-                Lookup Materials
-                </Button>
+              <Button variant="contained"
+                sx={{ bgcolor: green[500] }}
+                endIcon={< DownloadRounded />}>
+                Download
+              </Button>
 
 
-                <Button variant="contained" href="#contained-buttons" color="success"
-                >Zoom Link
-                </Button>
+                <Button variant="contained"
+                href="https://www.zoom.us/"
+                sx={{ bgcolor: green[500] }}
+                endIcon={< VideoLibraryRoundedIcon />}>
+                Zoom Link
+              </Button>
 
             </Stack>
 
