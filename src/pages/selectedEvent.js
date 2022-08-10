@@ -40,6 +40,10 @@ import AddIcon from '@mui/icons-material/Add';
 import SearchIcon from '@mui/icons-material/Search';
 import MoreIcon from '@mui/icons-material/MoreVert';
 import HomeIcon from '@mui/icons-material/Home';
+import { MdOutlineHelp} from "react-icons/md";
+import { QrCodeScanner } from "@mui/icons-material";
+import AddTaskIcon from '@mui/icons-material/AddTask';
+
 
 
 const SelectedEventText = [
@@ -59,8 +63,6 @@ const SelectedEventText = [
     right: 0,
     margin: '0 auto',
   });
-
-
 
 
 function SelectedEvent() {
@@ -100,11 +102,14 @@ function SelectedEvent() {
           <h5>Selected Event</h5>
               <h1>
                 Defense in the Digital Age
-{/*
-               <h3> Presenter: LCol SoandSo
-        </h3> */}
             </h1>
 
+            <Button variant="contained"
+                href="/selectedEvent"
+                sx={{ bgcolor: green[500] }}
+                endIcon={< AddTaskIcon />}>
+                Register Now
+              </Button>
 
             <React.Fragment>
       <CssBaseline />
@@ -146,21 +151,33 @@ function SelectedEvent() {
 {/* bottom toolbar */}
       <AppBar position="fixed" color="success" sx={{ top: 'auto', bottom: 0 }}>
          <Toolbar>
-            <IconButton  >
-            <Link to="/">
-               < HomeIcon sx={{ color: deepPurple[500], fontSize: 40 }} />
-             </Link>
+
+         <IconButton color="inherit" href="/faq" >
+               < MdOutlineHelp />
           </IconButton>
+
+          <IconButton color="inherit" href="/check-in-now" >
+               < QrCodeScanner />
+          </IconButton>
+
+
           <StyledFab color="secondary" aria-label="add">
             <AddIcon />
           </StyledFab>
           <Box sx={{ flexGrow: 9 }} />
+
+
+
           <IconButton color="inherit">
             <SearchIcon />
+
+
           </IconButton>
           <IconButton color="inherit">
             <MoreIcon />
           </IconButton>
+
+
         </Toolbar>
       </AppBar>
     </React.Fragment>
@@ -181,27 +198,26 @@ function SelectedEvent() {
     </React.Fragment>
 
 
-
-
-
     <p> {""}</p>
 
             <Stack spacing={4} direction="row"
             alignItems="center"
             justifyContent="space-evenly"
             >
-                <Button variant="contained" color="success" sx={{ bgcolor: green[500] }}
-                href="#contained-buttons">
-                <Link to="/lookup-materials"> Lookup Materials </Link>
 
-                </Button>
 
-                <Button variant="contained" href="#contained-buttons" color="success"
-                >Check-In
-                </Button>
+                <Button variant="contained"
+                color="inherit" href="/check-in-now"
+                endIcon={< QrCodeScanner />}>
+                Check in now
+              </Button>
+
+
+
                 <Button variant="contained" href="#contained-buttons" color="success"
                 >Zoom Link
                 </Button>
+
             </Stack>
 
             <p> {""}
