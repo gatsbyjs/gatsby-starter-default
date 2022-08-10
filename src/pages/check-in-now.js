@@ -1,3 +1,5 @@
+
+
 import * as React from "react"
 import { Link } from "gatsby"
 
@@ -8,33 +10,34 @@ import Seo from "../components/seo"
 import Stack from '@mui/material/Stack';
 import Button from '@mui/material/Button';
 import Avatar from '@mui/material/Avatar';
-import { styled } from '@mui/material/styles';
-import { deepOrange, deepPurple, lightGreen } from '@mui/material/colors';
-import { green, pink } from '@mui/material/colors';
+//import { styled } from '@mui/material/styles';
+import { deepPurple, green } from '@mui/material/colors';
 import FolderIcon from '@mui/icons-material/Folder';
+import { ChevronLeftSharp, DownloadRounded } from "@mui/icons-material";
 import PageviewIcon from '@mui/icons-material/Pageview';
 import AssignmentIcon from '@mui/icons-material/Assignment';
-import { DownloadRounded } from "@mui/icons-material";
 
-import Paper from '@mui/material/Paper';
 import Box from '@mui/material/Box';
 import CssBaseline from '@mui/material/CssBaseline';
 import Container from '@mui/material/Container';
-
-
 import Grid from "@mui/material/Grid";
 
 
+// bottom bar
+
+import { styled } from '@mui/material/styles';
 import AppBar from '@mui/material/AppBar';
 import Toolbar from '@mui/material/Toolbar';
 import Typography from '@mui/material/Typography';
-import IconButton from '@mui/material/IconButton';
+import Paper from '@mui/material/Paper';
 import Fab from '@mui/material/Fab';
 import List from '@mui/material/List';
 import ListItem from '@mui/material/ListItem';
 import ListItemAvatar from '@mui/material/ListItemAvatar';
 import ListItemText from '@mui/material/ListItemText';
 import ListSubheader from '@mui/material/ListSubheader';
+
+import IconButton from "@mui/material/IconButton";
 import MenuIcon from '@mui/icons-material/Menu';
 import AddIcon from '@mui/icons-material/Add';
 import SearchIcon from '@mui/icons-material/Search';
@@ -43,19 +46,12 @@ import HomeIcon from '@mui/icons-material/Home';
 import { MdOutlineHelp} from "react-icons/md";
 import { QrCodeScanner } from "@mui/icons-material";
 import AddTaskIcon from '@mui/icons-material/AddTask';
+import ArrowBackIosSharpIcon from '@mui/icons-material/ArrowBackIosSharp';
 
 
 
-const SelectedEventText = [
-    {
-      id: 1,
-      primary: 'Defense in the Digital Age and Whatnot',
-//       secondary: "I'll be in the neighbourhood this week. Let's grab a bite to eat",
-//       person: '/static/images/avatar/5.jpg',
-     }
-   ];
 
-   const StyledFab = styled(Fab)({
+  const StyledFab = styled(Fab)({
     position: 'absolute',
     zIndex: 1,
     top: -30,
@@ -65,15 +61,20 @@ const SelectedEventText = [
   });
 
 
-function SelectedEvent() {
+
+
+
+function CheckInNow() {
     return (
 
         <Layout>
 
-    <Grid container justify="flex-end">
 
+    <Grid container justify="flex-end">
+    < ChevronLeftSharp />
 <Stack direction="row" spacing={2} alignItems="flex-end">
       <Avatar sx={{ bgcolor: deepPurple[500] }}
+
         > JB
          </Avatar>
           <Stack
@@ -81,6 +82,7 @@ function SelectedEvent() {
             spacing={3}
             alignItems="flex-end"
             justifyContent="space-evenly" >
+
                 <Avatar sx={{ bgcolor: green[400] }}>
                     <FolderIcon />
                 </Avatar>
@@ -92,111 +94,65 @@ function SelectedEvent() {
                 <Avatar sx={{ bgcolor: green[400] }}>
                     <DownloadRounded />
                 </Avatar>
+
+
             </Stack>
              </Stack>
 
     </Grid>
 
+          <h5>
+
+          Check In Now </h5>
+
+               <p>
+               {"Use your phone to scan the QR code:"}
+                </p>
 
 
-          <h5>Selected Event</h5>
-              <h1>
-                Defense in the Digital Age
-            </h1>
-
-            <Button variant="contained"
-                href="/selectedEvent"
-                sx={{ bgcolor: green[500] }}
-                endIcon={< AddTaskIcon />}>
-                Register Now
-              </Button>
-
-            <React.Fragment>
+     <React.Fragment>
       <CssBaseline />
-      <Container maxWidth="md">
-            <p> Status: Open
-                <p> {""}</p>
+      <Container maxWidth="xl">
 
-                <b> September 12, 0900 - 1015 </b>
+        <QrCodeScanner
 
-            </p>
+        size="large"
+        aria-label="add"
+        sx={{display: "flex",
+        justifyContent: "center",
+        fontSize: "200px"}}>
+
+          </QrCodeScanner>
+
+
       </Container>
     </React.Fragment>
 
-            <React.Fragment>
-      <CssBaseline />
-      <Paper square sx={{ pb: '50px' }}>
-        <Typography variant="h5" gutterBottom component="div" sx={{ p: 2, pb: 0 }}>
-          Defense in the Digital Age
-        </Typography>
-        <List sx={{ mb: 2 }}>
-          {SelectedEventText.map(({ id }) => (
-            <React.Fragment key={id}>
-              {id === 1 && (
-                <ListSubheader sx={{ bgcolor: 'background.paper' }}>
-                  Modern war is not fought on the battleground, but online.
-
-                  <p>{" "}</p>
-
-                  Lorem ipsum and lots of other good information and whatnot.
-                </ListSubheader>
-
-              )}
-            </React.Fragment>
-
-          ))}
-        </List>
-      </Paper>
 
 {/* bottom toolbar */}
       <AppBar position="fixed" color="success" sx={{ top: 'auto', bottom: 0 }}>
          <Toolbar>
 
-         <IconButton color="inherit" href="/faq" >
+            <IconButton color="inherit" href="/faq" >
                < MdOutlineHelp />
           </IconButton>
 
-          <IconButton color="inherit" href="/check-in-now" >
-               < QrCodeScanner />
-          </IconButton>
-
-
-          <StyledFab color="secondary" aria-label="add">
-            <AddIcon />
+          <StyledFab color="secondary" aria-label="add" href="/">
+            <HomeIcon />
           </StyledFab>
-          <Box sx={{ flexGrow: 9 }} />
 
-
-
+          <Box sx={{ flexGrow: 12 }} />
           <IconButton color="inherit">
             <SearchIcon />
-
-
           </IconButton>
+
           <IconButton color="inherit">
             <MoreIcon />
           </IconButton>
 
-
         </Toolbar>
       </AppBar>
-    </React.Fragment>
-
-
-            <React.Fragment>
-      <CssBaseline />
-      <Container maxWidth="md">
-             <p>
-
-
-            </p>
-
-
-
-
-      </Container>
-    </React.Fragment>
-
+    {/* </React.Fragment> */}
 
     <p> {""}</p>
 
@@ -205,16 +161,17 @@ function SelectedEvent() {
             justifyContent="space-evenly"
             >
 
-
-                <Button variant="contained"
-                color="inherit" href="/check-in-now"
-                endIcon={< QrCodeScanner />}>
-                Check in now
+              <Button variant="contained"
+                href="/selectedEvent"
+                sx={{ bgcolor: green[500] }}
+                endIcon={< AddTaskIcon />}>
+                Register Now
               </Button>
 
 
-
-                <Button variant="contained" href="#contained-buttons" color="success"
+                <Button variant="contained"
+                href="#contained-buttons"
+                color="success"
                 >Zoom Link
                 </Button>
 
@@ -230,6 +187,7 @@ function SelectedEvent() {
             <p> {""}
             </p>
 
+
             <IconButton  >
             <Link to="/">
                < HomeIcon sx={{ color: deepPurple[500], fontSize: 40 }} />
@@ -237,8 +195,10 @@ function SelectedEvent() {
           </IconButton>
         </Layout>
     );
+
 }
 
-export const Head = () => <Seo title="Selected Event" />
 
-export default SelectedEvent
+export const Head = () => <Seo title="Check In Now" />
+
+export default CheckInNow

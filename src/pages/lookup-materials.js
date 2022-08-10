@@ -8,14 +8,11 @@ import Seo from "../components/seo"
 import Stack from '@mui/material/Stack';
 import Button from '@mui/material/Button';
 import Avatar from '@mui/material/Avatar';
-//import { styled } from '@mui/material/styles';
 import { deepPurple, green } from '@mui/material/colors';
 import FolderIcon from '@mui/icons-material/Folder';
-import { DownloadRounded, DownloadDoneOutlined, DownloadingOutlined} from "@mui/icons-material";
-import PageviewIcon from '@mui/icons-material/Pageview';
-import AssignmentIcon from '@mui/icons-material/Assignment';
+import { DownloadRounded } from "@mui/icons-material";
 
-//import Paper from '@mui/material/Paper';
+
 import Box from '@mui/material/Box';
 import CssBaseline from '@mui/material/CssBaseline';
 import Container from '@mui/material/Container';
@@ -37,10 +34,14 @@ import ListItemAvatar from '@mui/material/ListItemAvatar';
 import ListItemText from '@mui/material/ListItemText';
 import ListSubheader from '@mui/material/ListSubheader';
 import MenuIcon from '@mui/icons-material/Menu';
+import PageviewIcon from '@mui/icons-material/Pageview';
 import AddIcon from '@mui/icons-material/Add';
 import SearchIcon from '@mui/icons-material/Search';
 import MoreIcon from '@mui/icons-material/MoreVert';
 import HomeIcon from '@mui/icons-material/Home';
+import { QrCodeScanner } from "@mui/icons-material";
+import { MdOutlineHelp} from "react-icons/md";
+import AddTaskIcon from '@mui/icons-material/AddTask';
 
 
 const LookupMaterialsText = [
@@ -58,9 +59,6 @@ const LookupMaterialsText = [
     right: 0,
     margin: '0 auto',
   });
-
-
-
 
 
 function LookupMaterials() {
@@ -88,8 +86,6 @@ function LookupMaterials() {
                     <PageviewIcon />
                 </Avatar>
 
-
-
                 <Avatar sx={{ bgcolor: green[400] }}>
                     <DownloadRounded />
                 </Avatar>
@@ -101,7 +97,6 @@ function LookupMaterials() {
     </Grid>
 
 
-
           <h5>Lookup Materials</h5>
               {/* <h4>
                 Defense in the Digital Age
@@ -109,7 +104,6 @@ function LookupMaterials() {
                <p>
                {""}
                 </p>
-
 
 
                <React.Fragment>
@@ -140,19 +134,29 @@ function LookupMaterials() {
 {/* bottom toolbar */}
       <AppBar position="fixed" color="success" sx={{ top: 'auto', bottom: 0 }}>
          <Toolbar>
-            <IconButton color="inherit" >
-               < HomeIcon />
+
+            <IconButton color="inherit" href="/faq" >
+               < MdOutlineHelp />
           </IconButton>
-          <StyledFab color="secondary" aria-label="add">
+
+          <IconButton color="inherit" href="/check-in-now" >
+               < QrCodeScanner />
+          </IconButton>
+
+          <StyledFab color="secondary" aria-label="add" href="/">
             <AddIcon />
           </StyledFab>
-          <Box sx={{ flexGrow: 9 }} />
+
+          <Box sx={{ flexGrow: 12 }} />
           <IconButton color="inherit">
             <SearchIcon />
           </IconButton>
+
           <IconButton color="inherit">
             <MoreIcon />
           </IconButton>
+
+
         </Toolbar>
       </AppBar>
     </React.Fragment>
@@ -169,8 +173,6 @@ function LookupMaterials() {
             </p>
 
 
-
-
       </Container>
     </React.Fragment>
 
@@ -181,17 +183,33 @@ function LookupMaterials() {
             justifyContent="space-evenly"
             >
 
+
+              
+            <Button variant="contained"
+                href="/check-in-now"
+                sx={{ bgcolor: green[500] }}
+                endIcon={< QrCodeScanner />}>
+                Check in
+              </Button>
+
+              <Button variant="contained"
+                href="/selectedEvent"
+                sx={{ bgcolor: green[500] }}
+                endIcon={< AddTaskIcon />}>
+                Register Now
+              </Button>
+
+
                 <Button variant="contained" color="success"
                 href="/lookup-materials">
                 Lookup Materials
                 </Button>
 
-                <Button variant="contained" href="#contained-buttons" color="success"
-                >Check-In
-                </Button>
+
                 <Button variant="contained" href="#contained-buttons" color="success"
                 >Zoom Link
                 </Button>
+
             </Stack>
 
             <p> {""}
@@ -203,10 +221,6 @@ function LookupMaterials() {
 
             <p> {""}
             </p>
-
-
-
-
 
             <IconButton  >
             <Link to="/">
@@ -221,6 +235,6 @@ function LookupMaterials() {
 
 
 
-export const Head = () => <Seo title="Selected Event" />
+export const Head = () => <Seo title="Lookup Material" />
 
 export default LookupMaterials
