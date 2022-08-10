@@ -43,6 +43,7 @@ import HomeIcon from '@mui/icons-material/Home';
 import { MdOutlineHelp} from "react-icons/md";
 import { QrCodeScanner } from "@mui/icons-material";
 import AddTaskIcon from '@mui/icons-material/AddTask';
+import VideoLibraryRoundedIcon from '@mui/icons-material/VideoLibraryRounded';
 
 
 
@@ -99,7 +100,7 @@ function SelectedEvent() {
 
 
 
-          <h5>Selected Event</h5>
+          <h5>Selected Event - Details and Registration</h5>
               <h1>
                 Defense in the Digital Age
             </h1>
@@ -207,16 +208,25 @@ function SelectedEvent() {
 
 
                 <Button variant="contained"
-                color="inherit" href="/check-in-now"
+                href="/check-in-now"
+                sx={{ bgcolor: green[500] }}
                 endIcon={< QrCodeScanner />}>
-                Check in now
+                Check in
               </Button>
 
+              <Button variant="contained"
+                sx={{ bgcolor: green[500] }}
+                href="/lookup-materials"
+                endIcon={< DownloadRounded />}>
+                Lookup Materials
+              </Button>
 
-
-                <Button variant="contained" href="#contained-buttons" color="success"
-                >Zoom Link
-                </Button>
+              <Button variant="contained"
+                href="https://www.zoom.us/"
+                sx={{ bgcolor: green[500] }}
+                endIcon={< VideoLibraryRoundedIcon />}>
+                Zoom Link
+              </Button>
 
             </Stack>
 
