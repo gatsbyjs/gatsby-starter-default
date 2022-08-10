@@ -1,6 +1,6 @@
 import * as React from "react"
 
-// import Layout from "../components/layout"
+import Layout from "../components/layout"
 
 // import Footer from '../components/Footer/footer'
 
@@ -26,6 +26,7 @@ const Item = styled(Paper)(({ theme }) => ({
     color: theme.palette.text.secondary,
   }));
 
+  //This is placeholder data and will need to be filled with actual Questions/Answers
 const data = {
     title: "FAQ",
     rows: [
@@ -98,6 +99,7 @@ const config = {
 function Help() {
 
     return (
+        <Layout>
         <div>
             <Grid container spacing={2}>
                 <Grid item xs={22}>
@@ -123,6 +125,7 @@ function Help() {
                 </Box>
             </Grid>
         </div>
+        </Layout>
     );
 }
 

@@ -1,4 +1,6 @@
 import React from 'react';
+import Layout from "../components/layout"
+
 import Box from '@mui/material/Box';
 import TextField from '@mui/material/TextField';
 import Button from '@mui/material/Button';
@@ -18,6 +20,7 @@ const Item = styled(Paper)(({ theme }) => ({
 const Contact = () => {
 
   return(
+    <Layout>
     <div>
         <Grid container spacing={2} alignItems="center" justifyContent="center">
             <Grid item xs={12}>
@@ -51,6 +54,7 @@ const Contact = () => {
             </Grid>
       </Grid>
     </div>
+    </Layout>
   )
 }
 

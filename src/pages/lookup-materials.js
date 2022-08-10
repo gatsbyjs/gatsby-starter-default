@@ -183,6 +183,8 @@ function LookupMaterials() {
             justifyContent="space-evenly"
             >
 
+
+              
             <Button variant="contained"
                 href="/check-in-now"
                 sx={{ bgcolor: green[500] }}
@@ -196,6 +198,12 @@ function LookupMaterials() {
                 endIcon={< AddTaskIcon />}>
                 Register Now
               </Button>
+
+
+                <Button variant="contained" color="success"
+                href="/lookup-materials">
+                Lookup Materials
+                </Button>
 
 
                 <Button variant="contained" href="#contained-buttons" color="success"
