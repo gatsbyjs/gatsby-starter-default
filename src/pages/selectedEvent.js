@@ -15,6 +15,9 @@ import FolderIcon from '@mui/icons-material/Folder';
 import PageviewIcon from '@mui/icons-material/Pageview';
 import AssignmentIcon from '@mui/icons-material/Assignment';
 import { DownloadRounded } from "@mui/icons-material";
+import Alert from '@mui/material/Alert';
+import Collapse from '@mui/material/Collapse';
+import CloseIcon from '@mui/icons-material/Close';
 
 import Paper from '@mui/material/Paper';
 import Box from '@mui/material/Box';
@@ -67,6 +70,18 @@ const SelectedEventText = [
 
 
 function SelectedEvent() {
+  const [successOpen, setSuccessOpen] = React.useState(false);
+  const [errorOpen, setErrorOpen] = React.useState(false);
+
+  const Register = event => {
+    //need to add logic to actually register the user for the event in question
+    
+    //if success
+    setSuccessOpen(true);
+    //if error
+    // setErrorOpen(true);
+  };
+
     return (
 
         <Layout>
@@ -98,6 +113,50 @@ function SelectedEvent() {
 
     </Grid>
 
+{/* Success alert */}
+            <Box sx={{ width: '100%' }}>
+              <Collapse in={successOpen}>
+                <Alert
+                action={
+                  <IconButton
+                    aria-label="close"
+                    color="inherit"
+                    size="small"
+                    onClick={() => {
+                      setSuccessOpen(false);
+                    }}
+                  >
+                    <CloseIcon fontSize="inherit" />
+                  </IconButton>
+                  }
+                  sx={{ mb: 2 }}
+                >
+                Registration Successful!
+                </Alert>
+              </Collapse>
+            </Box>
+{/* Error Alert */}
+            <Box sx={{ width: '100%' }}>
+              <Collapse in={errorOpen}>
+                <Alert severity = "error"
+                action={
+                  <IconButton
+                    aria-label="close"
+                    color="inherit"
+                    size="small"
+                    onClick={() => {
+                      setErrorOpen(false);
+                    }}
+                  >
+                    <CloseIcon fontSize="inherit" />
+                  </IconButton>
+                  }
+                  sx={{ mb: 2 }}
+                >
+                There was an error in processing your registration.
+                </Alert>
+              </Collapse>
+            </Box>
 
 
           <h5>Selected Event - Details and Registration</h5>
@@ -106,7 +165,7 @@ function SelectedEvent() {
             </h1>
 
             <Button variant="contained"
-                href="/selectedEvent"
+                onClick = {Register}
                 sx={{ bgcolor: green[500] }}
                 endIcon={< AddTaskIcon />}>
                 Register Now
