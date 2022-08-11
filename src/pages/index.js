@@ -2,7 +2,7 @@ import * as React from "react"
 
 import { Link } from "gatsby"
 import { StaticImage } from "gatsby-plugin-image"
-
+import ResponsiveAppBar from "../components/navbar/navbar"
 
 import Layout from "../components/layout"
 import Seo from "../components/seo"
@@ -62,8 +62,10 @@ const moreLinks = [
 const utmParameters = `?utm_source=starter&utm_medium=start-page&utm_campaign=default-starter`
 
 const IndexPage = () => (
+  
   <Layout>
-    <Seo title="Home" />
+    <ResponsiveAppBar />,
+    
     <div className={styles.textCenter}>
       <StaticImage
         src="../images/army-week-logo-black-font.svg"
@@ -119,6 +121,6 @@ const IndexPage = () => (
 
 
 
-const Head = () => <Seo title="Home" />
+//const Head = () => <Seo title="Home" />
 
 export default IndexPage
