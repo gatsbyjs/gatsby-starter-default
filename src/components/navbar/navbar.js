@@ -1,5 +1,17 @@
 import React, {useCallback} from 'react';
-import {useNavigate} from 'react-router-dom';
+
+import {
+    NavbarContainer,
+    LeftContainer,
+    RightContainer,
+    NavbarExtendedContainer,
+    NavbarInnerContainer,
+    NavbarLinkContainer,
+    NavbarLink,
+    Logo,
+    OpenLinksButton,
+    NavbarLinkExtended,
+  } from "./navbar.style";
 
 import AppBar from '@mui/material/AppBar';
 import Box from '@mui/material/Box';
@@ -42,9 +54,9 @@ const ResponsiveAppBar = () => {
 
   return (
     <AppBar position="static">
-      <Container maxWidth="inherit">
+      <NavbarContainer>
         <Toolbar disableGutters>
-          <AdbIcon sx={{ display: { xs: 'none', md: 'flex' }, mr: 1 }} />
+          
           <Typography
             variant="h6"
             noWrap
@@ -99,7 +111,7 @@ const ResponsiveAppBar = () => {
               ))}
             </Menu>
           </Box>
-          <AdbIcon sx={{ display: { xs: 'flex', md: 'none' }, mr: 1 }} />
+         
           <Typography
             variant="h5"
             noWrap
@@ -112,7 +124,7 @@ const ResponsiveAppBar = () => {
               fontFamily: 'monospace',
               fontWeight: 700,
               letterSpacing: '.1rem',
-              color: 'inherit',
+              color: 'white',
               textDecoration: 'none',
             }}
           >
@@ -160,7 +172,7 @@ const ResponsiveAppBar = () => {
             </Menu>
           </Box>
         </Toolbar>
-      </Container>
+      </NavbarContainer>
     </AppBar>
   );
 };

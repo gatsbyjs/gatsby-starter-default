@@ -2,7 +2,7 @@ import * as React from "react"
 
 import { Link } from "gatsby"
 import { StaticImage } from "gatsby-plugin-image"
-import ResponsiveAppBar from "../components/navbar/navbar"
+
 
 import Layout from "../components/layout"
 import Seo from "../components/seo"
@@ -64,7 +64,7 @@ const utmParameters = `?utm_source=starter&utm_medium=start-page&utm_campaign=de
 const IndexPage = () => (
   
   <Layout>
-    <ResponsiveAppBar />,
+    
     
     <div className={styles.textCenter}>
       <StaticImage

@@ -11,6 +11,7 @@ import { useStaticQuery, graphql } from "gatsby"
 
 import Header from "./header"
 import "./layout.css"
+import ResponsiveAppBar from "../components/navbar/navbar"
 
 const Layout = ({ children }) => {
   const data = useStaticQuery(graphql`
@@ -25,24 +26,25 @@ const Layout = ({ children }) => {
 
   return (
     <>
-      <Header siteTitle={data.site.siteMetadata?.title || `Army Week`} />
-      <div
+    <ResponsiveAppBar />
+    <div
         style={{
           margin: `0 auto`,
           maxWidth: `var(--size-content)`,
           padding: `var(--size-gutter)`,
         }}
       >
-        <main>{children}</main>
+      
+    <main>{children}</main>
         <footer
           style={{
             marginTop: `var(--space-6)`,
             fontSize: `var(--font-sm)`,
           }}
         >
-          © {new Date().getFullYear()} &middot; Built with
+          © {new Date().getFullYear()} &middot; 
           {` `}
-//* <a href="https://www.gatsbyjs.com">Gatsby</a> //
+
         </footer>
       </div>
     </>
