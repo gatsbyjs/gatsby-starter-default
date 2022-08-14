@@ -10,13 +10,23 @@
     "@emotion/styled": "^11.10.0",
     "@mui/icons-material": "^5.8.4",
     "@mui/material": "^5.9.3",
+<<<<<<< Updated upstream
     "babel-loader": "^8.2.5",
+=======
+    "description": "",
+>>>>>>> Stashed changes
     "gatsby": "^4.20.0",
     "gatsby-plugin-image": "^2.20.0",
     "gatsby-plugin-manifest": "^4.20.0",
     "gatsby-plugin-sharp": "^4.20.0",
     "gatsby-source-filesystem": "^4.20.0",
     "gatsby-transformer-sharp": "^4.20.0",
+<<<<<<< Updated upstream
+=======
+    "html5-qrcode": "^2.2.1",
+    "main": "index.html",
+    "name": "qr-code-scanner",
+>>>>>>> Stashed changes
     "prop-types": "^15.8.1",
     "react": "^18.1.0",
     "react-dom": "^18.1.0",
@@ -25,7 +35,12 @@
     "react-router-dom": "^6.3.0",
     "stream": "^0.0.2",
     "stream-consumers": "^1.0.2",
+<<<<<<< Updated upstream
     "styled-components": "^5.3.5"
+=======
+    "styled-components": "^5.3.5",
+    "version": "1.0.0"
+>>>>>>> Stashed changes
   },
   "devDependencies": {
     "prettier": "^2.7.1"
