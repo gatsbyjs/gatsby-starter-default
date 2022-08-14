@@ -10,7 +10,7 @@ import PropTypes from "prop-types"
 import { useStaticQuery, graphql } from "gatsby"
 
 import Header from "./header"
-import Navbar from "./Navbar/Navbar"
+
 import "./layout.css"
 import ResponsiveAppBar from "../components/navbar/navbar"
 
@@ -27,14 +27,11 @@ const Layout = ({ children }) => {
 
   return (
     <>
-<<<<<<< Updated upstream
+
     <ResponsiveAppBar />
     <div
-=======
-      <Navbar></Navbar>
-      
-      <div
->>>>>>> Stashed changes
+
+
         style={{
           margin: `0 auto`,
           maxWidth: `var(--size-content)`,
