@@ -97,7 +97,7 @@ const IndexPage = () => (
       <div className="App">
         <form className="form">
           <CustomInput
-            labelText="Email"
+            labelText="ECN Account"
             id="email"
             formControlProps={{
               fullWidth: true

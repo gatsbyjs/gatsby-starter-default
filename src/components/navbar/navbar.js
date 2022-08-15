@@ -18,8 +18,8 @@ import PropTypes from 'prop-types';
 import { Link as RouterLink, MemoryRouter } from 'react-router-dom';
 import { StaticRouter } from 'react-router-dom/server';
 import { ThemeProvider, createTheme } from '@mui/material/styles';
-import Stack from '@mui/material/Stack';
-import Link from '@mui/material/Link';
+import NavbarContainer from "./Navbar.style";
+import { Stack } from '@mui/material';
 
 const pages = ['Calendar', 'Events', 'Messages','Digital Army', 'Help'];
 const settings = ['Profile', 'Dashboard', 'Logout'];
@@ -98,9 +98,9 @@ const ResponsiveAppBar = () => {
     
     
     <AppBar position="static">
-      <Container maxWidth="xl" background-color="#222">
+      <Container maxWidth="xl" color="#43A047">
         <Toolbar disableGutters>
-          <AdbIcon sx={{ display: { xs: 'none', md: 'flex' }, mr: 1 }} />
+          
           <Typography
             variant="h6"
             noWrap
@@ -148,14 +148,32 @@ const ResponsiveAppBar = () => {
                 display: { xs: 'block', md: 'none' },
               }}
             >
-              {pages.map((page) => (
-                <MenuItem key={page} onClick={handleCloseNavMenu}>
-                  <Typography textAlign="center">{page}</Typography>
+              
+                <MenuItem>
+                  <Router>
+                      <Stack spacing={2}>
+                        <Button href="/calendar" target="_blank" variant="contained">
+                        Calendar
+                        </Button>
+                        <Button href="/my-events" target="_blank" variant="contained">
+                        My Events
+                        </Button>
+                        <Button href="/messages" target="_blank" variant="contained">
+                        Messages
+                        </Button>
+                        <Button href="/using-ssr" target="_blank" variant="contained">
+                        Digital Army
+                        </Button>
+                        <Button href="/faq" target="_blank" variant="contained">
+                        Help
+                        </Button>
+                        </Stack>
+                    </Router>
                 </MenuItem>
-              ))}
+              
             </Menu>
           </Box>
-          <AdbIcon sx={{ display: { xs: 'flex', md: 'none' }, mr: 1 }} />
+          
           <Typography
             variant="h5"
             noWrap
