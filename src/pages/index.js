@@ -1,12 +1,20 @@
 import * as React from "react"
 
-import { Link } from "gatsby"
+
 import { StaticImage } from "gatsby-plugin-image"
 
+import Box from '@mui/material/Box';
+
+import Icon from '@mui/material/Icon';
+import AppleIcon from '@mui/icons-material/Apple';
+import FacebookIcon from '@mui/icons-material/Facebook';
+import GoogleIcon from '@mui/icons-material/Google';
 
 import Layout from "../components/layout"
 import Seo from "../components/seo"
 import * as styles from "../components/index.module.css"
+import CustomInput from "../components/CustomInput/CustomInput";
+import Button from "../components/Button/Button";
 
 const links = [
   {
@@ -61,6 +69,10 @@ const moreLinks = [
 
 const utmParameters = `?utm_source=starter&utm_medium=start-page&utm_campaign=default-starter`
 
+const handleChange = e => {
+  this.setState({ [e.currentTarget.id]: e.currentTarget.value });
+};
+
 const IndexPage = () => (
   
   <Layout>
@@ -82,17 +94,46 @@ const IndexPage = () => (
       <h2>
         Register here.
       </h2>
-      <p className={styles.intro}>
-       {" "}
-        {samplePageLinks.map((link, i) => (
-          <React.Fragment key={link.url}>
-            <Link to={link.url}>{link.text}</Link>
-            {i !== samplePageLinks.length - 1 && <> · </>}
-          </React.Fragment>
-        ))}
-        {/* <br />
-        Fun fact: <code>src/pages/index.js</code> to update this page. */}
-      </p>
+      <div className="App">
+        <form className="form">
+          <CustomInput
+            labelText="Email"
+            id="email"
+            formControlProps={{
+              fullWidth: true
+            }}
+            
+            type="text"
+          />
+          <CustomInput
+            labelText="Password"
+            id="password"
+            formControlProps={{
+              fullWidth: true
+            }}
+
+            type="password"
+          />
+
+          <Button type="button" color="primary" className="form__custom-button">
+            Log in
+          </Button>
+        </form>
+        <Box
+      sx={{
+        '& > :not(style)': {
+          m: 2,
+        },
+      }}
+    >
+      <FacebookIcon color="primary">Google</FacebookIcon>
+      <GoogleIcon color="primary">Apple</GoogleIcon>
+      <AppleIcon color="primary">Facebook</AppleIcon>
+      
+      
+      
+    </Box>
+      </div>
     </div>
 
     <ul className={styles.list}>

@@ -181,7 +181,7 @@ const ResponsiveAppBar = () => {
                         <Button href="/calendar" target="_blank" variant="contained">
                         Calendar
                         </Button>
-                        <Button href="/my-enevts" target="_blank" variant="contained">
+                        <Button href="/my-events" target="_blank" variant="contained">
                         My Events
                         </Button>
                         <Button href="/messages" target="_blank" variant="contained">
