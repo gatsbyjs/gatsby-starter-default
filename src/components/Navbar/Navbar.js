@@ -9,7 +9,6 @@ import MenuIcon from '@mui/icons-material/Menu';
 import Container from '@mui/material/Container';
 import Avatar from '@mui/material/Avatar';
 import Button from '@mui/material/Button';
-import ButtonGroup from '@mui/material/ButtonGroup';
 import Tooltip from '@mui/material/Tooltip';
 import MenuItem from '@mui/material/MenuItem';
 import AdbIcon from '@mui/icons-material/Adb';
@@ -25,6 +24,9 @@ const pages = ['Calendar', 'Events', 'Messages','Digital Army', 'Help'];
 const settings = ['Profile', 'Dashboard', 'Logout'];
 
 
+
+const pages = ['Calendar', 'My Events', 'Help'];
+const settings = ['Profile','Logout'];
 
 const ResponsiveAppBar = () => {
   const [anchorElNav, setAnchorElNav] = React.useState(null);
@@ -45,62 +47,10 @@ const ResponsiveAppBar = () => {
     setAnchorElUser(null);
   };
 
-
-
-  const LinkBehavior = React.forwardRef((props, ref) => {
-    const { href, ...other } = props;
-    // Map href (MUI) -> to (react-router)
-    return <RouterLink data-testid="custom-link" ref={ref} to={href} {...other} />;
-  });
-  
-  LinkBehavior.propTypes = {
-    href: PropTypes.oneOfType([
-      PropTypes.shape({
-        hash: PropTypes.string,
-        pathname: PropTypes.string,
-        search: PropTypes.string,
-      }),
-      PropTypes.string,
-    ]).isRequired,
-  };
-  
-  function Router(props) {
-    const { children } = props;
-    if (typeof window === 'undefined') {
-      return <StaticRouter location="/">{children}</StaticRouter>;
-    }
-  
-    return <MemoryRouter>{children}</MemoryRouter>;
-  }
-  
-  Router.propTypes = {
-    children: PropTypes.node,
-  };
-  
-  const theme = createTheme({
-    components: {
-      MuiLink: {
-        defaultProps: {
-          component: LinkBehavior,
-        },
-      },
-      MuiButtonBase: {
-        defaultProps: {
-          LinkComponent: LinkBehavior,
-        },
-      },
-    },
-  });
-
-
-
   return (
-    
-    
     <AppBar position="static">
-      <Container maxWidth="xl" color="#43A047">
+      <Container maxWidth="xl">
         <Toolbar disableGutters>
-          
           <Typography
             variant="h6"
             noWrap
@@ -111,12 +61,12 @@ const ResponsiveAppBar = () => {
               display: { xs: 'none', md: 'flex' },
               fontFamily: 'monospace',
               fontWeight: 700,
-              letterSpacing: '.1rem',
+              letterSpacing: '.3rem',
               color: 'inherit',
               textDecoration: 'none',
             }}
           >
-            ARMY WEEK
+            ARMY WEEK 2022
           </Typography>
 
           <Box sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' } }}>
@@ -148,6 +98,7 @@ const ResponsiveAppBar = () => {
                 display: { xs: 'block', md: 'none' },
               }}
             >
+
               
                 <MenuItem>
                   <Router>
@@ -169,11 +120,15 @@ const ResponsiveAppBar = () => {
                         </Button>
                         </Stack>
                     </Router>
+=======
+              {pages.map((page) => (
+                <MenuItem key={page} onClick={handleCloseNavMenu}>
+                  <Typography textAlign="center">{page}</Typography>
+>>>>>>> Stashed changes:src/components/Navbar/navbar.js
                 </MenuItem>
-              
+              ))}
             </Menu>
           </Box>
-          
           <Typography
             variant="h5"
             noWrap
@@ -185,13 +140,14 @@ const ResponsiveAppBar = () => {
               flexGrow: 1,
               fontFamily: 'monospace',
               fontWeight: 700,
-              letterSpacing: '.1rem',
+              letterSpacing: '.3rem',
               color: 'inherit',
               textDecoration: 'none',
             }}
           >
             ARMY WEEK
           </Typography>
+<<<<<<< Updated upstream:src/components/navbar/navbar.js
           <Box sx={{  display: { xs: 'none', md: 'flex' } }}>
             <ButtonGroup variant="contained" aria-label="outlined primary button group">
                 <ThemeProvider theme={theme}>
@@ -216,21 +172,25 @@ const ResponsiveAppBar = () => {
       </ThemeProvider>
       </ButtonGroup>
      
+=======
+          <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
+            {pages.map((page) => (
+              <Button
+                key={page}
+                onClick={handleCloseNavMenu}
+                sx={{ my: 2, color: 'white', display: 'block' }}
+              >
+                {page}
+              </Button>
+            ))}
+>>>>>>> Stashed changes:src/components/Navbar/navbar.js
           </Box>
 
           <Box sx={{ flexGrow: 0 }}>
             <Tooltip title="Open settings">
-            <IconButton
-                size="large"
-                aria-label="account of current user"
-                aria-controls="menu-appbar"
-                aria-haspopup="true"
-                onClick={handleOpenUserMenu}
-                color="inherit"
-              >
-                <AccountCircle />
+              <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
+                <Avatar alt="Remy Sharp" src="/static/images/avatar/2.jpg" />
               </IconButton>
-              
             </Tooltip>
             <Menu
               sx={{ mt: '45px' }}
@@ -258,7 +218,6 @@ const ResponsiveAppBar = () => {
         </Toolbar>
       </Container>
     </AppBar>
-    
   );
 };
 export default ResponsiveAppBar;

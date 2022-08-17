@@ -38,6 +38,7 @@ const Layout = ({ children }) => {
           padding: `var(--size-gutter)`,
         }}
       >
+<<<<<<< Updated upstream
       
     <main>{children}</main>
         <footer
@@ -51,6 +52,11 @@ const Layout = ({ children }) => {
 
         </footer>
       </div>
+=======
+        <main>{children}</main>
+        
+        </div>
+>>>>>>> Stashed changes
     </>
   )
 }

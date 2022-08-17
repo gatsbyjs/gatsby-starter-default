@@ -19,6 +19,8 @@ const Item = styled(Paper)(({ theme }) => ({
 
 const Contact = () => {
 
+    
+
   return(
     <Layout>
     <div>

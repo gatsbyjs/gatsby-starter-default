@@ -91,6 +91,7 @@ const IndexPage = () => (
       <h1>
       <b> Welcome to Army Week</b>
       </h1>
+
       <h2>
         Register here.
       </h2>
@@ -134,6 +135,19 @@ const IndexPage = () => (
       
     </Box>
       </div>
+
+      <p className={styles.intro}>
+       {" "}
+        {samplePageLinks.map((link, i) => (
+          <React.Fragment key={link.url}>
+            <Link to={link.url}>{link.text}</Link>
+            {i !== samplePageLinks.length - 1 && <> · </>}
+          </React.Fragment>
+        ))}
+        {/* <br />
+        Fun fact: <code>src/pages/index.js</code> to update this page. */}
+      </p>
+
     </div>
 
     <ul className={styles.list}>
