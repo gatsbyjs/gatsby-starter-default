@@ -69,8 +69,14 @@ const ResponsiveAppBar = () => {
             ARMY WEEK 2022
           </Typography>
 
+<<<<<<< Updated upstream:src/components/navbar/navbar.js
           <Box sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' } }}>
             <IconButton
+=======
+          <Box sx={{ flexGrow: 5, display: { xs: 'flex', md: 'none' } }}>
+          {/*<Tooltip title="Open settings">
+              <IconButton
+>>>>>>> Stashed changes:src/components/Navbar/navbar.js
               size="large"
               aria-label="account of current user"
               aria-controls="menu-appbar"
@@ -80,6 +86,10 @@ const ResponsiveAppBar = () => {
             >
               <MenuIcon />
             </IconButton>
+<<<<<<< Updated upstream:src/components/navbar/navbar.js
+=======
+            </Tooltip>*/}
+>>>>>>> Stashed changes:src/components/Navbar/navbar.js
             <Menu
               id="menu-appbar"
               anchorEl={anchorElNav}
@@ -186,7 +196,11 @@ const ResponsiveAppBar = () => {
 >>>>>>> Stashed changes:src/components/Navbar/navbar.js
           </Box>
 
+<<<<<<< Updated upstream:src/components/navbar/navbar.js
           <Box sx={{ flexGrow: 0 }}>
+=======
+          {/*<Box>
+>>>>>>> Stashed changes:src/components/Navbar/navbar.js
             <Tooltip title="Open settings">
               <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
                 <Avatar alt="Remy Sharp" src="/static/images/avatar/2.jpg" />
@@ -214,7 +228,7 @@ const ResponsiveAppBar = () => {
                 </MenuItem>
               ))}
             </Menu>
-          </Box>
+          </Box>*/}
         </Toolbar>
       </Container>
     </AppBar>
