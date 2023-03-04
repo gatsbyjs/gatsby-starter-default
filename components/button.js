@@ -1,13 +1,6 @@
-import React, { Component } from 'react'
+import { Component } from "react"
 
-export default class Button extends Component {
-  props = {
-    disabled: false,
-    onClick: false,
-    type: false,
-    text: '',
-  };
-
+class Button extends Component {
   render() {
     return (
       <div>
@@ -17,9 +10,18 @@ export default class Button extends Component {
           disabled={this.props.disabled}
           onClick={this.props.onClick}
         >
-          { this.props.text }
+          {this.props.text}
         </button>
       </div>
     )
   }
 }
+
+Button.defaultProps = {
+  disabled: false,
+  onClick: false,
+  type: false,
+  text: "",
+}
+
+export default Button

@@ -69,3 +69,11 @@ yarn-error.log
 .yarn-integrity
 
 .idea
+
+# caches
+.cache
+.parcel-cache
+.DS_Store
+
+# build dir
+dist/
