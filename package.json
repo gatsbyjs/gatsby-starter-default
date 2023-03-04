@@ -1,49 +1,31 @@
 {
-  "name": "gatsby-starter-default",
+  "name": "yyj-tech",
   "private": true,
-  "description": "A simple starter to get up and developing quickly with Gatsby",
+  "description": "We are a self-organizing Slack community for people who are looking to discuss topics related to technology + Victoria, BC.",
   "version": "0.1.0",
-  "author": "Kyle Mathews <mathews.kyle@gmail.com>",
+  "author": "yyjtech",
   "dependencies": {
-    "gatsby": "^2.8.5",
-    "gatsby-background-image": "^0.7.0",
-    "gatsby-image": "^2.1.2",
-    "gatsby-plugin-manifest": "^2.1.1",
-    "gatsby-plugin-offline": "^2.1.1",
-    "gatsby-plugin-postcss": "^2.0.7",
-    "gatsby-plugin-react-helmet": "^3.0.12",
-    "gatsby-plugin-sass": "^2.0.11",
-    "gatsby-plugin-sharp": "^2.1.3",
-    "gatsby-source-filesystem": "^2.0.38",
-    "gatsby-transformer-sharp": "^2.1.21",
-    "intersection-observer": "^0.7.0",
-    "node-sass": "^4.12.0",
-    "prop-types": "^15.7.2",
-    "react": "^16.8.6",
-    "react-dom": "^16.8.6",
-    "react-helmet": "^5.2.1",
-    "styled-components": "^4.3.1"
+    "parcel": "^2.8.3",
+    "prop-types": "^15.8.1",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "react-helmet": "^6.1.0",
+    "react-router-dom": "^6.8.2",
+    "sass": "^1.58.3"
   },
   "devDependencies": {
-    "prettier": "^1.18.0"
+    "@parcel/transformer-sass": "^2.8.3",
+    "prettier": "^1.18.0",
+    "process": "^0.11.10",
+    "sharp": "^0.31.3"
   },
-  "keywords": [
-    "gatsby"
-  ],
   "license": "MIT",
   "scripts": {
-    "build": "gatsby build",
-    "develop": "gatsby develop",
-    "format": "prettier --write src/**/*.{js,jsx}",
-    "start": "npm run develop",
-    "serve": "gatsby serve",
+    "build": "parcel build index.html",
+    "start": "parcel serve index.html",
+    "serve": "npm start",
+    "develop": "npm start",
+    "format": "npx prettier --write ./**/*.{js,jsx}",
     "test": "echo \"Write tests! -> https://gatsby.dev/unit-testing\""
-  },
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/gatsbyjs/gatsby-starter-default"
-  },
-  "bugs": {
-    "url": "https://github.com/gatsbyjs/gatsby/issues"
   }
 }
