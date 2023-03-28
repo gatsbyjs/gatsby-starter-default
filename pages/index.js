@@ -9,8 +9,7 @@ const IndexPage = ({ siteDescription }) => (
     <div className="flex-center-column">
       <SEO title="YYJ Tech" />
       <p>
-        We are a self-organizing Slack community for people who are looking to
-        discuss topics related to technology + Victoria, BC.{" "}
+        YYJ Tech is an online community that connects & supports professionals in the tech industry in and around Victoria, BC.{" "}
       </p>
       <SignupForm />
     </div>
