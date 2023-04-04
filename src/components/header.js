@@ -1,5 +1,6 @@
+import * as React from "react"
+import { Link } from "gatsby"
 import { Box } from "@theme-ui/components"
-import React from "react"
 import Nav from "./nav"
 
 const Header = () => {
