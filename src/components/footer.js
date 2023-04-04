@@ -1,11 +1,4 @@
-import {
-  Box,
-  Container,
-  Flex,
-  Grid,
-  Text,
-  Image,
-} from "@theme-ui/components"
+import { Box, Container, Flex, Grid, Text, Image } from "@theme-ui/components"
 import React from "react"
 import { useCompany } from "../hooks/useCompany"
 import { useFooter } from "../hooks/useFooter"
@@ -39,7 +32,12 @@ const Footer = () => {
           <>
             <Container>
               <Grid
-                columns={[1, `.8fr repeat(${footer.length + (company.addresses.length + 1)},1fr)`]}
+                columns={[
+                  1,
+                  `.8fr repeat(${
+                    footer.length + (company.addresses.length + 1)
+                  },1fr)`,
+                ]}
                 gap={[4]}
               >
                 <Flex
@@ -57,7 +55,7 @@ const Footer = () => {
                   )}
                 </Flex>
 
-                {locations.map((location) => (
+                {locations.map(location => (
                   <Flex
                     sx={{
                       flexDirection: "column",
@@ -65,55 +63,100 @@ const Footer = () => {
                       "*:first-child": { mt: 0 },
                     }}
                   >
-                    {
-                      location.name &&
-                      <Box sx={{ "*": { fontSize: [2], fontWeight: "500" } }} dangerouslySetInnerHTML={{ __html: location.name }} />
-                    }
+                    {location.name && (
+                      <Box
+                        sx={{ "*": { fontSize: [2], fontWeight: "500" } }}
+                        dangerouslySetInnerHTML={{ __html: location.name }}
+                      />
+                    )}
 
-                    {
-                      location.streetAddress &&
-                      <Grid columns={["40px 1fr"]} sx={{ pb: [2], justifyContent: "center", alignItems: "center" }} gap={[0]}>
+                    {location.streetAddress && (
+                      <Grid
+                        columns={["40px 1fr"]}
+                        sx={{
+                          pb: [2],
+                          justifyContent: "center",
+                          alignItems: "center",
+                        }}
+                        gap={[0]}
+                      >
                         <Box>
                           <MapPin size={24} />
                         </Box>
                         <Box>
+                          <Box>{location.streetAddress}</Box>
                           <Box>
-                            {location.streetAddress}
-                          </Box>
-                          <Box>
-                            {location.postalCode} {location.addressLocality} {location.addressRegion}
+                            {location.postalCode} {location.addressLocality}{" "}
+                            {location.addressRegion}
                           </Box>
                         </Box>
                       </Grid>
-                    }
+                    )}
 
-                    {
-                      location.email &&
-                      <Grid columns={["40px 1fr"]} sx={{ pb: [2], justifyContent: "center", alignItems: "center" }} gap={[0]}>
+                    {location.email && (
+                      <Grid
+                        columns={["40px 1fr"]}
+                        sx={{
+                          pb: [2],
+                          justifyContent: "center",
+                          alignItems: "center",
+                        }}
+                        gap={[0]}
+                      >
                         <Box>
                           <Mail size={24} />
                         </Box>
-                        <Box as="div" sx={{ p: { m: [0, 0, 0] } }} dangerouslySetInnerHTML={{ __html: location.email }} />
+                        <Box
+                          as="div"
+                          sx={{ p: { m: [0, 0, 0] } }}
+                          dangerouslySetInnerHTML={{ __html: location.email }}
+                        />
                       </Grid>
-                    }
-                    {
-                      location.telephone &&
-                      <Grid columns={["40px 1fr"]} sx={{ pb: [2], justifyContent: "center", alignItems: "center" }} gap={[0]}>
+                    )}
+                    {location.telephone && (
+                      <Grid
+                        columns={["40px 1fr"]}
+                        sx={{
+                          pb: [2],
+                          justifyContent: "center",
+                          alignItems: "center",
+                        }}
+                        gap={[0]}
+                      >
                         <Box>
                           <MapPin size={24} />
                         </Box>
-                        <Box as="div" sx={{ p: { m: [0, 0, 0] } }} dangerouslySetInnerHTML={{ __html: location.telephone }} />
+                        <Box
+                          as="div"
+                          sx={{ p: { m: [0, 0, 0] } }}
+                          dangerouslySetInnerHTML={{
+                            __html: location.telephone,
+                          }}
+                        />
                       </Grid>
-                    }
-                    {
-                      location.faxNumber &&
-                      <Grid columns={["40px 1fr"]} sx={{ pb: [2], justifyContent: "center", alignItems: "center" }} gap={[0]}>
+                    )}
+                    {location.faxNumber && (
+                      <Grid
+                        columns={["40px 1fr"]}
+                        sx={{
+                          pb: [2],
+                          justifyContent: "center",
+                          alignItems: "center",
+                        }}
+                        gap={[0]}
+                      >
                         <Box>
                           <MapPin size={24} />
                         </Box>
-                        <Box as="div" sx={{ p: { m: [0, 0, 0] } }} dangerouslySetInnerHTML={{ __html: location.faxNumber }} />
+                        <Box
+                          as="div"
+                          sx={{ p: { m: [0, 0, 0] } }}
+                          dangerouslySetInnerHTML={{
+                            __html: location.faxNumber,
+                          }}
+                        />
                       </Grid>
-                    }
+                    )}
                   </Flex>
                 ))}
 
@@ -201,27 +244,34 @@ const Footer = () => {
                   dangerouslySetInnerHTML={{ __html: t.copyright }}
                 ></Box>
               </Flex>
-              <Box>
-                <Text sx={{ fontSize: [0] }}>
-                  {console.log(company)}
-                  © 2022 {company.legalName} |
-                  {company.vatId && " P.IVA " + company.vatId}{" "}
-                  {company.vatId && " C.S. " + company.shareCapital + "€"}{" "}
-                  {company.registrationNumber &&
-                    "- REA " + company.registrationNumber}{" "}
-                  {company.addresses[0] && company.addresses[0].streetAddress &&
-                    "- Sede legale: " + company.addresses[0].streetAddress}
-                  {company.addresses[0] && company.addresses[0].postalCode &&
-                    ", " + company.addresses[0].postalCode}{" "}
-                  {company.addresses[0] && company.addresses[0].addressLocality &&
-                    ", " + company.addresses[0].addressLocality}{" "}
-                  {company.addresses[0] && company.addresses[0].addressRegion &&
-                    ", " + company.addresses[0].addressRegion}{" "}
-                  {company.addresses[0] && company.addresses[0].addressCountry &&
-                    "- " + company.addresses[0].addressCountry}{" "}
-                  - Tutti i Diritti Riservati / All rights reserved
-                </Text>
-              </Box>
+              {company && (
+                <Box sx={{ mt: [4, 6] }}>
+                  <Text sx={{ fontSize: [0] }}>
+                    © 2022 {company.legalName} |
+                    {company.vatId && " P.IVA " + company.vatId}{" "}
+                    {company.shareCapital &&
+                      " C.S. " + company.shareCapital + "€"}
+                    {company.registrationNumber &&
+                      "- REA " + company.registrationNumber}{" "}
+                    {company.addresses[0] &&
+                      company.addresses[0].streetAddress &&
+                      "- Sede legale: " + company.addresses[0].streetAddress}
+                    {company.addresses[0] &&
+                      company.addresses[0].postalCode &&
+                      ", " + company.addresses[0].postalCode}{" "}
+                    {company.addresses[0] &&
+                      company.addresses[0].addressLocality &&
+                      ", " + company.addresses[0].addressLocality}{" "}
+                    {company.addresses[0] &&
+                      company.addresses[0].addressRegion &&
+                      ", " + company.addresses[0].addressRegion}{" "}
+                    {company.addresses[0] &&
+                      company.addresses[0].addressCountry &&
+                      "- " + company.addresses[0].addressCountry}{" "}
+                    - Tutti i Diritti Riservati / All rights reserved
+                  </Text>
+                </Box>
+              )}
             </Container>
           </>
         )}
