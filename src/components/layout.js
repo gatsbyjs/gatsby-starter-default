@@ -7,44 +7,58 @@
 
 import * as React from "react"
 import { useStaticQuery, graphql } from "gatsby"
-
+import { Box, Flex } from "@theme-ui/components"
+import { i18nContext, languages } from "../context/i18nContext"
 import Header from "./header"
-import "./layout.css"
+import { LanguageSwitcherContext } from "../context/languageSwitcherContext"
+import Hreflang from "./hreflang"
+import Footer from "./footer"
+import Canonical from "./canonical"
 
-const Layout = ({ children }) => {
+const Layout = ({ children, locale, i18nPaths }) => {
   const data = useStaticQuery(graphql`
-    query SiteTitleQuery {
-      site {
+    query SiteQuery {
+      datoCmsSite: datoCmsSite {
+        locale
+      }
+      gatsbySite: site {
         siteMetadata {
-          title
+          siteUrl
         }
       }
     }
   `)
 
   return (
-    <>
-      <Header siteTitle={data.site.siteMetadata?.title || `Title`} />
-      <div
-        style={{
-          margin: `0 auto`,
-          maxWidth: `var(--size-content)`,
-          padding: `var(--size-gutter)`,
-        }}
+    <i18nContext.Provider
+      value={languages[locale] || languages[data.datoCmsSite.locale]}
+    >
+      <LanguageSwitcherContext.Provider
+        value={{ activeLocale: locale, paths: i18nPaths || [] }}
       >
-        <main>{children}</main>
-        <footer
-          style={{
-            marginTop: `var(--space-5)`,
-            fontSize: `var(--font-sm)`,
+        <Hreflang
+          paths={i18nPaths}
+          siteUrl={data.gatsbySite.siteMetadata.siteUrl}
+        />
+        <Canonical
+          siteUrl={data.gatsbySite.siteMetadata.siteUrl}
+          paths={i18nPaths}
+        />
+        <Flex
+          sx={{
+            flexDirection: "column",
+            justifyContent: "space-between",
+            minHeight: "100vh",
           }}
         >
-          © {new Date().getFullYear()} &middot; Built with
-          {` `}
-          <a href="https://www.gatsbyjs.com">Gatsby</a>
-        </footer>
-      </div>
-    </>
+          <Header />
+          <Box as="main" sx={{ pt: 5 }}>
+            {children}
+          </Box>
+          <Footer />
+        </Flex>
+      </LanguageSwitcherContext.Provider>
+    </i18nContext.Provider>
   )
 }
 
