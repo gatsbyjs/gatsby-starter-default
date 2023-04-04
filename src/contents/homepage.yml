@@ -1,0 +1,39 @@
+homepage:
+  title: <strong>YYJ</strong> Tech
+  intro: YYJ Tech is an online community that connects & supports professionals in the tech industry in and around Victoria, BC.
+
+  signupForm:
+    title: Join us today
+    terms: I agree to the <a href="https://github.com/yyjtech/code-of-conduct/blob/master/README.md" target="_blank" title="YYJ Tech Code of Conduct">YYJ Tech Code of Conduct</a>
+    buttonLabel: Sign Up
+    media: ../images/yyj-slack.png
+    redirectUrl: https://join.slack.com/t/yyjtech/shared_invite/zt-1q0p4kc8j-cUfQTZzan7s~RJ~~erTohg
+
+  backgrounds:
+    - author: Heather Baxter
+      sourceUrl: https://unsplash.com/photos/xj1R42n4U5A
+      media: ../images/home-backgrounds/heather-baxter-xj1R42n4U5A-unsplash.jpg
+
+    - author: john xiao
+      sourceUrl: https://unsplash.com/photos/FsAhu8Mr4NE
+      media: ../images/home-backgrounds/john-xiao-FsAhu8Mr4NE-unsplash.jpg
+
+    - author: Alexander Turner
+      sourceUrl: https://unsplash.com/photos/FTRvQDz85ms
+      media: ../images/home-backgrounds/alexander-turner-FTRvQDz85ms-unsplash.jpg
+
+    - author: Parsa Mivehchi
+      sourceUrl: https://unsplash.com/photos/_N3sSg3l5XE
+      media: ../images/home-backgrounds/parsa-mivehchi-_N3sSg3l5XE-unsplash.jpg
+
+    - author: Miles Loewen
+      sourceUrl: https://unsplash.com/photos/wm6qdTZDGgo
+      media: ../images/home-backgrounds/miles-loewen-wm6qdTZDGgo-unsplash.jpg
+
+    - author: Reid Naaykens
+      sourceUrl: https://unsplash.com/photos/wgmkx2WdJXc
+      media: ../images/home-backgrounds/reid-naaykens-wgmkx2WdJXc-unsplash.jpg
+
+    - author: Matt Brett
+      sourceUrl: https://unsplash.com/photos/m4UTb5H6EwA
+      media: ../images/home-backgrounds/matt-brett-m4UTb5H6EwA-unsplash.jpg

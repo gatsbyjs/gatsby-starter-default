@@ -1,0 +1,19 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    @apply font-sans bg-primary text-white antialiased;
+  }
+
+  a {
+    @apply text-teal-600 hover:text-pink-600 underline underline-offset-2;
+  }
+}
+
+@layer components {
+  .menu--link {
+    @apply flex items-center text-base text-white no-underline transition-colors gap-x-1.5 duration-300;
+  }
+}
