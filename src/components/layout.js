@@ -2,10 +2,10 @@
  * Layout component that queries for data
  * with Gatsby's useStaticQuery component
  *
- * See: https://www.gatsbyjs.com/docs/use-static-query/
+ * See: https://www.gatsbyjs.com/docs/how-to/querying-data/use-static-query/
  */
 
-import React from "react"
+import * as React from "react"
 import { useStaticQuery, graphql } from "gatsby"
 import { Box, Flex } from "@theme-ui/components"
 import { i18nContext, languages } from "../context/i18nContext"
