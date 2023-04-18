@@ -1,31 +1,43 @@
 {
   "name": "yyj-tech",
-  "private": true,
-  "description": "We are a self-organizing Slack community for people who are looking to discuss topics related to technology + Victoria, BC.",
-  "version": "0.1.0",
-  "author": "yyjtech",
+  "description": "YYJ Tech Community",
+  "version": "1.0.0",
+  "author": "YYJ Tech Community",
+  "scripts": {
+    "build": "gatsby build",
+    "develop": "gatsby develop",
+    "format": "prettier --write \"**/*.{js,jsx,ts,tsx,json,md,css}\"",
+    "start": "gatsby develop",
+    "serve": "gatsby serve",
+    "clean": "gatsby clean",
+    "test": "echo \"Write tests! -> https://gatsby.dev/unit-testing\" && exit 1"
+  },
   "dependencies": {
-    "parcel": "^2.8.3",
-    "prop-types": "^15.8.1",
+    "classnames": "^2.3.2",
+    "dompurify": "^3.0.1",
+    "gatsby": "^5.8.0",
+    "gatsby-omni-font-loader": "^2.0.2",
+    "gatsby-plugin-alias-imports": "^1.0.5",
+    "gatsby-plugin-image": "^3.8.0",
+    "gatsby-plugin-manifest": "^5.8.0",
+    "gatsby-plugin-sharp": "^5.8.0",
+    "gatsby-source-filesystem": "^5.8.0",
+    "gatsby-transformer-remark": "^6.8.0",
+    "gatsby-transformer-sharp": "^5.8.0",
+    "gatsby-transformer-yaml": "^5.8.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-helmet": "^6.1.0",
-    "react-router-dom": "^6.8.2",
-    "sass": "^1.58.3"
+    "react-icons": "^4.8.0"
   },
   "devDependencies": {
-    "@parcel/transformer-sass": "^2.8.3",
-    "prettier": "^1.18.0",
-    "process": "^0.11.10",
-    "sharp": "^0.31.3"
+    "@tailwindcss/forms": "^0.5.3",
+    "@trivago/prettier-plugin-sort-imports": "^4.1.1",
+    "autoprefixer": "^10.4.14",
+    "gatsby-plugin-postcss": "^6.8.0",
+    "postcss": "^8.4.21",
+    "prettier": "^2.8.7",
+    "tailwindcss": "^3.3.0"
   },
-  "license": "MIT",
-  "scripts": {
-    "build": "parcel build index.html",
-    "start": "parcel serve index.html",
-    "serve": "npm start",
-    "develop": "npm start",
-    "format": "npx prettier --write ./**/*.{js,jsx}",
-    "test": "echo \"Write tests! -> https://gatsby.dev/unit-testing\""
-  }
+  "license": "MIT"
 }
