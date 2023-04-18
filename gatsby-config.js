@@ -57,6 +57,7 @@ module.exports = {
     `gatsby-plugin-postcss`,
     `gatsby-plugin-image`,
     `gatsby-transformer-yaml`,
+    `gatsby-transformer-remark`,
     `gatsby-transformer-sharp`,
     {
       resolve: `gatsby-omni-font-loader`,
