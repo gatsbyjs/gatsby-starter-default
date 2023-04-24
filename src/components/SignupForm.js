@@ -34,11 +34,11 @@ const SignupForm = ({ className }) => {
       </h2>
 
       <form>
-        <div className="flex items-center">
+        <div className="flex mx-5 items-top sm:mx-0">
           <input
             id="terms"
             type="checkbox"
-            className="mr-2.5 rounded h-5 w-5 focus:ring-secondary focus:border-secondary text-secondary"
+            className="mr-2.5 rounded h-5 w-5 relative top-1 sm:static focus:ring-secondary focus:border-secondary text-secondary"
             onChange={() => {
               setIsChecked(!isChecked)
               setHasFormError(false)
