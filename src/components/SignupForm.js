@@ -54,24 +54,25 @@ const SignupForm = ({ className }) => {
             />
           </label>
         </div>
+        <div className="mx-5 sm:mx-0">
+          <Button
+            className={cn({ "bg-slate-500": hasFormError })}
+            onClick={e => {
+              // NOTE: Not setting disabled prop to display error message on click
+              e.preventDefault()
 
-        <Button
-          className={cn({ "bg-slate-500": hasFormError })}
-          onClick={e => {
-            // NOTE: Not setting disabled prop to display error message on click
-            e.preventDefault()
+              // NOTE: Ensure no form errors
+              if (hasFormError) return false
 
-            // NOTE: Ensure no form errors
-            if (hasFormError) return false
-
-            // NOTE: Ensure checked, redirect otherwise display error
-            isChecked
-              ? window.location.replace(signupForm.redirectUrl)
-              : setHasFormError(!hasFormError)
-          }}
-        >
-          {signupForm.buttonLabel}
-        </Button>
+              // NOTE: Ensure checked, redirect otherwise display error
+              isChecked
+                ? window.location.replace(signupForm.redirectUrl)
+                : setHasFormError(!hasFormError)
+            }}
+          >
+            {signupForm.buttonLabel}
+          </Button>
+        </div>
 
         {hasFormError && (
           <p className="mt-2.5 text-red-400 text-center">
