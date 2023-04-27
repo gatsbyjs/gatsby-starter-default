@@ -34,11 +34,11 @@ const SignupForm = ({ className }) => {
       </h2>
 
       <form>
-        <div className="flex items-center">
+        <div className="flex mx-5 items-top sm:mx-0">
           <input
             id="terms"
             type="checkbox"
-            className="mr-2.5 rounded h-5 w-5 focus:ring-secondary focus:border-secondary text-secondary"
+            className="mr-2.5 rounded h-5 w-5 relative top-1 sm:static focus:ring-secondary focus:border-secondary text-secondary"
             onChange={() => {
               setIsChecked(!isChecked)
               setHasFormError(false)
@@ -54,24 +54,25 @@ const SignupForm = ({ className }) => {
             />
           </label>
         </div>
+        <div className="mx-5 sm:mx-0">
+          <Button
+            className={cn({ "bg-slate-500": hasFormError })}
+            onClick={e => {
+              // NOTE: Not setting disabled prop to display error message on click
+              e.preventDefault()
 
-        <Button
-          className={cn({ "bg-slate-500": hasFormError })}
-          onClick={e => {
-            // NOTE: Not setting disabled prop to display error message on click
-            e.preventDefault()
+              // NOTE: Ensure no form errors
+              if (hasFormError) return false
 
-            // NOTE: Ensure no form errors
-            if (hasFormError) return false
-
-            // NOTE: Ensure checked, redirect otherwise display error
-            isChecked
-              ? window.location.replace(signupForm.redirectUrl)
-              : setHasFormError(!hasFormError)
-          }}
-        >
-          {signupForm.buttonLabel}
-        </Button>
+              // NOTE: Ensure checked, redirect otherwise display error
+              isChecked
+                ? window.location.replace(signupForm.redirectUrl)
+                : setHasFormError(!hasFormError)
+            }}
+          >
+            {signupForm.buttonLabel}
+          </Button>
+        </div>
 
         {hasFormError && (
           <p className="mt-2.5 text-red-400 text-center">
