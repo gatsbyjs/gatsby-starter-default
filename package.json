@@ -18,6 +18,7 @@
     "gatsby": "^5.8.0",
     "gatsby-omni-font-loader": "^2.0.2",
     "gatsby-plugin-alias-imports": "^1.0.5",
+    "gatsby-plugin-google-gtag": "^5.9.0",
     "gatsby-plugin-image": "^3.8.0",
     "gatsby-plugin-manifest": "^5.8.0",
     "gatsby-plugin-sharp": "^5.8.0",
