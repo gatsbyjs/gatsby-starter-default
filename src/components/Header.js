@@ -17,7 +17,7 @@ const Header = ({ hideLogo = false }) => {
     >
       {!hideLogo && (
         <Link to="/" title="Return home">
-          <h1 className="text-3xl tracking-tighter leading-relaxed drop-shadow-sm mb-2.5">
+          <h1 className="text-teal-400 hover:text-pink-600 text-3xl tracking-tighter leading-relaxed drop-shadow-md mt-0">
             <strong className="font-bold font-heading">YYJ</strong>
             <span className=" font-heading !font-thin ml-0.5">Tech</span>
           </h1>

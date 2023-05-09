@@ -7,13 +7,116 @@
     @apply font-sans bg-primary text-white antialiased;
   }
 
-  a {
-    @apply text-teal-600 hover:text-pink-600 underline underline-offset-2;
+  p { 
+    @apply mb-4 text-slate-200; 
   }
+
+  blockquote {
+    @apply italic ml-2 mr-20 pl-4 border-slate-100;
+
+    & p {
+      @apply text-slate-50;
+    }
+
+    border-left: 2px solid;
+  }
+
+  /* This teal passes WCAG on the dark blue bg */
+  a {
+    @apply text-teal-500 hover:text-pink-600 underline underline-offset-2;
+  
+    & h2, h3, h4 {
+      @apply text-white;
+    }
+  }
+
+  h1 {
+    @apply text-5xl mt-12 mb-2 opacity-100;
+
+  }
+  
+  h2 {
+    @apply text-3xl mt-12 mb-2 opacity-100;
+
+  }
+
+  h3 {
+    @apply text-2xl mt-8 mb-2;
+  }
+
+  h4 {
+    @apply text-xl mt-8 mb-2;
+  }
+
+  h2 + h3 {
+    @apply mt-0;
+  }
+
+  ul, ol {
+    @apply text-white/80 ml-4 mb-4;
+  }
+
+  ul {
+    @apply list-disc;
+  }
+
+ ol {
+  @apply list-decimal;
+ }
+
+ table {
+  @apply my-4;
+
+  & td, th {
+    @apply border-2 border-black/80 bg-white text-black p-2 text-left text-xs align-top;
+  }
+
+  & th {
+    @apply bg-slate-200 text-black;
+  }
+
+ }
 }
 
 @layer components {
   .menu--link {
     @apply flex items-center text-base text-white no-underline transition-colors gap-x-1.5 duration-300;
   }
+}
+
+.card {
+  @apply bg-white rounded px-8 py-6 my-4;
+
+  & p, h2, h3 {
+    @apply text-black;
+  }
+
+  /* This teal passes WCAG on the white bg */
+  > p > a {
+    @apply text-teal-600;
+  }
+
+}
+
+.card--muted {
+  @apply bg-slate-300 text-sm;
+}
+
+.table-of-contents {
+  @apply text-white my-4 pb-8;
+
+  border-bottom: 2px solid rgba(255, 255, 255, 0.6);
+
+  > ul > li > p {
+    @apply mb-2;
+  }
+
+  > ul p a, > ul li a {
+    @apply text-white;
+
+    & > li::marker {
+      @apply text-teal-600;
+    }
+  }
+  
 }

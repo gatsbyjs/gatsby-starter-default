@@ -46,7 +46,7 @@ const IndexPage = () => {
         </figure>
 
         <div className="container relative flex flex-col items-center justify-center mb-16 sm:mb-0 sm:h-[calc(100dvh-3.75rem)]">
-          <h1 className="text-7xl sm:text-8xl tracking-tighter leading-relaxed drop-shadow-sm mb-2.5">
+          <h1 className="text-7xl sm:text-8xl tracking-tighter leading-relaxed mb-2.5">
             <strong className="font-bold font-heading">YYJ</strong>
             <span className=" font-heading !font-thin ml-2 sm:ml-4 ">Tech</span>
           </h1>
