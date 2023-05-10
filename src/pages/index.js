@@ -38,7 +38,7 @@ const IndexPage = () => {
           </cite>
           <GatsbyImage
             image={getImage(selectedBackground?.media)}
-            className="object-cover w-full h-full opacity-20 mix-blend-overlay"
+            className="object-cover w-full h-full opacity-40 mix-blend-overlay"
             placeholder="blurred"
             layout="fullWidth"
             alt=""

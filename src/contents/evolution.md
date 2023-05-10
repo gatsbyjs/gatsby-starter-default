@@ -5,7 +5,7 @@ title: YYJ Tech Evolution
 
 <h2 class="text-2xl bold">Introduction</h2>
 
-In 2023, a tipping point occurred in YYJ Tech. Although this had been slowly happening for a long time, the latest tensions in the channel reached such a volume and level that job postings stopped being posted altogether. Job postings continue to be shared in other places, but posters commented that they no longer wanted to have to join in on an active conflict situation in order to simply share a job posting. A process began to try to shift this, and this document is the documentation of that process and its outcomes. 
+In 2023, a tipping point occurred in YYJ Tech. Although this had been slowly happening for a long time, the latest tensions in the #job-postings channel reached such a volume and level that job postings stopped being posted altogether. Job postings continue to be shared in other places, but posters commented that they no longer wanted to have to join in on an active conflict situation in order to simply share a job posting. A process began to try to shift this, and this document is the documentation of that process and its outcomes. 
 
 It is a challenge in itself to find the right balance between moving through our history and learning from it and becoming better, and continuing to hold onto traumatic collective moments as fuel for the next similar incident. We are the product of our collective history, but we also have the power to shape our collective future. We must understand where we come from to understand how we can best get to where we want to go next.
 
@@ -46,7 +46,8 @@ YYJ Tech has existed since 2016, and had grown to >5000 registered users, ~500 a
 
 But reasons why this group exists pre-date its own existence, and this is important to understand because it shapes part of the way the rest of this document is framed. 
 
-To understand the context fully, we need to go back to ~2014 when, at a public event, the CEO and COO of Viatec were asked “and what is Viatec doing about the women in tech problem in Victoria?” to which the COO replied “We analyzed the data and found there is no problem with women in tech in Victoria.” and the CEO replied “No comment.” 
+To understand the context fully, we need to go back to ~2014 when, at a public event, the CEO and COO of Viatec were asked “and what is Viatec doing about the women in tech problem in Victoria?” to which the COO replied “We analyzed the data and found there is no problem with women in tech in Victoria.” and the CEO replied “No comment.” This didn’t match up with the experiences of women I had connected to in the sector so far - we were experiencing pay gaps, being talked over in boardrooms, having our work discredited by our peers, and some were experiencing sexual harassment from their bosses. 
+
 A small group of women started meeting, after a few months of talking (and a few bottles of wine) we recognized that these institutions are run by men of a different generation, with different priorities. It was looking pretty unlikely Viatec was going to provide the support we needed. Around that same time, this new Slack tool was becoming possible and with NO idea where it would go, thought it might be a good way to connect with other women in tech and - if nothing else - feel less alone. So we created a slack “workspace” called Tech Ladies for supporting women in tech in Victoria. Within a few weeks, word had spread and several hundred women had joined, and were starting to network to formally and informally support each other. 
 
 We were a bit surprised a few months later when the email of a man - and not just any man, but the CEO of one of the most “prestigious” companies in town - requested to join. Not quite sure what to do, the broader group had a meeting to talk about it. Out of this, we recognized that while problems of sexism still existed in the industry we needed a safe space to connect just with each other - but that we would try to work with some of our male colleagues to start a gender-inclusive space that anyone could join. 
@@ -61,7 +62,7 @@ Aside from the typical challenges of spam, YYJ Tech has faced some incredibly co
 
 It feels important to share and capture these because the community memory has lived on for many folks and with each passing similar interaction, conflict within the space has grown, and opinions and perspectives have become more entrenched. However, not everyone was in the group at this time, and even those who lived through it didn’t always experience it the same way or with the same context. During many of the interviews, people were wanting to understand why the conversation was so heated and were observing that it was more about the “meta” conversation than the actual issues themselves, and when they understood this history, they were better equipped to make sense of why the tensions were quite so high on both sides. 
 
-#### Incidents outside of job postings
+#### Incidents outside of #job-postings
 
 During interviews, people were asked to share about times they have observed or experienced exclusion and harm. Only one incident was brought up in interviews, in which a community member sharing about an art show for people of colour was criticized as “reverse racism”. After much public community discussion, the member claiming reverse racism was removed from the community, and the original poster was satisfied with the outcome of the incident. 
 
@@ -69,16 +70,16 @@ However, it is entirely possible more incidents occurred that are unreported. Nu
 
 #### Incidents in the #job-postings channel
 
-Starting in 2018, members of the community started asking hard questions about pay salary transparency. After several months of companies posting jobs and receiving push back, on January 19th 2019 the CEO of one of the more established companies got very angry in the public channel, and began to send direct messages to who he perceived as the main “trolls” “harassing” his company and employees. These messages contained insults, as well as threats that the CEO would use his influence and connections to get people fired. In the aftermath, the CEO’s account was removed, but he also recognized he had crossed the line and publicly apologized and agreed not to return. 
+Starting in 2018, members of the community started asking hard questions about pay salary transparency. After several months of companies posting jobs and receiving push back, on May 2019 the CEO of one of the more established companies got very angry in the public channel, and began to send direct messages to who he perceived as the main “trolls” “harassing” his company and employees. These messages contained insults, as well as threats that the CEO would use his influence and connections to get people fired. In the aftermath, the CEO’s account was removed, but he also recognized he had crossed the line and publicly apologized and agreed not to return. 
 
 This message set the tone for how different parts of the community experience this conflict would perceive what happened, and these perceptions continue to this day in the interviews held:
-The employers in Victoria are hostile, power-tripping, abusive leaders who don’t value their own employees and are using the slack of salary transparency to hide their low paying jobs and take advantage of anyone who cannot advocate for themselves - mostly minorities
-The men in YYJ Tech are angry, privileged trolls who are harassing companies and HR people when they don’t see a salary, or don’t see a salary they like
+* The employers in Victoria are hostile, power-tripping, abusive leaders who don’t value their own employees and are using the lack of salary transparency to hide their low paying jobs and take advantage of anyone who cannot advocate for themselves - mostly minorities
+* The men in YYJ Tech are angry, privileged trolls who are harassing companies and HR people when they don’t see a salary, or don’t see a salary they like
 
 There is anger on both sides, and there is frustration on both sides. 
 This conflict has arisen on and off since then, including:
 * A long-standing CEO and founding member of Viatec repeatedly minimizing the experience of employees and minorities around pay transparency before being removed from the group
-* A female, immigrant CEO being barraged with negative comments, including being compared to a nazi, for her salary being “too low”
+* A female, immigrant CEO being barraged with negative comments, including being compared to a nazi, for her salary being perceived by the group as “too low”, experiencing a massive push back far beyond what any male, Canadian and/or white founders had experienced for similar situations
 
 Each time, the community reacted not only to the subsequent incidents themselves, but also to the continued intractable meta conflict. Perspectives on both sides continued to galvanize, and although many facts, opinions, requests for salary were made, and passionate comments were shared. However, despite the same conversations being revisited over the past four years, nothing has been resolved and no clear path forward presented itself across the community. Asking for salary information wasn’t changing any employers' minds, and the continued tone reached a tipping point where more and more community members were leaving the community en-mass. 
 
@@ -123,8 +124,8 @@ There were 3 goals of the process:
 3. Gather ideas community members have on what might make things better.
 
 This part of the process was influenced by 3 things:
-* The work of the Canadian social entrepreneurs at Tidal Equality, whose Equity Sequence tool and process have helped large organizations find solutions to equity problems by tapping into the lived experiences and ideas of individuals within the organization that have passion, energy and more connection to the problems than leadership may be able to have due to their different experiences in the organization.
-* The book High Conflict by Amanda Ripley, which gives examples of strategies for disrupting us vs them conflict have succeeded all over the world.
+* The work of the Canadian social entrepreneurs at Tidal Equality, whose [Equity Sequence](https://www.tidalequality.com/equity-sequence) tool and process have helped large organizations find solutions to equity problems by tapping into the lived experiences and ideas of individuals within the organization that have passion, energy and more connection to the problems than leadership may be able to have due to their different experiences in the organization.
+* The book [High Conflict](https://www.amandaripley.com/high-conflict) by Amanda Ripley, which gives examples of strategies for disrupting us vs them conflict have succeeded all over the world.
 * User discovery models from the tech industry about deeply understanding user problems to start to imagine how we might use technology and/or process to solve these problems better. 
 
 ### Interview Demographics
@@ -271,7 +272,7 @@ Folks in the middle with some power (either as some kind of middle-management le
 
 > “On 3 separate occasions [minorities I knew] were obviously being taken advantage of. They were being paid less than I got paid for my first job out of school! The information disparity means that they didn’t know if they were being taken advantage of. They didn't know what they were worth and someone else was very happy to take advantage of that situation. I'm stuck between the people who want salary transparency and people who don't and that's a shitty place to be in.” – Majority participant
 
-> “I tried [to suggest salary transparency] when I started [as head of HR] and it was shot down [by leadership] immediately. “We will never do this, don't bring it up again.” it was like "Oh, ok! shocking". We worked for 3 years to change hearts and minds to get them to understand… it's not a name on a spreadsheet with an exact salary - it's positions and bands and something that's helpful in many ways it can help with comp and performance - all the benefits get us to that point and the legislation was a stamp of approval. Everyone is on the right track. It is best practice.” – Minority participant
+> “I tried [to suggest salary transparency] when I started [as head of HR] and it was shot down [by leadership] immediately - it felt like they would never do it, and the way it was responded to made me hesitant to bring it up again. It was like "Oh, ok! shocking". We worked for 3 years to change hearts and minds to get them to understand… it's not a name on a spreadsheet with an exact salary - it's positions and bands and something that's helpful in many ways it can help with comp and performance - all the benefits get us to that point and the legislation was a stamp of approval. Everyone is on the right track. It is best practice.” – Minority participant
 
 > “Most executives are generally older white guys with a lot of privilege and don't want change that will impact their power. Good HR needs to bring that executive around that by sharing their power they will gain something from it. Yes it's the right thing to do but some people don't fully see that it's also the right business decision.” – Majority participant
 
@@ -320,13 +321,15 @@ For the last few years, the article about the [“The Trimodal Nature of Softwar
 
 An engineer named Gergely Orosz in the Netherlands made an observation about what he was seeing in his local tech market. He’s since updated it to acknowledge that this is just how tech salaries work outside of big tech hubs like San Francisco.
 
-There is no longer an "average" salary for software engineers in Europe / the Netherlands: just an average salary per one of the three, distinct categories.
+<div class="card flex text-center">
 
 ![A hand-drawn graph with two axis, number of positions and salary. The data shows three overlappign tiers of companies with more positions in the lower tier and very view in the high tier. A green bar sits on top of the lowest bar with the annotation "average salary on reports". A green bar sits on top of the middle tier with the annotation "highest salary on reports". A red bar sits on top of the 3rd tier with the annotation "The invisible range hidden from most public data"  ](https://blog-pragmaticengineer-com.cdn.ampproject.org/i/s/blog.pragmaticengineer.com/content/images/size/w1000/2021/07/Screenshot-2021-07-10-at-04.45.19.png)
 
 ![](https://blog-pragmaticengineer-com.cdn.ampproject.org/i/s/blog.pragmaticengineer.com/content/images/size/w1000/2021/03/Screenshot-2021-03-11-at-11.33.39.png)
 
-He also notes that most companies tend to assume their salaries are competitive against a tier higher than they actually are - because without transparency, they have little data points that prove otherwise.
+</div>
+
+There is no longer an "average" salary for software engineers in Europe / the Netherlands: just an average salary per one of the three, distinct categories. He also notes that most companies tend to assume their salaries are competitive against a tier higher than they actually are - because without transparency, they have little data points that prove otherwise.
 
 #### Tier 1: Companies only benchmarking against their local competition and non-tech companies, competing only with their local competitors.
 This includes jobs where technology is not treated - or compensated - as a core competency at these companies.
@@ -374,7 +377,7 @@ Minority folks were more likely to acknowledge that it was these tiers of jobs t
 
 However, minority folks also shared examples of how the low wages were causing harm, and this seemed to especially intersect with the experiences of women and immigrants. 
 
-> “[When I responded to being offered a salary lowered after they saw in person I was black] I pointed out ‘I was born here - I’m not an immigrant.’ And she was surprised. [I told them] “What you are proposing is highly illegal because you assumed i wasn't from here - I really need a job but not that badly.“ – Minority participant
+> “[When I responded to being offered a salary lowered after they saw in person I was black and tried to find out where I was from] I pointed out ‘I was born here - I’m not an immigrant.’ And she was surprised. [I told them] “What you are proposing is highly illegal because you assumed I wasn't from here - I really need a job but not that badly.“ – Minority participant
 
 > “I felt so lucky leaving college to get offered a job before I graduated. Yes, I would like money to pay rent. It did not cross my mind that I should or could negotiate. Even now [as a manager] I would struggle to advocate for myself. It's so easy to doubt yourself and to worry that even if you succeed and get a company to pay you, that is also going to cause them to have high expectations. Am I going to have to be absolutely amazing every minute of every day to justify this salary?”  – Minority participant 
 
@@ -400,7 +403,7 @@ For immigrants and people of colour, microaggressions around race are part of ev
 
 Part of the way through the interviews it became clear that no one who had experienced low pay was upset, until they felt taken-advantage of by their employer. A new question was added to the pool: where is the line between an opportunity, and work that exploits or takes advantage of someone? 
 
-Minority respondents who identified only as female were likley to see that both exploitation AND opportunity had been present for them at the same time. Majority respondents were more likely to see any amount of exploitation as unacceptable. Some Minority and Majority respondents saw that the topic was complex, but advocated strongly for rules around pay transparency because it helped disrupt the power imbalance between employers and employees, and without the government legislation in place there is low likelihood of compliance from most employers. 
+Minority respondents who identified only as female were likely to see that both exploitation AND opportunity had been present for them at the same time. Majority respondents were more likely to see any amount of exploitation as unacceptable. Some Minority and Majority respondents saw that the topic was complex, but advocated strongly for rules around pay transparency because it helped disrupt the power imbalance between employers and employees, and without the government legislation in place there is low likelihood of compliance from most employers. 
 
 Respondents who had a clear vision of exploitation commented that the line in the sand centered around the importance of choice, and autonomy. Perhaps this explains why for some minority respondents, posting jobs without salary information was acceptable - being able to access more job opportunities, or maybe even knowingly choosing the one that pays less for other reasons might be more important than being paid the most. 
 
@@ -538,9 +541,15 @@ Here are the top three that were voted on in the Polly, where the positive commu
 
 Additionally - in order to support the change management of these new ideas, and help enforce the community standards - I’ve added in a final action item for the hackathon, although this was wasn’t voted on, it did come up frequently in the feedback from interviews and surveys.  
 
-Create a plan to recruit, train and support moderators that are can help to support our new community standards, including dealing with issues of abuse of power and minority trauma
+Create a plan to recruit, train and support moderators that can help to support our new community standards, including dealing with issues of abuse of power and minority trauma
 
-[link to loom]()
+<div class="card text-center">
+
+<a href="(https://www.loom.com/share/230448ce71c14914bef716fee06cad79" target="_blank">![YYJ Tech Evolution Loom 3](../images/evolution/loom-3.png)</a>
+
+[▶️ Learn more about these ideas](https://www.loom.com/share/230448ce71c14914bef716fee06cad79)
+
+</div>
 
 These are the ideas that will be tackled in a hackathon. The more people that join, the more ideas we can achieve! All skills in tech are applicable, not just coding skills - so please join if something catches your interest.
 

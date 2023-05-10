@@ -21,9 +21,9 @@
     border-left: 2px solid;
   }
 
-  /* This teal passes WCAG on the dark blue bg */
+  /* This teal bolded passes WCAG on the dark blue bg & white */
   a {
-    @apply text-teal-500 hover:text-pink-600 underline underline-offset-2;
+    @apply text-teal-600 hover:text-pink-600 underline underline-offset-2 font-semibold;
   
     & h2, h3, h4 {
       @apply text-white;
@@ -90,12 +90,6 @@
   & p, h2, h3 {
     @apply text-black;
   }
-
-  /* This teal passes WCAG on the white bg */
-  > p > a {
-    @apply text-teal-600;
-  }
-
 }
 
 .card--muted {
@@ -113,10 +107,6 @@
 
   > ul p a, > ul li a {
     @apply text-white;
-
-    & > li::marker {
-      @apply text-teal-600;
-    }
   }
   
 }

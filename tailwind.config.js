@@ -45,7 +45,7 @@ module.exports = {
       },
       dropShadow: {
         'sm': '3px 3px 0 #fff',
-        'md': '3px 2px 1px rgb(13, 148, 136, 0.8)',
+        'md': '1px 1px 0 rgb(255, 255, 255, 0.8)',
       }
     },
   },
