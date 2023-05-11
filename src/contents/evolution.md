@@ -372,10 +372,12 @@ Although this may be starting to shift as the tech community in Victoria matures
 
 Some of the resources that exist for funding in Victoria in 2023 include:
 * [WEL](https://womensequitylab.com/locations/victoria/) - angel syndicate with a network across Canada of over 175 accredited women investors and growing - invest $25K+ in pre-seed and seed
+* [Cindicates seed VC fund](https://www.cindicates.com/) - $50K average investment size
 * [Scale Collaborative Revenue Based Financing](https://scalecollaborative.ca/) - $100K+
 * [SureSwift](https://www.sureswiftcapital.com/) - buys stakes in companies
-* [Cindicates seed VC fund](https://www.cindicates.com/) - $50K average investment size
 * [Tiny Capital](https://www.tiny.com/) - invest at various stages and amounts
+* [Alacrity Ventures](https://www.alacritycanada.com/ventures/) - early stage
+* [eFund](https://www.e-fund.ca/) - A BC-wide source of funding focusing on high returns and exits
 
 Although the hypothesis is that there are an increasing number of Tech companies in Victoria, there were a number of folks across all demographics who observed that competition for roles is extremely high, especially for a junior role. This means that for those that want to get into the industry, especially those that have transitioned into tech later in their careers, those Tier 1 low paying jobs might represent a massive opportunity to have a path to a higher salary later in their career. But, competition is fierce, and that makes it economically viable for entry-level salaries to be lower. This might not just be in Victoria - but this is definitely experience by people within our city.
 
