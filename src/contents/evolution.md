@@ -507,7 +507,7 @@ Here are all of the ideas the community generated, in the order they were shared
 * created a channel to support and coach each other to overcome gaps of confidence while job hunting
 * set a community standard about how we will handle #job-postings going forward. Ideas shared include: a) Make salary a required field b) Make job postings read only c) Positively reward companies who share a salary range
 * tried using other technologies besides Slack that support more community management, either for certain topics, or long-term.
-* started to organize to get more VC investment to be possible in Victoria so companies can afford to pay better
+* started to organize to support the growth of the VC investment sector in Victoria so companies can afford to pay better 
 * highlighted community members on a regular basis to get to know them beyond just their Slack bios
 * organized in-person events, both formal (e.g. town halls) and information fun get-to-know-you (e.g. dessert club) regularly so we can get to know each other outside of just writing
 * removed leaders from being able to see and participate in discussions related to salary and workplace conditions, either by removing them from the community entirely or just have certain closed channels
