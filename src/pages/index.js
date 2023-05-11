@@ -17,6 +17,7 @@ const IndexPage = () => {
     const NUM_OF_IMAGES = 7 // Set to number of images in homepage.yml
     const randomNum = Math.floor(Math.random() * NUM_OF_IMAGES)
     const result = backgrounds[randomNum]
+    console.log(result)
 
     setSelectedBackground(result)
   }, [backgrounds])
@@ -38,7 +39,7 @@ const IndexPage = () => {
           </cite>
           <GatsbyImage
             image={getImage(selectedBackground?.media)}
-            className="object-cover w-full h-full opacity-20 mix-blend-overlay"
+            className="object-cover w-full h-full opacity-40 mix-blend-overlay"
             placeholder="blurred"
             layout="fullWidth"
             alt=""
@@ -46,7 +47,7 @@ const IndexPage = () => {
         </figure>
 
         <div className="container relative flex flex-col items-center justify-center mb-16 sm:mb-0 sm:h-[calc(100dvh-3.75rem)]">
-          <h1 className="text-7xl sm:text-8xl tracking-tighter leading-relaxed drop-shadow-sm mb-2.5">
+          <h1 className="text-7xl sm:text-8xl tracking-tighter leading-relaxed mb-2.5">
             <strong className="font-bold font-heading">YYJ</strong>
             <span className=" font-heading !font-thin ml-2 sm:ml-4 ">Tech</span>
           </h1>

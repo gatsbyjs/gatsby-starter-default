@@ -6,13 +6,13 @@ import Layout from "@/components/Layout"
 import Seo from "@/components/Seo"
 import { sanitizeHtml } from "@/utils/sanitizeHtml"
 
-const Evolution = ({ data }) => {
+const Example = ({ data }) => {
   const content = data.allMarkdownRemark.edges[0].node.html
 
   return (
     <Layout>
-      <Header />
-      <main className="container evolution mb-10 max-w-prose">
+      <Header hideLogo />
+      <main className="container mb-10">
         <div
           dangerouslySetInnerHTML={{
             __html: sanitizeHtml(content),
@@ -45,4 +45,4 @@ export const query = graphql`
   }
 `
 
-export default Evolution
+export default Example

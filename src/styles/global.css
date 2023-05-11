@@ -7,9 +7,54 @@
     @apply font-sans bg-primary text-white antialiased;
   }
 
-  a {
-    @apply text-teal-600 hover:text-pink-600 underline underline-offset-2;
+  p { 
+    @apply mb-4 text-slate-200; 
   }
+
+  blockquote {
+    @apply italic ml-2 mr-20 pl-4 border-slate-100;
+
+    & p {
+      @apply text-amber-100;
+    }
+
+    border-left: 2px solid;
+  }
+
+  /* This teal bolded passes WCAG on the dark blue bg & white */
+  a {
+    @apply text-teal-600 hover:text-pink-600 underline underline-offset-2 font-semibold tracking-wide;
+  
+    & h2, h3, h4 {
+      @apply text-white;
+    }
+  }
+
+  
+  ul, ol {
+    @apply text-white/80 ml-4 mb-4;
+  }
+
+  ul {
+    @apply list-disc;
+  }
+
+ ol {
+  @apply list-decimal;
+ }
+
+ table {
+  @apply my-4;
+
+  & td, th {
+    @apply border-2 border-black/80 bg-white text-black p-2 text-left text-xs align-top;
+  }
+
+  & th {
+    @apply bg-slate-200 text-black;
+  }
+
+ }
 }
 
 @layer components {
@@ -17,3 +62,65 @@
     @apply flex items-center text-base text-white no-underline transition-colors gap-x-1.5 duration-300;
   }
 }
+
+.card {
+  @apply bg-white rounded px-8 py-6 my-4;
+
+  & p, h2, h3 {
+    @apply text-black;
+  }
+}
+
+.card--muted {
+  @apply bg-white/10 text-sm;
+
+  & p, h2, h3 {
+    @apply text-white/70;
+  }
+}
+
+.table-of-contents {
+  @apply my-4 pb-8;
+
+  border-bottom: 2px solid rgba(255, 255, 255, 0.6);
+
+  > ul > li > p {
+    @apply mb-2;
+  }
+
+  > ul p a, > ul li a {
+    @apply text-slate-200 no-underline;
+  }
+  
+}
+
+/* I know this is "not the tailwind" way but for some reason the text-* modifiers aren't working in Markdown. Sorry not sorry! */
+.evolution {
+  & h1, h2, h3, h4 {
+    @apply text-action font-heading mb-4; 
+  }
+
+  & h1 {
+    @apply text-5xl mt-16 opacity-100 mb-2;
+
+  }
+  
+  & h2 {
+    @apply text-4xl mt-16 opacity-100;
+
+  }
+
+  & h3 {
+    @apply text-2xl mt-12;
+  }
+
+  & h4 {
+    @apply text-xl mt-8;
+  }
+
+  & h2 + h3 {
+    @apply mt-0;
+  }
+
+}
+

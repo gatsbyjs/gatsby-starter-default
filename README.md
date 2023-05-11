@@ -60,3 +60,16 @@ Other Gatsby files to know:
 [Build, Deploy, and Host On Netlify](https://netlify.com)
 
 The fastest way to combine your favorite tools and APIs to build the fastest sites, stores, and apps for the web. And also the best place to build, deploy, and host your Gatsby sites.
+
+## Creating a Page
+
+To create a new page in Gatsby, this project has been set up to work from Markdown
+
+Decide in the url, e.g. "community-resources"
+
+1. Duplicate the `pages/example.js` page and rename the file to the url you have decided on (e.g. `community-resources.js`)
+2. Replace the `const Example` on line 9 and `export default Example` line at the end of the file with your url name e.g. `const CommunityResources` and `export default CommunityResources`
+3. Duplicate the `contents/example.md` file
+4. Rename the file to match your url e.g. `community-resources.md`
+5. Replace the slug parameter with your desired url e.g. `slug: "/community-resources"` 
+6. If you now use the `npm start` command, if you've done it right you will be able to see your new url in your browser 

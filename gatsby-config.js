@@ -45,6 +45,34 @@ module.exports = {
   },
   plugins: [
     {
+      resolve: `gatsby-transformer-remark`,
+      options: {
+        plugins: [
+          {
+            resolve: `gatsby-remark-images`,
+            options: {
+              // It's important to specify the maxWidth (in pixels) of
+              // the content container as this plugin uses this as the
+              // base for generating different widths of each image.
+              maxWidth: 2000,
+            },
+          },
+          {
+            resolve: `gatsby-remark-table-of-contents`,
+            options: {
+              exclude: "Table of Contents",
+              tight: false,
+              ordered: false,
+              fromHeading: 1,
+              toHeading: 3,
+              className: "table-of-contents"
+            },
+          },
+          `gatsby-remark-autolink-headers`
+        ],
+      },
+    },
+    {
       resolve: "gatsby-source-filesystem",
       options: {
         name: "content",
@@ -62,7 +90,6 @@ module.exports = {
     `gatsby-plugin-postcss`,
     `gatsby-plugin-image`,
     `gatsby-transformer-yaml`,
-    `gatsby-transformer-remark`,
     `gatsby-transformer-sharp`,
     {
       resolve: `gatsby-omni-font-loader`,

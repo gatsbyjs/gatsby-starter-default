@@ -16,6 +16,7 @@ module.exports = {
       colors: {
         primary: "#2E2C4A",
         secondary: "#611f69",
+        action: "#fde047",
       },
       fontSize: {
         xs: "0.75rem", // 12px
@@ -42,6 +43,10 @@ module.exports = {
         9.5: "2.375rem", // 38px
         10.5: "2.625rem", // 42px
       },
+      dropShadow: {
+        'sm': '3px 3px 0 #fff',
+        'md': '1px 1px 0 rgb(255, 255, 255, 0.8)',
+      }
     },
   },
   plugins: [require("@tailwindcss/forms")],
