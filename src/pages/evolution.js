@@ -12,7 +12,7 @@ const Evolution = ({ data }) => {
   return (
     <Layout>
       <Header />
-      <main className="container mb-10 max-w-prose">
+      <main className="container evolution mb-10 max-w-prose">
         <div
           dangerouslySetInnerHTML={{
             __html: sanitizeHtml(content),

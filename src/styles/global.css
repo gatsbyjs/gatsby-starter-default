@@ -30,32 +30,7 @@
     }
   }
 
-  h1, h2, h3, h4 {
-    @apply text-action font-heading mb-4; 
-  }
-
-  h1 {
-    @apply text-5xl mt-16 opacity-100 mb-2;
-
-  }
   
-  h2 {
-    @apply text-4xl mt-16 opacity-100;
-
-  }
-
-  h3 {
-    @apply text-2xl mt-12;
-  }
-
-  h4 {
-    @apply text-xl mt-8;
-  }
-
-  h2 + h3 {
-    @apply mt-0;
-  }
-
   ul, ol {
     @apply text-white/80 ml-4 mb-4;
   }
@@ -118,3 +93,34 @@
   }
   
 }
+
+/* I know this is "not the tailwind" way but for some reason the text-* modifiers aren't working in Markdown. Sorry not sorry! */
+.evolution {
+  & h1, h2, h3, h4 {
+    @apply text-action font-heading mb-4; 
+  }
+
+  & h1 {
+    @apply text-5xl mt-16 opacity-100 mb-2;
+
+  }
+  
+  & h2 {
+    @apply text-4xl mt-16 opacity-100;
+
+  }
+
+  & h3 {
+    @apply text-2xl mt-12;
+  }
+
+  & h4 {
+    @apply text-xl mt-8;
+  }
+
+  & h2 + h3 {
+    @apply mt-0;
+  }
+
+}
+
