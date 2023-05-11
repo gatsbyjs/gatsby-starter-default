@@ -12,12 +12,18 @@ const Evolution = ({ data }) => {
   return (
     <Layout>
       <Header />
-      <main className="container evolution mb-10 max-w-prose">
+      <main className="container evolution px-4 mb-20 max-w-prose static">
         <div
           dangerouslySetInnerHTML={{
             __html: sanitizeHtml(content),
           }}
         />
+        <div className="footer fixed bottom-0 left-0 w-full h-12 bg-secondary border-t-2">
+        <a href="#toc" 
+          className="rounded-xl no-underline bg-white text-link py-1 px-4 font-heading font-semibold uppercase transition-colors duration-200 fixed bottom-2 right-2">
+          ^ TOC
+        </a>
+        </div>
       </main>
     </Layout>
   )
