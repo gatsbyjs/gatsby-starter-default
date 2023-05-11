@@ -35,6 +35,7 @@ My family all came from many generations of white British and Scottish ancestors
 In many ways I feel similarly about this community - it’s not done yet, it has evolved in many ways over the years, and it will continue to evolve. The difference with this moment in time is that for the first time in a long time, this change is intentional and thoughtful. 
 </div>
 
+<a name="toc"></a>
 <h2 class="text-2xl bold">Table of Contents</h2>
 
 ```toc
@@ -566,7 +567,7 @@ These are the ideas that will be tackled in a hackathon. The more people that jo
 
 <br>
 
-<a class="rounded-xl py-2.5 bg-secondary px-3.5 font-heading w-full text-white font-semibold uppercase tracking-widest mt-5 transition-colors duration-200 no-underline drop-shadow-sm hover:drop-shadow-none" href="">Help these ideas happen</a>
+<a class="rounded-xl py-2.5 bg-secondary px-3.5 font-heading w-full text-white font-semibold uppercase tracking-widest mt-5 transition-colors duration-200 no-underline drop-shadow-sm hover:drop-shadow-none" href="https://www.eventbrite.ca/e/yyj-tech-virtual-hackathon-tickets-634129788267">💡 Help these ideas happen</a>
 
 ## Conclusion
 
@@ -584,4 +585,4 @@ Next up, we’ll put the top ideas for change into flight starting with using ou
 
 <br>
 
-<a class="rounded-xl py-4 bg-secondary px-5 font-heading w-full text-white font-semibold uppercase tracking-widest mt-5 transition-colors duration-200 no-underline drop-shadow-sm hover:drop-shadow-none" href="">Sign up for the Hackathon</a>
+<a class="rounded-xl py-4 bg-secondary px-5 font-heading w-full text-white font-semibold uppercase tracking-widest mt-5 transition-colors duration-200 no-underline drop-shadow-sm hover:drop-shadow-none" href="https://www.eventbrite.ca/e/yyj-tech-virtual-hackathon-tickets-634129788267">📝 Sign up for the Hackathon</a>

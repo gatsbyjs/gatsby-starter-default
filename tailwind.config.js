@@ -17,6 +17,7 @@ module.exports = {
         primary: "#2E2C4A",
         secondary: "#611f69",
         action: "#fde047",
+        link: "rgb(13, 148, 136)",
       },
       fontSize: {
         xs: "0.75rem", // 12px
