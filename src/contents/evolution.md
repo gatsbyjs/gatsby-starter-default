@@ -370,6 +370,13 @@ The main one relevant here is that Venture Capital funding doesn’t flow into c
 
 Although this may be starting to shift as the tech community in Victoria matures, and market forces globally shift due to the pandemic and subsequent fear of a recession, the long-term change will still take time to work through. In talking to organizers working on increasing the flow of capital in the city, there are movements happening to diversify (on an individual level, as well as demographically) who can contribute to VC funds, potentially giving more opportunities for people who are in the tech scene in Victoria to get more involved as collective funders of new companies. 
 
+Some of the resources that exist for funding in Victoria in 2023 include:
+* [WEL](https://womensequitylab.com/locations/victoria/) - angel syndicate with a network across Canada of over 175 accredited women investors and growing - invest $25K+ in pre-seed and seed
+* [Scale Collaborative Revenue Based Financing](https://scalecollaborative.ca/) - $100K+
+* [SureSwift](https://www.sureswiftcapital.com/) - buys stakes in companies
+* [Cindicates seed VC fund](https://www.cindicates.com/) - $50K average investment size
+* [Tiny Capital](https://www.tiny.com/) - invest at various stages and amounts
+
 There were a number of folks across all demographics who observed that competition for roles within the Tier 1 companies is extremely high, especially for a junior role. This means that for those that want to get into the industry, especially those that have transitioned into tech later in their careers, those tier 1 low paying jobs might represent an opportunity to have a path to a higher salary later in their career. 
 
 > “I see a lot of saturation in the market. Lots of jr roles that are posted with or without pay that get 200-400 applicants and it's very competitive and you're never really sure which postings are worth spending time a cover letter for, to do a 2-3 hour test for, to do 6 rounds of interviews is sometimes ridiculous . 4 rounds of interviews for my first role and a two hour coding test which I had to do twice and i didn't get that position but I put in upwards of 12 hours of time into that company. I'm not totally financially vulnerable but sometimes I feel like I am.“ – Majority participant
@@ -378,7 +385,7 @@ There were a number of folks across all demographics who observed that competiti
 
 Minority folks were more likely to acknowledge that it was these tiers of jobs that they had to take to get into the industry in the first place because their minority status made it that much harder for them from competing equally for Tier 2 or 3 companies as their first role. Reasons for this ranged from some blatant cases of discrimination, to not feeling confident to live up to the standards of the job without criticism. 
 
-However, minority folks also shared examples of how the low wages were causing harm, and this seemed to especially intersect with the experiences of women and immigrants. 
+However, minority folks also shared examples of how the low wages were causing harm, and this seemed to especially intersect with the experiences of women and immigrants. This is a hard reality to face that this is happening both across and industry and a city that sees itself as progressive - but these represent the 'why' behind the urgency for change. This has a disproportational impact some individuals more than others. 
 
 > “[When I responded to being offered a salary lowered after they saw in person I was black and tried to find out where I was from] I pointed out ‘I was born here - I’m not an immigrant.’ And she was surprised. [I told them] “What you are proposing is highly illegal because you assumed I wasn't from here - I really need a job but not that badly.“ – Minority participant
 
@@ -392,7 +399,7 @@ However, minority folks also shared examples of how the low wages were causing h
 
 What is important to take away from this is that once companies start to post salaries as a standard, if we then begin to compare the compensation of Tier 1 companies to the compensation of Tier 3 companies, we are not having a nuanced conversation that reflects the reality of an increasingly global tech talent market. 
 
-Economic equality at work doesn’t erase the rest of the work to be done, but it can remove one factor that those with the most power - employers and shareholders - have the power to change. 
+It was also clear from talking to minorities that economic equality at work alone doesn’t erase the rest of the work to be done, but it can remove one factor that those with the most power - employers and shareholders - have the most power to shift. 
 
 ### “The Work” Beyond Salary Transparency
 
