@@ -3,9 +3,12 @@ slug: "/evolution"
 title: YYJ Tech Evolution
 ---
 
+<h1 class="!mb-0">The Evolution of YYJ Tech</h2>
+<p class="text-2xs uppercase text-heading">May 11 2023</p>
+
 <h2 class="text-2xl bold">Introduction</h2>
 
-In 2023, a tipping point occurred in YYJ Tech. Although this had been slowly happening for a long time, the latest tensions in the #job-postings channel reached such a volume and level that job postings stopped being posted altogether. Job postings continue to be shared in other places, but posters commented that they no longer wanted to have to join in on an active conflict situation in order to simply share a job posting. A process began to try to shift this, and this document is the documentation of that process and its outcomes. 
+In 2023, a tipping point occurred in <a href="/">YYJ Tech</a>. Although this had been slowly happening for a long time, the latest tensions in the #job-postings channel reached such a volume and level that job postings stopped being posted altogether. Job postings continue to be shared in other places, but posters commented that they no longer wanted to have to join in on an active conflict situation in order to simply share a job posting. A process began to try to shift this, and this document is the documentation of that process and its outcomes. 
 
 It is a challenge in itself to find the right balance between moving through our history and learning from it and becoming better, and continuing to hold onto traumatic collective moments as fuel for the next similar incident. We are the product of our collective history, but we also have the power to shape our collective future. We must understand where we come from to understand how we can best get to where we want to go next.
 
@@ -153,7 +156,7 @@ During these last few years when in-person community was not possible, it became
 
 I also heard from quite a few folks who had either come to Victoria from other markets, or moved away and still wanted to contribute to the interview process or had stayed in touch because it was so remarkable that a community like this existed. The overall positive, collaborative, helpful tone was noteworthy, and they wanted to make sure that that information was accounted for in this process.
 
-> “I signed up when I was living in Calgary at the time. I can't remember how I found it but I was exploring at that time moving into tech and my partner and i were contemplating moving to victoria and thought it would get a feel for what the tech environment was like in Victoria and see if it - it was comparing it to what i was seeing in Calgary. …. It was good to see that the tech scene here was much more active than what I was seeing in Calgary.“ – Majority participant
+> “I signed up when I was living in Calgary at the time. I can't remember how I found it but I was exploring at that time moving into tech and my partner and i were contemplating moving to victoria and thought it would get a feel for what the tech environment was like in Victoria. …. It was good to see that the tech scene here was much more active than what I was seeing in Calgary.“ – Majority participant
 
 > “Everyone was so welcoming and kind when I was there - it was really nice to just meet people through other people - there was always a sense that we're in this together. …. It was cool to be included in that scene. Now that I'm somewhere different it shines so much more that we should keep continuing. I still want to be a part of it even though i'm not still there.” – Majority participant 
 More than one participant called out that while things aren’t perfect here, and we have work to do, this space is still better than so many other parts of the internet. It was also observed that perhaps some of what’s making the space feel less safe is that women are comparing it to Tech Ladies - and by its very nature, that space will have less controversy in it because the experiences of members within it are more aligned with each other. 

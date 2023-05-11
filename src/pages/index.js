@@ -17,6 +17,7 @@ const IndexPage = () => {
     const NUM_OF_IMAGES = 7 // Set to number of images in homepage.yml
     const randomNum = Math.floor(Math.random() * NUM_OF_IMAGES)
     const result = backgrounds[randomNum]
+    console.log(result)
 
     setSelectedBackground(result)
   }, [backgrounds])
