@@ -1,10 +1,10 @@
 ---
 slug: "/evolution"
-title: YYJ Tech Evolution
+title: The Start of the Evolution of YYJ Tech
 ---
 
-<h1 class="!mb-0">The Evolution of YYJ Tech</h2>
-<p class="text-2xs uppercase text-heading">May 11 2023</p>
+<h1 class="!mb-0">The Start of the Evolution of YYJ Tech</h2>
+<p class="text-2xs uppercase text-heading">May 15 2023</p>
 
 <h2 class="text-2xl bold">Introduction</h2>
 
@@ -49,7 +49,7 @@ YYJ Tech has existed since 2016, and had grown to >5000 registered users, ~500 a
 
 But reasons why this group exists pre-date its own existence, and this is important to understand because it shapes part of the way the rest of this document is framed. 
 
-To understand the context fully, we need to go back to ~2014 when, at a public event, the CEO and COO of Viatec were asked “and what is Viatec doing about the women in tech problem in Victoria?” to which the COO replied “We analyzed the data and found there is no problem with women in tech in Victoria.” and the CEO replied “No comment.” This didn’t match up with the experiences of women I had connected to in the sector so far - we were experiencing pay gaps, being talked over in boardrooms, having our work discredited by our peers, and some were experiencing sexual harassment from their bosses. 
+To understand the context fully, we need to go back to ~2014 when, at a public event, the CEO and COO of Viatec (aka Victoria's Chamber of Commerce for tech companies) were asked “and what is Viatec doing about the women in tech problem in Victoria?” to which the COO replied “We analyzed the data and found there is no problem with women in tech in Victoria.” and the CEO replied “No comment.” This didn’t match up with the experiences of women I had connected to in the sector so far - we were experiencing pay gaps, being talked over in boardrooms, having our work discredited by our peers, and some were experiencing sexual harassment from their bosses. 
 
 A small group of women started meeting, after a few months of talking (and a few bottles of wine) we recognized that these institutions are run by men of a different generation, with different priorities. It was looking pretty unlikely Viatec was going to provide the support we needed. Around that same time, this new Slack tool was becoming possible and with NO idea where it would go, thought it might be a good way to connect with other women in tech and - if nothing else - feel less alone. So we created a slack “workspace” called Tech Ladies for supporting women in tech in Victoria. Within a few weeks, word had spread and several hundred women had joined, and were starting to network to formally and informally support each other. 
 
@@ -61,7 +61,7 @@ In short: the space was not set up for success at the scale it grew to, especial
 
 ### Challenges
 
-Aside from the typical challenges of spam, YYJ Tech has faced some incredibly complex moments of the years that were very public, but due to the nature of a free Slack group removing post history, and the dynamic nature of membership have become invisible to many newer folks joining the group. 
+Aside from the typical challenges of spam on hte internet, YYJ Tech has faced some incredibly complex moments of the years that were very public, but due to the nature of a free Slack group removing post history, and the dynamic nature of membership have become invisible to many newer folks joining the group. 
 
 It feels important to share and capture these because the community memory has lived on for many folks and with each passing similar interaction, conflict within the space has grown, and opinions and perspectives have become more entrenched. However, not everyone was in the group at this time, and even those who lived through it didn’t always experience it the same way or with the same context. During many of the interviews, people were wanting to understand why the conversation was so heated and were observing that it was more about the “meta” conversation than the actual issues themselves, and when they understood this history, they were better equipped to make sense of why the tensions were quite so high on both sides. 
 
@@ -69,18 +69,27 @@ It feels important to share and capture these because the community memory has l
 
 During interviews, people were asked to share about times they have observed or experienced exclusion and harm. Only one incident was brought up in interviews, in which a community member sharing about an art show for people of colour was criticized as “reverse racism”. After much public community discussion, the member claiming reverse racism was removed from the community, and the original poster was satisfied with the outcome of the incident. 
 
-However, it is entirely possible more incidents occurred that are unreported. Numerous survey responses alluded to the community “feeling unwelcoming”, and that there is a “toxic” tone. Some of this could be connected to the observation from several interviewees that they often interpreted the tone of postings in Slack through the same tone of voice of negative incidents they have had in the past. This was particularly prevalent in minorities who experienced prolonged incidents of being treated inequitably by workers and/or employers. The inequalities of the world are still experienced and bleed into interactions in the Slack community, leading to the same challenges that exist outside needing to be addressed here. This is difficult, because we cannot solve the problems of the larger world, but also an opportunity to try in a safer space some things that could be innovative that could be models to re-use outside of this group if successful. 
+However, it is entirely possible more incidents occurred that are unreported. Numerous survey responses alluded to the community “feeling unwelcoming”, and that there is a “toxic” tone. Some of this could be connected to the observation from several interviewees that they often interpreted the tone of postings in Slack through the same tone of voice of negative incidents they have had in the past. This was particularly prevalent in minorities who experienced prolonged incidents of being treated inequitably by workers and/or employers. 
+
+The inequalities of the world are still experienced and bleed into interactions in the Slack community, leading to the same challenges that exist outside needing to be addressed here. This is difficult, because we probably cannot solve the problems of the larger world solely by typing at each other. But we do have an opportunity to try in a community space some things that could be innovative that could be models to re-use outside of this group - if we are successful. 
 
 #### Incidents in the #job-postings channel
 
-Starting in 2018, members of the community started asking hard questions about pay salary transparency. After several months of companies posting jobs and receiving push back, on May 2019 the CEO of one of the more established companies got very angry in the public channel, and began to send direct messages to who he perceived as the main “trolls” “harassing” his company and employees. These messages contained insults, as well as threats that the CEO would use his influence and connections to get people fired. In the aftermath, the CEO’s account was removed, but he also recognized he had crossed the line and publicly apologized and agreed not to return. 
+<div class="card text-center">
 
-This message set the tone for how different parts of the community experience this conflict would perceive what happened, and these perceptions continue to this day in the interviews held:
+![YYJ Tech Evolution Loom 1](../images/evolution/coc-log.png)</a>
+
+</div>
+
+Starting in 2018, members of the community started asking hard questions to companies posting jobs in the channel about their salaries. After several months of companies posting jobs and receiving push back, in May 2019 the CEO of one of the more established companies got very angry in the public channel, and began to send direct messages to who he perceived as the main “trolls” “harassing” his company and employees. The messages contained insults, as well as threats that the CEO would use his influence and connections to get people fired. In the aftermath, the CEO’s account was removed, but he also recognized he had crossed the line and publicly apologized and agreed not to return. 
+
+Unfortunately, this incident set the tone for how different parts of the community perceived this incidence, and these perceptions continue to this day in the interviews held:
 * The employers in Victoria are hostile, power-tripping, abusive leaders who don’t value their own employees and are using the lack of salary transparency to hide their low paying jobs and take advantage of anyone who cannot advocate for themselves - mostly minorities
 * The men in YYJ Tech are angry, privileged trolls who are harassing companies and HR people when they don’t see a salary, or don’t see a salary they like
 
-There is anger on both sides, and there is frustration on both sides. 
-This conflict has arisen on and off since then, including:
+There is anger on both sides, and there is frustration on both sides. What was uncovered in this process is - the 'why' behind the motivations of both of these sides is drastically different than the picture painted above, and believing that these are truths and not digging deeper is what has kept us stuck all these years. 
+
+Because we've been stuck in this us vs them mentality, conflict has arisen on and off since then, including:
 * A long-standing CEO and founding member of Viatec repeatedly minimizing the experience of employees and minorities around pay transparency before being removed from the group
 * A female, immigrant CEO being barraged with negative comments, including being compared to a nazi, for her salary being perceived by the group as “too low”, experiencing a massive push back far beyond what any male, Canadian and/or white founders had experienced for similar situations
 
@@ -92,7 +101,7 @@ However, there is a lot of “internet time” between now and when this law com
 
 A decision will have to be made about where we draw the lines as a community about what is harmful and what we no longer will tolerate in order to minimize and remove, as much as possible, the harms being experienced. 
 
-## Evolution Process
+## The Evolution Process
 
 March 2nd 2023, the group began a process to start to shift beyond a state of conflict. It wasn’t by choice - as the sole moderator, and after seeing these same conflicts ratchet up over the years it was really a challenge to tell: did the group harm more than it helped? Did the community still want to exist, or was it time to move on? 
 
@@ -119,7 +128,7 @@ These questions helped shape a series of 1:1 interviews that followed.
 
 </div>
 
-From Mar 20 - April 7th, community members met 1:1 with the moderator to dig deeper into the issues and the questions raised by the community. 
+From Mar 20 - April 7th, 39 community members met 1:1 with the moderator to dig deeper into the issues and the questions raised by the community. The results of this document are the synthesis of the patterns and learnings from this process. After the final report was summarized, each interviewee was given a chance to review to make sure that their perspective was captured accurately. 
 
 There were 3 goals of the process:
 1. Capture each person’s perspective, as they saw it, with deeper understanding of the root “why” behind their actions recorded whenever possible.
@@ -135,11 +144,37 @@ This part of the process was influenced by 3 things:
 
 Not unsurprisingly for the demographics of a tech community, Developers were the strongest category. Given that most of the conflict has been around job postings, HR also came to share their context and hear the perspectives from other folks. 
 
+<div class="card">
+
+![](../images/evolution/identities.svg)
+
+</div>
+
 It’s worth noting that there are a few clear gaps in the lack of data. One is there was no representation from folks who self-identified as speaking from non-binary or trans perspective. This is definitely a demographic that exists within Tech in Victoria, but also a demographic that is going through a particularly rough time mental-health wise at the moment due to the changing laws around the globe preventing their inclusion and closing of their human rights. It didn’t feel respectful to seek out this demographic if they weren’t self-identifying as having energy to contribute right now. Work will need to be done in future to make sure there aren’t unique experiences that we need to consider to include this demographic. 
+
 Another group missing, and also that has experienced a lot of collective trauma lately, was the lack of Indigenous perspectives. There is much, much work to do be done here both on individual, community and societal levels to make tech a demographic that is inclusive for indigenous folks. A decolonization initiative will be needed in future if we ever want to have a chance of including these folks. Rebranding will also likely be needed (e.g. just the name YYJ being connected to the airport code for “Victoria” has been brought up as one of the signals that this space is not designed with indigenous inclusion in mind in the past).  
 
+<div class="card">
+
+![](../images/evolution/power.svg)
+
+</div>
+
 Many folks in Leadership came to the table, although within those leadership roles, many folks did not feel they had the power to change policies due to the nature of their team, or their power within the org chart. 
+
+<div class="card">
+
+![](../images/evolution/roles.svg)
+
+</div>
+
 Very few junior or intermediate folks joined the conversation, but several ICs mentioned they had only recently been promoted to Senior, so shared more recent memories of what it had been like earlier in their careers. 
+
+<div class="card">
+
+![](../images/evolution/company-type.svg)
+
+</div>
 
 In order to make sure the data wasn’t too skewed by only having one size or location of company show up, this data was also collected. 
 
@@ -165,46 +200,14 @@ More than one participant called out that while things aren’t perfect here, an
 
 This is both a positive and negative learning. Where there is diversity, there will be challenges of perspectives. In fact, that’s what research about conflict has learned - in many ways, it is the internet itself that is causing us to have to develop new cultural muscles for experiencing and dealing with conflict because never before have we had to be in spaces with so many different lived experiences shaping them, and thus the perspectives of the people within them. We haven’t quite figured out how to do that well - globally. This is new ground we are forging here, and that will be daunting, and we probably won’t get it right - but it’s also exciting! We are collectively breaking new ground. 
 
-### Community Purpose
-
-During the initial survey, folks were asked to give their own statements of what the purpose of the group was. Words about tech, local, community and connection showed up strongly.
-
-| Percentage | Count  | Theme  |
-| --- | --- | --- | 
-| 74.0% | 114 | Tech / tech adjacent |
-| 66.9% | 103 | Local / Victoria / Island |
-| 49.4% | 76 | Community / hub |
-| 39.0% | 60 | Connection / gathering / come together |
-
-In terms of purpose, aside from job-postings all of the topics were related to connecting to each other. 
-
-| Percentage | Count  | Theme  |
-| --- | --- | --- | 
-| 25% | 36 | Socializing / chatting / friendships / discussion | 
-| 22% | 32 | Job postings / opportunities
-| 21% | 31 | Networking / relationships / directory |
-| 17% | 25 | Sharing / Role-specific sharing | 
-| 15% | 22 | Events / lead to in-person connection |
-| 12% | 17 | Help / support each other / advice / guidance |
-| 12% | 17 | Ideas / knowledge / information | 
-| 9% | 13 | Shared interests / hobbies / niche topics | 
-| 7% | 10 | Learning / career growth / career development | 
-| 4% | 6 | Collaboration | 
-| 1% | 2 | Improving ourselves / products / city | 
-| 1% | 2 | Buy / sell / classifieds | 
-| 1% | 2 | Industry pulse / issues affecting tech | 
-
-Synthesizing all of this together, and iterating based on feedback via a @Polly survey, we landed on an updated purpose statement that better reflects who this is for, and why folks should join.
-YYJ Tech is an online community that connects & supports professionals in the tech industry in and around Victoria, BC.
-
-## Perspectives
+### We All Have Blindspots
 
 Completely unsurprisingly, the perspectives people held depended on their lived experiences. Also completely unsurprisingly, the experiences were fairly dramatically split along lines of minority and majority status. 
 
 Although many folks who came to speak are aware that they hold majority status, and try to be aware of their privilege, it often became clear to them during the interview that that privilege was erasing them from being able to see things that were obvious to others. The same was also true of minority folks - many weren’t able to see some things that were clear to majority folks. 
 The hope of sharing these perspectives below is to help paint a fuller (although certainly still incomplete) picture than any one of us can see on our own, and have a true picture of what the realities and possibilities are within our community. A picture that can help spark and inspire new ideas or shape solutions in a way that are better than if we only did so from our own perspectives. 
 
-### Community Harms
+#### Harm Has Happened Here (and what to do about it)
 
 When asked “what harms have you observed you would like to see changed?” There were not specific incidents of harm brought up that have not already been noted in the Challenges section of this document. On the one hand, that’s positive in that of the folks who came to this process, there is no new information - it’s just that these instances were so striking they are carrying large weight in our conversations. 
 
@@ -228,21 +231,7 @@ Going forward, we need to keep in mind that the following things are signals to 
 | Employers not being transparent about workplace conditions | This was mostly passionately experienced by minorities of colour who had been harmed in the past, but female minorities shared these concerns around “bro culture” and salary disparities | When facing criticism about lack of transparency during the hiring process, take a deep breath and remember this isn’t about you as a human posting the role - this is about someone struggling to try to make sure they aren’t exploited by another employer <br> Think creatively about how you might be an ally to marginalized employees during the hiring process to help them navigate their potential concerns: <br> • Can you do an informational interview to give them the inside scoop? <br> • Can you DM things that aren’t necessarily allowed to be public? <br> • Can you use your social capital to help them get to the interview stage? | 
 
 
-### Experiences of Exclusion
-
-During the interview process, a number of minority participants shared experiences of harassment they have experienced during their time working in the tech sector. They are available to read in Slack, although *trigger warning* before [clicking through](https://yyjtech.slack.com/archives/C18JM8U2Y/p1680115597463739?thread_ts=1680115579.785579&cid=C18JM8U2Y). 
-
-It is not uncommon to hear stories like this circulating between members of YYJ Tech Ladies when connecting in person. Again, the larger realities of the world and the industry impact our community in unfortunate ways. And again, attempts to look to leadership of the tech industry to address these harms have overwhelmingly failed to result in any meaningful change or justice. 
-
-Although the incidents shared here are extreme, the day-to-day frustrations of being dismissed or having their contributions overlooked both in the board room and in their paycheques weighed heavily on many female participants. This same general feeling of being dismissed also persists on the internet in general, leading to the stakes for and stresses of participating in the Slack group to be higher than for non-female participants. 
-
-> “A big part of it is that discourse on the internet is really hard. It's really hard to get people to empathize between a human being in words on the screen and wanting to win the argument. …. The difference that women and minorities have is they get attacked on the internet because they're under-represented and they get attacked by trolls and they've been forced to pay attention and be more empathetic …. If we were in a bar or in a tea house or whatever, having the same conversation it would be different.” – Minority participant
-
-> “If you're a minority in tech and feeling vulnerable in general attacks feel more harmful, but it makes them feel alienated from the community at large. It has the effect of silencing voices. …. The minorities are not feeling as secure in their position and makes it feel like an unsafe space a lot of the time and they feel they can lose their abilities to connect in the tech community because they can't - and then they leave and then don't get the same benefits to reach out to find a new opportunity by dming someone in the community when they want to leave.” – Minority participant
-
-The experiences we have shaped our interactions with the group, but we aren’t all having an equitable experience in the world outside, and if we’re going to support a thriving tech community through this space the reality of that will need to be taken into consideration in how we design our solutions. 
-
-### Salary Transparency
+#### Hot Topic #1: Salary Transparency
 
 During the interviews, we asked participants to reflect on who is harmed, and who benefits, when salary is undisclosed.
 
@@ -279,7 +268,7 @@ Folks in the middle with some power (either as some kind of middle-management le
 
 > “Most executives are generally older white guys with a lot of privilege and don't want change that will impact their power. Good HR needs to bring that executive around that by sharing their power they will gain something from it. Yes it's the right thing to do but some people don't fully see that it's also the right business decision.” – Majority participant
 
-### Salary Negotiation
+#### Hot Topic #2: Salary Negotiation
 
 Folks who fell into the “majority” category were less likely to be aware of or have had to think about inequalities of salaries before. For those who had, it was usually because they had connected with a colleague who was a minority and paid less and had been frustrated to hear about the situation. For those who had not thought about it before, most acknowledged this made sense to them even if they had not seen or experienced it themselves. Only one person minimized the challenge and impact of that gap. 
 
@@ -299,7 +288,7 @@ Many of the men who spoke about having comfortable salaries, and having no probl
 
 > “Ever since we had our first kid he's been moving up and up in his org. … There is that pressure to earn more. I have heard there is research that when men become fathers, doors open for them - I don't know if it's a social or subconscious thing. They get more opportunities and their company maybe will pay them more …. whereas women will be held back. [I was in an interview] to hire a different position into a company and there was one candidate with a woman who had a toddler at home and they said ‘we can't hire her she's a flight risk’. I knew at the time: this is discrimination.” – Minority participant
 
-### Salary Bands
+#### Hot Topic #3: Salary Bands
 
 The more likely they were to have been involved in the HR or the hiring process the more they were aware of the complexities of deciding on salary bands. The complexity of this also increased with the size of company, with smaller and newer companies having less formal and rigorous processes than larger, more established companies.
 Because there is no one source of salary data, employers who are trying to create banding often purchase multiple sources of information costing thousands of dollars each. But the data sets are massive, so once received, employers needed to parse through them  to determine which data actually relates to them, because not all job titles, locations and company sizes are comparable. Once bands are confirmed, most companies will go through a process of aligning and adjusting compensation to overcome gaps that have occurred internally first before reporting externally. One respondent had heard that in their 300 person company this work of determining bands took six hr folks six months to complete. 
@@ -312,13 +301,27 @@ There is no quick win or easy answer here because after a certain scale, these a
 
 Having more data points in the existing YYJ Tech Salary survey would lend credibility to the data, but ultimately as self-reported data its usefulness will always be perceived as “less credible” than 3rd party data. However, for employers who don’t have access to any paid sources of data, that combined with data collected from salaries posted that are transparent was reported as potentially useful. 
 
-## Context Shaping The Salary Conversation
+#### The Exclusion is Bigger Than Just YYJ Tech
+
+During the interview process, a number of minority participants shared experiences of harassment they have experienced during their time working in the tech sector. They are available to read in Slack, although *trigger warning* before [clicking through](https://yyjtech.slack.com/archives/C18JM8U2Y/p1680115597463739?thread_ts=1680115579.785579&cid=C18JM8U2Y). 
+
+It is not uncommon to hear stories like this circulating between members of YYJ Tech Ladies when connecting in person. Again, the larger realities of the world and the industry impact our community in unfortunate ways. And again, attempts to look to leadership of the tech industry to address these harms have overwhelmingly failed to result in any meaningful change or justice. 
+
+Although the incidents shared here are extreme, the day-to-day frustrations of being dismissed or having their contributions overlooked both in the board room and in their paycheques weighed heavily on many female participants. This same general feeling of being dismissed also persists on the internet in general, leading to the stakes for and stresses of participating in the Slack group to be higher than for non-female participants. 
+
+> “A big part of it is that discourse on the internet is really hard. It's really hard to get people to empathize between a human being in words on the screen and wanting to win the argument. …. The difference that women and minorities have is they get attacked on the internet because they're under-represented and they get attacked by trolls and they've been forced to pay attention and be more empathetic …. If we were in a bar or in a tea house or whatever, having the same conversation it would be different.” – Minority participant
+
+> “If you're a minority in tech and feeling vulnerable in general attacks feel more harmful, but it makes them feel alienated from the community at large. It has the effect of silencing voices. …. The minorities are not feeling as secure in their position and makes it feel like an unsafe space a lot of the time and they feel they can lose their abilities to connect in the tech community because they can't - and then they leave and then don't get the same benefits to reach out to find a new opportunity by dming someone in the community when they want to leave.” – Minority participant
+
+The experiences we have shaped our interactions with the group, but we aren’t all having an equitable experience in the world outside, and if we’re going to support a thriving tech community through this space the reality of that will need to be taken into consideration in how we design our solutions. 
+
+### A Few Reasons Why Those Topics are Nucelar Hot
 
 Here are some of the reasons that emerged as to why the topic of salary bands and salary transparency is a very complex problem. Again, none of this complexity or these reasons excuse doing the hard work so quality between employees can improve, and just because these things are hard it does not erase that harm is happening. 
 
 This information is important to include because understanding a fuller picture can help us to craft solutions that have a chance of having the impacts we want to make. (More on what we can agree those impacts should be later.)
 
-### The Trimodal Nature of Salaries
+#### The Trimodal Nature of Salaries
 
 For the last few years, the article about the [“The Trimodal Nature of Software Engineering Salaries in the Netherlands and Europe”](https://blog-pragmaticengineer-com.cdn.ampproject.org/c/s/blog.pragmaticengineer.com/software-engineering-salaries-in-the-netherlands-and-europe/amp/) has been circulating around. You can read the article or watch the video here if you’d like to dig in, but here’s a tl;dr:
 
@@ -328,25 +331,29 @@ An engineer named Gergely Orosz in the Netherlands made an observation about wha
 
 ![A hand-drawn graph with two axis, number of positions and salary. The data shows three overlappign tiers of companies with more positions in the lower tier and very view in the high tier. A green bar sits on top of the lowest bar with the annotation "average salary on reports". A green bar sits on top of the middle tier with the annotation "highest salary on reports". A red bar sits on top of the 3rd tier with the annotation "The invisible range hidden from most public data"  ](https://blog-pragmaticengineer-com.cdn.ampproject.org/i/s/blog.pragmaticengineer.com/content/images/size/w1000/2021/07/Screenshot-2021-07-10-at-04.45.19.png)
 
+</div>
+
+<div class="card flex text-center">
+
 ![](https://blog-pragmaticengineer-com.cdn.ampproject.org/i/s/blog.pragmaticengineer.com/content/images/size/w1000/2021/03/Screenshot-2021-03-11-at-11.33.39.png)
 
 </div>
 
 There is no longer an "average" salary for software engineers in Europe / the Netherlands: just an average salary per one of the three, distinct categories. He also notes that most companies tend to assume their salaries are competitive against a tier higher than they actually are - because without transparency, they have little data points that prove otherwise.
 
-#### Tier 1: Companies only benchmarking against their local competition and non-tech companies, competing only with their local competitors.
+##### Tier 1: Companies only benchmarking against their local competition and non-tech companies, competing only with their local competitors.
 This includes jobs where technology is not treated - or compensated - as a core competency at these companies.
 * Engineering is part of IT, and often view it as a cost center
 * Startups with little capital and bootstrapped companies
 * Some Government roles or non-profits
 * Agencies
 
-#### Tier 2: Companies benchmarking against all local companies, even if they are not direct competitors.
+##### Tier 2: Companies benchmarking against all local companies, even if they are not direct competitors.
 * High-growth startups
 * Universities
 * Some Government roles
 
-#### Tier 3: Big Tech: companies benchmarking against all regional or global companies.
+##### Tier 3: Big Tech: companies benchmarking against all regional or global companies.
 Most compensation is from variable income, like Stock and Bonuses, making total compensation patterns in this category very hard to quantify.
 * International tech companies
 * High growth, well-funded late-stage companies
@@ -360,7 +367,7 @@ Most compensation is from variable income, like Stock and Bonuses, making total 
  |  EMPLOYEE STOCK |  None or for leadership only, and then low |  Mid - high |  High - extreme, often major contributor to total compensation |
 |  VC FUNDING |  None or little | Well-funded, but high pressure for 30+% year over year growth |  Historically yes, but often these companies are public, with continued pressure for high growth over time |
 
-### Context within Victoria
+#### Victoria's Tech Scene is Still Maturing
 
 During the interviews, I had a number of folks come to bring their perspectives who had lived and worked in tech outside of Victoria in the past. These locations included San Francisco, Toronto, Vancouver, Israel, London and Calgary. These folks were able to observe some things that are unique to Victoria’s tech community that are adding to the complexity of this topic in a way that is unique compared to those larger markets. 
 
@@ -403,7 +410,7 @@ What is important to take away from this is that once companies start to post sa
 
 It was also clear from talking to minorities that economic equality at work alone doesn’t erase the rest of the work to be done, but it can remove one factor that those with the most power - employers and shareholders - have the most power to shift. 
 
-### “The Work” Beyond Salary Transparency
+#### “The Work” Beyond Salary Transparency
 
 What became more obvious as interviews went on was that salary transparency is really just, as many who were interviewed said “the baseline” - it gives us something that will at least have some hope of levelling the playing field economically between majority and minority members of the tech sector. But, then this is when the rest of “the work” will begin.
 
@@ -421,7 +428,40 @@ Respondents who had a clear vision of exploitation commented that the line in th
 
 This doesn’t necessarily mean that banning posts without a salary isn’t still the right option for the community, but it does present a surprising finding that perspectives on the best solution is not as black and white as just “people who are and/or support minorities only want pay transparency immediately and without question” or “employers who don’t post salaries are workplaces that don’t value equality”. 
 
-## Shared Norms
+## What We DO All Agreed On
+
+### A New Community Purpose
+
+During the initial survey, folks were asked to give their own statements of what the purpose of the group was. Words about tech, local, community and connection showed up strongly.
+
+| Percentage | Count  | Theme  |
+| --- | --- | --- | 
+| 74.0% | 114 | Tech / tech adjacent |
+| 66.9% | 103 | Local / Victoria / Island |
+| 49.4% | 76 | Community / hub |
+| 39.0% | 60 | Connection / gathering / come together |
+
+In terms of purpose, aside from job-postings all of the topics were related to connecting to each other. 
+
+| Percentage | Count  | Theme  |
+| --- | --- | --- | 
+| 25% | 36 | Socializing / chatting / friendships / discussion | 
+| 22% | 32 | Job postings / opportunities
+| 21% | 31 | Networking / relationships / directory |
+| 17% | 25 | Sharing / Role-specific sharing | 
+| 15% | 22 | Events / lead to in-person connection |
+| 12% | 17 | Help / support each other / advice / guidance |
+| 12% | 17 | Ideas / knowledge / information | 
+| 9% | 13 | Shared interests / hobbies / niche topics | 
+| 7% | 10 | Learning / career growth / career development | 
+| 4% | 6 | Collaboration | 
+| 1% | 2 | Improving ourselves / products / city | 
+| 1% | 2 | Buy / sell / classifieds | 
+| 1% | 2 | Industry pulse / issues affecting tech | 
+
+Synthesizing all of this together, and iterating based on feedback via a @Polly survey, we landed on an updated purpose statement that better reflects who this is for, and why folks should join.
+YYJ Tech is an online community that connects & supports professionals in the tech industry in and around Victoria, BC.
+
 
 <div class="card text-center">
 
@@ -467,7 +507,7 @@ This was particularly pointed out by women who are developers, feeling frustrate
 
 There is a need in this part, however, to make sure that we are not protecting organizations from criticism through this change. We never have, and will continue not to, enforce code of conduct rules when businesses or organizations are the point of criticism. This needs to be made clearer in the Code of Conduct going forward. 
 
-### Safer and Braver Space
+### We all have to help to foster safer and braver spaces
 
 When minorities were asked what kind of signals we could send that this is a safe space, they said:
 * Be welcoming equally to newcomers, regardless of gender, skin colour or if you think they might be an immigrant
@@ -490,13 +530,13 @@ The good news is that the very thing that the research says will help is what th
 
 Whatever new moderation tools, techniques and new members who join the moderation team will need to step into supporting and guiding the community through the challenge of learning how to do this. 
 
-## Ideas for Change
+## Our Ideas for Change
 
 Out of the 1:1 interviews and responses to the initial survey, members of the community had many ideas about the kind of changes we could make to support things to be better. The community was then asked to rate each idea with one of 5 emojis: 😍, 🙂, 😐, 🙁, 😭, with the goal of identifying which ideas we have general commumity buy-in for pursuing at this time. 
 
 Here are all of the ideas the community generated, in the order they were shared for voting.
 
-**YYJ Tech would be better if we…**
+**YYJ Tech might be better if we…**
 * had an on boarding and channel discovery experience to help people find smaller communities aligned with their interests and hobbies
 * created a more formal directory of folks to assist with networking and learning more about culture fit (leaning into #buy-a-coffee)
 * create a log of past incidents and how they were handled to help build confidence in moderation
@@ -567,13 +607,19 @@ These are the ideas that will be tackled in a hackathon. The more people that jo
 
 <br>
 
-<a class="rounded-xl py-2.5 bg-secondary px-3.5 font-heading w-full text-white font-semibold uppercase tracking-widest mt-5 transition-colors duration-200 no-underline drop-shadow-sm hover:drop-shadow-none" href="">Help these ideas happen</a>
+<a class="rounded-xl py-2.5 bg-secondary px-3.5 font-heading w-full text-white font-semibold uppercase tracking-widest mt-5 transition-colors duration-200 no-underline drop-shadow-sm hover:drop-shadow-none" href="https://www.eventbrite.ca/e/yyj-tech-virtual-hackathon-tickets-634129788267">Help these ideas happen</a>
 
-## Conclusion
+## In Conclusion...
 
 YYJ Tech has a lot going for it, and there is strong community will to overcome the challenges, largely in the #job-postings channel, to grow into something even better. We are not immune to the social challenges of our society, but there is a desire to find ways to collaborate and work together to be a strong and positive force that makes the tech community here a better place to be.
 
-With the changes in legislation coming, the general community goals are centered around two things: building more community between each other, and focusing on how we can collectively rally around tools that empower and enable us to have the best career and employment experiences possible. 
+When we asked leaders the "why" behind their reluctance to post salaries, we learned that for those who had embarked on the journey, it took a long time and required a lot of resources in order to do it in a way that truly addressed the problem sustainabily and equitably. Often, the organization was small enough or growing so fast they actually didn't know the answer - and inequity certainly wasn't registering as problem they were facing as an organization. 
+
+This is in stark contrast to the motivations of ICs that came to the table. Negative experiences of themselves or their friends and colleagues is the driving force behind the desire for transparency. No one who had something to criticize came at it from wanting to punish or harm companys, but with deep sadness and confusion that investing in salary bands as a clear lever for pay equity was not seen as important work to be done in 2023. For folks experiencing challenges related to salary while working in Tech, it was not pay disparity *between* companies, but *within* companies that cause them frustration and anger, but this was usually directed at the larger societal challenges that made it possible for this to be acceptable business practice vs individual actions. 
+
+These challenges are not small, and there are no easy answers, but the moment to act is definitely now. With the changes in BC legislation coming, the general community energy is centered around two things: 
+1. building more community between each other, and 
+2. focusing on how we can collectively rally around things that empower and enable us to have the best career and employment experiences possible. 
 
 The collective knowledge of the community reflected here holds some keys, and some fabulous ideas, on what that work is. There are limits to what a Slack group can do to change the world, but we want to work together to do the best we can to make working in tech in this city as great as it can be. 
 
@@ -585,4 +631,4 @@ Next up, we’ll put the top ideas for change into flight starting with using ou
 
 <br>
 
-<a class="rounded-xl py-4 bg-secondary px-5 font-heading w-full text-white font-semibold uppercase tracking-widest mt-5 transition-colors duration-200 no-underline drop-shadow-sm hover:drop-shadow-none" href="">Sign up for the Hackathon</a>
+<a class="rounded-xl py-4 bg-secondary px-5 font-heading w-full text-white font-semibold uppercase tracking-widest mt-5 transition-colors duration-200 no-underline drop-shadow-sm hover:drop-shadow-none" href="https://www.eventbrite.ca/e/yyj-tech-virtual-hackathon-tickets-634129788267">Sign up for the Hackathon</a>
