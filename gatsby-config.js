@@ -64,11 +64,12 @@ module.exports = {
               tight: false,
               ordered: false,
               fromHeading: 1,
-              toHeading: 3,
+              toHeading: 4,
               className: "table-of-contents"
             },
           },
-          `gatsby-remark-autolink-headers`
+          `gatsby-remark-autolink-headers`,
+          `gatsby-remark-copy-linked-files`
         ],
       },
     },
