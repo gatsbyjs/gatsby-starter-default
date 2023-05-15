@@ -23,7 +23,7 @@
 
   /* This teal bolded passes WCAG on the dark blue bg & white */
   a {
-    @apply text-teal-600 hover:text-pink-600 underline underline-offset-2 font-semibold tracking-wide;
+    @apply text-link hover:text-pink-600 underline underline-offset-2 font-semibold tracking-wide;
   
     & h2, h3, h4 {
       @apply text-white;
@@ -95,7 +95,7 @@
 }
 
 /* I know this is "not the tailwind" way but for some reason the text-* modifiers aren't working in Markdown. Sorry not sorry! */
-.evolution {
+.evolution {  
   & h1, h2, h3, h4 {
     @apply text-action font-heading mb-4; 
   }

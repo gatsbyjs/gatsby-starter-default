@@ -35,6 +35,7 @@ My family all came from many generations of white British and Scottish ancestors
 In many ways I feel similarly about this community - it’s not done yet, it has evolved in many ways over the years, and it will continue to evolve. The difference with this moment in time is that for the first time in a long time, this change is intentional and thoughtful. 
 </div>
 
+<a name="toc"></a>
 <h2 class="text-2xl bold">Table of Contents</h2>
 
 ```toc
@@ -386,7 +387,8 @@ Some of the resources that exist for funding in Victoria in 2023 include:
 * [Alacrity Ventures](https://www.alacritycanada.com/ventures/) - early stage
 * [eFund](https://www.e-fund.ca/) - A BC-wide source of funding focusing on high returns and exits
 
-Although the hypothesis is that there are an increasing number of Tech companies in Victoria, there were a number of folks across all demographics who observed that competition for roles is extremely high, especially for a junior role. This means that for those that want to get into the industry, especially those that have transitioned into tech later in their careers, those Tier 1 low paying jobs might represent a massive opportunity to have a path to a higher salary later in their career. But, competition is fierce, and that makes it economically viable for entry-level salaries to be lower. This might not just be in Victoria - but this is definitely experience by people within our city.
+
+Although there are an increasing number of Tech companies in Victoria, there were a number of folks across all demographics who observed that competition for roles is extremely high, especially for a junior role. This means that for those that want to get into the industry, especially those that have transitioned into tech later in their careers, those Tier 1 low paying jobs might represent a massive opportunity to have a path to a higher salary later in their career. But, competition is fierce, and that makes it economically viable for entry-level salaries to be lower. This might not just be in Victoria - but this is definitely experience by people within our city.
 
 > “I see a lot of saturation in the market. Lots of jr roles that are posted with or without pay that get 200-400 applicants and it's very competitive and you're never really sure which postings are worth spending time a cover letter for, to do a 2-3 hour test for, to do 6 rounds of interviews is sometimes ridiculous . 4 rounds of interviews for my first role and a two hour coding test which I had to do twice and i didn't get that position but I put in upwards of 12 hours of time into that company. I'm not totally financially vulnerable but sometimes I feel like I am.“ – Majority participant
 
@@ -631,4 +633,4 @@ Next up, we’ll put the top ideas for change into flight starting with using ou
 
 <br>
 
-<a class="rounded-xl py-4 bg-secondary px-5 font-heading w-full text-white font-semibold uppercase tracking-widest mt-5 transition-colors duration-200 no-underline drop-shadow-sm hover:drop-shadow-none" href="https://www.eventbrite.ca/e/yyj-tech-virtual-hackathon-tickets-634129788267">Sign up for the Hackathon</a>
+<a class="rounded-xl py-4 bg-secondary px-5 font-heading w-full text-white font-semibold uppercase tracking-widest mt-5 transition-colors duration-200 no-underline drop-shadow-sm hover:drop-shadow-none" href="https://www.eventbrite.ca/e/yyj-tech-virtual-hackathon-tickets-634129788267">📝 Sign up for the Hackathon</a>
