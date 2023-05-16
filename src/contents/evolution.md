@@ -62,7 +62,7 @@ In short: the space was not set up for success at the scale it grew to, especial
 
 ### Challenges
 
-Aside from the typical challenges of spam on hte internet, YYJ Tech has faced some incredibly complex moments of the years that were very public, but due to the nature of a free Slack group removing post history, and the dynamic nature of membership have become invisible to many newer folks joining the group. 
+Aside from the typical challenges of spam on the internet, YYJ Tech has faced some incredibly complex moments of the years that were very public, but due to the nature of a free Slack group removing post history, and the dynamic nature of membership have become invisible to many newer folks joining the group. 
 
 It feels important to share and capture these because the community memory has lived on for many folks and with each passing similar interaction, conflict within the space has grown, and opinions and perspectives have become more entrenched. However, not everyone was in the group at this time, and even those who lived through it didn’t always experience it the same way or with the same context. During many of the interviews, people were wanting to understand why the conversation was so heated and were observing that it was more about the “meta” conversation than the actual issues themselves, and when they understood this history, they were better equipped to make sense of why the tensions were quite so high on both sides. 
 
@@ -84,13 +84,7 @@ The inequalities of the world are still experienced and bleed into interactions 
 
 Starting in 2018, members of the community started asking hard questions to companies posting jobs in the channel about their salaries. After several months of companies posting jobs and receiving push back, in May 2019 the CEO of one of the more established companies got very angry in the public channel, and began to send direct messages to who he perceived as the main “trolls” “harassing” his company and employees. The messages contained insults, as well as threats that the CEO would use his influence and connections to get people fired. In the aftermath, the CEO’s account was removed, but he also recognized he had crossed the line and publicly apologized and agreed not to return. 
 
-Unfortunately, this incident set the tone for how different parts of the community perceived this incidence, and these perceptions continue to this day in the interviews held:
-* The employers in Victoria are hostile, power-tripping, abusive leaders who don’t value their own employees and are using the lack of salary transparency to hide their low paying jobs and take advantage of anyone who cannot advocate for themselves - mostly minorities
-* The men in YYJ Tech are angry, privileged trolls who are harassing companies and HR people when they don’t see a salary, or don’t see a salary they like
-
-There is anger on both sides, and there is frustration on both sides. What was uncovered in this process is - the 'why' behind the motivations of both of these sides is drastically different than the picture painted above, and believing that these are truths and not digging deeper is what has kept us stuck all these years. 
-
-Because we've been stuck in this us vs them mentality, conflict has arisen on and off since then, including:
+The conflict has continue escalate on and off since then, including:
 * A long-standing CEO and founding member of Viatec repeatedly minimizing the experience of employees and minorities around pay transparency before being removed from the group
 * A female, immigrant CEO being barraged with negative comments, including being compared to a nazi, for her salary being perceived by the group as “too low”, experiencing a massive push back far beyond what any male, Canadian and/or white founders had experienced for similar situations
 
@@ -181,11 +175,25 @@ In order to make sure the data wasn’t too skewed by only having one size or lo
 
 ## What We Learned
 
+During the interviews, it became clear that the actions of different actors in the channel had some definite entrenched perceptions that had formed. I often heard one of the following sentiments during the interviews - never aimed at any person or company, but at the group overall:
+* The employers in Victoria are hostile and/or power-tripping and/or abusive leaders who don’t value their own employees and are using the lack of salary transparency to hide their low paying jobs and take advantage of anyone who cannot advocate for themselves - mostly minorities
+* The men in YYJ Tech are angry and/or privileged and/or trolls who are harassing companies and HR people when they don’t see a salary, or don’t see a salary they like
+
+This represents the anger on both sides, and there is frustration on both sides - and there are also many people who are in the middle, and see a little bit of both of these in their experience. 
+
+What was uncovered in this process is - the 'why' behind the _motivations_ of both of these sets of groups is much deeper than the picture painted above, and believing that these are truths, and falling into the internet trap of shouting our own perspectives into the voice and not digging deeper on the other side is what has kept us stuck all these years. 
+
+Unfortunately there is some truth in the above in that while it might not represent the truth of the motivations of both sides, it _is_ an accurate depiction of how the way the conflict has been going in that channel makes different people _feel_. How some companies have been responding has made ICs in the community feel powerless, punched down on, under-valued and disrespected. How some IC members of the community have responded have lead HR folks and founders to feel targeted, yelled at, and like 'the bar' is being set too high. These are uncomfortable truths, and hopefully speaking so plainly about them here does not lead to group inaction; this would be the worst possible outcome. 
+
+It is also critically important to call out that there is a 3rd actor coming into play here, one that has amped things up, exacerbated the division and galvinized the divide. This actor is the conflict itself. The science of conflict tells us that when human interaction crosses the line into conflict it can trap us into this stark, generalized, extreme viewpoint and the conflict itself then prevents us from digging beneath the surface further - especially on the internet. Once we entered the conflicted state with the first incident, it was going to take some real effort and intentionality to move us beyond it. 
+
+This sections of this document aims to bring to light the things that the conflict has been erasing us from being able to ask or even see from where we each individually sit within the state of conflict, and to start to map a different path forward that is no longer trapped within the framework of the conflict itself.
+
 ### This is a Community Worth Investing In
 
-Although folks came to the table to focus primarily on the hard stuff that we have to work through as a community, many folks wanted, when asked “Is there anything else you wanted to share I didn’t ask about?” to express their love and appreciation for this community and what it provides to them that they don’t get anywhere else. While that good doesn’t mean we don’t need to address the hard stuff, it does feel important to celebrate those things that are unique and positive about this space so we don’t lose sight of them as we do start to address the challenges. 
+The good news is, although folks came to the table to focus primarily on the hard stuff that we have to work through as a community, many folks wanted, when asked “Is there anything else you wanted to share I didn’t ask about?” to express their love and appreciation for this community and what it provides to them that they don’t get anywhere else. While that good doesn’t mean we don’t need to address the hard stuff, it does feel important to celebrate those things that are unique and positive about this space so we don’t lose sight of them as we do start to address the challenges. 
 
-People are finding value in human connection here. Whether that’s through #watercooler, or some of the more niche channels like #gardening, #food and #photography, it’s in these niche and not necessarily even tech-related groups that community is being felt the strongest. 
+Many people are finding value in human connection here. Whether that’s through #watercooler, or some of the more niche channels like #gardening, #food and #photography, it’s in these niche and not necessarily even tech-related groups that community is being felt the strongest. 
 
 Folks are also using this space to resist other forms of mainstream social media that they are choosing not to participate in. They use the space for finding ex-coworkers instead of LinkedIn or Facebook, and some folks use it to message their friends or even their partner so they don’t need to log into any chat apps on their work computer.  
 During these last few years when in-person community was not possible, it became one of the only spaces some members were finding a sense of community, even if it wasn’t the same as in-person. 
@@ -206,6 +214,7 @@ This is both a positive and negative learning. Where there is diversity, there w
 Completely unsurprisingly, the perspectives people held depended on their lived experiences. Also completely unsurprisingly, the experiences were fairly dramatically split along lines of minority and majority status. 
 
 Although many folks who came to speak are aware that they hold majority status, and try to be aware of their privilege, it often became clear to them during the interview that that privilege was erasing them from being able to see things that were obvious to others. The same was also true of minority folks - many weren’t able to see some things that were clear to majority folks. 
+
 The hope of sharing these perspectives below is to help paint a fuller (although certainly still incomplete) picture than any one of us can see on our own, and have a true picture of what the realities and possibilities are within our community. A picture that can help spark and inspire new ideas or shape solutions in a way that are better than if we only did so from our own perspectives. 
 
 #### Harm Has Happened Here (and what to do about it)
@@ -292,6 +301,7 @@ Many of the men who spoke about having comfortable salaries, and having no probl
 #### Hot Topic #3: Salary Bands
 
 The more likely they were to have been involved in the HR or the hiring process the more they were aware of the complexities of deciding on salary bands. The complexity of this also increased with the size of company, with smaller and newer companies having less formal and rigorous processes than larger, more established companies.
+
 Because there is no one source of salary data, employers who are trying to create banding often purchase multiple sources of information costing thousands of dollars each. But the data sets are massive, so once received, employers needed to parse through them  to determine which data actually relates to them, because not all job titles, locations and company sizes are comparable. Once bands are confirmed, most companies will go through a process of aligning and adjusting compensation to overcome gaps that have occurred internally first before reporting externally. One respondent had heard that in their 300 person company this work of determining bands took six hr folks six months to complete. 
 
 > “A company like my company [300-400 people] there are 6 people spent 6 months trying to figure out what's appropriate. They bought data sets from head hunting companies and HR companies for salary ranges, normalized positions across bands would map to different levels. standardize existing positions and take into account relative pricing for the market and cost of living - there are a lot of things involved in that. There was no perfect flat approach - difference between RRSP matching between countries, different costs for vacation etc. They made an effort to deal with 3 separate companies pushed together. …. it gets tricky to figure out some of these things. “ – Majority participant, non-HR
@@ -340,7 +350,7 @@ An engineer named Gergely Orosz in the Netherlands made an observation about wha
 
 </div>
 
-There is no longer an "average" salary for software engineers in Europe / the Netherlands: just an average salary per one of the three, distinct categories. He also notes that most companies tend to assume their salaries are competitive against a tier higher than they actually are - because without transparency, they have little data points that prove otherwise.
+There is no longer an "average" salary for software engineers: just an average salary per one of the three, distinct categories. He also notes that most companies tend to assume their salaries are competitive against a tier higher than they actually are - because without transparency, they have little data points that prove otherwise. 
 
 ##### Tier 1: Companies only benchmarking against their local competition and non-tech companies, competing only with their local competitors.
 This includes jobs where technology is not treated - or compensated - as a core competency at these companies.
@@ -372,7 +382,7 @@ Most compensation is from variable income, like Stock and Bonuses, making total 
 
 During the interviews, I had a number of folks come to bring their perspectives who had lived and worked in tech outside of Victoria in the past. These locations included San Francisco, Toronto, Vancouver, Israel, London and Calgary. These folks were able to observe some things that are unique to Victoria’s tech community that are adding to the complexity of this topic in a way that is unique compared to those larger markets. 
 
-The main one relevant here is that Venture Capital funding doesn’t flow into companies here in the same way it does in other markets. What this means is that we have more companies who are “tech companies” who are either bootstrapped, or close to bootstrapped. This means that there are many companies who are startups paying wages in Tier 1, and some startups with VC funding from outside Victoria paying wages in Tier 2. This is likely contributing to the observation of massive differences in pay for the same roles between companies. 
+The main one relevant here is that Venture Capital funding doesn’t, or at least historically hasn't, flow into companies here in the same way it does in other markets. What this means is that we have more companies who are “tech companies” who are either bootstrapped, or close to bootstrapped. The impact of this is that many companies who are startups paying wages in Tier 1, and some startups with VC funding from outside Victoria paying wages in Tier 2. This is likely contributing to the observation of massive differences in pay for the same roles between companies. 
 
 > “VC capital is run by the same 8 people in Victoria. if you can get 1 or 2 the rest will follow but if one decides it's a hard no you won't get money. It's a cabal for a lack of a better word. if you go to bigger markets you can get a really big cheque, but that's not happening here.” – Majority participant
 
@@ -388,7 +398,7 @@ Some of the resources that exist for funding in Victoria in 2023 include:
 * [eFund](https://www.e-fund.ca/) - A BC-wide source of funding focusing on high returns and exits
 
 
-Although there are an increasing number of Tech companies in Victoria, there were a number of folks across all demographics who observed that competition for roles is extremely high, especially for a junior role. This means that for those that want to get into the industry, especially those that have transitioned into tech later in their careers, those Tier 1 low paying jobs might represent a massive opportunity to have a path to a higher salary later in their career. But, competition is fierce, and that makes it economically viable for entry-level salaries to be lower. This might not just be in Victoria - but this is definitely experience by people within our city.
+Although there are an increasing number of Tech companies in Victoria, there were a number of folks across all demographics who observed that competition for roles is extremely high, especially for a junior role. The impact of this is that for those that want to get into the industry, especially those that have transitioned into tech later in their careers, those Tier 1 low paying jobs might represent a massive opportunity to have a path to a higher salary later in their career. But, competition is fierce, and that makes it economically viable for entry-level salaries to be lower. This might not just be in Victoria - but this is definitely experience by people within our city.
 
 > “I see a lot of saturation in the market. Lots of jr roles that are posted with or without pay that get 200-400 applicants and it's very competitive and you're never really sure which postings are worth spending time a cover letter for, to do a 2-3 hour test for, to do 6 rounds of interviews is sometimes ridiculous . 4 rounds of interviews for my first role and a two hour coding test which I had to do twice and i didn't get that position but I put in upwards of 12 hours of time into that company. I'm not totally financially vulnerable but sometimes I feel like I am.“ – Majority participant
 
@@ -428,7 +438,7 @@ Minority respondents who identified only as female were likely to see that both 
 
 Respondents who had a clear vision of exploitation commented that the line in the sand centered around the importance of choice, and autonomy. Perhaps this explains why for some minority respondents, posting jobs without salary information was acceptable - being able to access more job opportunities, or maybe even knowingly choosing the one that pays less for other reasons might be more important than being paid the most. 
 
-This doesn’t necessarily mean that banning posts without a salary isn’t still the right option for the community, but it does present a surprising finding that perspectives on the best solution is not as black and white as just “people who are and/or support minorities only want pay transparency immediately and without question” or “employers who don’t post salaries are workplaces that don’t value equality”. 
+This doesn’t necessarily mean that banning posts without a salary isn’t still the right option for the community, but it does present an unexpected finding that perspectives on the best solution is not as black and white as just “people who are and/or support minorities only want pay transparency immediately and without question” or “employers who don’t post salaries are workplaces that don’t value equality”. There is a messy middle here that we have to acknowledge and work through as we explore our opportunities and options for moving out of this conflicted state and into one that is constructive. 
 
 ## What We DO All Agreed On
 
@@ -462,8 +472,10 @@ In terms of purpose, aside from job-postings all of the topics were related to c
 | 1% | 2 | Industry pulse / issues affecting tech | 
 
 Synthesizing all of this together, and iterating based on feedback via a @Polly survey, we landed on an updated purpose statement that better reflects who this is for, and why folks should join.
-YYJ Tech is an online community that connects & supports professionals in the tech industry in and around Victoria, BC.
 
+> YYJ Tech is an online community that connects & supports professionals in the tech industry in and around Victoria, BC.
+
+### Shared Norms
 
 <div class="card text-center">
 
@@ -481,7 +493,7 @@ Interview participants were asked where the line is for them between “crossing
 Thinking about examples of when the community had crossed the line, the job postings channel was used as an example almost exclusively. 
 The following are themes that emerged over multiple interviews.
 
-### Behave as if you were at a professional event
+#### Behave as if you were at a professional event
 
 This thread of professionalism was common in many interviews. While some examples are needed to help make this clear so that moderation can be effective, this seemed like a recognition that for some, this space has felt more like other casual spaces on the internet like Reddit - to the detriment of the sense of ‘community’ in the space.
 Folks pointed out that unlike Reddit, we do have to maintain professional relationships with each other that go beyond simply chatting. We may work together someday, or may decide we don’t want to ever work with a person or company based on the behaviour we see in the community.
@@ -490,7 +502,7 @@ Folks pointed out that unlike Reddit, we do have to maintain professional relati
 
 > “I think that for me it's ok to voice opinions about salary - when people start putting each other down and making them feel stupid or trying to shame them publicly in the group it becomes bullying. … We're all professionals. …. This is a professional community. if you wouldn't say something to your colleague or your boss or your mom - we all know when it stops being kind and professional communication.“ – Minority participant
 
-### Use kindness to build community
+#### Use kindness to build community
 
 Strong voices on both perspectives were seeking more kindness, and more gentleness in responses when things get tough. Whether that means walking away if you feel yourself getting too frustrated, or digging deep for empathy for the other person, keeping our tone civil and constructive matters to community members. 
 
@@ -509,7 +521,7 @@ This was particularly pointed out by women who are developers, feeling frustrate
 
 There is a need in this part, however, to make sure that we are not protecting organizations from criticism through this change. We never have, and will continue not to, enforce code of conduct rules when businesses or organizations are the point of criticism. This needs to be made clearer in the Code of Conduct going forward. 
 
-### We all have to help to foster safer and braver spaces
+#### We all have to help to foster safer and braver spaces
 
 When minorities were asked what kind of signals we could send that this is a safe space, they said:
 * Be welcoming equally to newcomers, regardless of gender, skin colour or if you think they might be an immigrant
@@ -524,7 +536,7 @@ Many folks also pointed out that having leaders share space with non-leaders doe
 
 Finding ways to shift this dynamic will be critical if this space is going to be as safe to speak up bravely as possible, but the logistics of how to do this with the limitations of Slack as a community platform will require some creativity and innovation. 
 
-### Be curious to hear about the other person’s perspective
+#### Be curious to hear about the other person’s perspective
 
 This will be the hardest one. This is the very social and cultural moment in time we live in that is making the conflict arise in the first place. We are lacking in social norms where this is the norm, and adopting new ones will not be as easy as simply making a new line in the code of conduct.
 
@@ -538,7 +550,7 @@ Out of the 1:1 interviews and responses to the initial survey, members of the co
 
 Here are all of the ideas the community generated, in the order they were shared for voting.
 
-**YYJ Tech might be better if we…**
+**Would YYJ Tech be better if we…**
 * had an on boarding and channel discovery experience to help people find smaller communities aligned with their interests and hobbies
 * created a more formal directory of folks to assist with networking and learning more about culture fit (leaning into #buy-a-coffee)
 * create a log of past incidents and how they were handled to help build confidence in moderation
