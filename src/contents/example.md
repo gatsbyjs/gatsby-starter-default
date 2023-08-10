@@ -2,12 +2,9 @@
 slug: "/example"
 ---
 
-## Table of Contents
+```toc
 
-[Headers](#headers) [Emphasis](#emphasis) [Lists](#lists) [Links](#links)
-[Images](#images) [Tables](#tables) [Footnotes](#footnotes)
-[Blockquotes](#blockquotes) [Inline HTML](#html) [Horizontal Rule](#hr)
-[Line Breaks](#lines)
+```
 
 <a href="headers">
 

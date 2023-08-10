@@ -65,11 +65,16 @@ The fastest way to combine your favorite tools and APIs to build the fastest sit
 
 To create a new page in Gatsby, this project has been set up to work from Markdown
 
-Decide in the url, e.g. "community-resources"
+Decide on the url, e.g. "community-resources"
 
 1. Duplicate the `pages/example.js` page and rename the file to the url you have decided on (e.g. `community-resources.js`)
-2. Replace the `const Example` on line 9 and `export default Example` line at the end of the file with your url name e.g. `const CommunityResources` and `export default CommunityResources`
-3. Duplicate the `contents/example.md` file
-4. Rename the file to match your url e.g. `community-resources.md`
-5. Replace the slug parameter with your desired url e.g. `slug: "/community-resources"` 
-6. If you now use the `npm start` command, if you've done it right you will be able to see your new url in your browser 
+2. 
+3. Replace the related content in this file
+  * Replace the `const Example` on line 9 e.g. `const CommunityResources` a
+  * Repalce the query on line 34 with your file name e.g. `quuery CommunityResourcesQuery`
+  * Replace teh slug param on line 35 wit your slug e.g. ` eq: "/community-resources"`
+  * Replace `export default Example` line at the end of the file with your url name e.g. `export default CommunityResources`
+4. Duplicate the `contents/example.md` file
+5. Rename the file to match your url e.g. `community-resources.md`
+6. Replace the slug parameter with your desired url e.g. `slug: "/community-resources"` 
+7. If you now use the `npm start` command, if you've done it right you will be able to see your new url in your browser 

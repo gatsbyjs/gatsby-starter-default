@@ -95,7 +95,7 @@
 }
 
 /* I know this is "not the tailwind" way but for some reason the text-* modifiers aren't working in Markdown. Sorry not sorry! */
-.evolution {  
+.evolution, .channels {  
   & h1, h2, h3, h4 {
     @apply text-action font-heading mb-4; 
   }
