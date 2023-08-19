@@ -1,4 +1,4 @@
-import * as React from "react"
+import React from "react"
 import { Link } from "gatsby"
 
 const Header = ({ siteTitle }) => (
@@ -20,6 +20,37 @@ const Header = ({ siteTitle }) => (
     >
       {siteTitle}
     </Link>
+    <nav>
+      <Link
+        to="/"
+        style={{
+          marginRight: "1rem",
+          fontSize: `var(--font-sm)`,
+          textDecoration: `none`,
+        }}
+      >
+        Home
+      </Link>
+      <Link
+        to="/page-2"
+        style={{
+          marginRight: "1rem",
+          fontSize: `var(--font-sm)`,
+          textDecoration: `none`,
+        }}
+      >
+        Page 2
+      </Link>
+      <Link
+        to="/using-typescript"
+        style={{
+          fontSize: `var(--font-sm)`,
+          textDecoration: `none`,
+        }}
+      >
+        Using TypeScript
+      </Link>
+    </nav>
     <img
       alt="Gatsby logo"
       height={20}
