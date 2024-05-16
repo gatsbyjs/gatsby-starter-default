@@ -110,7 +110,7 @@ export const query = graphql`
     }
     page: datoCmsProductCategory(id: { eq: $id }) {
       id
-      locale
+      locales
       title
       slug
       description
@@ -161,13 +161,14 @@ export const query = graphql`
       }
     }
     categories: allDatoCmsProductCategory(
-      filter: { slug: { ne: null }, locale: { eq: $locale } }
-      sort: { fields: position, order: ASC }
+      locale: $locale
+      filter: { slug: { ne: null } }
+      sort: { position: ASC }
     ) {
       nodes {
         id
         title
-        locale
+        locales
         ...ProductCategoryPageDetails
         model {
           apiKey
@@ -175,7 +176,8 @@ export const query = graphql`
       }
     }
     products: allDatoCmsProduct(
-      filter: { category: { id: { eq: $id } }, locale: { eq: $locale } }
+      locale: $locale
+      filter: { category: { id: { eq: $id } } }
       sort: { fields: position, order: ASC }
     ) {
       nodes {
@@ -185,11 +187,11 @@ export const query = graphql`
         slug
         position
         description
-        locale
+        locales
         category {
           id
           title
-          locale
+          locales
           ...ProductCategoryPageDetails
 
           model {
@@ -205,7 +207,7 @@ export const query = graphql`
 
   fragment ProductCategoryPageDetails on DatoCmsProductCategory {
     id
-    locale
+    locales
     title
     slug
     description

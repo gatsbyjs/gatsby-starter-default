@@ -19,7 +19,7 @@ const Layout = ({ children, locale, i18nPaths }) => {
   const data = useStaticQuery(graphql`
     query SiteQuery {
       datoCmsSite: datoCmsSite {
-        locale
+        locales
       }
       gatsbySite: site {
         siteMetadata {
@@ -55,7 +55,7 @@ const Layout = ({ children, locale, i18nPaths }) => {
           <Box as="main" sx={{ pt: 5 }}>
             {children}
           </Box>
-          <Footer />
+          {/* <Footer />/ */}
         </Flex>
       </LanguageSwitcherContext.Provider>
     </i18nContext.Provider>

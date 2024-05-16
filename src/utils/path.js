@@ -42,6 +42,7 @@ export function getPagePath(page, locale) {
 }
 
 export function getHomePath(locale) {
+  console.log(locale)
   return locale === defaultLocale ? "/" : `/${locale.toLowerCase()}/`
 }
 
@@ -68,9 +69,7 @@ export function getArticleCategoryPath(page, locale) {
 export function getCategoryPath(page, locale) {
   return page.locale === defaultLocale
     ? `/${i18nPath[page.locale].category}/${page.slug}/`
-    : `/${page.locale}/${
-        i18nPath[page.locale].category
-      }/${page.slug}/`
+    : `/${page.locale}/${i18nPath[page.locale].category}/${page.slug}/`
 }
 
 export function getArticlePath(page, locale) {
@@ -84,7 +83,5 @@ export function getArticlePath(page, locale) {
 export function getProductPath(page, locale) {
   return locale === defaultLocale
     ? `/${i18nPath[locale].products}/${page.slug}/`
-    : `/${locale.toLowerCase()}/${
-        i18nPath[page.locale].products
-      }/${page.slug}/`
+    : `/${locale.toLowerCase()}/${i18nPath[page.locale].products}/${page.slug}/`
 }

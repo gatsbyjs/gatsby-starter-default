@@ -7,18 +7,18 @@ export const useMenu = () => {
     query MenuQuery {
       allDatoCmsMenu(
         filter: { root: { eq: true }, anchor: { ne: null } }
-        sort: { fields: position, order: ASC }
+        sort: { position: ASC }
       ) {
         nodes {
           id
-          locale
+          locales
           root
           anchor
           link {
             ... on DatoCmsInternalLink {
               id
               anchor
-              locale
+              locales
               model {
                 apiKey
               }
@@ -59,14 +59,14 @@ export const useMenu = () => {
           }
           treeChildren {
             id
-            locale
+            locales
             root
             anchor
             link {
               ... on DatoCmsInternalLink {
                 id
                 anchor
-                locale
+                locales
                 model {
                   apiKey
                 }
@@ -107,14 +107,14 @@ export const useMenu = () => {
             }
             treeChildren {
               id
-              locale
+              locales
               root
               anchor
               link {
                 ... on DatoCmsInternalLink {
                   id
                   anchor
-                  locale
+                  locales
                   model {
                     apiKey
                   }

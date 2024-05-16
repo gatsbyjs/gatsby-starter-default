@@ -15,26 +15,26 @@ exports.createPages = async ({ actions, graphql }) => {
         faviconMetaTags {
           ...GatsbyDatoCmsFaviconMetaTags
         }
-        locale
         locales
       }
-      home: allDatoCmsHomePage {
-        nodes {
-          id
+      home: datoCmsHomePage {
+        id
+        _allTitleLocales {
           locale
+          value
         }
       }
       blog: allDatoCmsBlogPage(filter: { title: { ne: null } }) {
         nodes {
           id
-          locale
+          locales
         }
       }
       article: allDatoCmsArticle(filter: { slug: { ne: null } }) {
         nodes {
           id
           slug
-          locale
+          locales
         }
       }
       articleCategory: allDatoCmsArticleCategory(
@@ -43,14 +43,14 @@ exports.createPages = async ({ actions, graphql }) => {
         nodes {
           id
           slug
-          locale
+          locales
         }
       }
       product: allDatoCmsProduct(filter: { slug: { ne: null } }) {
         nodes {
           slug
           id
-          locale
+          locales
           category {
             id
             slug
@@ -61,14 +61,14 @@ exports.createPages = async ({ actions, graphql }) => {
         nodes {
           slug
           id
-          locale
+          locales
         }
       }
       page: allDatoCmsPage(filter: { slug: { ne: null } }) {
         nodes {
           id
           slug
-          locale
+          locales
           root
           treeParent {
             slug
@@ -106,7 +106,6 @@ exports.createPages = async ({ actions, graphql }) => {
   }
 
   function getCategoryPath(page) {
-    
     return page.locale === data.site.locale
       ? `/${i18nPath[page.locale.toLowerCase()].category}/${page.slug}/`
       : `/${page.locale.toLowerCase()}/${
@@ -158,89 +157,83 @@ exports.createPages = async ({ actions, graphql }) => {
         ].products.toLowerCase()}/${page.slug}/`
   }
 
-  data.home.nodes.map(page =>
+  console.log(data.home)
+
+  data.home._allTitleLocales.map(page =>
     actions.createPage({
       path:
-        page.locale === data.site.locale
+        page.locale === data.site.locales[0]
           ? "/"
           : `/${page.locale.toLowerCase()}/`,
       component: require.resolve(`./src/templates/home.js`),
-      context: { id: page.id, locale: page.locale },
+      context: { locale: page.locale },
     })
   )
 
-  data.page.nodes.map(page =>
-    actions.createPage({
-      path: getPagePath(page),
-      component: require.resolve(`./src/templates/page.js`),
-      context: { id: page.id, locale: page.locale  },
-    })
-  )
+  // data.page.nodes.map(page =>
+  //   actions.createPage({
+  //     path: getPagePath(page),
+  //     component: require.resolve(`./src/templates/page.js`),
+  //     context: { id: page.id, locale: page.locale  },
+  //   })
+  // )
 
-  data.blog.nodes.map(page =>
-    actions.createPage({
-      path: getBlogPath(page),
-      component: require.resolve(`./src/templates/blog.js`),
-      context: { id: page.id, locale: page.locale },
-    })
-  )
+  // data.blog.nodes.map(page =>
+  //   actions.createPage({
+  //     path: getBlogPath(page),
+  //     component: require.resolve(`./src/templates/blog.js`),
+  //     context: { id: page.id, locale: page.locale },
+  //   })
+  // )
 
-  data.article.nodes.map(page =>
-    actions.createPage({
-      path: getArticlePath(page),
-      component: require.resolve(`./src/templates/article.js`),
-      context: { id: page.id, locale: page.locale },
-    })
-  )
+  // data.article.nodes.map(page =>
+  //   actions.createPage({
+  //     path: getArticlePath(page),
+  //     component: require.resolve(`./src/templates/article.js`),
+  //     context: { id: page.id, locale: page.locale },
+  //   })
+  // )
 
-  data.articleCategory.nodes.map(page =>
-    actions.createPage({
-      path: getArticleCategoryPath(page),
-      component: require.resolve(`./src/templates/articleCategory.js`),
-      context: { id: page.id, locale: page.locale },
-    })
-  )
+  // data.articleCategory.nodes.map(page =>
+  //   actions.createPage({
+  //     path: getArticleCategoryPath(page),
+  //     component: require.resolve(`./src/templates/articleCategory.js`),
+  //     context: { id: page.id, locale: page.locale },
+  //   })
+  // )
 
-  data.site.locales.map(locale =>
-    actions.createPage({
-      path:
-        data.site.locale === locale
-          ? `/${i18nPath[locale].search}/`
-          : `/${locale.toLowerCase()}/${
-              i18nPath[locale.toLowerCase()].search
-            }/`,
-      component: require.resolve(`./src/templates/search.js`),
-      context: { locale: locale },
-    })
-  )
+  // data.site.locales.map(locale =>
+  //   actions.createPage({
+  //     path:
+  //       data.site.locale === locale
+  //         ? `/${i18nPath[locale].search}/`
+  //         : `/${locale.toLowerCase()}/${
+  //             i18nPath[locale.toLowerCase()].search
+  //           }/`,
+  //     component: require.resolve(`./src/templates/search.js`),
+  //     context: { locale: locale },
+  //   })
+  // )
 
-  data.category.nodes.map(page =>
-    actions.createPage({
-      path: getCategoryPath(page),
-      component: require.resolve(`./src/templates/productCategory.js`),
-      context: { id: page.id, locale: page.locale },
-    })
-  )
+  // data.category.nodes.map(page =>
+  //   actions.createPage({
+  //     path: getCategoryPath(page),
+  //     component: require.resolve(`./src/templates/productCategory.js`),
+  //     context: { id: page.id, locale: page.locale },
+  //   })
+  // )
 
-  data.product.nodes.map(product =>
-    product.slug
-      ? actions.createPage({
-          path: getProductPath(product),
-          component: require.resolve(`./src/templates/product.js`),
-          context: {
-            categoryId: product.category.id,
-            id: product.id,
-            locale: product.locale
-          },
-        })
-      : null
-  )
-
-    createPage({
-      path: "/using-dsg",
-      component: require.resolve("./src/templates/using-dsg.js"),
-      context: {},
-      defer: true,
-    })
-
+  // data.product.nodes.map(product =>
+  //   product.slug
+  //     ? actions.createPage({
+  //         path: getProductPath(product),
+  //         component: require.resolve(`./src/templates/product.js`),
+  //         context: {
+  //           categoryId: product.category.id,
+  //           id: product.id,
+  //           locale: product.locale
+  //         },
+  //       })
+  //     : null
+  // )
 }

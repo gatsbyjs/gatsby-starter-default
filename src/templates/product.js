@@ -16,7 +16,7 @@ import { useFavicon } from "../hooks/useFavicon"
 // )
 
 const Page = ({ data: { page, site }, location }) => {
-const favicon = useFavicon().site.faviconMetaTags
+  const favicon = useFavicon().site.faviconMetaTags
 
   const pageCategory =
     location.state && location.state.category
@@ -97,14 +97,14 @@ export const query = graphql`
       title
       slug
       description
-      locale
+      locales
       seoMetaTags {
         ...GatsbyDatoCmsSeoMetaTags
       }
       category {
         id
         title
-        locale
+        locales
         ...ProductCategoryPageDetails
 
         categoryImageHero: heroImage {
@@ -142,19 +142,20 @@ export const query = graphql`
       }
     }
     products: allDatoCmsProduct(
-      filter: { category: { id: { eq: $categoryId } }, locale: { eq: $locale } }
-      sort: { fields: position, order: ASC }
+      locale: $locale
+      filter: { category: { id: { eq: $categoryId } } }
+      sort: { position: ASC }
     ) {
       nodes {
         id
         slug
-        locale
+        locales
         ...AllProductSlugLocales
         title
         category {
           id
           title
-          locale
+          locales
           ...ProductCategoryPageDetails
 
           model {
@@ -170,7 +171,7 @@ export const query = graphql`
     title
     slug
     description
-    locale
+    locales
     model {
       apiKey
     }

@@ -256,7 +256,6 @@ export const query = graphql`
             postalCode
             streetAddress
             telephone
-            locale
           }
           model {
             apiKey
@@ -395,7 +394,7 @@ export const query = graphql`
         ... on DatoCmsInternalLink {
           id: originalId
           anchor
-          locale
+          locales
           model {
             apiKey
           }
@@ -435,7 +434,7 @@ export const query = graphql`
 
   fragment PageDetails on DatoCmsPage {
     id
-    locale
+    locales
     title
     slug
     root
@@ -467,14 +466,14 @@ export const query = graphql`
       title
       slug
       root
-      locale
+      locales
       ...AllSlugLocales
       treeParent {
         id
         title
         slug
         root
-        locale
+        locales
         ...AllSlugLocales
       }
     }

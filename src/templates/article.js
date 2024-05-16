@@ -129,7 +129,7 @@ export const query = graphql`
 
   fragment ArticleDetails on DatoCmsArticle {
     id
-    locale
+    locales
     title
     slug
     model {
