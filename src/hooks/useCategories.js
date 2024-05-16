@@ -10,7 +10,7 @@ export const useCategories = () => {
           id
           slug
           title
-          locale
+          locales
           image {
             gatsbyImageData(
               width: 1920
@@ -28,13 +28,5 @@ export const useCategories = () => {
     }
   `)
 
-  const locale = React.useContext(LanguageSwitcherContext).activeLocale
-  
-  const i18nCategories = categories.allDatoCmsProductCategory.nodes.filter(
-    categories => {
-      return categories.locale === locale
-    }
-  )
-
-  return i18nCategories;
+  return categories
 }

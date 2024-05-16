@@ -10,8 +10,8 @@ import { HelmetDatoCms } from "gatsby-source-datocms"
 import { useFavicon } from "../hooks/useFavicon"
 
 const Blog = ({ data: { page, articles, articleCategories, site } }) => {
-const favicon = useFavicon().site.faviconMetaTags
-  
+  const favicon = useFavicon().site.faviconMetaTags
+
   // console.log(articleCategories)
   const i18nPaths = site.locales.map(locale => {
     return {
@@ -45,8 +45,9 @@ export const query = graphql`
       }
     }
     articles: allDatoCmsArticle(
-      sort: { fields: meta___firstPublishedAt, order: DESC }
-      filter: { slug: { ne: null }, locale: { eq: $locale } }
+      locale: $locale
+      sort: { meta: { firstPublishedAt: DESC } }
+      filter: { slug: { ne: null } }
     ) {
       nodes {
         ...ArticleDetails
@@ -55,8 +56,9 @@ export const query = graphql`
       }
     }
     articleCategories: allDatoCmsArticleCategory(
+      locale: $locale
       sort: { fields: position, order: ASC }
-      filter: { slug: { ne: null }, locale: { eq: $locale } }
+      filter: { slug: { ne: null } }
     ) {
       nodes {
         ...ArticleCategoryDetails
@@ -70,7 +72,7 @@ export const query = graphql`
 
   fragment BlogDetails on DatoCmsBlogPage {
     id
-    locale
+    locales
     title
     model {
       apiKey

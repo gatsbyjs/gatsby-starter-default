@@ -16,6 +16,8 @@ const Footer = () => {
   const social = useSocial()
   const locations = useLocation()
 
+  console.log(footer, company, social, locations)
+
   footer.map(footerItem => {
     footerItem.treeChildren.sort((a, b) => a.position - b.position)
     footerItem.treeChildren.map(footerItem => {

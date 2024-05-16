@@ -3,22 +3,22 @@ import { useStaticQuery, graphql } from "gatsby"
 import { LanguageSwitcherContext } from "../context/languageSwitcherContext"
 
 export const useFooter = () => {
-  const menu = useStaticQuery(graphql`
+  const footer = useStaticQuery(graphql`
     query FooterQuery {
       allDatoCmsFooter(
         filter: { root: { eq: true }, anchor: { ne: null } }
-        sort: { fields: position, order: ASC }
+        sort: { position: ASC }
       ) {
         nodes {
           id
-          locale
+          locales
           root
           anchor
           link {
             ... on DatoCmsInternalLink {
               id
               anchor
-              locale
+              locales
               model {
                 apiKey
               }
@@ -52,7 +52,7 @@ export const useFooter = () => {
           }
           treeChildren {
             id
-            locale
+            locales
             root
             anchor
             position
@@ -60,7 +60,7 @@ export const useFooter = () => {
               ... on DatoCmsInternalLink {
                 id
                 anchor
-                locale
+                locales
                 model {
                   apiKey
                 }
@@ -94,14 +94,14 @@ export const useFooter = () => {
             }
             treeChildren {
               id
-              locale
+              locales
               root
               anchor
               link {
                 ... on DatoCmsInternalLink {
                   id
                   anchor
-                  locale
+                  locales
                   model {
                     apiKey
                   }
@@ -140,11 +140,5 @@ export const useFooter = () => {
     }
   `)
 
-  const locale = React.useContext(LanguageSwitcherContext).activeLocale
-
-  const i18nFooter = menu.allDatoCmsFooter.nodes.filter(
-    link => link.locale === locale
-  )
-
-  return i18nFooter
+  return footer.allDatoCmsFooter.nodes
 }

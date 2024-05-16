@@ -8,7 +8,7 @@ export const useSocial = () => {
       allDatoCmsSocial {
         nodes {
           id
-          locale
+          locales
           facebook
           linkedin
           instagram
@@ -19,12 +19,5 @@ export const useSocial = () => {
     }
   `)
   
-  const locale = React.useContext(LanguageSwitcherContext).activeLocale
-  const i18nSocial = socials.allDatoCmsSocial.nodes.filter(
-    social => {
-      return social.locale === locale
-    }
-  )
-
-  return i18nSocial[0]
+  return socials.allDatoCmsSocial.nodes[0]
 }
