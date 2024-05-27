@@ -8,10 +8,9 @@ import LanguageSwitcher from "./languageSwitcher"
 import { debounce } from "lodash"
 import { LanguageSwitcherContext } from "../context/languageSwitcherContext"
 
-const Nav = () => {
-  const locale = React.useContext(LanguageSwitcherContext).activeLocale
+const Nav = ({}) => {
   const menu = useMenu()
-
+  const locale = React.useContext(LanguageSwitcherContext).activeLocale
   menu.map(menuItem => {
     menuItem.treeChildren.sort((a, b) => a.position - b.position)
     menuItem.treeChildren.map(menuItem => {
@@ -20,7 +19,7 @@ const Nav = () => {
       }
     })
   })
-  
+
   return (
     <Box as="nav">
       <Container variant="header" sx={{ paddingX: [3, 4] }}>
@@ -79,7 +78,7 @@ const TextComponent = ({ item, locale, index }) => {
       onMouseLeave={() => handlOnMouseLeaveMenu()}
     >
       {item.link ? (
-        <MagicLink item={item.link} locale={locale}  ></MagicLink>
+        <MagicLink item={item.link} locale={locale}></MagicLink>
       ) : (
         <Box sx={{ cursor: "default" }}>{item.anchor}</Box>
       )}

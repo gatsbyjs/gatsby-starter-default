@@ -15,7 +15,9 @@ import Hreflang from "./hreflang"
 import Footer from "./footer"
 import Canonical from "./canonical"
 
-const Layout = ({ children, locale, i18nPaths }) => {
+const Layout = ({ children, locale, i18nPaths, pageContext }) => {
+  console.log(locale)
+
   const data = useStaticQuery(graphql`
     query SiteQuery {
       datoCmsSite: datoCmsSite {
@@ -51,7 +53,7 @@ const Layout = ({ children, locale, i18nPaths }) => {
             minHeight: "100vh",
           }}
         >
-          <Header />
+          <Header locale={locale} />
           <Box as="main" sx={{ pt: 5 }}>
             {children}
           </Box>

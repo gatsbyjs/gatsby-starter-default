@@ -1,4 +1,4 @@
-const defaultLocale = "it"
+const defaultLocale = "it" //cambiare in base al default del site
 
 const i18nPath = {
   it: {
@@ -42,16 +42,20 @@ export function getPagePath(page, locale) {
 }
 
 export function getHomePath(locale) {
-  console.log(locale)
+  console.log("Locale:", locale)
   return locale === defaultLocale ? "/" : `/${locale.toLowerCase()}/`
 }
 
 export function getSearchPath(locale) {
-  return locale === defaultLocale
-    ? `/${i18nPath[locale].search}/`
-    : `/${locale.toLowerCase()}/${i18nPath[locale].search}/`
+  console.log("Locale:", locale)
+  if (typeof locale !== "string") {
+    console.error(new Error(`Stack trace:`).stack)
+    throw new Error(
+      `Expected string but received ${typeof locale}: ${JSON.stringify(locale)}`
+    )
+  }
+  return `/${locale.toLowerCase()}/search/`
 }
-
 export function getBlogPath(locale) {
   return locale === defaultLocale ? `/blog/` : `/${locale.toLowerCase()}/blog/`
 }
