@@ -15,8 +15,19 @@ import { useFavicon } from "../hooks/useFavicon"
 // )
 
 const Page = ({
-  data: { page, categories, products, site, articles, contactFooter },
+  data: {
+    page,
+    categories,
+    products,
+    site,
+    articles,
+    contactFooter,
+    pageContext,
+  },
 }) => {
+  const locale = pageContext.locale
+
+  console.log(locale)
   const favicon = useFavicon().site.faviconMetaTags
   const pageAllSlugLocales = page._allSlugLocales.sort(function (a, b) {
     return site.locales.indexOf(a.locale) - site.locales.indexOf(b.locale)
@@ -33,7 +44,7 @@ const Page = ({
   })
 
   return (
-    <Layout locale={page.locale} i18nPaths={i18nPaths}>
+    <Layout locale={locale} i18nPaths={i18nPaths}>
       <HelmetDatoCms seo={page.seoMetaTags} favicon={favicon}>
         <html lang={page.locale} />
       </HelmetDatoCms>
@@ -73,7 +84,7 @@ const Page = ({
                             <InboundLink
                               variant="normalDarkLink"
                               sx={{ fontSize: "body" }}
-                              to={getCategoryPath(category, page.locale)}
+                              to={getCategoryPath(category, locale)}
                             >
                               {category.title}
                             </InboundLink>

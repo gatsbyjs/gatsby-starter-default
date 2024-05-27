@@ -15,11 +15,10 @@ import ArticleTitle from "../components/articleTitle"
 import { HelmetDatoCms } from "gatsby-source-datocms"
 import { useFavicon } from "../hooks/useFavicon"
 
-const Article = ({ data: { page } }) => {
-
+const Article = ({ data: { page, site, footer }, pageContext }) => {
   const favicon = useFavicon().site.faviconMetaTags
-
-  // console.log(page)
+  const locale = pageContext.locale
+  console.log(footer)
   const i18nPaths = page._allSlugLocales.map(path => {
     return {
       locale: path.locale,
@@ -27,9 +26,8 @@ const Article = ({ data: { page } }) => {
     }
   })
 
-  
   return (
-    <Layout locale={page.locale} i18nPaths={i18nPaths}>
+    <Layout locale={locale} i18nPaths={i18nPaths} footerData={footer.nodes}>
       <HelmetDatoCms seo={page.seoMetaTags} favicon={favicon}>
         <html lang={page.locale} />
       </HelmetDatoCms>
@@ -110,6 +108,15 @@ export const query = graphql`
       }
       seoMetaTags {
         ...GatsbyDatoCmsSeoMetaTags
+      }
+    }
+    footer: allDatoCmsFooter(
+      locale: $locale
+      filter: { root: { eq: true }, anchor: { ne: null } }
+      sort: { position: ASC }
+    ) {
+      nodes {
+        ...FooterDetails
       }
     }
   }

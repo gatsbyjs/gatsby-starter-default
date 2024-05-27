@@ -35,6 +35,10 @@ exports.createPages = async ({ actions, graphql }) => {
           id
           slug
           locales
+          _allSlugLocales {
+            value
+            locale
+          }
         }
       }
       articleCategory: allDatoCmsArticleCategory(
@@ -51,6 +55,10 @@ exports.createPages = async ({ actions, graphql }) => {
           slug
           id
           locales
+          _allSlugLocales {
+            value
+            locale
+          }
           category {
             id
             slug
@@ -121,7 +129,21 @@ exports.createPages = async ({ actions, graphql }) => {
           i18nPath[page.locale.toLowerCase()].category
         }/${page.slug}/`
   }
-
+  function getArticlePath(page, locale) {
+    let lang = locale === defaultLocale ? "" : `${locale.toLowerCase()}/`
+    let path = page._allSlugLocales.find(
+      slugLocale => slugLocale.locale === locale
+    ).value
+    return `${lang}blog/${path}/`
+  }
+  function getProductPath(page, locale) {
+    let lang = locale === defaultLocale ? "" : `${locale.toLowerCase()}/`
+    let path = page._allSlugLocales.find(
+      slugLocale => slugLocale.locale === locale
+    ).value
+    let productPath = i18nPath[locale].products.toLowerCase()
+    return `${lang}${productPath}/${path}/`
+  }
   function getPagePath(page, locale) {
     let lang = locale === defaultLocale ? "" : `${locale.toLowerCase()}/`
     let path = page._allSlugLocales.find(
@@ -160,20 +182,6 @@ exports.createPages = async ({ actions, graphql }) => {
         }/${page.slug}/`
   }
 
-  function getArticlePath(page) {
-    return page.locale === data.site.locale
-      ? `/blog/${page.slug}/`
-      : `/${page.locale.toLowerCase()}/blog/${page.slug}/`
-  }
-
-  function getProductPath(page) {
-    return page.locale === data.site.locale
-      ? `/${i18nPath[page.locale.toLowerCase()].products}/${page.slug}/`
-      : `/${page.locale.toLowerCase()}/${i18nPath[
-          page.locale
-        ].products.toLowerCase()}/${page.slug}/`
-  }
-
   console.log(data.home)
 
   data.home._allTitleLocales.map(title =>
@@ -204,15 +212,28 @@ exports.createPages = async ({ actions, graphql }) => {
   //     context: { id: page.id, locale: page.locale },
   //   })
   // )
-
-  // data.article.nodes.map(page =>
-  //   actions.createPage({
-  //     path: getArticlePath(page),
-  //     component: require.resolve(`./src/templates/article.js`),
-  //     context: { id: page.id, locale: page.locale },
-  //   })
-  // )
-
+  data.product.nodes.map(page =>
+    page._allSlugLocales.map(slug =>
+      actions.createPage({
+        path: getProductPath(page, slug.locale),
+        component: require.resolve(`./src/templates/product.js`),
+        context: {
+          id: page.id,
+          locale: slug.locale,
+          categoryId: page.category.id,
+        },
+      })
+    )
+  )
+  data.article.nodes.map(page =>
+    page._allSlugLocales.map(slug =>
+      actions.createPage({
+        path: getArticlePath(page, slug.locale),
+        component: require.resolve(`./src/templates/article.js`),
+        context: { id: page.id, locale: slug.locale },
+      })
+    )
+  )
   // data.articleCategory.nodes.map(page =>
   //   actions.createPage({
   //     path: getArticleCategoryPath(page),
@@ -235,19 +256,5 @@ exports.createPages = async ({ actions, graphql }) => {
   //     component: require.resolve(`./src/templates/productCategory.js`),
   //     context: { id: page.id, locale: page.locale },
   //   })
-  // )
-
-  // data.product.nodes.map(product =>
-  //   product.slug
-  //     ? actions.createPage({
-  //         path: getProductPath(product),
-  //         component: require.resolve(`./src/templates/product.js`),
-  //         context: {
-  //           categoryId: product.category.id,
-  //           id: product.id,
-  //           locale: product.locale
-  //         },
-  //       })
-  //     : null
   // )
 }
