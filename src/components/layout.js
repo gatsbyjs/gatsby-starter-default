@@ -14,8 +14,9 @@ import { LanguageSwitcherContext } from "../context/languageSwitcherContext"
 import Hreflang from "./hreflang"
 import Footer from "./footer"
 import Canonical from "./canonical"
+import { FooterContext } from "../context/footerContext"
 
-const Layout = ({ children, locale, i18nPaths, pageContext }) => {
+const Layout = ({ children, locale, i18nPaths, footerData }) => {
   console.log(locale)
 
   const data = useStaticQuery(graphql`
@@ -38,27 +39,29 @@ const Layout = ({ children, locale, i18nPaths, pageContext }) => {
       <LanguageSwitcherContext.Provider
         value={{ activeLocale: locale, paths: i18nPaths || [] }}
       >
-        <Hreflang
-          paths={i18nPaths}
-          siteUrl={data.gatsbySite.siteMetadata.siteUrl}
-        />
-        <Canonical
-          siteUrl={data.gatsbySite.siteMetadata.siteUrl}
-          paths={i18nPaths}
-        />
-        <Flex
-          sx={{
-            flexDirection: "column",
-            justifyContent: "space-between",
-            minHeight: "100vh",
-          }}
-        >
-          <Header locale={locale} />
-          <Box as="main" sx={{ pt: 5 }}>
-            {children}
-          </Box>
-          {/* <Footer />/ */}
-        </Flex>
+        <FooterContext.Provider value={footerData}>
+          <Hreflang
+            paths={i18nPaths}
+            siteUrl={data.gatsbySite.siteMetadata.siteUrl}
+          />
+          <Canonical
+            siteUrl={data.gatsbySite.siteMetadata.siteUrl}
+            paths={i18nPaths}
+          />
+          <Flex
+            sx={{
+              flexDirection: "column",
+              justifyContent: "space-between",
+              minHeight: "100vh",
+            }}
+          >
+            <Header locale={locale} />
+            <Box as="main" sx={{ pt: 5 }}>
+              {children}
+            </Box>
+            <Footer />
+          </Flex>
+        </FooterContext.Provider>
       </LanguageSwitcherContext.Provider>
     </i18nContext.Provider>
   )

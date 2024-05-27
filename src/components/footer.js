@@ -1,7 +1,6 @@
 import { Box, Container, Flex, Grid, Text, Image } from "@theme-ui/components"
-import React from "react"
+import React, { useContext } from "react"
 import { useCompany } from "../hooks/useCompany"
-import { useFooter } from "../hooks/useFooter"
 import { MagicLink } from "../utils/magicLink"
 import { useSocial } from "../hooks/useSocial"
 import { useLocation } from "../hooks/useLocation"
@@ -9,14 +8,15 @@ import { i18nContext } from "../context/i18nContext"
 import { Facebook, Instagram, Youtube, Linkedin } from "react-feather"
 import Logo from "../images/logo.svg"
 import { MapPin, Mail } from "react-feather"
+import { LanguageSwitcherContext } from "../context/languageSwitcherContext"
+import { FooterContext } from "../context/footerContext"
 
 const Footer = () => {
-  const footer = useFooter()
+  const footer = useContext(FooterContext)
   const company = useCompany()
   const social = useSocial()
   const locations = useLocation()
-
-  console.log(footer, company, social, locations)
+  const locale = useContext(LanguageSwitcherContext).activeLocale
 
   footer.map(footerItem => {
     footerItem.treeChildren.sort((a, b) => a.position - b.position)
@@ -170,7 +170,7 @@ const Footer = () => {
                           sx={{ fontWeight: "bold", mb: 2, display: "block" }}
                         >
                           {link.link ? (
-                            <MagicLink item={link.link} />
+                            <MagicLink item={link.link} locale={locale} />
                           ) : (
                             link.anchor
                           )}
@@ -179,7 +179,7 @@ const Footer = () => {
                           {link.treeChildren.map(link => (
                             <Item>
                               {link.link ? (
-                                <MagicLink item={link.link} />
+                                <MagicLink item={link.link} locale={locale} />
                               ) : (
                                 link.anchor
                               )}
