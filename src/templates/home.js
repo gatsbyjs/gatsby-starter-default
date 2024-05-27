@@ -8,6 +8,7 @@ import { useFavicon } from "../hooks/useFavicon"
 
 const Home = ({ data: { page, site }, pageContext }) => {
   const locale = pageContext.locale
+  console.log(site)
   const favicon = useFavicon().site.faviconMetaTags
   const i18nPaths = site.locales.map(locale => {
     return {

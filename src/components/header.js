@@ -3,7 +3,7 @@ import { Link } from "gatsby"
 import { Box } from "@theme-ui/components"
 import Nav from "./nav"
 
-const Header = () => {
+const Header = locale => {
   return (
     <Box
       as="header"
@@ -16,7 +16,7 @@ const Header = () => {
         zIndex: "9999",
       }}
     >
-      <Nav />
+      <Nav locale={locale} />
     </Box>
   )
 }

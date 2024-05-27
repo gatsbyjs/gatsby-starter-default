@@ -12,8 +12,9 @@ const SearchResultsComponents = loadable(
   { ssr: false }
 )
 
-
 const SearchPage = ({ data: { site }, pageContext }) => {
+  const locale = pageContext.locale
+
   const i18nPaths = site.locales.map(locale => {
     return {
       locale: locale,
@@ -28,11 +29,11 @@ const SearchPage = ({ data: { site }, pageContext }) => {
           <>
             <Helmet>
               <html lang={pageContext.locale} />
-              <title>{t.search}</title>
+{/*               <title>{t.search}</title> */}
             </Helmet>
             <Container>
               <Text as="h1" variant="h1">
-                {t.search}
+                {/*      {t.search} */}
               </Text>
               <SearchResultsComponents locale={pageContext.locale} />
             </Container>

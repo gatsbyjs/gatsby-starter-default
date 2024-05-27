@@ -28,8 +28,9 @@ const LocationsMap = loadable(
   { ssr: false }
 )
 
-const Page = ({ data: { page , site } }) => {
-
+const Page = ({ data: { page, site }, pageContext }) => {
+  const locale = pageContext.locale
+  console.log(pageContext.locale)
   const favicon = useFavicon().site.faviconMetaTags
 
   const pageAllSlugLocales = page._allSlugLocales.sort(function (a, b) {
@@ -44,7 +45,7 @@ const Page = ({ data: { page , site } }) => {
   })
 
   return (
-    <Layout locale={page.locale} i18nPaths={i18nPaths}>
+    <Layout locale={locale} i18nPaths={i18nPaths}>
       <HelmetDatoCms seo={page.seoMetaTags} favicon={favicon}>
         <html lang={page.locale} />
       </HelmetDatoCms>
@@ -88,6 +89,7 @@ const Page = ({ data: { page , site } }) => {
           )}
           {block.model.apiKey === "contact_form" && (
             <ContactForm
+              block={block}
               kicker={block.kicker}
               title={block.title}
               subtitle={block.subtitle}
@@ -123,7 +125,7 @@ const Page = ({ data: { page , site } }) => {
               newsletterDescription={block.newsletterDescription}
             />
           )}
-          
+
           {block.model.apiKey === "image_and_text" && (
             <ImageAndText
               label={block.content.label}
@@ -141,7 +143,6 @@ const Page = ({ data: { page , site } }) => {
               description={block.description}
             />
           )}
-          
         </Box>
       ))}
     </Layout>

@@ -1,6 +1,6 @@
 import React from "react"
 import { Box, Flex } from "@theme-ui/components"
-import { InboundLink, OutboundLink  } from "./link"
+import { InboundLink, OutboundLink } from "./link"
 import {
   getArticleCategoryPath,
   getBlogPath,
@@ -8,9 +8,10 @@ import {
   getCategoryPath,
   getPagePath,
 } from "../utils/path"
-
-const Breadcrumbs = ({ page , productCategory = undefined}) => {
-  // console.log(page)
+import { LanguageSwitcherContext } from "../context/languageSwitcherContext"
+const Breadcrumbs = ({ page, productCategory = undefined }) => {
+  const locale = React.useContext(LanguageSwitcherContext).activeLocale
+  console.log(locale)
   function renderSwitch(page) {
     switch (page.model.apiKey) {
       case "product":
@@ -18,7 +19,7 @@ const Breadcrumbs = ({ page , productCategory = undefined}) => {
           <ProductBreadcrumbs
             page={page}
             pageCategory={
-              productCategory ? productCategory : (page.category && page.category)
+              productCategory ? productCategory : page.category && page.category
             }
           />
         )
@@ -31,16 +32,19 @@ const Breadcrumbs = ({ page , productCategory = undefined}) => {
     }
   }
 
-  const ProductBreadcrumbs = ({ page, pageCategory}) => (
+  const ProductBreadcrumbs = ({ page, pageCategory }) => (
     <List>
       <Item>
-        <InboundLink color="secondary" to={getHomePath(page.locale)}>
+        <InboundLink color="secondary" to={getHomePath(locale)}>
           Home
         </InboundLink>
       </Item>
       {pageCategory && (
         <Item>
-          <InboundLink color="secondary" to={getCategoryPath(pageCategory,pageCategory.locale)}>
+          <InboundLink
+            color="secondary"
+            to={getCategoryPath(pageCategory, pageCategory.locale)}
+          >
             {pageCategory.title}
           </InboundLink>
         </Item>
@@ -49,11 +53,10 @@ const Breadcrumbs = ({ page , productCategory = undefined}) => {
     </List>
   )
 
-
   const CategoryBreadcrumbs = ({ page }) => (
     <List>
       <Item>
-        <InboundLink color="secondary" to={getHomePath(page.locale)}>
+        <InboundLink color="secondary" to={getHomePath(locale)}>
           Home
         </InboundLink>
       </Item>
@@ -66,7 +69,9 @@ const Breadcrumbs = ({ page , productCategory = undefined}) => {
       )}
       {page.treeParent && (
         <Item>
-          <InboundLink to={getCategoryPath(page.treeParent)}>{page.treeParent.title}</InboundLink>
+          <InboundLink to={getCategoryPath(page.treeParent)}>
+            {page.treeParent.title}
+          </InboundLink>
         </Item>
       )}
       <Item color="light">{page.title}</Item>
@@ -76,11 +81,13 @@ const Breadcrumbs = ({ page , productCategory = undefined}) => {
   const PageBreadcrumbs = ({ page }) => (
     <List>
       <Item>
-        <InboundLink color="light" to={getHomePath(page.locale)}>Home</InboundLink>
+        <InboundLink color="light" to={getHomePath(locale)}>
+          Home
+        </InboundLink>
       </Item>
       {page.treeParent && page.treeParent.treeParent && (
         <Item>
-          <InboundLink to={getPagePath(page.treeParent.treeParent)}>
+          <InboundLink to={getPagePath(page.treeParent.treeParent, locale)}>
             {page.treeParent.treeParent.title ||
               page.treeParent.treeParent.name}
           </InboundLink>
@@ -88,7 +95,9 @@ const Breadcrumbs = ({ page , productCategory = undefined}) => {
       )}
       {page.treeParent && (
         <Item>
-          <InboundLink to={getPagePath(page.treeParent)}>{page.treeParent.title}</InboundLink>
+          <InboundLink to={getPagePath(page.treeParent, locale)}>
+            {page.treeParent.title}
+          </InboundLink>
         </Item>
       )}
       <Item>{page.title}</Item>
@@ -98,14 +107,14 @@ const Breadcrumbs = ({ page , productCategory = undefined}) => {
   const ArticleBreadcrumbs = ({ page }) => (
     <List>
       <Item>
-        <InboundLink to={getHomePath(page.locale)}>Home</InboundLink>
+        <InboundLink to={getHomePath(locale)}>Home</InboundLink>
       </Item>
       <Item>
-        <InboundLink to={getBlogPath(page.locale)}>Blog</InboundLink>
+        <InboundLink to={getBlogPath(locale)}>Blog</InboundLink>
       </Item>
       {page.category && (
         <Item>
-          <InboundLink to={getArticleCategoryPath(page.category, page.locale)}>
+          <InboundLink to={getArticleCategoryPath(page.category, locale)}>
             {page.category.title}
           </InboundLink>
         </Item>

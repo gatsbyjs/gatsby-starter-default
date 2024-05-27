@@ -11,7 +11,7 @@ import { InboundLink, OutboundLink } from "../components/link"
 
 const MagicLink = props => {
   
-  const item = props.item;
+  const item = props.item; // sostituire (dovrà essere il context) 
 
   if (item) {
     if (item.link) {

@@ -67,15 +67,23 @@ exports.createPages = async ({ actions, graphql }) => {
       page: allDatoCmsPage(filter: { slug: { ne: null } }) {
         nodes {
           id
-          slug
-          locales
+          _allSlugLocales {
+            locale
+            value
+          }
           root
           treeParent {
-            slug
+            _allSlugLocales {
+              locale
+              value
+            }
             root
             treeParent {
               slug
-              root
+              _allSlugLocales {
+                locale
+                value
+              }
             }
           }
         }
@@ -104,6 +112,7 @@ exports.createPages = async ({ actions, graphql }) => {
       products: "products",
     },
   }
+  const defaultLocale = data.site.locales[0]
 
   function getCategoryPath(page) {
     return page.locale === data.site.locale
@@ -113,19 +122,27 @@ exports.createPages = async ({ actions, graphql }) => {
         }/${page.slug}/`
   }
 
-  function getPagePath(page) {
-    let lang =
-      page.locale === data.site.locale ? "" : `${page.locale.toLowerCase()}/`
-    let path = page.slug
+  function getPagePath(page, locale) {
+    let lang = locale === defaultLocale ? "" : `${locale.toLowerCase()}/`
+    let path = page._allSlugLocales.find(
+      slugLocale => slugLocale.locale === locale
+    ).value
     if (page.root) {
       return lang + `${path}/`
     }
 
-    path = `${page.treeParent.slug}/${path}/`
+    let parentPath = page.treeParent._allSlugLocales.find(
+      slugLocale => slugLocale.locale === locale
+    ).value
+    path = `${parentPath}/${path}/`
     if (page.treeParent.root) {
       return lang + path
     }
-    path = `${page.treeParent.treeParent.slug}/${path}/`
+
+    let grandParentPath = page.treeParent.treeParent._allSlugLocales.find(
+      slugLocale => slugLocale.locale === locale
+    ).value
+    path = `${grandParentPath}/${path}/`
     return lang + path
   }
 
@@ -159,24 +176,26 @@ exports.createPages = async ({ actions, graphql }) => {
 
   console.log(data.home)
 
-  data.home._allTitleLocales.map(page =>
+  data.home._allTitleLocales.map(title =>
     actions.createPage({
       path:
-        page.locale === data.site.locales[0]
+        title.locale === defaultLocale
           ? "/"
-          : `/${page.locale.toLowerCase()}/`,
+          : `/${title.locale.toLowerCase()}/`,
       component: require.resolve(`./src/templates/home.js`),
-      context: { locale: page.locale },
+      context: { locale: title.locale },
     })
   )
 
-  // data.page.nodes.map(page =>
-  //   actions.createPage({
-  //     path: getPagePath(page),
-  //     component: require.resolve(`./src/templates/page.js`),
-  //     context: { id: page.id, locale: page.locale  },
-  //   })
-  // )
+  data.page.nodes.map(page =>
+    page._allSlugLocales.map(slug =>
+      actions.createPage({
+        path: getPagePath(page, slug.locale),
+        component: require.resolve(`./src/templates/page.js`),
+        context: { id: page.id, locale: slug.locale },
+      })
+    )
+  )
 
   // data.blog.nodes.map(page =>
   //   actions.createPage({
@@ -202,18 +221,13 @@ exports.createPages = async ({ actions, graphql }) => {
   //   })
   // )
 
-  // data.site.locales.map(locale =>
-  //   actions.createPage({
-  //     path:
-  //       data.site.locale === locale
-  //         ? `/${i18nPath[locale].search}/`
-  //         : `/${locale.toLowerCase()}/${
-  //             i18nPath[locale.toLowerCase()].search
-  //           }/`,
-  //     component: require.resolve(`./src/templates/search.js`),
-  //     context: { locale: locale },
-  //   })
-  // )
+  data.site.locales.map(locale =>
+    actions.createPage({
+      path: `/${locale.toLowerCase()}/search/`,
+      component: require.resolve(`./src/templates/search.js`),
+      context: { locale: locale },
+    })
+  )
 
   // data.category.nodes.map(page =>
   //   actions.createPage({

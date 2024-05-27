@@ -161,7 +161,7 @@ export const useMenu = () => {
   `)
 
   const locale = React.useContext(LanguageSwitcherContext).activeLocale
-
+ //fare una funciton per paragonare il locale
   const i18nMenu = menu.allDatoCmsMenu.nodes.filter(
     link => link.locale === locale
   )
