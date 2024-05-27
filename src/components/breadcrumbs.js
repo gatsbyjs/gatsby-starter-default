@@ -43,7 +43,7 @@ const Breadcrumbs = ({ page, productCategory = undefined }) => {
         <Item>
           <InboundLink
             color="secondary"
-            to={getCategoryPath(pageCategory, pageCategory.locale)}
+            to={getCategoryPath(pageCategory, locale)}
           >
             {pageCategory.title}
           </InboundLink>
@@ -62,14 +62,14 @@ const Breadcrumbs = ({ page, productCategory = undefined }) => {
       </Item>
       {page.treeParent && page.treeParent.treeParent && (
         <Item>
-          <InboundLink to={getCategoryPath(page.treeParent.treeParent)}>
+          <InboundLink to={getCategoryPath(page.treeParent.treeParent, locale)}>
             {page.treeParent.treeParent.title}
           </InboundLink>
         </Item>
       )}
       {page.treeParent && (
         <Item>
-          <InboundLink to={getCategoryPath(page.treeParent)}>
+          <InboundLink to={getCategoryPath(page.treeParent, locale)}>
             {page.treeParent.title}
           </InboundLink>
         </Item>

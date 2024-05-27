@@ -4,9 +4,11 @@ import { Box, Grid, Text, Heading, Container } from "@theme-ui/components"
 import { InboundLink } from "../link"
 import { GatsbyImage } from "gatsby-plugin-image"
 import { getCategoryPath } from "../../utils/path"
+import { LanguageSwitcherContext } from "../../context/languageSwitcherContext"
 
 const Categories = ({ page, title, description }) => {
   const categories = useCategories()
+  const locale = React.useContext(LanguageSwitcherContext).activeLocale
 
   const filteredCategories = categories.filter(
     category => category.title !== page.title
@@ -23,7 +25,7 @@ const Categories = ({ page, title, description }) => {
           return (
             <InboundLink
               variant="links.normalLink"
-              to={getCategoryPath(category, page.locale)}
+              to={getCategoryPath(category, locale)}
             >
               <Box
                 sx={{
@@ -51,10 +53,7 @@ const Categories = ({ page, title, description }) => {
                   <Box sx={{ p: [3, 3, 3, 3] }}>{category.title}</Box>
                 </Heading>
                 {category.image.gatsbyImageData && (
-                  <GatsbyImage
-                    alt=""
-                    image={category.image.gatsbyImageData}
-                  />
+                  <GatsbyImage alt="" image={category.image.gatsbyImageData} />
                 )}
               </Box>
             </InboundLink>

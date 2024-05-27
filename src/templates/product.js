@@ -15,9 +15,10 @@ import { useFavicon } from "../hooks/useFavicon"
 //   { ssr: false }
 // )
 
-const Page = ({ data: { page, site }, location }) => {
+const Page = ({ data: { page, site }, location, pageContext }) => {
   const favicon = useFavicon().site.faviconMetaTags
-
+  const locale = pageContext.locale
+  console.log(locale)
   const pageCategory =
     location.state && location.state.category
       ? page.category[
@@ -39,7 +40,7 @@ const Page = ({ data: { page, site }, location }) => {
   })
 
   return (
-    <Layout locale={page.locale} i18nPaths={i18nPaths}>
+    <Layout locale={locale} i18nPaths={i18nPaths}>
       <HelmetDatoCms seo={page.seoMetaTags} favicon={favicon}>
         <html lang={page.locale} />
       </HelmetDatoCms>

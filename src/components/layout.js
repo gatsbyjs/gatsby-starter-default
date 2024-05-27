@@ -15,8 +15,9 @@ import Hreflang from "./hreflang"
 import Footer from "./footer"
 import Canonical from "./canonical"
 import { FooterContext } from "../context/footerContext"
+import { CategoryContext } from "../context/categoryContext"
 
-const Layout = ({ children, locale, i18nPaths, footerData }) => {
+const Layout = ({ children, locale, i18nPaths, footerData, categories }) => {
   console.log(locale)
 
   const data = useStaticQuery(graphql`
@@ -40,27 +41,29 @@ const Layout = ({ children, locale, i18nPaths, footerData }) => {
         value={{ activeLocale: locale, paths: i18nPaths || [] }}
       >
         <FooterContext.Provider value={footerData}>
-          <Hreflang
-            paths={i18nPaths}
-            siteUrl={data.gatsbySite.siteMetadata.siteUrl}
-          />
-          <Canonical
-            siteUrl={data.gatsbySite.siteMetadata.siteUrl}
-            paths={i18nPaths}
-          />
-          <Flex
-            sx={{
-              flexDirection: "column",
-              justifyContent: "space-between",
-              minHeight: "100vh",
-            }}
-          >
-            <Header locale={locale} />
-            <Box as="main" sx={{ pt: 5 }}>
-              {children}
-            </Box>
-            <Footer />
-          </Flex>
+          <CategoryContext.Provider value={categories}>
+            <Hreflang
+              paths={i18nPaths}
+              siteUrl={data.gatsbySite.siteMetadata.siteUrl}
+            />
+            <Canonical
+              siteUrl={data.gatsbySite.siteMetadata.siteUrl}
+              paths={i18nPaths}
+            />
+            <Flex
+              sx={{
+                flexDirection: "column",
+                justifyContent: "space-between",
+                minHeight: "100vh",
+              }}
+            >
+              <Header locale={locale} />
+              <Box as="main" sx={{ pt: 5 }}>
+                {children}
+              </Box>
+              <Footer />
+            </Flex>
+          </CategoryContext.Provider>
         </FooterContext.Provider>
       </LanguageSwitcherContext.Provider>
     </i18nContext.Provider>
