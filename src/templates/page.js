@@ -28,7 +28,7 @@ const LocationsMap = loadable(
   { ssr: false }
 )
 
-const Page = ({ data: { page, site }, pageContext }) => {
+const Page = ({ data: { page, site, footer }, pageContext }) => {
   const locale = pageContext.locale
   console.log(pageContext.locale)
   const favicon = useFavicon().site.faviconMetaTags
@@ -45,7 +45,7 @@ const Page = ({ data: { page, site }, pageContext }) => {
   })
 
   return (
-    <Layout locale={locale} i18nPaths={i18nPaths}>
+    <Layout locale={locale} i18nPaths={i18nPaths} footerData={footer.nodes}>
       <HelmetDatoCms seo={page.seoMetaTags} favicon={favicon}>
         <html lang={page.locale} />
       </HelmetDatoCms>
@@ -156,6 +156,16 @@ export const query = graphql`
     site: datoCmsSite {
       locales
     }
+    footer: allDatoCmsFooter(
+      locale: $locale
+      filter: { root: { eq: true }, anchor: { ne: null } }
+      sort: { position: ASC }
+    ) {
+      nodes {
+        ...FooterDetails
+      }
+    }
+
     page: datoCmsPage(id: { eq: $id }) {
       ...PageDetails
       ...PageTreeParent
