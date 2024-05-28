@@ -13,7 +13,7 @@ exports.createPages = async ({ actions, graphql }) => {
     query CreatePageQuery {
       site: datoCmsSite {
         faviconMetaTags {
-          ...GatsbyDatoCmsFaviconMetaTags
+          tags
         }
         locales
       }
@@ -24,13 +24,13 @@ exports.createPages = async ({ actions, graphql }) => {
           value
         }
       }
-      blog: allDatoCmsBlogPage(filter: { title: { ne: null } }) {
+      blog: allDatoCmsBlogPage {
         nodes {
           id
           locales
         }
       }
-      article: allDatoCmsArticle(filter: { slug: { ne: null } }) {
+      article: allDatoCmsArticle {
         nodes {
           id
           slug
@@ -41,16 +41,18 @@ exports.createPages = async ({ actions, graphql }) => {
           }
         }
       }
-      articleCategory: allDatoCmsArticleCategory(
-        filter: { slug: { ne: null } }
-      ) {
+      articleCategory: allDatoCmsArticleCategory {
         nodes {
           id
           slug
           locales
+          _allSlugLocales {
+            value
+            locale
+          }
         }
       }
-      product: allDatoCmsProduct(filter: { slug: { ne: null } }) {
+      product: allDatoCmsProduct {
         nodes {
           slug
           id
@@ -65,14 +67,14 @@ exports.createPages = async ({ actions, graphql }) => {
           }
         }
       }
-      category: allDatoCmsProductCategory(filter: { slug: { ne: null } }) {
+      category: allDatoCmsProductCategory {
         nodes {
           slug
           id
           locales
         }
       }
-      page: allDatoCmsPage(filter: { slug: { ne: null } }) {
+      page: allDatoCmsPage {
         nodes {
           id
           _allSlugLocales {
@@ -96,10 +98,6 @@ exports.createPages = async ({ actions, graphql }) => {
           }
         }
       }
-    }
-
-    fragment GatsbyDatoCmsFaviconMetaTags on DatoCmsFaviconMetaTags {
-      tags
     }
   `)
 
@@ -174,9 +172,9 @@ exports.createPages = async ({ actions, graphql }) => {
       : `/${page.locale.toLowerCase()}/blog/`
   }
 
-  function getArticleCategoryPath(page) {
-    return page.locale === data.site.locale
-      ? `/blog/${i18nPath[page.locale.toLowerCase()].category}/${page.slug}/`
+  function getArticleCategoryPath(page, locale) {
+    return locale === defaultLocale
+      ? `/blog/${i18nPath[locale.toLowerCase()].category}/${page.slug}/`
       : `/${page.locale.toLowerCase()}/blog/${
           i18nPath[page.locale.toLowerCase()].category
         }/${page.slug}/`
@@ -235,11 +233,13 @@ exports.createPages = async ({ actions, graphql }) => {
     )
   )
   // data.articleCategory.nodes.map(page =>
-  //   actions.createPage({
-  //     path: getArticleCategoryPath(page),
-  //     component: require.resolve(`./src/templates/articleCategory.js`),
-  //     context: { id: page.id, locale: page.locale },
-  //   })
+  //   page._allSlugLocales.map(slug =>
+  //     actions.createPage({
+  //       path: getArticleCategoryPath(page, slug.locale),
+  //       component: require.resolve(`./src/templates/articleCategory.js`),
+  //       context: { id: page.id, locale: slug.locale },
+  //     })
+  //   )
   // )
 
   data.site.locales.map(locale =>
