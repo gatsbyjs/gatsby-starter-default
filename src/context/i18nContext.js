@@ -21,7 +21,7 @@ export const languages = {
       message: "Message",
     },
   },
-  "en-us": {
+  "en-US": {
     locale: "en-US",
     discoverMore: "Discover more",
     all: "All",
