@@ -97,7 +97,7 @@ export default Article
 
 export const query = graphql`
   query ArticleQuery($id: String!, $locale: String!) {
-    page: datoCmsArticle(id: { eq: $id }) {
+    page: datoCmsArticle(id: { eq: $id }, locale: $locale) {
       ...ArticleDetails
       ...ArticleAllSlugLocales
       ...ArticleMeta

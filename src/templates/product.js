@@ -94,6 +94,7 @@ export const query = graphql`
       locales
     }
     menu: allDatoCmsMenu(
+      locale: $locale
       filter: { root: { eq: true }, anchor: { ne: null } }
       sort: { position: ASC }
     ) {
@@ -254,7 +255,7 @@ export const query = graphql`
         ...FooterDetails
       }
     }
-    page: datoCmsProduct(id: { eq: $id }) {
+    page: datoCmsProduct(id: { eq: $id }, locale: $locale) {
       id
       ...AllProductSlugLocales
       title

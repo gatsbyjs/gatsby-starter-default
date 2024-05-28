@@ -110,7 +110,7 @@ export const query = graphql`
     site: datoCmsSite {
       locales
     }
-    page: datoCmsProductCategory(id: { eq: $id }) {
+    page: datoCmsProductCategory(id: { eq: $id }, locale: $locale) {
       id
       locales
       title

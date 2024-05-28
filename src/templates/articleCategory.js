@@ -35,7 +35,7 @@ export default ArticleCategory
 
 export const query = graphql`
   query ArticleCategoryQuery($id: String!, $locale: String!) {
-    page: datoCmsArticleCategory(id: { eq: $id }) {
+    page: datoCmsArticleCategory(id: { eq: $id }, locale: $locale) {
       ...ArticleCategoryDetails
       ...ArticleCategoryAllSlugLocales
       seoMetaTags {

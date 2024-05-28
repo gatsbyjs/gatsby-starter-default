@@ -35,7 +35,7 @@ export default Blog
 
 export const query = graphql`
   query BlogQuery($id: String!, $locale: String!) {
-    page: datoCmsBlogPage(id: { eq: $id }) {
+    page: datoCmsBlogPage(id: { eq: $id }, locale: $locale) {
       ...BlogDetails
       seoMetaTags {
         ...GatsbyDatoCmsSeoMetaTags
