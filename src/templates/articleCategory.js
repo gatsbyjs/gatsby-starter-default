@@ -8,7 +8,9 @@ import CategoriesList from "./categoriesList"
 import BlogTitle from "../components/blogTitle"
 import { HelmetDatoCms } from "gatsby-source-datocms"
 
-const ArticleCategory = ({ data: { page, articles, articleCategories } }) => {
+const ArticleCategory = ({
+  data: { page, articles, articleCategories, footer },
+}) => {
   // console.log(page, articles, articleCategories)
   const i18nPaths = page._allSlugLocales.map(path => {
     return {
@@ -18,7 +20,11 @@ const ArticleCategory = ({ data: { page, articles, articleCategories } }) => {
   })
 
   return (
-    <Layout locale={page.locale} i18nPaths={i18nPaths}>
+    <Layout
+      locale={page.locale}
+      i18nPaths={i18nPaths}
+      footerData={footer.nodes}
+    >
       <HelmetDatoCms seo={page.seoMetaTags}>
         <html lang={page.locale} />
       </HelmetDatoCms>
@@ -42,6 +48,15 @@ export const query = graphql`
         ...GatsbyDatoCmsSeoMetaTags
       }
     }
+    footer: allDatoCmsFooter(
+      locale: $locale
+      filter: { root: { eq: true }, locales: { eq: $locale } }
+      sort: { position: ASC }
+    ) {
+      nodes {
+        ...FooterDetails
+      }
+    }
     articles: allDatoCmsArticle(
       locale: $locale
       sort: { meta: { firstPublishedAt: DESC } }
@@ -55,7 +70,7 @@ export const query = graphql`
     }
     articleCategories: allDatoCmsArticleCategory(
       locale: $locale
-      sort: { fields: position, order: ASC }
+      sort: { position: ASC }
       filter: { slug: { ne: null } }
     ) {
       nodes {

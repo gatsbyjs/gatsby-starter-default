@@ -161,6 +161,7 @@ export const query = graphql`
         apiKey
       }
     }
+
     categories: allDatoCmsProductCategory(
       locale: $locale
       filter: { slug: { ne: null } }
@@ -176,10 +177,11 @@ export const query = graphql`
         }
       }
     }
+
     products: allDatoCmsProduct(
       locale: $locale
       filter: { category: { id: { eq: $id } } }
-      sort: { fields: position, order: ASC }
+      sort: { position: ASC }
     ) {
       nodes {
         id
@@ -194,7 +196,6 @@ export const query = graphql`
           title
           locales
           ...ProductCategoryPageDetails
-
           model {
             apiKey
           }
@@ -202,6 +203,16 @@ export const query = graphql`
         images {
           gatsbyImageData(width: 1920, placeholder: NONE, forceBlurhash: false)
         }
+      }
+    }
+
+    menu: allDatoCmsMenu(
+      locale: $locale
+      filter: { root: { eq: true }, locales: { eq: $locale } }
+      sort: { position: ASC }
+    ) {
+      nodes {
+        ...MenuDetails
       }
     }
   }

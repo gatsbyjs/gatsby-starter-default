@@ -1,10 +1,12 @@
-import React from "react"
+import React, { useContext } from "react"
 import { Box, Flex, Grid, Heading, Text } from "@theme-ui/components"
 import { getArticlePath } from "../utils/path"
 import { GatsbyImage } from "gatsby-plugin-image"
 import { InboundLink  } from "./link"
+import { LanguageSwitcherContext } from "../context/languageSwitcherContext"
 
 const ArticleThumb = ({ article, small }) => {
+  const locale = useContext(LanguageSwitcherContext).activeLocale
   return (
     <Box
       sx={{
@@ -15,7 +17,7 @@ const ArticleThumb = ({ article, small }) => {
       }}
     >
       <InboundLink
-        to={getArticlePath(article, article.locale)}
+        to={getArticlePath(article, locale)}
         sx={{ textDecoration: "none" }}
       >
         <Grid columns={[1, small ? 1 : "5fr 3fr"]} gap={0}>

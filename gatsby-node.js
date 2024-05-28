@@ -21,10 +21,11 @@ exports.createPages = async ({ actions, graphql }) => {
           value
         }
       }
-      blog: allDatoCmsBlogPage {
-        nodes {
-          id
-          locales
+      blog: datoCmsBlogPage {
+        id
+        _allTitleLocales {
+          locale
+          value
         }
       }
       article: allDatoCmsArticle {
@@ -163,10 +164,10 @@ exports.createPages = async ({ actions, graphql }) => {
     return lang + path
   }
 
-  function getBlogPath(page) {
-    return page.locale === data.site.locale
+  function getBlogPath(locale) {
+    return locale === defaultLocale
       ? `/blog/`
-      : `/${page.locale.toLowerCase()}/blog/`
+      : `/${locale.toLowerCase()}/blog/`
   }
 
   function getArticleCategoryPath(page, locale) {
@@ -177,8 +178,6 @@ exports.createPages = async ({ actions, graphql }) => {
         }/${page.slug}/`
   }
 
-  console.log(data.home)
-
   data.home._allTitleLocales.map(title =>
     actions.createPage({
       path:
@@ -186,6 +185,14 @@ exports.createPages = async ({ actions, graphql }) => {
           ? "/"
           : `/${title.locale.toLowerCase()}/`,
       component: require.resolve(`./src/templates/home.js`),
+      context: { locale: title.locale },
+    })
+  )
+
+  data.blog._allTitleLocales.map(title =>
+    actions.createPage({
+      path: getBlogPath(title.locale),
+      component: require.resolve(`./src/templates/blog.js`),
       context: { locale: title.locale },
     })
   )
@@ -200,13 +207,6 @@ exports.createPages = async ({ actions, graphql }) => {
     )
   )
 
-  // data.blog.nodes.map(page =>
-  //   actions.createPage({
-  //     path: getBlogPath(page),
-  //     component: require.resolve(`./src/templates/blog.js`),
-  //     context: { id: page.id, locale: page.locale },
-  //   })
-  // )
   data.product.nodes.map(page =>
     page._allSlugLocales.map(slug =>
       actions.createPage({
@@ -220,6 +220,7 @@ exports.createPages = async ({ actions, graphql }) => {
       })
     )
   )
+
   data.article.nodes.map(page =>
     page._allSlugLocales.map(slug =>
       actions.createPage({
