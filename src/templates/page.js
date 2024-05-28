@@ -18,7 +18,6 @@ import PageHero from "./pageHero"
 import ImageAndText from "../components/blocks/imageAndText"
 import NumbersCollection from "../components/blocks/numbersCollections"
 import ContactForm from "../components/blocks/contactFrom"
-import Categories from "../components/blocks/categoryBlock"
 
 const LocationsMap = loadable(
   () => import("../components/blocks/locationMap"),
@@ -135,13 +134,6 @@ const Page = ({ data: { page, site, footer, menu }, pageContext }) => {
               body={block.content.body}
               image={block.image}
               rightAligned={block.rightAligned}
-            />
-          )}
-          {block.model.apiKey === "category" && (
-            <Categories
-              page={page}
-              title={block.title}
-              description={block.description}
             />
           )}
         </Box>
@@ -390,14 +382,6 @@ export const query = graphql`
               forceBlurhash: false
             )
           }
-          model {
-            apiKey
-          }
-        }
-        ... on DatoCmsCategory {
-          id
-          title
-          description
           model {
             apiKey
           }
