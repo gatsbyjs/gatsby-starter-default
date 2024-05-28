@@ -136,7 +136,7 @@ exports.createPages = async ({ actions, graphql }) => {
     let path = page._allSlugLocales.find(
       slugLocale => slugLocale.locale === locale
     ).value
-    let productPath = i18nPath[locale].products.toLowerCase()
+    let productPath = i18nPath[locale.toLowerCase()].products.toLowerCase()
     return `${lang}${productPath}/${path}/`
   }
   function getPagePath(page, locale) {
