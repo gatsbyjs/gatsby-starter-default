@@ -38,7 +38,7 @@ const ArticleThumb = ({ article, small }) => {
             }}
           >
             <Heading as="h2" variant="h4" sx={{ mb: 3, mt:0, color: "text" }}>
-              {article.title} dadada
+              {article.title}
             </Heading>
             <Text variant="caption">
               {article.meta.firstPublishedAt}
