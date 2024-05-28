@@ -1,5 +1,5 @@
 import { Box, Container, Flex } from "@theme-ui/components"
-import React, { useState } from "react"
+import React, { useState, useContext } from "react"
 import { useMenu } from "../hooks/useMenu"
 import { getHomePath, getSearchPath } from "../utils/path"
 import { InboundLink } from "./link"
@@ -7,9 +7,10 @@ import { MagicLink } from "../utils/magicLink"
 import LanguageSwitcher from "./languageSwitcher"
 import { debounce } from "lodash"
 import { LanguageSwitcherContext } from "../context/languageSwitcherContext"
-
+import { MenuContext } from "../context/menuContext"
 const Nav = ({}) => {
-  const menu = useMenu()
+  const menu = useContext(MenuContext)
+  console.log(menu)
   const locale = React.useContext(LanguageSwitcherContext).activeLocale
   menu.map(menuItem => {
     menuItem.treeChildren.sort((a, b) => a.position - b.position)
