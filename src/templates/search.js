@@ -12,8 +12,9 @@ const SearchResultsComponents = loadable(
   { ssr: false }
 )
 
+const SearchPage = ({ data: { site, footer, menu }, pageContext }) => {
+  const locale = pageContext.locale
 
-const SearchPage = ({ data: { site }, pageContext }) => {
   const i18nPaths = site.locales.map(locale => {
     return {
       locale: locale,
@@ -22,19 +23,24 @@ const SearchPage = ({ data: { site }, pageContext }) => {
   })
 
   return (
-    <Layout locale={pageContext.locale} i18nPaths={i18nPaths}>
+    <Layout
+      locale={locale}
+      i18nPaths={i18nPaths}
+      footerData={footer.nodes}
+      menuData={menu.nodes}
+    >
       <i18nContext.Consumer>
         {t => (
           <>
             <Helmet>
-              <html lang={pageContext.locale} />
+              <html lang={locale} />
               <title>{t.search}</title>
             </Helmet>
             <Container>
               <Text as="h1" variant="h1">
                 {t.search}
               </Text>
-              <SearchResultsComponents locale={pageContext.locale} />
+              <SearchResultsComponents locale={locale} />
             </Container>
           </>
         )}
@@ -46,9 +52,29 @@ const SearchPage = ({ data: { site }, pageContext }) => {
 export default SearchPage
 
 export const query = graphql`
-  query SearchPageQuery {
+  query SearchPageQuery($locale: String!) {
     site: datoCmsSite {
       locales
+    }
+
+    footer: allDatoCmsFooter(
+      locale: $locale
+      filter: { root: { eq: true }, locales: { eq: $locale } }
+      sort: { position: ASC }
+    ) {
+      nodes {
+        ...FooterDetails
+      }
+    }
+
+    menu: allDatoCmsMenu(
+      locale: $locale
+      filter: { root: { eq: true }, locales: { eq: $locale } }
+      sort: { position: ASC }
+    ) {
+      nodes {
+        ...MenuDetails
+      }
     }
   }
 `

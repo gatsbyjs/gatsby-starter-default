@@ -1,4 +1,4 @@
-const defaultLocale = "it"
+const defaultLocale = "it" //cambiare in base al default del site
 
 const i18nPath = {
   it: {
@@ -22,6 +22,8 @@ export function getPagePath(page, locale) {
   const pageLocale = locale || page.locale
   let lang =
     pageLocale === defaultLocale ? "/" : `/${pageLocale.toLowerCase()}/`
+  console.log("getPagePath", page)
+  console.log("page._allSlugLocales:", page._allSlugLocales)
   let path = `${page._allSlugLocales.find(x => x.locale === pageLocale).value}`
   if (page.root) {
     return lang + `${path}/`
@@ -40,19 +42,43 @@ export function getPagePath(page, locale) {
   }${path}`
   return lang + `${path}/`
 }
+export function getCategoryPath(category, locale) {
+  console.log(category)
+  let lang = locale === defaultLocale ? "/" : `/${locale.toLowerCase()}/`
+  let path = `${category._allSlugLocales.find(x => x.locale === locale).value}`
+  let categoryPath = i18nPath[locale].products.toLowerCase()
+  return lang + `${categoryPath}/${path}/`
+}
+export function getProductPath(page, locale) {
+  let lang = locale === defaultLocale ? "/" : `/${locale.toLowerCase()}/`
+  let path = `${page.slug}`
+  let productPath = i18nPath[locale].products.toLowerCase()
+  return lang + `${productPath}/${path}/`
+}
 
 export function getHomePath(locale) {
+  console.log(locale)
   return locale === defaultLocale ? "/" : `/${locale.toLowerCase()}/`
 }
 
 export function getSearchPath(locale) {
-  return locale === defaultLocale
-    ? `/${i18nPath[locale].search}/`
-    : `/${locale.toLowerCase()}/${i18nPath[locale].search}/`
+  console.log("Locale:", locale)
+  if (typeof locale !== "string") {
+    console.error(new Error(`Stack trace:`).stack)
+    throw new Error(
+      `Expected string but received ${typeof locale}: ${JSON.stringify(locale)}`
+    )
+  }
+  return `/${locale.toLowerCase()}/search/`
 }
-
 export function getBlogPath(locale) {
   return locale === defaultLocale ? `/blog/` : `/${locale.toLowerCase()}/blog/`
+}
+
+export function getArticlePath(page, locale) {
+  return locale === defaultLocale
+    ? `/blog/${page.slug}`
+    : `/${locale.toLowerCase()}/blog/${page.slug}/`
 }
 
 export function getArticleCategoryPath(page, locale) {
@@ -63,28 +89,4 @@ export function getArticleCategoryPath(page, locale) {
     : `/${locale.toLowerCase()}/blog/${i18nPath[locale].category}/${
         page._allSlugLocales.find(x => x.locale === locale).value
       }/`
-}
-
-export function getCategoryPath(page, locale) {
-  return page.locale === defaultLocale
-    ? `/${i18nPath[page.locale].category}/${page.slug}/`
-    : `/${page.locale}/${
-        i18nPath[page.locale].category
-      }/${page.slug}/`
-}
-
-export function getArticlePath(page, locale) {
-  return locale === defaultLocale
-    ? `/blog/${page._allSlugLocales.find(x => x.locale === locale).value}`
-    : `/${locale.toLowerCase()}/blog/${
-        page._allSlugLocales.find(x => x.locale === locale).value
-      }/`
-}
-
-export function getProductPath(page, locale) {
-  return locale === defaultLocale
-    ? `/${i18nPath[locale].products}/${page.slug}/`
-    : `/${locale.toLowerCase()}/${
-        i18nPath[page.locale].products
-      }/${page.slug}/`
 }

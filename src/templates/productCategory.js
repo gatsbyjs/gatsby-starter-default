@@ -7,17 +7,19 @@ import { HelmetDatoCms } from "gatsby-source-datocms"
 import PageHero from "./pageHero"
 import ProductThumb from "../components/productThumb.js"
 import { InboundLink } from "../components/link"
-import { useFavicon } from "../hooks/useFavicon"
-
-// const LocationsMap = loadable(
-//   () => import("../components/blocks/locationMap"),
-//   { ssr: false }
-// )
 
 const Page = ({
-  data: { page, categories, products, site, articles, contactFooter },
+  data: {
+    page,
+    categories,
+    products,
+    site,
+    articles,
+    contactFooter,
+    pageContext,
+  },
 }) => {
-  const favicon = useFavicon().site.faviconMetaTags
+  const locale = pageContext.locale
   const pageAllSlugLocales = page._allSlugLocales.sort(function (a, b) {
     return site.locales.indexOf(a.locale) - site.locales.indexOf(b.locale)
   })
@@ -33,8 +35,8 @@ const Page = ({
   })
 
   return (
-    <Layout locale={page.locale} i18nPaths={i18nPaths}>
-      <HelmetDatoCms seo={page.seoMetaTags} favicon={favicon}>
+    <Layout locale={locale} i18nPaths={i18nPaths}>
+      <HelmetDatoCms seo={page.seoMetaTags}>
         <html lang={page.locale} />
       </HelmetDatoCms>
       <PageHero page={page} image={page.heroImage} />
@@ -73,7 +75,7 @@ const Page = ({
                             <InboundLink
                               variant="normalDarkLink"
                               sx={{ fontSize: "body" }}
-                              to={getCategoryPath(category, page.locale)}
+                              to={getCategoryPath(category, locale)}
                             >
                               {category.title}
                             </InboundLink>
@@ -108,16 +110,15 @@ export const query = graphql`
     site: datoCmsSite {
       locales
     }
-    page: datoCmsProductCategory(id: { eq: $id }) {
+    page: datoCmsProductCategory(id: { eq: $id }, locale: $locale) {
       id
-      locale
+      locales
       title
       slug
       description
       model {
         apiKey
       }
-      ...AllProductCategorySlugLocales
       seoMetaTags {
         ...GatsbyDatoCmsSeoMetaTags
       }
@@ -160,23 +161,27 @@ export const query = graphql`
         apiKey
       }
     }
+
     categories: allDatoCmsProductCategory(
-      filter: { slug: { ne: null }, locale: { eq: $locale } }
-      sort: { fields: position, order: ASC }
+      locale: $locale
+      filter: { slug: { ne: null } }
+      sort: { position: ASC }
     ) {
       nodes {
         id
         title
-        locale
+        locales
         ...ProductCategoryPageDetails
         model {
           apiKey
         }
       }
     }
+
     products: allDatoCmsProduct(
-      filter: { category: { id: { eq: $id } }, locale: { eq: $locale } }
-      sort: { fields: position, order: ASC }
+      locale: $locale
+      filter: { category: { id: { eq: $id } } }
+      sort: { position: ASC }
     ) {
       nodes {
         id
@@ -185,13 +190,12 @@ export const query = graphql`
         slug
         position
         description
-        locale
+        locales
         category {
           id
           title
-          locale
+          locales
           ...ProductCategoryPageDetails
-
           model {
             apiKey
           }
@@ -201,14 +205,28 @@ export const query = graphql`
         }
       }
     }
+
+    menu: allDatoCmsMenu(
+      locale: $locale
+      filter: { root: { eq: true }, locales: { eq: $locale } }
+      sort: { position: ASC }
+    ) {
+      nodes {
+        ...MenuDetails
+      }
+    }
   }
 
   fragment ProductCategoryPageDetails on DatoCmsProductCategory {
     id
-    locale
+    locales
     title
     slug
     description
+    _allSlugLocales {
+      value
+      locale
+    }
     model {
       apiKey
     }
@@ -235,13 +253,6 @@ export const query = graphql`
           blendAlpha: 30
         }
       )
-    }
-  }
-
-  fragment AllProductCategorySlugLocales on DatoCmsProductCategory {
-    _allSlugLocales {
-      value
-      locale
     }
   }
 `

@@ -7,12 +7,10 @@ import ArticlesList from "./articlesList"
 import CategoriesList from "./categoriesList"
 import BlogTitle from "../components/blogTitle"
 import { HelmetDatoCms } from "gatsby-source-datocms"
-import { useFavicon } from "../hooks/useFavicon"
 
-const ArticleCategory = ({ data: { page, articles, articleCategories } }) => {
-
-const favicon = useFavicon().site.faviconMetaTags
-
+const ArticleCategory = ({
+  data: { page, articles, articleCategories, footer },
+}) => {
   // console.log(page, articles, articleCategories)
   const i18nPaths = page._allSlugLocales.map(path => {
     return {
@@ -22,8 +20,12 @@ const favicon = useFavicon().site.faviconMetaTags
   })
 
   return (
-    <Layout locale={page.locale} i18nPaths={i18nPaths}>
-      <HelmetDatoCms seo={page.seoMetaTags} favicon={favicon}>
+    <Layout
+      locale={page.locale}
+      i18nPaths={i18nPaths}
+      footerData={footer.nodes}
+    >
+      <HelmetDatoCms seo={page.seoMetaTags}>
         <html lang={page.locale} />
       </HelmetDatoCms>
       <Container variant="md">
@@ -39,20 +41,26 @@ export default ArticleCategory
 
 export const query = graphql`
   query ArticleCategoryQuery($id: String!, $locale: String!) {
-    page: datoCmsArticleCategory(id: { eq: $id }) {
+    page: datoCmsArticleCategory(id: { eq: $id }, locale: $locale) {
       ...ArticleCategoryDetails
       ...ArticleCategoryAllSlugLocales
       seoMetaTags {
         ...GatsbyDatoCmsSeoMetaTags
       }
     }
-    articles: allDatoCmsArticle(
-      sort: { fields: meta___firstPublishedAt, order: DESC }
-      filter: {
-        slug: { ne: null }
-        locale: { eq: $locale }
-        category: { id: { eq: $id } }
+    footer: allDatoCmsFooter(
+      locale: $locale
+      filter: { root: { eq: true }, locales: { eq: $locale } }
+      sort: { position: ASC }
+    ) {
+      nodes {
+        ...FooterDetails
       }
+    }
+    articles: allDatoCmsArticle(
+      locale: $locale
+      sort: { meta: { firstPublishedAt: DESC } }
+      filter: { slug: { ne: null }, category: { id: { eq: $id } } }
     ) {
       nodes {
         ...ArticleDetails
@@ -61,8 +69,9 @@ export const query = graphql`
       }
     }
     articleCategories: allDatoCmsArticleCategory(
-      sort: { fields: position, order: ASC }
-      filter: { slug: { ne: null }, locale: { eq: $locale } }
+      locale: $locale
+      sort: { position: ASC }
+      filter: { slug: { ne: null } }
     ) {
       nodes {
         ...ArticleCategoryDetails
@@ -83,7 +92,7 @@ export const query = graphql`
 
   fragment ArticleCategoryDetails on DatoCmsArticleCategory {
     id
-    locale
+    locales
     title
     slug
     model {

@@ -17,13 +17,14 @@ import axios from "axios"
 import { useGoogleReCaptcha } from "react-google-recaptcha-v3"
 
 const ContactForm = ({
+  block,
   title,
   subtitle,
   privacyPolicyDescription,
   newsletterDescription,
 }) => {
   const { executeRecaptcha } = useGoogleReCaptcha()
-
+  console.log(block)
   const isBrowser = typeof window !== "undefined"
 
   const [formData, setFormData] = useState({
@@ -59,15 +60,13 @@ const ContactForm = ({
           setLoading(false)
 
           if (typeof window !== "undefined" && window.dataLayer !== undefined) {
-
-            window.dataLayer = window.dataLayer || [];
+            window.dataLayer = window.dataLayer || []
 
             window.dataLayer.push({
-                'event': 'formSubmission',
-                'formType': 'Contact',
-            });
+              event: "formSubmission",
+              formType: "Contact",
+            })
           }
-          
         })
         .catch(function (error) {
           setLoading(false)

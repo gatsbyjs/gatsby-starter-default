@@ -1,17 +1,17 @@
 import { Box, Container, Flex } from "@theme-ui/components"
-import React, { useState } from "react"
-import { useMenu } from "../hooks/useMenu"
+import React, { useState, useContext } from "react"
+
 import { getHomePath, getSearchPath } from "../utils/path"
 import { InboundLink } from "./link"
 import { MagicLink } from "../utils/magicLink"
 import LanguageSwitcher from "./languageSwitcher"
 import { debounce } from "lodash"
 import { LanguageSwitcherContext } from "../context/languageSwitcherContext"
-
-const Nav = () => {
+import { MenuContext } from "../context/menuContext"
+const Nav = ({}) => {
+  const menu = useContext(MenuContext)
+  console.log(menu)
   const locale = React.useContext(LanguageSwitcherContext).activeLocale
-  const menu = useMenu()
-
   menu.map(menuItem => {
     menuItem.treeChildren.sort((a, b) => a.position - b.position)
     menuItem.treeChildren.map(menuItem => {
@@ -20,7 +20,7 @@ const Nav = () => {
       }
     })
   })
-  
+
   return (
     <Box as="nav">
       <Container variant="header" sx={{ paddingX: [3, 4] }}>
@@ -69,7 +69,7 @@ const TextComponent = ({ item, locale, index }) => {
     setShow(false)
     debouncedHandleMouseEnterMenu.cancel()
   }
-
+  console.log(locale)
   return (
     <Box
       as="li"
@@ -79,7 +79,7 @@ const TextComponent = ({ item, locale, index }) => {
       onMouseLeave={() => handlOnMouseLeaveMenu()}
     >
       {item.link ? (
-        <MagicLink item={item.link} locale={locale}  ></MagicLink>
+        <MagicLink item={item.link} locale={locale}></MagicLink>
       ) : (
         <Box sx={{ cursor: "default" }}>{item.anchor}</Box>
       )}

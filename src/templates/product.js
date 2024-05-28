@@ -6,18 +6,14 @@ import { getProductPath } from "../utils/path"
 import { HelmetDatoCms } from "gatsby-source-datocms"
 import PageHero from "./pageHero"
 import { GatsbyImage } from "gatsby-plugin-image"
-import { getColor } from "@theme-ui/color"
-import themeUiTheme from "../gatsby-plugin-theme-ui"
-import { useFavicon } from "../hooks/useFavicon"
 
-// const LocationsMap = loadable(
-//   () => import("../components/blocks/locationMap"),
-//   { ssr: false }
-// )
-
-const Page = ({ data: { page, site }, location }) => {
-const favicon = useFavicon().site.faviconMetaTags
-
+const Page = ({
+  data: { page, site, footer, menu },
+  location,
+  pageContext,
+}) => {
+  const locale = pageContext.locale
+  console.log(locale)
   const pageCategory =
     location.state && location.state.category
       ? page.category[
@@ -39,8 +35,13 @@ const favicon = useFavicon().site.faviconMetaTags
   })
 
   return (
-    <Layout locale={page.locale} i18nPaths={i18nPaths}>
-      <HelmetDatoCms seo={page.seoMetaTags} favicon={favicon}>
+    <Layout
+      locale={locale}
+      i18nPaths={i18nPaths}
+      menuData={menu.nodes}
+      footerData={footer.nodes}
+    >
+      <HelmetDatoCms seo={page.seoMetaTags}>
         <html lang={page.locale} />
       </HelmetDatoCms>
       <PageHero
@@ -91,20 +92,40 @@ export const query = graphql`
     site: datoCmsSite {
       locales
     }
-    page: datoCmsProduct(id: { eq: $id }) {
+
+    menu: allDatoCmsMenu(
+      locale: $locale
+      filter: { root: { eq: true }, locales: { eq: $locale } }
+      sort: { position: ASC }
+    ) {
+      nodes {
+        ...MenuDetails
+      }
+    }
+
+    footer: allDatoCmsFooter(
+      locale: $locale
+      filter: { root: { eq: true }, locales: { eq: $locale } }
+      sort: { position: ASC }
+    ) {
+      nodes {
+        ...FooterDetails
+      }
+    }
+    page: datoCmsProduct(id: { eq: $id }, locale: $locale) {
       id
       ...AllProductSlugLocales
       title
       slug
       description
-      locale
+      locales
       seoMetaTags {
         ...GatsbyDatoCmsSeoMetaTags
       }
       category {
         id
         title
-        locale
+        locales
         ...ProductCategoryPageDetails
 
         categoryImageHero: heroImage {
@@ -142,21 +163,21 @@ export const query = graphql`
       }
     }
     products: allDatoCmsProduct(
-      filter: { category: { id: { eq: $categoryId } }, locale: { eq: $locale } }
-      sort: { fields: position, order: ASC }
+      locale: $locale
+      filter: { category: { id: { eq: $categoryId } } }
+      sort: { position: ASC }
     ) {
       nodes {
         id
         slug
-        locale
+        locales
         ...AllProductSlugLocales
         title
         category {
           id
           title
-          locale
+          locales
           ...ProductCategoryPageDetails
-
           model {
             apiKey
           }
@@ -170,7 +191,7 @@ export const query = graphql`
     title
     slug
     description
-    locale
+    locales
     model {
       apiKey
     }
