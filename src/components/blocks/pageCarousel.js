@@ -7,10 +7,12 @@ import { Swiper, SwiperSlide } from "swiper/react"
 import "swiper/swiper-bundle.min.css"
 import { InboundLink } from "../link"
 import { getPagePath } from "../../utils/path"
+import { LanguageSwitcherContext } from "../../context/languageSwitcherContext"
 SwiperCore.use([Mousewheel, Pagination, A11y])
 // End swiper
 
 const PageCarousel = ({ title, pages }) => {
+  const locale = React.useContext(LanguageSwitcherContext).activeLocale
   // console.log(pages)
   return (
     <Box>
@@ -37,7 +39,7 @@ const PageCarousel = ({ title, pages }) => {
         >
           {pages.map(page => (
             <SwiperSlide key={page.originalId}>
-              <PageThumb page={page} />
+              <PageThumb page={page} locale={locale} />
             </SwiperSlide>
           ))}
         </Swiper>
@@ -46,8 +48,8 @@ const PageCarousel = ({ title, pages }) => {
   )
 }
 
-const PageThumb = ({ page }) => (
-  <InboundLink to={getPagePath(page, page.locale)} sx={{ textDecoration: "none" }}>
+const PageThumb = ({ page, locale }) => (
+  <InboundLink to={getPagePath(page, locale)} sx={{ textDecoration: "none" }}>
     <Flex sx={{ height: ["24rem"], backgroundColor: "primary", padding: 4 }}>
       <Text sx={{ margin: 0, color: "light" }}>{page.title}</Text>
     </Flex>

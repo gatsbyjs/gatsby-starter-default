@@ -5,9 +5,9 @@ import Layout from "../components/layout"
 import { getHomePath } from "../utils/path"
 import { HelmetDatoCms } from "gatsby-source-datocms"
 
-const Home = ({ data: { page, site, footer }, pageContext }) => {
+const Home = ({ data: { page, site, footer, menu }, pageContext }) => {
   const locale = pageContext.locale
-  console.log(site)
+  console.log(menu.nodes)
   console.log("FOOTER", footer)
   const i18nPaths = site.locales.map(locale => {
     return {
@@ -17,7 +17,12 @@ const Home = ({ data: { page, site, footer }, pageContext }) => {
   })
 
   return (
-    <Layout locale={locale} i18nPaths={i18nPaths} footerData={footer.nodes}>
+    <Layout
+      locale={locale}
+      i18nPaths={i18nPaths}
+      footerData={footer.nodes}
+      menuData={menu.nodes}
+    >
       <HelmetDatoCms seo={page.seoMetaTags}>
         <html lang={locale} />
       </HelmetDatoCms>
@@ -42,6 +47,158 @@ export const query = graphql`
     }
     site: datoCmsSite {
       locales
+    }
+    menu: allDatoCmsMenu(
+      filter: { root: { eq: true }, anchor: { ne: null } }
+      sort: { position: ASC }
+    ) {
+      nodes {
+        id
+        locales
+        root
+        anchor
+        link {
+          ... on DatoCmsInternalLink {
+            id
+            anchor
+            locales
+            model {
+              apiKey
+            }
+            link {
+              ... on DatoCmsProductCategory {
+                ...ProductCategoryPageDetails
+              }
+              ... on DatoCmsProduct {
+                ...ProductPageDetails
+                ...AllProductSlugLocales
+              }
+              ... on DatoCmsBlogPage {
+                ...BlogDetails
+              }
+              ... on DatoCmsPage {
+                ...PageDetails
+                ...PageTreeParent
+                ...AllSlugLocales
+              }
+              ... on DatoCmsArticle {
+                ...ArticleDetails
+                ...ArticleAllSlugLocales
+              }
+              ... on DatoCmsArticleCategory {
+                ...ArticleCategoryDetails
+                ...ArticleCategoryAllSlugLocales
+              }
+            }
+          }
+          ... on DatoCmsExternalLink {
+            id
+            anchor
+            url
+            model {
+              apiKey
+            }
+          }
+        }
+        treeChildren {
+          id
+          locales
+          root
+          anchor
+          link {
+            ... on DatoCmsInternalLink {
+              id
+              anchor
+              locales
+              model {
+                apiKey
+              }
+              link {
+                ... on DatoCmsProductCategory {
+                  ...ProductCategoryPageDetails
+                }
+                ... on DatoCmsProduct {
+                  ...ProductPageDetails
+                  ...AllProductSlugLocales
+                }
+                ... on DatoCmsBlogPage {
+                  ...BlogDetails
+                }
+                ... on DatoCmsPage {
+                  ...PageDetails
+                  ...PageTreeParent
+                  ...AllSlugLocales
+                }
+                ... on DatoCmsArticle {
+                  ...ArticleDetails
+                  ...ArticleAllSlugLocales
+                }
+                ... on DatoCmsArticleCategory {
+                  ...ArticleCategoryDetails
+                  ...ArticleCategoryAllSlugLocales
+                }
+              }
+            }
+            ... on DatoCmsExternalLink {
+              id
+              anchor
+              url
+              model {
+                apiKey
+              }
+            }
+          }
+          treeChildren {
+            id
+            locales
+            root
+            anchor
+            link {
+              ... on DatoCmsInternalLink {
+                id
+                anchor
+                locales
+                model {
+                  apiKey
+                }
+                link {
+                  ... on DatoCmsProductCategory {
+                    ...ProductCategoryPageDetails
+                  }
+                  ... on DatoCmsProduct {
+                    ...ProductPageDetails
+                    ...AllProductSlugLocales
+                  }
+                  ... on DatoCmsBlogPage {
+                    ...BlogDetails
+                  }
+                  ... on DatoCmsPage {
+                    ...PageDetails
+                    ...PageTreeParent
+                    ...AllSlugLocales
+                  }
+                  ... on DatoCmsArticle {
+                    ...ArticleDetails
+                    ...ArticleAllSlugLocales
+                  }
+                  ... on DatoCmsArticleCategory {
+                    ...ArticleCategoryDetails
+                    ...ArticleCategoryAllSlugLocales
+                  }
+                }
+              }
+              ... on DatoCmsExternalLink {
+                id
+                anchor
+                url
+                model {
+                  apiKey
+                }
+              }
+            }
+          }
+        }
+      }
     }
     footer: allDatoCmsFooter(
       locale: $locale

@@ -22,6 +22,8 @@ export function getPagePath(page, locale) {
   const pageLocale = locale || page.locale
   let lang =
     pageLocale === defaultLocale ? "/" : `/${pageLocale.toLowerCase()}/`
+  console.log("pageLocale:", pageLocale)
+  console.log("page._allSlugLocales:", page._allSlugLocales)
   let path = `${page._allSlugLocales.find(x => x.locale === pageLocale).value}`
   if (page.root) {
     return lang + `${path}/`

@@ -15,10 +15,11 @@ import Hreflang from "./hreflang"
 import Footer from "./footer"
 import Canonical from "./canonical"
 import { FooterContext } from "../context/footerContext"
-import { CategoryContext } from "../context/categoryContext"
 
-const Layout = ({ children, locale, i18nPaths, footerData, categories }) => {
-  console.log(locale)
+import { MenuContext } from "../context/menuContext"
+
+const Layout = ({ children, locale, i18nPaths, footerData, menuData }) => {
+  console.log(menuData)
 
   const data = useStaticQuery(graphql`
     query SiteQuery {
@@ -41,7 +42,7 @@ const Layout = ({ children, locale, i18nPaths, footerData, categories }) => {
         value={{ activeLocale: locale, paths: i18nPaths || [] }}
       >
         <FooterContext.Provider value={footerData}>
-          <CategoryContext.Provider value={categories}>
+          <MenuContext.Provider value={menuData}>
             <Hreflang
               paths={i18nPaths}
               siteUrl={data.gatsbySite.siteMetadata.siteUrl}
@@ -63,7 +64,7 @@ const Layout = ({ children, locale, i18nPaths, footerData, categories }) => {
               </Box>
               <Footer />
             </Flex>
-          </CategoryContext.Provider>
+          </MenuContext.Provider>
         </FooterContext.Provider>
       </LanguageSwitcherContext.Provider>
     </i18nContext.Provider>

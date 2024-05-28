@@ -36,6 +36,7 @@ const MagicLink = props => {
             </InboundLink>
           )
         case "blog_page":
+          console.log(locale)
           return (
             <InboundLink
               to={getBlogPath(locale)}
