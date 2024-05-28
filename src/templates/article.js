@@ -13,10 +13,8 @@ import { GatsbyImage } from "gatsby-plugin-image"
 import ImageGallery from "../components/blocks/imageGallery"
 import ArticleTitle from "../components/articleTitle"
 import { HelmetDatoCms } from "gatsby-source-datocms"
-import { useFavicon } from "../hooks/useFavicon"
 
 const Article = ({ data: { page, site, footer }, pageContext }) => {
-  const favicon = useFavicon().site.faviconMetaTags
   const locale = pageContext.locale
   console.log(footer)
   const i18nPaths = page._allSlugLocales.map(path => {
@@ -28,7 +26,7 @@ const Article = ({ data: { page, site, footer }, pageContext }) => {
 
   return (
     <Layout locale={locale} i18nPaths={i18nPaths} footerData={footer.nodes}>
-      <HelmetDatoCms seo={page.seoMetaTags} favicon={favicon}>
+      <HelmetDatoCms seo={page.seoMetaTags}>
         <html lang={page.locale} />
       </HelmetDatoCms>
       <ArticleTitle page={page} />

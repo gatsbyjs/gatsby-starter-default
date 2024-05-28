@@ -4,13 +4,11 @@ import { Container, Heading } from "@theme-ui/components"
 import Layout from "../components/layout"
 import { getHomePath } from "../utils/path"
 import { HelmetDatoCms } from "gatsby-source-datocms"
-import { useFavicon } from "../hooks/useFavicon"
 
 const Home = ({ data: { page, site, footer }, pageContext }) => {
   const locale = pageContext.locale
   console.log(site)
   console.log("FOOTER", footer)
-  const favicon = useFavicon().site.faviconMetaTags
   const i18nPaths = site.locales.map(locale => {
     return {
       locale: locale,
@@ -20,7 +18,7 @@ const Home = ({ data: { page, site, footer }, pageContext }) => {
 
   return (
     <Layout locale={locale} i18nPaths={i18nPaths} footerData={footer.nodes}>
-      <HelmetDatoCms seo={page.seoMetaTags} favicon={favicon}>
+      <HelmetDatoCms seo={page.seoMetaTags}>
         <html lang={locale} />
       </HelmetDatoCms>
       <Container>

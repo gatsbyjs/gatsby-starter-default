@@ -16,12 +16,9 @@ import DocumentCollection from "../components/blocks/documentCollection"
 import Embed from "../components/blocks/embed"
 import PageHero from "./pageHero"
 import ImageAndText from "../components/blocks/imageAndText"
-import NumbersGroup from "../components/blocks/numbersGroup"
 import NumbersCollection from "../components/blocks/numbersCollections"
 import ContactForm from "../components/blocks/contactFrom"
-
 import Categories from "../components/blocks/categoryBlock"
-import { useFavicon } from "../hooks/useFavicon"
 
 const LocationsMap = loadable(
   () => import("../components/blocks/locationMap"),
@@ -31,7 +28,6 @@ const LocationsMap = loadable(
 const Page = ({ data: { page, site, footer }, pageContext }) => {
   const locale = pageContext.locale
   console.log(pageContext.locale)
-  const favicon = useFavicon().site.faviconMetaTags
 
   const pageAllSlugLocales = page._allSlugLocales.sort(function (a, b) {
     return site.locales.indexOf(a.locale) - site.locales.indexOf(b.locale)
@@ -46,7 +42,7 @@ const Page = ({ data: { page, site, footer }, pageContext }) => {
 
   return (
     <Layout locale={locale} i18nPaths={i18nPaths} footerData={footer.nodes}>
-      <HelmetDatoCms seo={page.seoMetaTags} favicon={favicon}>
+      <HelmetDatoCms seo={page.seoMetaTags}>
         <html lang={page.locale} />
       </HelmetDatoCms>
       <PageHero page={page} image={page.heroImage} />
