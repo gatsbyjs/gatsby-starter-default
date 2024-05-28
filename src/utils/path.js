@@ -22,7 +22,7 @@ export function getPagePath(page, locale) {
   const pageLocale = locale || page.locale
   let lang =
     pageLocale === defaultLocale ? "/" : `/${pageLocale.toLowerCase()}/`
-  console.log("pageLocale:", pageLocale)
+  console.log("getPagePath", page)
   console.log("page._allSlugLocales:", page._allSlugLocales)
   let path = `${page._allSlugLocales.find(x => x.locale === pageLocale).value}`
   if (page.root) {
@@ -57,7 +57,7 @@ export function getProductPath(page, locale) {
 }
 
 export function getHomePath(locale) {
-  console.log("Locale:", locale)
+  console.log(locale)
   return locale === defaultLocale ? "/" : `/${locale.toLowerCase()}/`
 }
 
@@ -73,6 +73,12 @@ export function getSearchPath(locale) {
 }
 export function getBlogPath(locale) {
   return locale === defaultLocale ? `/blog/` : `/${locale.toLowerCase()}/blog/`
+}
+
+export function getArticlePath(page, locale) {
+  return locale === defaultLocale
+    ? `/blog/${page.slug}`
+    : `/${locale.toLowerCase()}/blog/${page.slug}/`
 }
 
 export function getArticleCategoryPath(page, locale) {

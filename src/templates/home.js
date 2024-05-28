@@ -48,12 +48,183 @@ export const query = graphql`
     site: datoCmsSite {
       locales
     }
+
     menu: allDatoCmsMenu(
       locale: $locale
-      filter: { root: { eq: true }, anchor: { ne: null } }
+      filter: { root: { eq: true }, locales: { eq: $locale } }
       sort: { position: ASC }
     ) {
       nodes {
+        ...MenuDetails
+      }
+    }
+
+    footer: allDatoCmsFooter(
+      locale: $locale
+      filter: { root: { eq: true }, locales: { eq: $locale } }
+      sort: { position: ASC }
+    ) {
+      nodes {
+        ...FooterDetails
+      }
+    }
+  }
+
+  fragment MenuDetails on DatoCmsMenu {
+    id
+    locales
+    root
+    anchor
+    link {
+      ... on DatoCmsInternalLink {
+        id
+        anchor
+        locales
+        model {
+          apiKey
+        }
+        link {
+          ... on DatoCmsProductCategory {
+            id
+            locales
+            title
+            slug
+            description
+            _allSlugLocales {
+              value
+              locale
+            }
+            model {
+              apiKey
+            }
+          }
+          ... on DatoCmsProduct {
+            ...ProductPageDetails
+            ...AllProductSlugLocales
+          }
+          ... on DatoCmsBlogPage {
+            ...BlogDetails
+          }
+          ... on DatoCmsPage {
+            id
+            locales
+            title
+            slug
+            root
+            model {
+              apiKey
+            }
+            ...PageTreeParent
+            ...AllSlugLocales
+          }
+          ... on DatoCmsArticle {
+            id
+            locales
+            title
+            slug
+            model {
+              apiKey
+            }
+            category {
+              title
+              slug
+              ...ArticleCategoryAllSlugLocales
+            }
+            ...ArticleAllSlugLocales
+          }
+          ... on DatoCmsArticleCategory {
+            ...ArticleCategoryDetails
+            ...ArticleCategoryAllSlugLocales
+          }
+        }
+      }
+      ... on DatoCmsExternalLink {
+        id
+        anchor
+        url
+        model {
+          apiKey
+        }
+      }
+    }
+    treeChildren {
+      id
+      locales
+      root
+      anchor
+      link {
+        ... on DatoCmsInternalLink {
+          id
+          anchor
+          locales
+          model {
+            apiKey
+          }
+          link {
+            ... on DatoCmsProductCategory {
+              id
+              locales
+              title
+              slug
+              description
+              _allSlugLocales {
+                value
+                locale
+              }
+              model {
+                apiKey
+              }
+            }
+            ... on DatoCmsProduct {
+              ...ProductPageDetails
+              ...AllProductSlugLocales
+            }
+            ... on DatoCmsBlogPage {
+              ...BlogDetails
+            }
+            ... on DatoCmsPage {
+              id
+              locales
+              title
+              slug
+              root
+              model {
+                apiKey
+              }
+              ...PageTreeParent
+              ...AllSlugLocales
+            }
+            ... on DatoCmsArticle {
+              id
+              locales
+              title
+              slug
+              model {
+                apiKey
+              }
+              category {
+                title
+                slug
+                ...ArticleCategoryAllSlugLocales
+              }
+              ...ArticleAllSlugLocales
+            }
+            ... on DatoCmsArticleCategory {
+              ...ArticleCategoryDetails
+              ...ArticleCategoryAllSlugLocales
+            }
+          }
+        }
+        ... on DatoCmsExternalLink {
+          id
+          anchor
+          url
+          model {
+            apiKey
+          }
+        }
+      }
+      treeChildren {
         id
         locales
         root
@@ -68,7 +239,18 @@ export const query = graphql`
             }
             link {
               ... on DatoCmsProductCategory {
-                ...ProductCategoryPageDetails
+                id
+                locales
+                title
+                slug
+                description
+                _allSlugLocales {
+                  value
+                  locale
+                }
+                model {
+                  apiKey
+                }
               }
               ... on DatoCmsProduct {
                 ...ProductPageDetails
@@ -78,12 +260,30 @@ export const query = graphql`
                 ...BlogDetails
               }
               ... on DatoCmsPage {
-                ...PageDetails
+                id
+                locales
+                title
+                slug
+                root
+                model {
+                  apiKey
+                }
                 ...PageTreeParent
                 ...AllSlugLocales
               }
               ... on DatoCmsArticle {
-                ...ArticleDetails
+                id
+                locales
+                title
+                slug
+                model {
+                  apiKey
+                }
+                category {
+                  title
+                  slug
+                  ...ArticleCategoryAllSlugLocales
+                }
                 ...ArticleAllSlugLocales
               }
               ... on DatoCmsArticleCategory {
@@ -101,113 +301,6 @@ export const query = graphql`
             }
           }
         }
-        treeChildren {
-          id
-          locales
-          root
-          anchor
-          link {
-            ... on DatoCmsInternalLink {
-              id
-              anchor
-              locales
-              model {
-                apiKey
-              }
-              link {
-                ... on DatoCmsProductCategory {
-                  ...ProductCategoryPageDetails
-                }
-                ... on DatoCmsProduct {
-                  ...ProductPageDetails
-                  ...AllProductSlugLocales
-                }
-                ... on DatoCmsBlogPage {
-                  ...BlogDetails
-                }
-                ... on DatoCmsPage {
-                  ...PageDetails
-                  ...PageTreeParent
-                  ...AllSlugLocales
-                }
-                ... on DatoCmsArticle {
-                  ...ArticleDetails
-                  ...ArticleAllSlugLocales
-                }
-                ... on DatoCmsArticleCategory {
-                  ...ArticleCategoryDetails
-                  ...ArticleCategoryAllSlugLocales
-                }
-              }
-            }
-            ... on DatoCmsExternalLink {
-              id
-              anchor
-              url
-              model {
-                apiKey
-              }
-            }
-          }
-          treeChildren {
-            id
-            locales
-            root
-            anchor
-            link {
-              ... on DatoCmsInternalLink {
-                id
-                anchor
-                locales
-                model {
-                  apiKey
-                }
-                link {
-                  ... on DatoCmsProductCategory {
-                    ...ProductCategoryPageDetails
-                  }
-                  ... on DatoCmsProduct {
-                    ...ProductPageDetails
-                    ...AllProductSlugLocales
-                  }
-                  ... on DatoCmsBlogPage {
-                    ...BlogDetails
-                  }
-                  ... on DatoCmsPage {
-                    ...PageDetails
-                    ...PageTreeParent
-                    ...AllSlugLocales
-                  }
-                  ... on DatoCmsArticle {
-                    ...ArticleDetails
-                    ...ArticleAllSlugLocales
-                  }
-                  ... on DatoCmsArticleCategory {
-                    ...ArticleCategoryDetails
-                    ...ArticleCategoryAllSlugLocales
-                  }
-                }
-              }
-              ... on DatoCmsExternalLink {
-                id
-                anchor
-                url
-                model {
-                  apiKey
-                }
-              }
-            }
-          }
-        }
-      }
-    }
-    footer: allDatoCmsFooter(
-      locale: $locale
-      filter: { root: { eq: true }, anchor: { ne: null } }
-      sort: { position: ASC }
-    ) {
-      nodes {
-        ...FooterDetails
       }
     }
   }

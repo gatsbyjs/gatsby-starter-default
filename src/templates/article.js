@@ -14,7 +14,7 @@ import ImageGallery from "../components/blocks/imageGallery"
 import ArticleTitle from "../components/articleTitle"
 import { HelmetDatoCms } from "gatsby-source-datocms"
 
-const Article = ({ data: { page, site, footer }, pageContext }) => {
+const Article = ({ data: { page, site, footer, menu }, pageContext }) => {
   const locale = pageContext.locale
   console.log(footer)
   const i18nPaths = page._allSlugLocales.map(path => {
@@ -25,7 +25,12 @@ const Article = ({ data: { page, site, footer }, pageContext }) => {
   })
 
   return (
-    <Layout locale={locale} i18nPaths={i18nPaths} footerData={footer.nodes}>
+    <Layout
+      locale={locale}
+      i18nPaths={i18nPaths}
+      footerData={footer.nodes}
+      menuData={menu.nodes}
+    >
       <HelmetDatoCms seo={page.seoMetaTags}>
         <html lang={page.locale} />
       </HelmetDatoCms>
@@ -108,9 +113,20 @@ export const query = graphql`
         ...GatsbyDatoCmsSeoMetaTags
       }
     }
+
+    menu: allDatoCmsMenu(
+      locale: $locale
+      filter: { root: { eq: true }, locales: { eq: $locale } }
+      sort: { position: ASC }
+    ) {
+      nodes {
+        ...MenuDetails
+      }
+    }
+
     footer: allDatoCmsFooter(
       locale: $locale
-      filter: { root: { eq: true }, anchor: { ne: null } }
+      filter: { root: { eq: true }, locales: { eq: $locale } }
       sort: { position: ASC }
     ) {
       nodes {
@@ -140,6 +156,11 @@ export const query = graphql`
     model {
       apiKey
     }
+    category {
+      title
+      slug
+      ...ArticleCategoryAllSlugLocales
+    }
     heroImage {
       gatsbyImageData(
         width: 1480
@@ -147,11 +168,6 @@ export const query = graphql`
         placeholder: BLURRED
         forceBlurhash: false
       )
-    }
-    category {
-      title
-      slug
-      ...ArticleCategoryAllSlugLocales
     }
     ...ArticleBody
   }
