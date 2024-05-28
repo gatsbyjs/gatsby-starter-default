@@ -14,12 +14,17 @@ import { LanguageSwitcherContext } from "../context/languageSwitcherContext"
 import Hreflang from "./hreflang"
 import Footer from "./footer"
 import Canonical from "./canonical"
+import { FooterContext } from "../context/footerContext"
 
-const Layout = ({ children, locale, i18nPaths }) => {
+import { MenuContext } from "../context/menuContext"
+
+const Layout = ({ children, locale, i18nPaths, footerData, menuData }) => {
+  console.log(locale, languages)
+
   const data = useStaticQuery(graphql`
     query SiteQuery {
       datoCmsSite: datoCmsSite {
-        locale
+        locales
       }
       gatsbySite: site {
         siteMetadata {
@@ -30,33 +35,35 @@ const Layout = ({ children, locale, i18nPaths }) => {
   `)
 
   return (
-    <i18nContext.Provider
-      value={languages[locale] || languages[data.datoCmsSite.locale]}
-    >
+    <i18nContext.Provider value={languages[locale]}>
       <LanguageSwitcherContext.Provider
         value={{ activeLocale: locale, paths: i18nPaths || [] }}
       >
-        <Hreflang
-          paths={i18nPaths}
-          siteUrl={data.gatsbySite.siteMetadata.siteUrl}
-        />
-        <Canonical
-          siteUrl={data.gatsbySite.siteMetadata.siteUrl}
-          paths={i18nPaths}
-        />
-        <Flex
-          sx={{
-            flexDirection: "column",
-            justifyContent: "space-between",
-            minHeight: "100vh",
-          }}
-        >
-          <Header />
-          <Box as="main" sx={{ pt: 5 }}>
-            {children}
-          </Box>
-          <Footer />
-        </Flex>
+        <FooterContext.Provider value={footerData}>
+          <MenuContext.Provider value={menuData}>
+            <Hreflang
+              paths={i18nPaths}
+              siteUrl={data.gatsbySite.siteMetadata.siteUrl}
+            />
+            <Canonical
+              siteUrl={data.gatsbySite.siteMetadata.siteUrl}
+              paths={i18nPaths}
+            />
+            <Flex
+              sx={{
+                flexDirection: "column",
+                justifyContent: "space-between",
+                minHeight: "100vh",
+              }}
+            >
+              <Header locale={locale} />
+              <Box as="main" sx={{ pt: 5 }}>
+                {children}
+              </Box>
+              <Footer />
+            </Flex>
+          </MenuContext.Provider>
+        </FooterContext.Provider>
       </LanguageSwitcherContext.Provider>
     </i18nContext.Provider>
   )

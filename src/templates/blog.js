@@ -7,12 +7,13 @@ import ArticlesList from "./articlesList"
 import CategoriesList from "./categoriesList"
 import BlogTitle from "../components/blogTitle"
 import { HelmetDatoCms } from "gatsby-source-datocms"
-import { useFavicon } from "../hooks/useFavicon"
 
-const Blog = ({ data: { page, articles, articleCategories, site } }) => {
-const favicon = useFavicon().site.faviconMetaTags
-  
-  // console.log(articleCategories)
+const Blog = ({
+  data: { page, articles, articleCategories, site, footer, menu },
+  pageContext,
+}) => {
+  console.log(articles)
+  const locale = pageContext.locale
   const i18nPaths = site.locales.map(locale => {
     return {
       locale: locale,
@@ -21,9 +22,14 @@ const favicon = useFavicon().site.faviconMetaTags
   })
 
   return (
-    <Layout locale={page.locale} i18nPaths={i18nPaths}>
-      <HelmetDatoCms seo={page.seoMetaTags} favicon={favicon}>
-        <html lang={page.locale} />
+    <Layout
+      locale={locale}
+      i18nPaths={i18nPaths}
+      footerData={footer.nodes}
+      menuData={menu.nodes}
+    >
+      <HelmetDatoCms seo={page.seoMetaTags}>
+        <html lang={locale} />
       </HelmetDatoCms>
       <Container variant="md">
         <BlogTitle page={page} />
@@ -37,16 +43,28 @@ const favicon = useFavicon().site.faviconMetaTags
 export default Blog
 
 export const query = graphql`
-  query BlogQuery($id: String!, $locale: String!) {
-    page: datoCmsBlogPage(id: { eq: $id }) {
+  query BlogQuery($locale: String!) {
+    page: datoCmsBlogPage(locale: $locale) {
       ...BlogDetails
       seoMetaTags {
         ...GatsbyDatoCmsSeoMetaTags
       }
     }
+
+    menu: allDatoCmsMenu(
+      locale: $locale
+      filter: { root: { eq: true }, locales: { eq: $locale } }
+      sort: { position: ASC }
+    ) {
+      nodes {
+        ...MenuDetails
+      }
+    }
+
     articles: allDatoCmsArticle(
-      sort: { fields: meta___firstPublishedAt, order: DESC }
-      filter: { slug: { ne: null }, locale: { eq: $locale } }
+      locale: $locale
+      sort: { meta: { firstPublishedAt: DESC } }
+      filter: { locales: { eq: $locale } }
     ) {
       nodes {
         ...ArticleDetails
@@ -55,22 +73,34 @@ export const query = graphql`
       }
     }
     articleCategories: allDatoCmsArticleCategory(
-      sort: { fields: position, order: ASC }
-      filter: { slug: { ne: null }, locale: { eq: $locale } }
+      locale: $locale
+      sort: { position: ASC }
+      filter: { locales: { eq: $locale } }
     ) {
       nodes {
         ...ArticleCategoryDetails
         ...ArticleCategoryAllSlugLocales
       }
     }
+
     site: datoCmsSite {
       locales
+    }
+
+    footer: allDatoCmsFooter(
+      locale: $locale
+      filter: { root: { eq: true }, locales: { eq: $locale } }
+      sort: { position: ASC }
+    ) {
+      nodes {
+        ...FooterDetails
+      }
     }
   }
 
   fragment BlogDetails on DatoCmsBlogPage {
     id
-    locale
+    locales
     title
     model {
       apiKey

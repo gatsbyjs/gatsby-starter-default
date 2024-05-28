@@ -1,11 +1,5 @@
 import React, { useEffect, useState } from "react"
-import {
-  Box,
-  Button,
-  Heading,
-  Input,
-  Text,
-} from "@theme-ui/components"
+import { Box, Heading, Input, Text } from "@theme-ui/components"
 import DatoCmsSearch from "datocms-search/dist/datocms-search.base"
 import { Link } from "gatsby"
 import { i18nContext } from "../context/i18nContext"
@@ -16,11 +10,6 @@ const SearchResults = ({ locale }) => {
   const [query, setQuery] = useState("")
   const [currentQuery, setCurrentQuery] = useState("")
   const [results, setResults] = useState([])
-
-  const handleSubmit = event => {
-    event.preventDefault()
-    setCurrentQuery(query)
-  }
 
   useEffect(() => {
     // console.log(query)
@@ -60,7 +49,7 @@ const SearchResults = ({ locale }) => {
               required
               sx={{ mb: 3, padding: 3, fontSize: 3 }}
             />
-            <Button onClick={handleSubmit}>{t.search}</Button>
+            {/*           <Button onClick={handleSubmit}>{t.search}</Button> */}
           </Box>
           <Box>
             {results.length > 0 ? (

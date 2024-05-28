@@ -12,78 +12,90 @@ exports.createPages = async ({ actions, graphql }) => {
   const { data } = await graphql(`
     query CreatePageQuery {
       site: datoCmsSite {
-        faviconMetaTags {
-          ...GatsbyDatoCmsFaviconMetaTags
-        }
-        locale
         locales
       }
-      home: allDatoCmsHomePage {
-        nodes {
-          id
+      home: datoCmsHomePage {
+        id
+        _allTitleLocales {
           locale
+          value
         }
       }
-      blog: allDatoCmsBlogPage(filter: { title: { ne: null } }) {
-        nodes {
-          id
+      blog: datoCmsBlogPage {
+        id
+        _allTitleLocales {
           locale
+          value
         }
       }
-      article: allDatoCmsArticle(filter: { slug: { ne: null } }) {
+      article: allDatoCmsArticle {
         nodes {
           id
           slug
-          locale
+          locales
+          _allSlugLocales {
+            value
+            locale
+          }
         }
       }
-      articleCategory: allDatoCmsArticleCategory(
-        filter: { slug: { ne: null } }
-      ) {
+      articleCategory: allDatoCmsArticleCategory {
         nodes {
           id
           slug
-          locale
+          locales
+          _allSlugLocales {
+            value
+            locale
+          }
         }
       }
-      product: allDatoCmsProduct(filter: { slug: { ne: null } }) {
+      product: allDatoCmsProduct {
         nodes {
           slug
           id
-          locale
+          locales
+          _allSlugLocales {
+            value
+            locale
+          }
           category {
             id
             slug
           }
         }
       }
-      category: allDatoCmsProductCategory(filter: { slug: { ne: null } }) {
+      category: allDatoCmsProductCategory {
         nodes {
           slug
           id
-          locale
+          locales
         }
       }
-      page: allDatoCmsPage(filter: { slug: { ne: null } }) {
+      page: allDatoCmsPage {
         nodes {
           id
-          slug
-          locale
+          _allSlugLocales {
+            locale
+            value
+          }
           root
           treeParent {
-            slug
+            _allSlugLocales {
+              locale
+              value
+            }
             root
             treeParent {
               slug
-              root
+              _allSlugLocales {
+                locale
+                value
+              }
             }
           }
         }
       }
-    }
-
-    fragment GatsbyDatoCmsFaviconMetaTags on DatoCmsFaviconMetaTags {
-      tags
     }
   `)
 
@@ -104,143 +116,143 @@ exports.createPages = async ({ actions, graphql }) => {
       products: "products",
     },
   }
+  const defaultLocale = data.site.locales[0]
 
   function getCategoryPath(page) {
-    
     return page.locale === data.site.locale
       ? `/${i18nPath[page.locale.toLowerCase()].category}/${page.slug}/`
       : `/${page.locale.toLowerCase()}/${
           i18nPath[page.locale.toLowerCase()].category
         }/${page.slug}/`
   }
-
-  function getPagePath(page) {
-    let lang =
-      page.locale === data.site.locale ? "" : `${page.locale.toLowerCase()}/`
-    let path = page.slug
+  function getArticlePath(page, locale) {
+    let lang = locale === defaultLocale ? "" : `${locale.toLowerCase()}/`
+    let path = page._allSlugLocales.find(
+      slugLocale => slugLocale.locale === locale
+    ).value
+    return `${lang}blog/${path}/`
+  }
+  function getProductPath(page, locale) {
+    let lang = locale === defaultLocale ? "" : `${locale.toLowerCase()}/`
+    let path = page._allSlugLocales.find(
+      slugLocale => slugLocale.locale === locale
+    ).value
+    let productPath = i18nPath[locale.toLowerCase()].products.toLowerCase()
+    return `${lang}${productPath}/${path}/`
+  }
+  function getPagePath(page, locale) {
+    let lang = locale === defaultLocale ? "" : `${locale.toLowerCase()}/`
+    let path = page._allSlugLocales.find(
+      slugLocale => slugLocale.locale === locale
+    ).value
     if (page.root) {
       return lang + `${path}/`
     }
 
-    path = `${page.treeParent.slug}/${path}/`
+    let parentPath = page.treeParent._allSlugLocales.find(
+      slugLocale => slugLocale.locale === locale
+    ).value
+    path = `${parentPath}/${path}/`
     if (page.treeParent.root) {
       return lang + path
     }
-    path = `${page.treeParent.treeParent.slug}/${path}/`
+
+    let grandParentPath = page.treeParent.treeParent._allSlugLocales.find(
+      slugLocale => slugLocale.locale === locale
+    ).value
+    path = `${grandParentPath}/${path}/`
     return lang + path
   }
 
-  function getBlogPath(page) {
-    return page.locale === data.site.locale
+  function getBlogPath(locale) {
+    return locale === defaultLocale
       ? `/blog/`
-      : `/${page.locale.toLowerCase()}/blog/`
+      : `/${locale.toLowerCase()}/blog/`
   }
 
-  function getArticleCategoryPath(page) {
-    return page.locale === data.site.locale
-      ? `/blog/${i18nPath[page.locale.toLowerCase()].category}/${page.slug}/`
+  function getArticleCategoryPath(page, locale) {
+    return locale === defaultLocale
+      ? `/blog/${i18nPath[locale.toLowerCase()].category}/${page.slug}/`
       : `/${page.locale.toLowerCase()}/blog/${
           i18nPath[page.locale.toLowerCase()].category
         }/${page.slug}/`
   }
 
-  function getArticlePath(page) {
-    return page.locale === data.site.locale
-      ? `/blog/${page.slug}/`
-      : `/${page.locale.toLowerCase()}/blog/${page.slug}/`
-  }
-
-  function getProductPath(page) {
-    return page.locale === data.site.locale
-      ? `/${i18nPath[page.locale.toLowerCase()].products}/${page.slug}/`
-      : `/${page.locale.toLowerCase()}/${i18nPath[
-          page.locale
-        ].products.toLowerCase()}/${page.slug}/`
-  }
-
-  data.home.nodes.map(page =>
+  data.home._allTitleLocales.map(title =>
     actions.createPage({
       path:
-        page.locale === data.site.locale
+        title.locale === defaultLocale
           ? "/"
-          : `/${page.locale.toLowerCase()}/`,
+          : `/${title.locale.toLowerCase()}/`,
       component: require.resolve(`./src/templates/home.js`),
-      context: { id: page.id, locale: page.locale },
+      context: { locale: title.locale },
+    })
+  )
+
+  data.blog._allTitleLocales.map(title =>
+    actions.createPage({
+      path: getBlogPath(title.locale),
+      component: require.resolve(`./src/templates/blog.js`),
+      context: { locale: title.locale },
     })
   )
 
   data.page.nodes.map(page =>
-    actions.createPage({
-      path: getPagePath(page),
-      component: require.resolve(`./src/templates/page.js`),
-      context: { id: page.id, locale: page.locale  },
-    })
+    page._allSlugLocales.map(slug =>
+      actions.createPage({
+        path: getPagePath(page, slug.locale),
+        component: require.resolve(`./src/templates/page.js`),
+        context: { id: page.id, locale: slug.locale },
+      })
+    )
   )
 
-  data.blog.nodes.map(page =>
-    actions.createPage({
-      path: getBlogPath(page),
-      component: require.resolve(`./src/templates/blog.js`),
-      context: { id: page.id, locale: page.locale },
-    })
+  data.product.nodes.map(page =>
+    page._allSlugLocales.map(slug =>
+      actions.createPage({
+        path: getProductPath(page, slug.locale),
+        component: require.resolve(`./src/templates/product.js`),
+        context: {
+          id: page.id,
+          locale: slug.locale,
+          categoryId: page.category.id,
+        },
+      })
+    )
   )
 
   data.article.nodes.map(page =>
-    actions.createPage({
-      path: getArticlePath(page),
-      component: require.resolve(`./src/templates/article.js`),
-      context: { id: page.id, locale: page.locale },
-    })
+    page._allSlugLocales.map(slug =>
+      actions.createPage({
+        path: getArticlePath(page, slug.locale),
+        component: require.resolve(`./src/templates/article.js`),
+        context: { id: page.id, locale: slug.locale },
+      })
+    )
   )
-
-  data.articleCategory.nodes.map(page =>
-    actions.createPage({
-      path: getArticleCategoryPath(page),
-      component: require.resolve(`./src/templates/articleCategory.js`),
-      context: { id: page.id, locale: page.locale },
-    })
-  )
+  // data.articleCategory.nodes.map(page =>
+  //   page._allSlugLocales.map(slug =>
+  //     actions.createPage({
+  //       path: getArticleCategoryPath(page, slug.locale),
+  //       component: require.resolve(`./src/templates/articleCategory.js`),
+  //       context: { id: page.id, locale: slug.locale },
+  //     })
+  //   )
+  // )
 
   data.site.locales.map(locale =>
     actions.createPage({
-      path:
-        data.site.locale === locale
-          ? `/${i18nPath[locale].search}/`
-          : `/${locale.toLowerCase()}/${
-              i18nPath[locale.toLowerCase()].search
-            }/`,
+      path: `/${locale.toLowerCase()}/search/`,
       component: require.resolve(`./src/templates/search.js`),
       context: { locale: locale },
     })
   )
 
-  data.category.nodes.map(page =>
-    actions.createPage({
-      path: getCategoryPath(page),
-      component: require.resolve(`./src/templates/productCategory.js`),
-      context: { id: page.id, locale: page.locale },
-    })
-  )
-
-  data.product.nodes.map(product =>
-    product.slug
-      ? actions.createPage({
-          path: getProductPath(product),
-          component: require.resolve(`./src/templates/product.js`),
-          context: {
-            categoryId: product.category.id,
-            id: product.id,
-            locale: product.locale
-          },
-        })
-      : null
-  )
-
-    createPage({
-      path: "/using-dsg",
-      component: require.resolve("./src/templates/using-dsg.js"),
-      context: {},
-      defer: true,
-    })
-
+  // data.category.nodes.map(page =>
+  //   actions.createPage({
+  //     path: getCategoryPath(page),
+  //     component: require.resolve(`./src/templates/productCategory.js`),
+  //     context: { id: page.id, locale: page.locale },
+  //   })
+  // )
 }

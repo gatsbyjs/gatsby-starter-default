@@ -16,21 +16,16 @@ import DocumentCollection from "../components/blocks/documentCollection"
 import Embed from "../components/blocks/embed"
 import PageHero from "./pageHero"
 import ImageAndText from "../components/blocks/imageAndText"
-import NumbersGroup from "../components/blocks/numbersGroup"
 import NumbersCollection from "../components/blocks/numbersCollections"
 import ContactForm from "../components/blocks/contactFrom"
-
-import Categories from "../components/blocks/categoryBlock"
-import { useFavicon } from "../hooks/useFavicon"
 
 const LocationsMap = loadable(
   () => import("../components/blocks/locationMap"),
   { ssr: false }
 )
 
-const Page = ({ data: { page , site } }) => {
-
-  const favicon = useFavicon().site.faviconMetaTags
+const Page = ({ data: { page, site, footer, menu }, pageContext }) => {
+  const locale = pageContext.locale
 
   const pageAllSlugLocales = page._allSlugLocales.sort(function (a, b) {
     return site.locales.indexOf(a.locale) - site.locales.indexOf(b.locale)
@@ -44,8 +39,13 @@ const Page = ({ data: { page , site } }) => {
   })
 
   return (
-    <Layout locale={page.locale} i18nPaths={i18nPaths}>
-      <HelmetDatoCms seo={page.seoMetaTags} favicon={favicon}>
+    <Layout
+      locale={locale}
+      i18nPaths={i18nPaths}
+      menuData={menu.nodes}
+      footerData={footer.nodes}
+    >
+      <HelmetDatoCms seo={page.seoMetaTags}>
         <html lang={page.locale} />
       </HelmetDatoCms>
       <PageHero page={page} image={page.heroImage} />
@@ -88,6 +88,7 @@ const Page = ({ data: { page , site } }) => {
           )}
           {block.model.apiKey === "contact_form" && (
             <ContactForm
+              block={block}
               kicker={block.kicker}
               title={block.title}
               subtitle={block.subtitle}
@@ -123,7 +124,7 @@ const Page = ({ data: { page , site } }) => {
               newsletterDescription={block.newsletterDescription}
             />
           )}
-          
+
           {block.model.apiKey === "image_and_text" && (
             <ImageAndText
               label={block.content.label}
@@ -134,14 +135,6 @@ const Page = ({ data: { page , site } }) => {
               rightAligned={block.rightAligned}
             />
           )}
-          {block.model.apiKey === "category" && (
-            <Categories
-              page={page}
-              title={block.title}
-              description={block.description}
-            />
-          )}
-          
         </Box>
       ))}
     </Layout>
@@ -155,7 +148,27 @@ export const query = graphql`
     site: datoCmsSite {
       locales
     }
-    page: datoCmsPage(id: { eq: $id }) {
+    footer: allDatoCmsFooter(
+      locale: $locale
+      filter: { root: { eq: true }, locales: { eq: $locale } }
+      sort: { position: ASC }
+    ) {
+      nodes {
+        ...FooterDetails
+      }
+    }
+
+    menu: allDatoCmsMenu(
+      locale: $locale
+      filter: { root: { eq: true }, locales: { eq: $locale } }
+      sort: { position: ASC }
+    ) {
+      nodes {
+        ...MenuDetails
+      }
+    }
+
+    page: datoCmsPage(id: { eq: $id }, locale: $locale) {
       ...PageDetails
       ...PageTreeParent
       ...AllSlugLocales
@@ -230,14 +243,6 @@ export const query = graphql`
             apiKey
           }
         }
-        ... on DatoCmsCategory {
-          id
-          title
-          description
-          model {
-            apiKey
-          }
-        }
         ... on DatoCmsLocationsMap {
           id
           locations {
@@ -256,7 +261,6 @@ export const query = graphql`
             postalCode
             streetAddress
             telephone
-            locale
           }
           model {
             apiKey
@@ -395,7 +399,7 @@ export const query = graphql`
         ... on DatoCmsInternalLink {
           id: originalId
           anchor
-          locale
+          locales
           model {
             apiKey
           }
@@ -435,7 +439,7 @@ export const query = graphql`
 
   fragment PageDetails on DatoCmsPage {
     id
-    locale
+    locales
     title
     slug
     root
@@ -467,14 +471,14 @@ export const query = graphql`
       title
       slug
       root
-      locale
+      locales
       ...AllSlugLocales
       treeParent {
         id
         title
         slug
         root
-        locale
+        locales
         ...AllSlugLocales
       }
     }

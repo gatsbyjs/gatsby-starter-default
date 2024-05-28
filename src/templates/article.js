@@ -13,13 +13,10 @@ import { GatsbyImage } from "gatsby-plugin-image"
 import ImageGallery from "../components/blocks/imageGallery"
 import ArticleTitle from "../components/articleTitle"
 import { HelmetDatoCms } from "gatsby-source-datocms"
-import { useFavicon } from "../hooks/useFavicon"
 
-const Article = ({ data: { page } }) => {
-
-  const favicon = useFavicon().site.faviconMetaTags
-
-  // console.log(page)
+const Article = ({ data: { page, site, footer, menu }, pageContext }) => {
+  const locale = pageContext.locale
+  console.log(footer)
   const i18nPaths = page._allSlugLocales.map(path => {
     return {
       locale: path.locale,
@@ -27,10 +24,14 @@ const Article = ({ data: { page } }) => {
     }
   })
 
-  
   return (
-    <Layout locale={page.locale} i18nPaths={i18nPaths}>
-      <HelmetDatoCms seo={page.seoMetaTags} favicon={favicon}>
+    <Layout
+      locale={locale}
+      i18nPaths={i18nPaths}
+      footerData={footer.nodes}
+      menuData={menu.nodes}
+    >
+      <HelmetDatoCms seo={page.seoMetaTags}>
         <html lang={page.locale} />
       </HelmetDatoCms>
       <ArticleTitle page={page} />
@@ -101,7 +102,7 @@ export default Article
 
 export const query = graphql`
   query ArticleQuery($id: String!, $locale: String!) {
-    page: datoCmsArticle(id: { eq: $id }) {
+    page: datoCmsArticle(id: { eq: $id }, locale: $locale) {
       ...ArticleDetails
       ...ArticleAllSlugLocales
       ...ArticleMeta
@@ -110,6 +111,26 @@ export const query = graphql`
       }
       seoMetaTags {
         ...GatsbyDatoCmsSeoMetaTags
+      }
+    }
+
+    menu: allDatoCmsMenu(
+      locale: $locale
+      filter: { root: { eq: true }, locales: { eq: $locale } }
+      sort: { position: ASC }
+    ) {
+      nodes {
+        ...MenuDetails
+      }
+    }
+
+    footer: allDatoCmsFooter(
+      locale: $locale
+      filter: { root: { eq: true }, locales: { eq: $locale } }
+      sort: { position: ASC }
+    ) {
+      nodes {
+        ...FooterDetails
       }
     }
   }
@@ -129,11 +150,16 @@ export const query = graphql`
 
   fragment ArticleDetails on DatoCmsArticle {
     id
-    locale
+    locales
     title
     slug
     model {
       apiKey
+    }
+    category {
+      title
+      slug
+      ...ArticleCategoryAllSlugLocales
     }
     heroImage {
       gatsbyImageData(
@@ -142,11 +168,6 @@ export const query = graphql`
         placeholder: BLURRED
         forceBlurhash: false
       )
-    }
-    category {
-      title
-      slug
-      ...ArticleCategoryAllSlugLocales
     }
     ...ArticleBody
   }

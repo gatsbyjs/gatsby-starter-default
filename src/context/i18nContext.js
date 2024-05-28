@@ -12,16 +12,16 @@ export const languages = {
     latestArticles: "Latest news",
     formInputTexts: {
       fullName: "Full name",
-      company : "Company",
+      company: "Company",
       address: "Street",
-      city : "City",
-      province : "Province",
-      zipCode : "Zip Code",
+      city: "City",
+      province: "Province",
+      zipCode: "Zip Code",
       phone: "Phone",
-      message: "Message"
-    }
+      message: "Message",
+    },
   },
-  "en-us": {
+  "en-US": {
     locale: "en-US",
     discoverMore: "Discover more",
     all: "All",
@@ -32,14 +32,14 @@ export const languages = {
     latestArticles: "Latest news",
     formInputTexts: {
       fullName: "Full name",
-      company : "Company",
+      company: "Company",
       address: "Street",
-      city : "City",
-      province : "Province",
-      zipCode : "Zip Code",
+      city: "City",
+      province: "Province",
+      zipCode: "Zip Code",
       phone: "Phone",
-      message: "Message"
-    }
+      message: "Message",
+    },
   },
   it: {
     locale: "it",
@@ -52,14 +52,14 @@ export const languages = {
     latestArticles: "Ultime news",
     formInputTexts: {
       fullName: "Full name",
-      company : "Company",
+      company: "Company",
       address: "Street",
-      city : "City",
-      province : "Province",
-      zipCode : "Zip Code",
+      city: "City",
+      province: "Province",
+      zipCode: "Zip Code",
       phone: "Phone",
-      message: "Message"
-    }
+      message: "Message",
+    },
   },
 }
 
