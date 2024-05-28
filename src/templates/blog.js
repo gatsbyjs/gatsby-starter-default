@@ -7,11 +7,8 @@ import ArticlesList from "./articlesList"
 import CategoriesList from "./categoriesList"
 import BlogTitle from "../components/blogTitle"
 import { HelmetDatoCms } from "gatsby-source-datocms"
-import { useFavicon } from "../hooks/useFavicon"
 
 const Blog = ({ data: { page, articles, articleCategories, site } }) => {
-  const favicon = useFavicon().site.faviconMetaTags
-
   // console.log(articleCategories)
   const i18nPaths = site.locales.map(locale => {
     return {
@@ -22,7 +19,7 @@ const Blog = ({ data: { page, articles, articleCategories, site } }) => {
 
   return (
     <Layout locale={page.locale} i18nPaths={i18nPaths}>
-      <HelmetDatoCms seo={page.seoMetaTags} favicon={favicon}>
+      <HelmetDatoCms seo={page.seoMetaTags}>
         <html lang={page.locale} />
       </HelmetDatoCms>
       <Container variant="md">

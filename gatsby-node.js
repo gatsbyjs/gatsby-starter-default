@@ -12,9 +12,6 @@ exports.createPages = async ({ actions, graphql }) => {
   const { data } = await graphql(`
     query CreatePageQuery {
       site: datoCmsSite {
-        faviconMetaTags {
-          tags
-        }
         locales
       }
       home: datoCmsHomePage {

@@ -7,12 +7,6 @@ import { HelmetDatoCms } from "gatsby-source-datocms"
 import PageHero from "./pageHero"
 import ProductThumb from "../components/productThumb.js"
 import { InboundLink } from "../components/link"
-import { useFavicon } from "../hooks/useFavicon"
-
-// const LocationsMap = loadable(
-//   () => import("../components/blocks/locationMap"),
-//   { ssr: false }
-// )
 
 const Page = ({
   data: {
@@ -26,9 +20,6 @@ const Page = ({
   },
 }) => {
   const locale = pageContext.locale
-
-  console.log(locale)
-  const favicon = useFavicon().site.faviconMetaTags
   const pageAllSlugLocales = page._allSlugLocales.sort(function (a, b) {
     return site.locales.indexOf(a.locale) - site.locales.indexOf(b.locale)
   })
@@ -45,7 +36,7 @@ const Page = ({
 
   return (
     <Layout locale={locale} i18nPaths={i18nPaths}>
-      <HelmetDatoCms seo={page.seoMetaTags} favicon={favicon}>
+      <HelmetDatoCms seo={page.seoMetaTags}>
         <html lang={page.locale} />
       </HelmetDatoCms>
       <PageHero page={page} image={page.heroImage} />

@@ -6,10 +6,9 @@ import { getProductPath } from "../utils/path"
 import { HelmetDatoCms } from "gatsby-source-datocms"
 import PageHero from "./pageHero"
 import { GatsbyImage } from "gatsby-plugin-image"
-import { useFavicon } from "../hooks/useFavicon"
 
 const Page = ({ data: { page, site, footer }, location, pageContext }) => {
-  const favicon = useFavicon().site.faviconMetaTags
+
   const locale = pageContext.locale
   console.log(locale)
   const pageCategory =
@@ -34,7 +33,7 @@ const Page = ({ data: { page, site, footer }, location, pageContext }) => {
 
   return (
     <Layout locale={locale} i18nPaths={i18nPaths} footerData={footer.nodes}>
-      <HelmetDatoCms seo={page.seoMetaTags} favicon={favicon}>
+      <HelmetDatoCms seo={page.seoMetaTags}>
         <html lang={page.locale} />
       </HelmetDatoCms>
       <PageHero
