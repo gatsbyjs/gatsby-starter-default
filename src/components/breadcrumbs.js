@@ -12,17 +12,11 @@ import { LanguageSwitcherContext } from "../context/languageSwitcherContext"
 const Breadcrumbs = ({ page, productCategory = undefined }) => {
   const locale = React.useContext(LanguageSwitcherContext).activeLocale
   console.log(locale)
+  console.log(page.model.apiKey)
   function renderSwitch(page) {
     switch (page.model.apiKey) {
       case "product":
-        return (
-          <ProductBreadcrumbs
-            page={page}
-            pageCategory={
-              productCategory ? productCategory : page.category && page.category
-            }
-          />
-        )
+        return <ProductBreadcrumbs page={page} />
       case "product_category":
         return <CategoryBreadcrumbs page={page} />
       case "article":
@@ -32,20 +26,21 @@ const Breadcrumbs = ({ page, productCategory = undefined }) => {
     }
   }
 
-  const ProductBreadcrumbs = ({ page, pageCategory }) => (
+  const ProductBreadcrumbs = ({ page }) => (
     <List>
+      {console.log("CIAO", page.category)}
       <Item>
         <InboundLink color="secondary" to={getHomePath(locale)}>
           Home
         </InboundLink>
       </Item>
-      {pageCategory && (
+      {page.category && (
         <Item>
           <InboundLink
             color="secondary"
-            to={getCategoryPath(pageCategory, locale)}
+            to={getCategoryPath(page.category, locale)}
           >
-            {pageCategory.title}
+            {page.category.title}
           </InboundLink>
         </Item>
       )}

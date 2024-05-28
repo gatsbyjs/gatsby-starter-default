@@ -6,16 +6,9 @@ import { getProductPath } from "../utils/path"
 import { HelmetDatoCms } from "gatsby-source-datocms"
 import PageHero from "./pageHero"
 import { GatsbyImage } from "gatsby-plugin-image"
-import { getColor } from "@theme-ui/color"
-import themeUiTheme from "../gatsby-plugin-theme-ui"
 import { useFavicon } from "../hooks/useFavicon"
 
-// const LocationsMap = loadable(
-//   () => import("../components/blocks/locationMap"),
-//   { ssr: false }
-// )
-
-const Page = ({ data: { page, site }, location, pageContext }) => {
+const Page = ({ data: { page, site, footer }, location, pageContext }) => {
   const favicon = useFavicon().site.faviconMetaTags
   const locale = pageContext.locale
   console.log(locale)
@@ -40,7 +33,7 @@ const Page = ({ data: { page, site }, location, pageContext }) => {
   })
 
   return (
-    <Layout locale={locale} i18nPaths={i18nPaths}>
+    <Layout locale={locale} i18nPaths={i18nPaths} footerData={footer.nodes}>
       <HelmetDatoCms seo={page.seoMetaTags} favicon={favicon}>
         <html lang={page.locale} />
       </HelmetDatoCms>
@@ -91,6 +84,15 @@ export const query = graphql`
   query ProductQuery($categoryId: String!, $id: String!, $locale: String!) {
     site: datoCmsSite {
       locales
+    }
+    footer: allDatoCmsFooter(
+      locale: $locale
+      filter: { root: { eq: true }, anchor: { ne: null } }
+      sort: { position: ASC }
+    ) {
+      nodes {
+        ...FooterDetails
+      }
     }
     page: datoCmsProduct(id: { eq: $id }) {
       id
@@ -158,7 +160,6 @@ export const query = graphql`
           title
           locales
           ...ProductCategoryPageDetails
-
           model {
             apiKey
           }

@@ -128,7 +128,6 @@ export const query = graphql`
       model {
         apiKey
       }
-      ...AllProductCategorySlugLocales
       seoMetaTags {
         ...GatsbyDatoCmsSeoMetaTags
       }
@@ -222,6 +221,10 @@ export const query = graphql`
     title
     slug
     description
+    _allSlugLocales {
+      value
+      locale
+    }
     model {
       apiKey
     }
@@ -248,13 +251,6 @@ export const query = graphql`
           blendAlpha: 30
         }
       )
-    }
-  }
-
-  fragment AllProductCategorySlugLocales on DatoCmsProductCategory {
-    _allSlugLocales {
-      value
-      locale
     }
   }
 `

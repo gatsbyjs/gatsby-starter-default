@@ -40,31 +40,13 @@ export function getPagePath(page, locale) {
   }${path}`
   return lang + `${path}/`
 }
-export function getCategoryPath(page, locale) {
-  const pageLocale = locale || page.locale
-  let lang =
-    pageLocale === defaultLocale ? "/" : `/${pageLocale.toLowerCase()}/`
-  let path = `${page._allSlugLocales.find(x => x.locale === pageLocale).value}`
-  let categoryPath = i18nPath[pageLocale].category.toLowerCase()
-
-  if (page.root) {
-    return lang + `${categoryPath}/${path}/`
-  }
-
-  path = `${
-    page.treeParent._allSlugLocales.find(x => x.locale === pageLocale).value
-  }/${path}`
-  if (page.treeParent.root) {
-    return lang + `${categoryPath}/${path}/`
-  }
-
-  path = `${
-    page.treeParent.treeParent._allSlugLocales.find(
-      x => x.locale === pageLocale
-    ).value
-  }${path}`
+export function getCategoryPath(category, locale) {
+  let lang = locale === defaultLocale ? "/" : `/${locale.toLowerCase()}/`
+  let path = `${category._allSlugLocales.find(x => x.locale === locale).value}`
+  let categoryPath = i18nPath[locale].products.toLowerCase()
   return lang + `${categoryPath}/${path}/`
 }
+
 export function getHomePath(locale) {
   console.log("Locale:", locale)
   return locale === defaultLocale ? "/" : `/${locale.toLowerCase()}/`
