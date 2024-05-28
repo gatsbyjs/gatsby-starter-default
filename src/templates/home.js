@@ -49,6 +49,7 @@ export const query = graphql`
       locales
     }
     menu: allDatoCmsMenu(
+      locale: $locale
       filter: { root: { eq: true }, anchor: { ne: null } }
       sort: { position: ASC }
     ) {
