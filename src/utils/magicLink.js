@@ -30,11 +30,13 @@ const MagicLink = props => {
             </InboundLink>
           )
         case "page":
-          return (
-            <InboundLink to={getPagePath(item.link, locale)} {...props}>
+          const pagePath = getPagePath(item.link, locale)
+
+          return pagePath ? (
+            <InboundLink to={pagePath} {...props}>
               {item.anchor}
             </InboundLink>
-          )
+          ) : null
         case "blog_page":
           console.log(locale)
           return (

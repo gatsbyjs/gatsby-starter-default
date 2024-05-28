@@ -1,6 +1,6 @@
 import { Box, Container, Flex } from "@theme-ui/components"
 import React, { useState, useContext } from "react"
-import { useMenu } from "../hooks/useMenu"
+
 import { getHomePath, getSearchPath } from "../utils/path"
 import { InboundLink } from "./link"
 import { MagicLink } from "../utils/magicLink"
@@ -69,7 +69,7 @@ const TextComponent = ({ item, locale, index }) => {
     setShow(false)
     debouncedHandleMouseEnterMenu.cancel()
   }
-
+  console.log(locale)
   return (
     <Box
       as="li"

@@ -43,10 +43,17 @@ export function getPagePath(page, locale) {
   return lang + `${path}/`
 }
 export function getCategoryPath(category, locale) {
+  console.log(category)
   let lang = locale === defaultLocale ? "/" : `/${locale.toLowerCase()}/`
   let path = `${category._allSlugLocales.find(x => x.locale === locale).value}`
   let categoryPath = i18nPath[locale].products.toLowerCase()
   return lang + `${categoryPath}/${path}/`
+}
+export function getProductPath(page, locale) {
+  let lang = locale === defaultLocale ? "/" : `/${locale.toLowerCase()}/`
+  let path = `${page.slug}`
+  let productPath = i18nPath[locale].products.toLowerCase()
+  return lang + `${productPath}/${path}/`
 }
 
 export function getHomePath(locale) {
@@ -76,10 +83,4 @@ export function getArticleCategoryPath(page, locale) {
     : `/${locale.toLowerCase()}/blog/${i18nPath[locale].category}/${
         page._allSlugLocales.find(x => x.locale === locale).value
       }/`
-}
-
-export function getProductPath(page, locale) {
-  return locale === defaultLocale
-    ? `/${i18nPath[locale].products}/${page.slug}/`
-    : `/${locale.toLowerCase()}/${i18nPath[page.locale].products}/${page.slug}/`
 }

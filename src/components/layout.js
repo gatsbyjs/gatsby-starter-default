@@ -19,7 +19,7 @@ import { FooterContext } from "../context/footerContext"
 import { MenuContext } from "../context/menuContext"
 
 const Layout = ({ children, locale, i18nPaths, footerData, menuData }) => {
-  console.log(menuData)
+  console.log(locale, languages)
 
   const data = useStaticQuery(graphql`
     query SiteQuery {
@@ -35,9 +35,7 @@ const Layout = ({ children, locale, i18nPaths, footerData, menuData }) => {
   `)
 
   return (
-    <i18nContext.Provider
-      value={languages[locale] || languages[data.datoCmsSite.locale]}
-    >
+    <i18nContext.Provider value={languages[locale]}>
       <LanguageSwitcherContext.Provider
         value={{ activeLocale: locale, paths: i18nPaths || [] }}
       >

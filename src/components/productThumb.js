@@ -5,8 +5,7 @@ import { GatsbyImage } from "gatsby-plugin-image"
 import { Plus } from "react-feather"
 import { getColor } from "@theme-ui/color"
 import themeUiTheme from "../gatsby-plugin-theme-ui"
-import { Link } from 'gatsby'
-
+import { Link } from "gatsby"
 
 const ProductThumb = ({ product, category }) => {
   const primary = getColor(themeUiTheme, "primary")
