@@ -8,6 +8,7 @@
     "@loadable/component": "^5.15.0",
     "@theme-ui/color": "^0.12.0",
     "datocms-search": "^0.1.8",
+    "framer-motion": "^11.2.12",
     "gatsby": "^5.12.4",
     "gatsby-plugin-google-gtag": "^4.0.0",
     "gatsby-plugin-google-tagmanager": "^4.14.0",

@@ -1,6 +1,7 @@
 import * as React from "react"
 import { Box } from "@theme-ui/components"
 import Nav from "./nav"
+import MobileNav from "./mobileNav"
 
 const Header = locale => {
   return (
@@ -15,7 +16,18 @@ const Header = locale => {
         zIndex: "9999",
       }}
     >
-      <Nav locale={locale} />
+      <Box
+        sx={{
+          display: ["none", "none", "none", "block"],
+
+          zIndex: 4,
+        }}
+      >
+        <Nav locale={locale} />
+      </Box>
+      <Box sx={{ display: ["block", "block", "block", "none"], zIndex: 4 }}>
+        <MobileNav locale={locale} />
+      </Box>
     </Box>
   )
 }
