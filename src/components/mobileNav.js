@@ -155,93 +155,111 @@ const MobileNav = ({}) => {
               }}
             >
               {menu.map(navItem => (
-                <Box key={"mobile" + navItem.id}>
-                  {navItem.link ? (
-                    // Renderizza il navItem con link
-                    <motion.li
-                      whileTap={{ scale: 0.95 }}
-                      style={{
-                        overflowY: "hidden",
-                        userSelect: "none",
-                      }}
-                    >
-                      <motion.div
-                        style={{
-                          display: "flex",
-                          justifyContent: "space-between",
-                          textTransform: "capitalize",
-                          padding: "15px 0",
-                        }}
-                      >
-                        <MagicLink
-                          variant="links.nav"
-                          item={navItem.link}
-                          locale={locale}
-                          sx={{
-                            color: "light",
-                            backgroundColor: "dark",
-                            borderRadius: "80px",
-                            textTransform: "uppercase",
-                            textDecoration: "none",
-                            py: "10px",
-                            px: "15px",
-                            fontSize: ["18px"],
-                            "&.active": {
-                              color: "light",
-                            },
-                          }}
-                        />
-                      </motion.div>
-                    </motion.li>
-                  ) : navItem.treeChildren &&
-                    navItem.treeChildren.length > 0 ? (
-                    // Renderizza i treeChildren se il navItem non ha link ma ha treeChildren
-                    navItem.treeChildren.map(child => (
-                      <motion.li
-                        whileTap={{ scale: 0.95 }}
-                        key={child.id}
-                        style={{
-                          overflowY: "hidden",
-                          userSelect: "none",
-                        }}
-                      >
-                        <motion.div
-                          style={{
-                            display: "flex",
-                            justifyContent: "space-between",
-                            textTransform: "capitalize",
-                            padding: "15px 0",
-                          }}
-                        >
-                          <MagicLink
-                            variant="links.nav"
-                            item={child.link}
-                            locale={locale}
-                            sx={{
-                              color: "light",
-                              backgroundColor: "dark",
-                              borderRadius: "80px",
-                              textTransform: "uppercase",
-                              textDecoration: "none",
-                              py: "10px",
-                              px: "15px",
-                              fontSize: ["18px"],
-                              "&.active": {
-                                color: "light",
-                              },
-                            }}
-                          />
-                        </motion.div>
-                      </motion.li>
-                    ))
-                  ) : null}
-                </Box>
+                <MenuItemComponent
+                  key={navItem.id}
+                  menuItem={navItem}
+                  locale={locale}
+                />
               ))}
             </motion.ul>
           )}
         </motion.div>
       </motion.nav>
     </Box>
+  )
+}
+
+const MenuItemComponent = ({ menuItem, locale }) => {
+  return (
+    <Box key={"mobile" + menuItem.id}>
+      {menuItem.link ? (
+        <motion.li
+          whileTap={{ scale: 0.95 }}
+          style={{
+            overflowY: "hidden",
+            userSelect: "none",
+          }}
+        >
+          <motion.div
+            style={{
+              display: "flex",
+              justifyContent: "space-between",
+              textTransform: "capitalize",
+              padding: "15px 0",
+            }}
+          >
+            <MagicLink
+              variant="links.nav"
+              item={menuItem.link}
+              locale={locale}
+              sx={{
+                color: "light",
+                backgroundColor: "dark",
+                borderRadius: "80px",
+                textTransform: "uppercase",
+                textDecoration: "none",
+                py: "10px",
+                px: "15px",
+                fontSize: ["18px"],
+                "&.active": {
+                  color: "light",
+                },
+              }}
+            />
+          </motion.div>
+        </motion.li>
+      ) : menuItem.treeChildren && menuItem.treeChildren.length > 0 ? (
+        <TreeChildrenComponent
+          treeChildren={menuItem.treeChildren}
+          locale={locale}
+        />
+      ) : null}
+    </Box>
+  )
+}
+
+const TreeChildrenComponent = ({ treeChildren, locale }) => {
+  return (
+    <>
+      {treeChildren.map(child => (
+        <motion.li
+          whileTap={{ scale: 0.95 }}
+          key={child.id}
+          style={{
+            overflowY: "hidden",
+            userSelect: "none",
+          }}
+        >
+          <motion.div
+            style={{
+              display: "flex",
+              justifyContent: "space-between",
+              textTransform: "capitalize",
+              padding: "15px 0",
+            }}
+          >
+            <MagicLink
+              variant="links.nav"
+              item={child.link}
+              locale={locale}
+              sx={{
+                color: "light",
+                backgroundColor: "dark",
+                borderRadius: "80px",
+                textTransform: "uppercase",
+                textDecoration: "none",
+                py: "10px",
+                px: "15px",
+                fontSize: ["18px"],
+                "&.active": {
+                  color: "light",
+                },
+              }}
+            />
+          </motion.div>
+        </motion.li>
+      ))}
+    </>
   )
 }
 
