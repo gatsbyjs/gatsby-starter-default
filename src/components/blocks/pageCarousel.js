@@ -1,19 +1,18 @@
 import React from "react"
 import { Box, Container, Flex, Heading, Text } from "@theme-ui/components"
-
-// Begin swiper
-import SwiperCore, { Pagination, Mousewheel, A11y } from "swiper"
+// Importa i componenti Swiper e i moduli necessari
 import { Swiper, SwiperSlide } from "swiper/react"
-import "swiper/swiper-bundle.min.css"
+import { Pagination, Mousewheel, A11y } from "swiper"
+// Importa i CSS necessari per Swiper e i moduli utilizzati
+import "swiper/css"
+import "swiper/css/pagination"
 import { InboundLink } from "../link"
 import { getPagePath } from "../../utils/path"
 import { LanguageSwitcherContext } from "../../context/languageSwitcherContext"
-SwiperCore.use([Mousewheel, Pagination, A11y])
-// End swiper
 
 const PageCarousel = ({ title, pages }) => {
   const locale = React.useContext(LanguageSwitcherContext).activeLocale
-  // console.log(pages)
+
   return (
     <Box>
       <Container>

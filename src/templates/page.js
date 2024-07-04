@@ -53,10 +53,7 @@ const Page = ({ data: { page, site, footer, menu }, pageContext }) => {
         <Box as="section" key={block.id}>
           {block.model.apiKey === "title_and_body" && (
             <Container>
-              <TitleAndBody
-                title={block.content.title}
-                body={block.content.body}
-              />
+              <TitleAndBody block={block} />
             </Container>
           )}
           {block.model.apiKey === "ordered_list" && (
@@ -303,12 +300,12 @@ export const query = graphql`
           }
         }
         ... on DatoCmsTitleAndBody {
+          kicker
           id
-          content {
-            ... on DatoCmsRichContent {
-              ...RichContent
-            }
-          }
+          title
+          originalbody: body
+          centered
+
           model {
             apiKey
           }
