@@ -5,7 +5,7 @@ import ArticleThumb from "../components/articleThumb"
 // Begin swiper
 import SwiperCore, { Pagination, Mousewheel, A11y } from "swiper"
 import { Swiper, SwiperSlide } from "swiper/react"
-import "swiper/swiper-bundle.min.css"
+
 import { i18nContext } from "../context/i18nContext"
 SwiperCore.use([Mousewheel, Pagination, A11y])
 // End swiper
