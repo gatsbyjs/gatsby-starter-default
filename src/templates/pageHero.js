@@ -24,7 +24,7 @@ const PageHero = ({ page, image }) => (
       <Heading as="h1" variant="h1" color="light">
         {page.title}
       </Heading>
-      <Breadcrumbs page={page} />
+      {page.model.apiKey === "page" && <Breadcrumbs page={page} />}
     </Container>
   </Box>
 )

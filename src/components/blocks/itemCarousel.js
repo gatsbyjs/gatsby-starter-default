@@ -3,7 +3,6 @@ import { Box, Flex, Grid, Heading, Text } from "@theme-ui/components"
 
 import { Swiper, SwiperSlide } from "swiper/react"
 import { Pagination, Mousewheel, A11y } from "swiper"
-// Importa i CSS necessari per Swiper e i moduli utilizzati
 import "swiper/css"
 import "swiper/css/pagination"
 import RichContentStructuredText from "../richContentStructuredText"

@@ -190,7 +190,17 @@ export const query = graphql`
       gatsbyImageData(width: 1480, placeholder: BLURRED, forceBlurhash: false)
       alt
       title
+      mimeType
+      blurhash
+      customData
+      video {
+        streamingUrl
+        thumbnailUrl(format: jpg)
+        mp4Url(exactRes: low)
+        muxPlaybackId
+      }
     }
+
     model {
       apiKey
     }
