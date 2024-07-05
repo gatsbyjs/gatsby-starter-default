@@ -7,9 +7,9 @@ import { Pagination, Mousewheel, A11y } from "swiper"
 
 import "swiper/css"
 import "swiper/css/pagination"
+import BackgroundVideo from "./backgroundVideo"
 
 const ImageGallery = ({ images }) => {
-  // console.log(images)
   return (
     <Box>
       {images.length > 1 ? (
@@ -20,7 +20,10 @@ const ImageGallery = ({ images }) => {
         >
           {images.map(image => (
             <SwiperSlide key={image.originalId}>
-              <StyledImage image={image} />
+              {image.mimeType === "video/mp4" && (
+                <BackgroundVideo media={image} />
+              )}
+              {image.mimeType === "image/png" && <StyledImage image={image} />}
             </SwiperSlide>
           ))}
         </Swiper>

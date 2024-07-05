@@ -38,6 +38,7 @@ const Page = ({ data: { page, site, footer, menu }, pageContext }) => {
     }
   })
 
+  console.log(page.model.apiKey)
   return (
     <Layout
       locale={locale}
@@ -230,11 +231,18 @@ export const query = graphql`
         ... on DatoCmsImage {
           id
           image {
+            mimeType
             gatsbyImageData(
               width: 1480
               placeholder: BLURRED
               forceBlurhash: false
             )
+            video {
+              streamingUrl
+              thumbnailUrl(format: jpg)
+              mp4Url(exactRes: low)
+              muxPlaybackId
+            }
           }
           model {
             apiKey
@@ -305,7 +313,58 @@ export const query = graphql`
           title
           originalbody: body
           centered
-
+          content {
+            value
+            blocks {
+              __typename
+              ... on DatoCmsImageGallery {
+                id: originalId
+                ...ImageGallery
+              }
+              ... on DatoCmsEmbed {
+                id: originalId
+                ...EmbedDetails
+              }
+              ... on DatoCmsNumbersGroup {
+                id: originalId
+                numbers {
+                  legend
+                  float
+                  suffix
+                  prefix
+                }
+              }
+            }
+            links {
+              __typename
+              ... on DatoCmsInternalLink {
+                id: originalId
+                anchor
+                locales
+                model {
+                  apiKey
+                }
+                link {
+                  ... on DatoCmsBlogPage {
+                    ...BlogDetails
+                  }
+                  ... on DatoCmsPage {
+                    ...PageDetails
+                    ...PageTreeParent
+                    ...AllSlugLocales
+                  }
+                  ... on DatoCmsArticle {
+                    ...ArticleDetails
+                    ...ArticleAllSlugLocales
+                  }
+                  ... on DatoCmsArticleCategory {
+                    ...ArticleCategoryDetails
+                    ...ArticleCategoryAllSlugLocales
+                  }
+                }
+              }
+            }
+          }
           model {
             apiKey
           }

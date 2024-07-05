@@ -25,7 +25,7 @@ const theme = {
     heading: 1.125,
   },
   sizes: {
-    container: 1440,
+    container: 1280,
   },
   radii: {
     none: "0",
