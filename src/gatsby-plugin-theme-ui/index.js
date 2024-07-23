@@ -10,8 +10,7 @@ const theme = {
     lightGrey: "#999999",
   },
   fonts: {
-    body:
-      'system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", sans-serif',
+    body: 'system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", sans-serif',
     heading:
       'system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", sans-serif',
   },
@@ -44,6 +43,22 @@ const theme = {
   text: {
     default: {
       lineHeight: "body",
+    },
+    kicker: {
+      textAlign: "center",
+      letterSpacing: "0.5",
+      my: 3,
+      color: "primary",
+      width: "fit-content",
+      maxWidth: "fit-content",
+      minWidth: "fit-content",
+      /*       borderRadius: "40px",
+      border: "1px solid", */
+      borderColor: "primary",
+
+      textTransform: "uppercase",
+      fontSize: "18px",
+      fontWeight: 500,
     },
     heading: {
       fontSize: [5],

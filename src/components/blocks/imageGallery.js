@@ -2,15 +2,14 @@ import React from "react"
 import { GatsbyImage } from "gatsby-plugin-image"
 import { Box, Text } from "@theme-ui/components"
 
-// Begin swiper
-import SwiperCore, { Pagination, Mousewheel, A11y } from "swiper"
 import { Swiper, SwiperSlide } from "swiper/react"
-import "swiper/swiper-bundle.min.css"
-SwiperCore.use([Mousewheel, Pagination, A11y])
-// End swiper
+import { Pagination, Mousewheel, A11y } from "swiper"
+
+import "swiper/css"
+import "swiper/css/pagination"
+import BackgroundVideo from "./backgroundVideo"
 
 const ImageGallery = ({ images }) => {
-  // console.log(images)
   return (
     <Box>
       {images.length > 1 ? (
@@ -21,7 +20,10 @@ const ImageGallery = ({ images }) => {
         >
           {images.map(image => (
             <SwiperSlide key={image.originalId}>
-              <StyledImage image={image} />
+              {image.mimeType === "video/mp4" && (
+                <BackgroundVideo media={image} />
+              )}
+              {image.mimeType === "image/png" && <StyledImage image={image} />}
             </SwiperSlide>
           ))}
         </Swiper>

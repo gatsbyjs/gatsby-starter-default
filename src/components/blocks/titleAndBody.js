@@ -1,19 +1,25 @@
 import React from "react"
-import { Box, Grid, Heading } from "@theme-ui/components"
-import RichContentStructuredText from "../richContentStructuredText"
+import { Box, Grid, Heading, Text, Container } from "@theme-ui/components"
 
-const TitleAndBody = ({ title, body }) => {
+const TitleAndBody = ({ block }) => {
   return (
-    <Box>
-      <Grid columns={[1, 1, "1fr"]} gap={32}>
-        <Box>
-          <Heading>{title}</Heading>
+    <Container>
+      {block.kicker && (
+        <Box sx={{ borderBottom: "1px solid black", py: 2 }}>
+          <Text variant="kicker" as="p">
+            {block.kicker}
+          </Text>
         </Box>
+      )}
+
+      <Grid columns={[1, 1, "1fr 1fr"]} gap={5} sx={{ mt: 4 }}>
         <Box>
-          <RichContentStructuredText text={body} />
+          <Heading>{block.title}</Heading>
         </Box>
+        <Box dangerouslySetInnerHTML={{ __html: block.originalbody }} />
+        <Box></Box>
       </Grid>
-    </Box>
+    </Container>
   )
 }
 

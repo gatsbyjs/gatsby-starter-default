@@ -1,13 +1,11 @@
 import React from "react"
 import { Box, Flex, Grid, Heading, Text } from "@theme-ui/components"
 
-// Begin swiper
-import SwiperCore, { Pagination, Mousewheel, A11y } from "swiper"
 import { Swiper, SwiperSlide } from "swiper/react"
-import "swiper/swiper-bundle.min.css"
+import { Pagination, Mousewheel, A11y } from "swiper"
+import "swiper/css"
+import "swiper/css/pagination"
 import RichContentStructuredText from "../richContentStructuredText"
-SwiperCore.use([Mousewheel, Pagination, A11y])
-// End swiper
 
 const ItemCarousel = ({ items }) => {
   // console.log(items)

@@ -5,6 +5,8 @@ import Layout from "../components/layout"
 import { getHomePath } from "../utils/path"
 import { HelmetDatoCms } from "gatsby-source-datocms"
 
+import HomeHero from "./homeHero"
+
 const Home = ({ data: { page, site, footer, menu }, pageContext }) => {
   const locale = pageContext.locale
   console.log(menu.nodes)
@@ -26,6 +28,8 @@ const Home = ({ data: { page, site, footer, menu }, pageContext }) => {
       <HelmetDatoCms seo={page.seoMetaTags}>
         <html lang={locale} />
       </HelmetDatoCms>
+      <HomeHero page={page} />
+
       <Container>
         <Heading as="h1">{page.title}</Heading>
       </Container>
@@ -40,6 +44,24 @@ export const query = graphql`
     page: datoCmsHomePage(locale: $locale) {
       id
       title
+      model {
+        apiKey
+      }
+
+      heroImage {
+        alt
+        title
+        mimeType
+        blurhash
+        customData
+        video {
+          streamingUrl
+          thumbnailUrl(format: jpg)
+          mp4Url(exactRes: low)
+          muxPlaybackId
+        }
+        gatsbyImageData(width: 1920, placeholder: BLURRED)
+      }
       locales
       seoMetaTags {
         ...GatsbyDatoCmsSeoMetaTags
