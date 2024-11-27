@@ -240,13 +240,13 @@ exports.createPages = async ({ actions, graphql }) => {
   //   )
   // )
 
-  data.site.locales.map(locale =>
+  /* data.site.locales.map(locale =>
     actions.createPage({
       path: `/${locale.toLowerCase()}/search/`,
       component: require.resolve(`./src/templates/search.js`),
       context: { locale: locale },
     })
-  )
+  ) */
 
   // data.category.nodes.map(page =>
   //   actions.createPage({

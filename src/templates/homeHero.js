@@ -1,6 +1,6 @@
 import { GatsbyImage } from "gatsby-plugin-image"
 import React from "react"
-import { Box, Container } from "theme-ui"
+import { Box, Container, Image } from "theme-ui"
 import Video from "../components/blocks/video"
 import BackgroundVideo from "../components/blocks/backgroundVideo"
 
@@ -9,9 +9,8 @@ const HomeHero = ({ page }) => (
     sx={{
       position: "relative",
       backgroundColor: "primary",
-      height: ["100%", "100%", "100vh"],
-
-      minHeight: ["300px", "400px", "100vh"],
+      height: `calc(100vh - var(--navbar-height))`,
+      minHeight: ["300px", "400px", `calc(100vh - var(--navbar-height))`],
     }}
   >
     <Box
@@ -22,11 +21,14 @@ const HomeHero = ({ page }) => (
         },
       }}
     >
-      {page.heroImage.mimeType === "image/png" && (
+      {page.heroImage.mimeType === "video/mp4" ? (
+        <BackgroundVideo media={page.heroImage} />
+      ) : page.heroImage.gatsbyImageData ? (
         <GatsbyImage image={page.heroImage.gatsbyImageData} alt="" />
+      ) : (
+        <Image src={page.heroImage.url} alt="" />
       )}
     </Box>
-    <BackgroundVideo media={page.heroImage} />
   </Box>
 )
 

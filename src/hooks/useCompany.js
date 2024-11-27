@@ -1,7 +1,7 @@
 import React from "react"
 import { useStaticQuery, graphql } from "gatsby"
 import { LanguageSwitcherContext } from "../context/languageSwitcherContext"
-
+import LanguageSwitcher from "../components/languageSwitcher"
 export const useCompany = () => {
   const company = useStaticQuery(graphql`
     query CompanyQuery {

@@ -17,7 +17,7 @@ const Footer = () => {
   const social = useSocial()
   const locations = useLocation()
   const locale = useContext(LanguageSwitcherContext).activeLocale
-
+  console.log(company)
   footer.map(footerItem => {
     footerItem.treeChildren.sort((a, b) => a.position - b.position)
     footerItem.treeChildren.map(footerItem => {

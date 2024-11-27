@@ -3,7 +3,27 @@ import { Box } from "@theme-ui/components"
 import Nav from "./nav"
 import MobileNav from "./mobileNav"
 
-const Header = locale => {
+const Header = ({ locale }) => {
+  React.useEffect(() => {
+    const updateNavbarHeight = () => {
+      const headerElement = document.querySelector("header")
+      const navbarHeight = headerElement.offsetHeight
+      document.documentElement.style.setProperty(
+        "--navbar-height",
+        `${navbarHeight}px`
+      )
+    }
+
+    updateNavbarHeight()
+
+    window.addEventListener("resize", updateNavbarHeight)
+
+    // Rimuovi il listener al dismount
+    return () => {
+      window.removeEventListener("resize", updateNavbarHeight)
+    }
+  }, [])
+
   return (
     <Box
       as="header"
@@ -19,7 +39,6 @@ const Header = locale => {
       <Box
         sx={{
           display: ["none", "none", "none", "block"],
-
           zIndex: 4,
         }}
       >
