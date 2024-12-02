@@ -109,7 +109,7 @@ const RelatedCollection = ({ block }) => {
           ))}
         </Swiper>
 
-        <Flex
+        {/* <Flex
           sx={{
             justifyContent: "center",
             mt: "40px",
@@ -134,7 +134,7 @@ const RelatedCollection = ({ block }) => {
               cursor: "pointer",
             }}
           />
-        </Flex>
+        </Flex> */}
       </Box>
     </Container>
   )
