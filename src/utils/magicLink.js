@@ -8,10 +8,11 @@ import {
   getCategoryPath,
 } from "./path"
 import { InboundLink, OutboundLink } from "../components/link"
+import { Box } from "@theme-ui/components"
 
 const MagicLink = props => {
   const item = props.item // sostituire (dovrà essere il context)
-
+  console.log(item)
   if (item) {
     if (item.link) {
       const locale = props.locale ? props.locale : item.locale
@@ -49,12 +50,7 @@ const MagicLink = props => {
           )
         case "article":
           return (
-            <InboundLink
-              to={getArticlePath(item.link, locale)}
-              as={props.as}
-              variant={props.variant}
-              sx={props.sx}
-            >
+            <InboundLink to={getArticlePath(item.link, locale)}>
               {item.anchor}
             </InboundLink>
           )

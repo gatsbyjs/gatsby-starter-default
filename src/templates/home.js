@@ -7,7 +7,9 @@ import { HelmetDatoCms } from "gatsby-source-datocms"
 import TitleAndBody from "../components/blocks/titleAndBody"
 import Breadcrumbs from "../components/breadcrumbs"
 import HomeHero from "./homeHero"
+import ImageAndText from "../components/blocks/imageAndText"
 import HomeIntro from "../components/homeIntro"
+import RelatedCollection from "../components/blocks/relatedCollection"
 const Home = ({ data: { page, site, footer, menu }, pageContext }) => {
   const locale = pageContext.locale
 
@@ -37,9 +39,17 @@ const Home = ({ data: { page, site, footer, menu }, pageContext }) => {
             {block.model.apiKey === "title_and_body" && (
               <TitleAndBody block={block} />
             )}
-            {/*  {block.model.apiKey === "image_and_text" && (
-              <ImageAndText block={block} />
-            )} */}
+            {block.model.apiKey === "image_and_text" && (
+              <ImageAndText
+                image={block.image}
+                title={block.title}
+                body={block.body}
+                rightAligned={block.rightAligned}
+              />
+            )}
+            {block.model.apiKey === "related" && (
+              <RelatedCollection block={block} />
+            )}
           </Box>
         ))}
     </Layout>
@@ -61,6 +71,31 @@ export const query = graphql`
         apiKey
       }
       content {
+        ... on DatoCmsRelated {
+          model {
+            apiKey
+          }
+          title
+          kicker
+          related {
+            anchor
+            link {
+              ... on DatoCmsProductCategory {
+                ...ProductCategoryPageDetails
+              }
+              ... on DatoCmsProduct {
+                ...ProductPageDetails
+              }
+              ... on DatoCmsPage {
+                ...PageDetails
+              }
+              ... on DatoCmsArticle {
+                ...ArticleDetails
+                ...ArticleAllSlugLocales
+              }
+            }
+          }
+        }
         ... on DatoCmsTitleAndBody {
           centered
 
@@ -112,6 +147,12 @@ export const query = graphql`
         ... on DatoCmsImageAndText {
           id
           kicker
+          image {
+            alt
+            title
+            url
+            gatsbyImageData(width: 1920, placeholder: BLURRED)
+          }
           model {
             apiKey
           }
@@ -128,6 +169,11 @@ export const query = graphql`
                   url
                   gatsbyImageData(width: 1920, placeholder: BLURRED)
                 }
+              }
+              ... on DatoCmsAccordion {
+                id: originalId
+                title
+                body
               }
             }
             links {

@@ -258,31 +258,28 @@ const TitleAndBody = ({ block }) => {
                               return null
                           }
                         }}
-                        renderLinkToRecord={({ record }) => {
-                          switch (record.__typename) {
-                            case "DatoCmsInternalLink":
-                              return (
-                                <MagicLink
-                                  item={record}
-                                  locale={record.locales.find(
-                                    locale => locale === activeLocale
-                                  )}
-                                />
-                              )
-                            default:
-                              return null
-                          }
-                        }}
                         renderInlineRecord={({ record }) => {
                           switch (record.__typename) {
                             case "DatoCmsInternalLink":
                               return (
-                                <MagicLink
-                                  item={record}
-                                  locale={record.locales.find(
-                                    locale => locale === activeLocale
-                                  )}
-                                />
+                                <Box
+                                  sx={{
+                                    a: {
+                                      color: "primary",
+                                      ":hover": {
+                                        color: "secondary",
+                                        textDecoration: "underline",
+                                      },
+                                    },
+                                  }}
+                                >
+                                  <MagicLink
+                                    item={record}
+                                    locale={record.locales.find(
+                                      locale => locale === activeLocale
+                                    )}
+                                  />
+                                </Box>
                               )
                             default:
                               return null

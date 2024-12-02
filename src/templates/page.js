@@ -506,6 +506,7 @@ export const query = graphql`
     title
     slug
     root
+    ...AllSlugLocales
     model {
       apiKey
     }
@@ -516,6 +517,7 @@ export const query = graphql`
         forceBlurhash: false
         imgixParams: { monochrome: "00A889" }
       )
+      url
     }
   }
 

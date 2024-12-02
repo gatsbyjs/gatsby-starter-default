@@ -189,6 +189,13 @@ export const query = graphql`
   fragment ProductPageDetails on DatoCmsProduct {
     id
     title
+    model {
+      apiKey
+    }
+    _allSlugLocales {
+      value
+      locale
+    }
     slug
     description
     locales
