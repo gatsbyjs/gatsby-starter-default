@@ -1,6 +1,4 @@
-import React from "react"
 import { useStaticQuery, graphql } from "gatsby"
-import { LanguageSwitcherContext } from "../context/languageSwitcherContext"
 
 export const useLocation = () => {
   const locations = useStaticQuery(graphql`

@@ -18,7 +18,6 @@ const Header = ({ locale }) => {
 
     window.addEventListener("resize", updateNavbarHeight)
 
-    // Rimuovi il listener al dismount
     return () => {
       window.removeEventListener("resize", updateNavbarHeight)
     }

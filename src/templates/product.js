@@ -13,7 +13,7 @@ const Page = ({
   pageContext,
 }) => {
   const locale = pageContext.locale
-  console.log(locale)
+
   const pageCategory =
     location.state && location.state.category
       ? page.category[

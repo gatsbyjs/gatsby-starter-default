@@ -2,8 +2,7 @@ import React from "react"
 import { Box, Container, Flex, Heading, Text } from "@theme-ui/components"
 // Importa i componenti Swiper e i moduli necessari
 import { Swiper, SwiperSlide } from "swiper/react"
-import { Pagination, Mousewheel, A11y } from "swiper"
-// Importa i CSS necessari per Swiper e i moduli utilizzati
+
 import "swiper/css"
 import "swiper/css/pagination"
 import { InboundLink } from "../link"

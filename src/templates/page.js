@@ -38,7 +38,6 @@ const Page = ({ data: { page, site, footer, menu }, pageContext }) => {
     }
   })
 
-  console.log(page.model.apiKey)
   return (
     <Layout
       locale={locale}
@@ -211,21 +210,44 @@ export const query = graphql`
         }
         ... on DatoCmsImageAndText {
           id
-          content {
-            ... on DatoCmsRichContent {
-              ...RichContent
-            }
-          }
-          image {
-            gatsbyImageData(
-              width: 1480
-              placeholder: BLURRED
-              forceBlurhash: false
-            )
-          }
-          rightAligned
+          kicker
           model {
             apiKey
+          }
+          rightAligned
+
+          originalbody: body {
+            value
+            blocks {
+              __typename
+              ... on DatoCmsImageGallery {
+                id: originalId
+                images {
+                  alt
+                  title
+                  url
+                  gatsbyImageData(width: 1920, placeholder: BLURRED)
+                }
+              }
+            }
+            links {
+              __typename
+              ... on DatoCmsInternalLink {
+                id: originalId
+                anchor
+                locales
+                model {
+                  apiKey
+                }
+                link {
+                  ... on DatoCmsPage {
+                    ...PageDetails
+                    ...PageTreeParent
+                    ...AllSlugLocales
+                  }
+                }
+              }
+            }
           }
         }
         ... on DatoCmsImage {
@@ -298,11 +320,8 @@ export const query = graphql`
         ... on DatoCmsAccordion {
           id
           title
-          items: content {
-            ... on DatoCmsRichContent {
-              ...RichContent
-            }
-          }
+          body
+
           model {
             apiKey
           }
@@ -311,7 +330,7 @@ export const query = graphql`
           kicker
           id
           title
-          originalbody: body
+          body
           centered
           content {
             value
@@ -369,19 +388,7 @@ export const query = graphql`
             apiKey
           }
         }
-        ... on DatoCmsOrderedList {
-          id
-          title
-          subtitle
-          body {
-            blocks
-            links
-            value
-          }
-          model {
-            apiKey
-          }
-        }
+
         ... on DatoCmsPageCarousel {
           id
           title

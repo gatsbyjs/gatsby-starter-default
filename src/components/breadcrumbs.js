@@ -11,8 +11,7 @@ import {
 import { LanguageSwitcherContext } from "../context/languageSwitcherContext"
 const Breadcrumbs = ({ page, productCategory = undefined }) => {
   const locale = React.useContext(LanguageSwitcherContext).activeLocale
-  console.log(locale)
-  console.log(page.model.apiKey)
+
   function renderSwitch(page) {
     switch (page.model.apiKey) {
       case "product":
@@ -28,7 +27,6 @@ const Breadcrumbs = ({ page, productCategory = undefined }) => {
 
   const ProductBreadcrumbs = ({ page }) => (
     <List>
-      {console.log("CIAO", page.category)}
       <Item>
         <InboundLink color="secondary" to={getHomePath(locale)}>
           Home

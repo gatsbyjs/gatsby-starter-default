@@ -24,7 +24,7 @@ const ContactForm = ({
   newsletterDescription,
 }) => {
   const { executeRecaptcha } = useGoogleReCaptcha()
-  console.log(block)
+
   const isBrowser = typeof window !== "undefined"
 
   const [formData, setFormData] = useState({

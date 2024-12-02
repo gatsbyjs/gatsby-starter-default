@@ -16,7 +16,7 @@ import { HelmetDatoCms } from "gatsby-source-datocms"
 
 const Article = ({ data: { page, site, footer, menu }, pageContext }) => {
   const locale = pageContext.locale
-  console.log(footer)
+
   const i18nPaths = page._allSlugLocales.map(path => {
     return {
       locale: path.locale,
@@ -80,7 +80,6 @@ const Article = ({ data: { page, site, footer, menu }, pageContext }) => {
             ),
           ]}
           renderBlock={({ record }) => {
-            // console.log(record)
             switch (record.__typename) {
               case "DatoCmsImageGallery":
                 return (

@@ -4,7 +4,6 @@ import { Box, Text, Container } from "@theme-ui/components"
 import VideoBlock from "./videoBlock"
 
 const Image = ({ image }) => {
-  // console.log(image)
   return (
     <Container mb={5}>
       {image.mimeType === "video/mp4" && (

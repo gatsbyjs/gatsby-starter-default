@@ -8,7 +8,6 @@ import "swiper/css/pagination"
 import RichContentStructuredText from "../richContentStructuredText"
 
 const ItemCarousel = ({ items }) => {
-  // console.log(items)
   return (
     <Box>
       <Swiper

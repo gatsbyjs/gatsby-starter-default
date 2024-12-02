@@ -41,15 +41,16 @@ const RichContentStructuredText = ({ text, theme }) => {
           renderInlineRecord={({ record }) => {
             switch (record.__typename) {
               case "DatoCmsInternalLink":
-                return <Box>{
-                  <MagicLink item={record} lcoale={record.locale} />
-                }</Box>
+                return (
+                  <Box>
+                    {<MagicLink item={record} lcoale={record.locale} />}
+                  </Box>
+                )
               default:
                 return null
             }
           }}
           renderBlock={({ record }) => {
-            // console.log(record)
             switch (record.__typename) {
               case "DatoCmsImageGallery":
                 return (

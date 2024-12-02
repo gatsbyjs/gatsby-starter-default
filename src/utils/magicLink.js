@@ -15,7 +15,7 @@ const MagicLink = props => {
   if (item) {
     if (item.link) {
       const locale = props.locale ? props.locale : item.locale
-      console.log(locale)
+
       switch (item.link.model.apiKey) {
         case "product_category":
           return (
@@ -38,7 +38,6 @@ const MagicLink = props => {
             </InboundLink>
           ) : null
         case "blog_page":
-          console.log(locale)
           return (
             <InboundLink
               to={getBlogPath(locale)}

@@ -1,16 +1,16 @@
 import React from "react"
 import { graphql } from "gatsby"
-import { Container, Heading } from "@theme-ui/components"
+import { Container, Heading, Box } from "@theme-ui/components"
 import Layout from "../components/layout"
 import { getHomePath } from "../utils/path"
 import { HelmetDatoCms } from "gatsby-source-datocms"
-
+import TitleAndBody from "../components/blocks/titleAndBody"
+import Breadcrumbs from "../components/breadcrumbs"
 import HomeHero from "./homeHero"
-
+import HomeIntro from "../components/homeIntro"
 const Home = ({ data: { page, site, footer, menu }, pageContext }) => {
   const locale = pageContext.locale
-  console.log(menu.nodes)
-  console.log("FOOTER", footer)
+
   const i18nPaths = site.locales.map(locale => {
     return {
       locale: locale,
@@ -29,10 +29,19 @@ const Home = ({ data: { page, site, footer, menu }, pageContext }) => {
         <html lang={locale} />
       </HelmetDatoCms>
       <HomeHero page={page} />
-
-      <Container>
-        <Heading as="h1">{page.title}</Heading>
-      </Container>
+      <HomeIntro page={page} />
+      {page &&
+        page.content &&
+        page.content.map(block => (
+          <Box as="section" key={block.id}>
+            {block.model.apiKey === "title_and_body" && (
+              <TitleAndBody block={block} />
+            )}
+            {/*  {block.model.apiKey === "image_and_text" && (
+              <ImageAndText block={block} />
+            )} */}
+          </Box>
+        ))}
     </Layout>
   )
 }
@@ -43,9 +52,104 @@ export const query = graphql`
   query HomeQuery($locale: String!) {
     page: datoCmsHomePage(locale: $locale) {
       id
+      kicker
+      body {
+        value
+      }
       title
       model {
         apiKey
+      }
+      content {
+        ... on DatoCmsTitleAndBody {
+          centered
+
+          model {
+            apiKey
+          }
+          id
+          kicker
+          title
+          content {
+            value
+            blocks {
+              __typename
+              ... on DatoCmsImageGallery {
+                id: originalId
+                images {
+                  alt
+                  title
+                  url
+                  gatsbyImageData(width: 1920, placeholder: BLURRED)
+                }
+              }
+              ... on DatoCmsAccordion {
+                id: originalId
+                title
+                body
+              }
+            }
+            links {
+              __typename
+              ... on DatoCmsInternalLink {
+                id: originalId
+                anchor
+                locales
+                model {
+                  apiKey
+                }
+                link {
+                  ... on DatoCmsPage {
+                    ...PageDetails
+                    ...PageTreeParent
+                    ...AllSlugLocales
+                  }
+                }
+              }
+            }
+          }
+        }
+        ... on DatoCmsImageAndText {
+          id
+          kicker
+          model {
+            apiKey
+          }
+          rightAligned
+          body {
+            value
+            blocks {
+              __typename
+              ... on DatoCmsImageGallery {
+                id: originalId
+                images {
+                  alt
+                  title
+                  url
+                  gatsbyImageData(width: 1920, placeholder: BLURRED)
+                }
+              }
+            }
+            links {
+              __typename
+              ... on DatoCmsInternalLink {
+                id: originalId
+                anchor
+                locales
+                model {
+                  apiKey
+                }
+                link {
+                  ... on DatoCmsPage {
+                    ...PageDetails
+                    ...PageTreeParent
+                    ...AllSlugLocales
+                  }
+                }
+              }
+            }
+          }
+        }
       }
 
       heroImage {

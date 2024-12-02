@@ -11,7 +11,6 @@ import { HelmetDatoCms } from "gatsby-source-datocms"
 const ArticleCategory = ({
   data: { page, articles, articleCategories, footer },
 }) => {
-  // console.log(page, articles, articleCategories)
   const i18nPaths = page._allSlugLocales.map(path => {
     return {
       locale: path.locale,

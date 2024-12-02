@@ -19,8 +19,6 @@ import { FooterContext } from "../context/footerContext"
 import { MenuContext } from "../context/menuContext"
 
 const Layout = ({ children, locale, i18nPaths, footerData, menuData }) => {
-  console.log(locale, languages)
-
   const data = useStaticQuery(graphql`
     query SiteQuery {
       datoCmsSite: datoCmsSite {
@@ -57,7 +55,7 @@ const Layout = ({ children, locale, i18nPaths, footerData, menuData }) => {
               }}
             >
               <Header locale={locale} />
-              <Box as="main" sx={{ pt: 5 }}>
+              <Box as="main" sx={{ pt: "var(--navbar-height)" }}>
                 {children}
               </Box>
               <Footer />

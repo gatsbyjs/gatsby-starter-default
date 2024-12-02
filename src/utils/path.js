@@ -22,8 +22,7 @@ export function getPagePath(page, locale) {
   const pageLocale = locale || page.locale
   let lang =
     pageLocale === defaultLocale ? "/" : `/${pageLocale.toLowerCase()}/`
-  console.log("getPagePath", page)
-  console.log("page._allSlugLocales:", page._allSlugLocales)
+
   let path = `${page._allSlugLocales.find(x => x.locale === pageLocale).value}`
   if (page.root) {
     return lang + `${path}/`
@@ -43,7 +42,6 @@ export function getPagePath(page, locale) {
   return lang + `${path}/`
 }
 export function getCategoryPath(category, locale) {
-  console.log(category)
   let lang = locale === defaultLocale ? "/" : `/${locale.toLowerCase()}/`
   let path = `${category._allSlugLocales.find(x => x.locale === locale).value}`
   let categoryPath = i18nPath[locale].products.toLowerCase()
@@ -57,12 +55,10 @@ export function getProductPath(page, locale) {
 }
 
 export function getHomePath(locale) {
-  console.log(locale)
   return locale === defaultLocale ? "/" : `/${locale.toLowerCase()}/`
 }
 
 export function getSearchPath(locale) {
-  console.log("Locale:", locale)
   if (typeof locale !== "string") {
     console.error(new Error(`Stack trace:`).stack)
     throw new Error(

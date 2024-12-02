@@ -1,7 +1,7 @@
 import React from "react"
 import { Box, Flex, Grid, Heading, Text } from "@theme-ui/components"
-import RichContentStructuredText from "../richContentStructuredText"
 import { GatsbyImage } from "gatsby-plugin-image"
+import { StructuredText } from "react-datocms"
 
 const ImageAndText = ({
   title,
@@ -53,7 +53,7 @@ const ImageAndText = ({
             <Text color="light">{subtitle}</Text>
           </Box>
           <Box>
-            <RichContentStructuredText text={body} theme="dark" />
+            <StructuredText text={body} theme="dark" />
           </Box>
         </Flex>
         {rightAligned && <Box></Box>}

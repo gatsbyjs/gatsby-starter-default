@@ -12,7 +12,6 @@ const Blog = ({
   data: { page, articles, articleCategories, site, footer, menu },
   pageContext,
 }) => {
-  console.log(articles)
   const locale = pageContext.locale
   const i18nPaths = site.locales.map(locale => {
     return {
