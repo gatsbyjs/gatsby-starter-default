@@ -9,6 +9,7 @@ export const useCompany = () => {
           locales
           description
           legalName
+
           addresses {
             id
             addressCountry

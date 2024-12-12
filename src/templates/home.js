@@ -36,10 +36,10 @@ const Home = ({ data: { page, site, footer, menu }, pageContext }) => {
         page.content &&
         page.content.map(block => (
           <Box as="section" key={block.id}>
-            {block.model.apiKey === "title_and_body" && (
+            {block.model && block.model.apiKey === "title_and_body" && (
               <TitleAndBody block={block} />
             )}
-            {block.model.apiKey === "image_and_text" && (
+            {block.model && block.model.apiKey === "image_and_text" && (
               <ImageAndText
                 image={block.image}
                 title={block.title}
@@ -47,7 +47,7 @@ const Home = ({ data: { page, site, footer, menu }, pageContext }) => {
                 rightAligned={block.rightAligned}
               />
             )}
-            {block.model.apiKey === "related" && (
+            {block.model && block.model.apiKey === "related" && (
               <RelatedCollection block={block} />
             )}
           </Box>
@@ -138,6 +138,16 @@ export const query = graphql`
                     ...PageDetails
                     ...PageTreeParent
                     ...AllSlugLocales
+                  }
+                  ... on DatoCmsArticle {
+                    ...ArticleDetails
+                    ...ArticleAllSlugLocales
+                  }
+                  ... on DatoCmsProductCategory {
+                    ...ProductCategoryPageDetails
+                  }
+                  ... on DatoCmsProduct {
+                    ...ProductPageDetails
                   }
                 }
               }

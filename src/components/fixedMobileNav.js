@@ -12,9 +12,7 @@ import { LanguageSwitcherContext } from "../context/languageSwitcherContext"
 import { MenuContext } from "../context/menuContext"
 
 import { FooterContext } from "../context/footerContext"
-const MobileNav = ({}) => {
-  const [isVisible, setIsVisible] = useState(true)
-  const [isAtTop, setIsAtTop] = useState(true)
+const FixedMobileNav = ({}) => {
   const [mobileNavOpen, setMobileNavOpen] = useState(false)
   const locale = useContext(LanguageSwitcherContext).activeLocale
   const menu = useContext(MenuContext)
@@ -74,8 +72,7 @@ const MobileNav = ({}) => {
       sx={{
         position: "relative",
         zIndex: 100000000,
-        backgroundColor: isAtTop ? "transparent" : "primary",
-        transition: "background-color 0.3s ease-in-out",
+        backgroundColor: "primary",
       }}
     >
       <motion.nav
@@ -97,26 +94,12 @@ const MobileNav = ({}) => {
           position: "relative",
         }}
       >
-        <Box
-          sx={{
-            a: {
-              display: "block",
-              opacity: isAtTop ? 0.9 : 1,
-              transition: "opacity 0.3s ease-in-out",
-            },
-          }}
-        >
+        <Box sx={{ a: { display: "block" } }}>
           <InboundLink to={getHomePath(locale)} className="logo-link">
             <Image sx={{ height: "40px" }} src={Logo} alt="Logo" />
           </InboundLink>
         </Box>
-        <Box
-          sx={{
-            opacity: isAtTop ? 0.9 : 1,
-            transition: "opacity 0.3s ease-in-out",
-          }}
-          onClick={() => setMobileNavOpen(!mobileNavOpen)}
-        >
+        <Box sx={{}} onClick={() => setMobileNavOpen(!mobileNavOpen)}>
           <Image sx={{ height: "30px", width: "30px" }} src={Burger} />
         </Box>
         <motion.div
@@ -280,4 +263,4 @@ const TreeChildrenComponent = ({ treeChildren, locale }) => {
   )
 }
 
-export default MobileNav
+export default FixedMobileNav

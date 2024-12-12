@@ -1,4 +1,12 @@
-import { Box, Container, Flex, Grid, Text, Image } from "@theme-ui/components"
+import {
+  Box,
+  Container,
+  Flex,
+  Grid,
+  Text,
+  Image,
+  Heading,
+} from "@theme-ui/components"
 import React, { useContext } from "react"
 import { useCompany } from "../hooks/useCompany"
 import { MagicLink } from "../utils/magicLink"
@@ -10,6 +18,85 @@ import Logo from "../images/logo.svg"
 import { MapPin, Mail } from "react-feather"
 import { LanguageSwitcherContext } from "../context/languageSwitcherContext"
 import { FooterContext } from "../context/footerContext"
+
+const FooterColumn = ({ column, locale }) => {
+  if (!column.treeChildren || column.treeChildren.length === 0) return null
+
+  return (
+    <Flex
+      sx={{
+        flexDirection: "column",
+        margin: 0,
+        padding: 0,
+      }}
+    >
+      <Text
+        as="h3"
+        sx={{
+          fontSize: 2,
+          fontWeight: "bold",
+          mb: 3,
+          color: "light",
+        }}
+      >
+        {column.anchor}
+      </Text>
+      <Flex
+        as="ul"
+        sx={{
+          flexDirection: "column",
+          margin: 0,
+          padding: 0,
+          listStyle: "none",
+          a: {
+            color: "light",
+            textDecoration: "none",
+            fontSize: 1,
+            "&:hover": {
+              textDecoration: "underline",
+            },
+          },
+        }}
+      >
+        {column.treeChildren.map(link => (
+          <Box as="li" key={link.id} sx={{ mb: 2 }}>
+            {link.link ? (
+              <MagicLink item={link.link} locale={locale} />
+            ) : (
+              <>
+                {link.treeChildren && link.treeChildren.length > 0 && (
+                  <>
+                    {link.anchor}
+                    <Flex
+                      as="ul"
+                      sx={{
+                        flexDirection: "column",
+                        margin: 0,
+                        padding: 0,
+                        mt: 2,
+                        listStyle: "none",
+                      }}
+                    >
+                      {link.treeChildren.map(subLink => (
+                        <Box as="li" key={subLink.id} sx={{ mb: 2 }}>
+                          {subLink.link ? (
+                            <MagicLink item={subLink.link} locale={locale} />
+                          ) : (
+                            subLink.anchor
+                          )}
+                        </Box>
+                      ))}
+                    </Flex>
+                  </>
+                )}
+              </>
+            )}
+          </Box>
+        ))}
+      </Flex>
+    </Flex>
+  )
+}
 
 const Footer = () => {
   const footer = useContext(FooterContext)
@@ -34,12 +121,7 @@ const Footer = () => {
           <>
             <Container>
               <Grid
-                columns={[
-                  1,
-                  `.8fr repeat(${
-                    footer.length + (company.addresses.length + 1)
-                  },1fr)`,
-                ]}
+                columns={[1, 1, `.8fr repeat(${footer.length},1fr)`]}
                 gap={[4]}
               >
                 <Flex
@@ -51,144 +133,26 @@ const Footer = () => {
                 >
                   <Image src={Logo} sx={{ maxWidth: "150px" }} />
                   {company.description && (
-                    <Text
-                      dangerouslySetInnerHTML={{ __html: company.description }}
-                    />
+                    <Box sx={{ mt: [4, 4] }}>
+                      <Heading variant="h4" as="h4">
+                        {company.legalName}
+                      </Heading>
+                      <Text as="p"> {company.city}</Text>
+                      <Text
+                        dangerouslySetInnerHTML={{
+                          __html: company.description,
+                        }}
+                      />
+                    </Box>
                   )}
                 </Flex>
 
-                {locations.map(location => (
-                  <Flex
-                    sx={{
-                      flexDirection: "column",
-                      p: { fontSize: 1 },
-                      "*:first-child": { mt: 0 },
-                    }}
-                  >
-                    {location.name && (
-                      <Box
-                        sx={{ "*": { fontSize: [2], fontWeight: "500" } }}
-                        dangerouslySetInnerHTML={{ __html: location.name }}
-                      />
-                    )}
-
-                    {location.streetAddress && (
-                      <Grid
-                        columns={["40px 1fr"]}
-                        sx={{
-                          pb: [2],
-                          justifyContent: "center",
-                          alignItems: "center",
-                        }}
-                        gap={[0]}
-                      >
-                        <Box>
-                          <MapPin size={24} />
-                        </Box>
-                        <Box>
-                          <Box>{location.streetAddress}</Box>
-                          <Box>
-                            {location.postalCode} {location.addressLocality}{" "}
-                            {location.addressRegion}
-                          </Box>
-                        </Box>
-                      </Grid>
-                    )}
-
-                    {location.email && (
-                      <Grid
-                        columns={["40px 1fr"]}
-                        sx={{
-                          pb: [2],
-                          justifyContent: "center",
-                          alignItems: "center",
-                        }}
-                        gap={[0]}
-                      >
-                        <Box>
-                          <Mail size={24} />
-                        </Box>
-                        <Box
-                          as="div"
-                          sx={{ p: { m: [0, 0, 0] } }}
-                          dangerouslySetInnerHTML={{ __html: location.email }}
-                        />
-                      </Grid>
-                    )}
-                    {location.telephone && (
-                      <Grid
-                        columns={["40px 1fr"]}
-                        sx={{
-                          pb: [2],
-                          justifyContent: "center",
-                          alignItems: "center",
-                        }}
-                        gap={[0]}
-                      >
-                        <Box>
-                          <MapPin size={24} />
-                        </Box>
-                        <Box
-                          as="div"
-                          sx={{ p: { m: [0, 0, 0] } }}
-                          dangerouslySetInnerHTML={{
-                            __html: location.telephone,
-                          }}
-                        />
-                      </Grid>
-                    )}
-                    {location.faxNumber && (
-                      <Grid
-                        columns={["40px 1fr"]}
-                        sx={{
-                          pb: [2],
-                          justifyContent: "center",
-                          alignItems: "center",
-                        }}
-                        gap={[0]}
-                      >
-                        <Box>
-                          <MapPin size={24} />
-                        </Box>
-                        <Box
-                          as="div"
-                          sx={{ p: { m: [0, 0, 0] } }}
-                          dangerouslySetInnerHTML={{
-                            __html: location.faxNumber,
-                          }}
-                        />
-                      </Grid>
-                    )}
-                  </Flex>
-                ))}
-
                 {footer.map(column => (
-                  <List key={column.id}>
-                    {column.treeChildren.map(link => (
-                      <Item>
-                        <Text
-                          sx={{ fontWeight: "bold", mb: 2, display: "block" }}
-                        >
-                          {link.link ? (
-                            <MagicLink item={link.link} locale={locale} />
-                          ) : (
-                            link.anchor
-                          )}
-                        </Text>
-                        <List key={link.id}>
-                          {link.treeChildren.map(link => (
-                            <Item>
-                              {link.link ? (
-                                <MagicLink item={link.link} locale={locale} />
-                              ) : (
-                                link.anchor
-                              )}
-                            </Item>
-                          ))}
-                        </List>
-                      </Item>
-                    ))}
-                  </List>
+                  <FooterColumn
+                    key={column.id}
+                    column={column}
+                    locale={locale}
+                  />
                 ))}
               </Grid>
             </Container>
@@ -280,32 +244,6 @@ const Footer = () => {
       </i18nContext.Consumer>
     </Box>
   )
-}
-
-const List = props => {
-  return (
-    <Flex
-      {...props}
-      sx={{
-        flexDirection: "column",
-        margin: 0,
-        padding: 0,
-        mb: 4,
-        listStyle: "none",
-        a: {
-          textDecoration: "none",
-          "&:hover": {
-            textDecoration: "underline",
-          },
-        },
-      }}
-      as="ul"
-    />
-  )
-}
-
-const Item = props => {
-  return <Box {...props} as="li" sx={{ mb: 2, "&:last-child": { mb: 0 } }} />
 }
 
 export default Footer

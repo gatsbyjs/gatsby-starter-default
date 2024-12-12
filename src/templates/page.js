@@ -6,11 +6,11 @@ import Layout from "../components/layout"
 import { getPagePath } from "../utils/path"
 import { HelmetDatoCms } from "gatsby-source-datocms"
 import TitleAndBody from "../components/blocks/titleAndBody"
-import PageCarousel from "../components/blocks/pageCarousel"
+
 import Image from "../components/blocks/image"
 import ImageGallery from "../components/blocks/imageGallery"
 import OrderedList from "../components/blocks/orderedList"
-import ItemCarousel from "../components/blocks/itemCarousel"
+
 import Accordion from "../components/blocks/accordion"
 import DocumentCollection from "../components/blocks/documentCollection"
 import Embed from "../components/blocks/embed"
@@ -18,6 +18,7 @@ import PageHero from "./pageHero"
 import ImageAndText from "../components/blocks/imageAndText"
 import NumbersCollection from "../components/blocks/numbersCollections"
 import ContactForm from "../components/blocks/contactFrom"
+import RelatedCollection from "../components/blocks/relatedCollection"
 
 const LocationsMap = loadable(
   () => import("../components/blocks/locationMap"),
@@ -37,6 +38,7 @@ const Page = ({ data: { page, site, footer, menu }, pageContext }) => {
       value: getPagePath(page, locale.locale),
     }
   })
+  console.log(page.content)
 
   return (
     <Layout
@@ -51,26 +53,21 @@ const Page = ({ data: { page, site, footer, menu }, pageContext }) => {
       <PageHero page={page} image={page.heroImage} />
       {page.content.map(block => (
         <Box as="section" key={block.id}>
-          {block.model.apiKey === "title_and_body" && (
-            <Container>
-              <TitleAndBody block={block} />
-            </Container>
+          {block.model && block.model.apiKey === "title_and_body" && (
+            <TitleAndBody block={block} />
           )}
-          {block.model.apiKey === "ordered_list" && (
-            <OrderedList
+
+          {block.model && block.model.apiKey === "image_and_text" && (
+            <ImageAndText
+              block={block}
+              image={block.image}
               title={block.title}
-              subtitle={block.subtitle}
               body={block.body}
+              rightAligned={block.rightAligned}
             />
           )}
-          {block.model.apiKey === "page_carousel" && (
-            <PageCarousel title={block.title} pages={block.pages} />
-          )}
-          {block.model.apiKey === "item_carousel" && (
-            <ItemCarousel items={block.items} />
-          )}
-          {block.model.apiKey === "accordion" && (
-            <Accordion title={block.title} items={block.items} />
+          {block.model && block.model.apiKey === "related" && (
+            <RelatedCollection block={block} />
           )}
           {block.model.apiKey === "document_collection" && (
             <DocumentCollection
@@ -79,13 +76,9 @@ const Page = ({ data: { page, site, footer, menu }, pageContext }) => {
               showPublicationDate={block.showPublicationDate}
             />
           )}
-          {block.model.apiKey === "image" && <Image image={block.image} />}
-          {block.model.apiKey === "locations_map" && (
-            <LocationsMap locations={block.locations} />
-          )}
+
           {block.model.apiKey === "contact_form" && (
             <ContactForm
-              block={block}
               kicker={block.kicker}
               title={block.title}
               subtitle={block.subtitle}
@@ -93,14 +86,7 @@ const Page = ({ data: { page, site, footer, menu }, pageContext }) => {
               newsletterDescription={block.newsletterDescription}
             />
           )}
-          {block.model.apiKey === "embed" && (
-            <Embed
-              title={block.title}
-              code={block.code}
-              fullWidth={block.fullWidth}
-            />
-          )}
-          {block.model.apiKey === "image_gallery" && (
+          {/*   {block.model.apiKey === "image_gallery" && (
             <Container>
               <ImageGallery images={block.images} />
             </Container>
@@ -111,27 +97,22 @@ const Page = ({ data: { page, site, footer, menu }, pageContext }) => {
               image={block.image}
               numbers={block.numbers}
             />
-          )}
-          {block.model.apiKey === "contact_form" && (
-            <ContactForm
-              kicker={block.kicker}
+          )} */}
+
+          {/* {block.model && block.model.apiKey === "ordered_list" && (
+            <OrderedList
               title={block.title}
               subtitle={block.subtitle}
-              privacyPolicyDescription={block.privacyPolicyDescription}
-              newsletterDescription={block.newsletterDescription}
+              body={block.body}
             />
           )}
 
-          {block.model.apiKey === "image_and_text" && (
-            <ImageAndText
-              label={block.content.label}
-              subtitle={block.content.subtitle}
-              title={block.content.title}
-              body={block.content.body}
-              image={block.image}
-              rightAligned={block.rightAligned}
-            />
+          {block.model.apiKey === "item_carousel" && (
+            <ItemCarousel items={block.items} />
           )}
+          {block.model.apiKey === "accordion" && (
+            <Accordion title={block.title} items={block.items} />
+          )} */}
         </Box>
       ))}
     </Layout>
@@ -173,24 +154,29 @@ export const query = graphql`
         ...GatsbyDatoCmsSeoMetaTags
       }
       content {
-        ... on DatoCmsNumbersCollection {
-          id
-          title
-          image {
-            gatsbyImageData(
-              width: 1480
-              placeholder: BLURRED
-              forceBlurhash: false
-            )
-          }
-          numbers {
-            legend
-            float
-            suffix
-            prefix
-          }
+        ... on DatoCmsRelated {
           model {
             apiKey
+          }
+          title
+          kicker
+          related {
+            anchor
+            link {
+              ... on DatoCmsProductCategory {
+                ...ProductCategoryPageDetails
+              }
+              ... on DatoCmsProduct {
+                ...ProductPageDetails
+              }
+              ... on DatoCmsPage {
+                ...PageDetails
+              }
+              ... on DatoCmsArticle {
+                ...ArticleDetails
+                ...ArticleAllSlugLocales
+              }
+            }
           }
         }
         ... on DatoCmsContactForm {
@@ -204,19 +190,21 @@ export const query = graphql`
             apiKey
           }
         }
-        ... on DatoCmsEmbed {
-          id
-          ...EmbedDetails
-        }
+
         ... on DatoCmsImageAndText {
           id
           kicker
+          image {
+            alt
+            title
+            url
+            gatsbyImageData(width: 1920, placeholder: BLURRED)
+          }
           model {
             apiKey
           }
           rightAligned
-
-          originalbody: body {
+          body {
             value
             blocks {
               __typename
@@ -228,6 +216,11 @@ export const query = graphql`
                   url
                   gatsbyImageData(width: 1920, placeholder: BLURRED)
                 }
+              }
+              ... on DatoCmsAccordion {
+                id: originalId
+                title
+                body
               }
             }
             links {
@@ -245,54 +238,22 @@ export const query = graphql`
                     ...PageTreeParent
                     ...AllSlugLocales
                   }
+                  ... on DatoCmsArticle {
+                    ...ArticleDetails
+                    ...ArticleAllSlugLocales
+                  }
+                  ... on DatoCmsProductCategory {
+                    ...ProductCategoryPageDetails
+                  }
+                  ... on DatoCmsProduct {
+                    ...ProductPageDetails
+                  }
                 }
               }
             }
           }
         }
-        ... on DatoCmsImage {
-          id
-          image {
-            mimeType
-            gatsbyImageData(
-              width: 1480
-              placeholder: BLURRED
-              forceBlurhash: false
-            )
-            video {
-              streamingUrl
-              thumbnailUrl(format: jpg)
-              mp4Url(exactRes: low)
-              muxPlaybackId
-            }
-          }
-          model {
-            apiKey
-          }
-        }
-        ... on DatoCmsLocationsMap {
-          id
-          locations {
-            originalId
-            id
-            name
-            addressCountry
-            addressRegion
-            addressLocality
-            email
-            faxNumber
-            coordinates {
-              latitude
-              longitude
-            }
-            postalCode
-            streetAddress
-            telephone
-          }
-          model {
-            apiKey
-          }
-        }
+
         ... on DatoCmsImageGallery {
           id
           ...ImageGallery
@@ -317,41 +278,32 @@ export const query = graphql`
             apiKey
           }
         }
-        ... on DatoCmsAccordion {
-          id
-          title
-          body
 
+        ... on DatoCmsTitleAndBody {
+          centered
           model {
             apiKey
           }
-        }
-        ... on DatoCmsTitleAndBody {
-          kicker
           id
+          kicker
           title
-          body
-          centered
           content {
             value
             blocks {
               __typename
               ... on DatoCmsImageGallery {
                 id: originalId
-                ...ImageGallery
-              }
-              ... on DatoCmsEmbed {
-                id: originalId
-                ...EmbedDetails
-              }
-              ... on DatoCmsNumbersGroup {
-                id: originalId
-                numbers {
-                  legend
-                  float
-                  suffix
-                  prefix
+                images {
+                  alt
+                  title
+                  url
+                  gatsbyImageData(width: 1920, placeholder: BLURRED)
                 }
+              }
+              ... on DatoCmsAccordion {
+                id: originalId
+                title
+                body
               }
             }
             links {
@@ -364,43 +316,20 @@ export const query = graphql`
                   apiKey
                 }
                 link {
-                  ... on DatoCmsBlogPage {
-                    ...BlogDetails
-                  }
                   ... on DatoCmsPage {
                     ...PageDetails
                     ...PageTreeParent
                     ...AllSlugLocales
                   }
-                  ... on DatoCmsArticle {
-                    ...ArticleDetails
-                    ...ArticleAllSlugLocales
+                  ... on DatoCmsProductCategory {
+                    ...ProductCategoryPageDetails
                   }
-                  ... on DatoCmsArticleCategory {
-                    ...ArticleCategoryDetails
-                    ...ArticleCategoryAllSlugLocales
+                  ... on DatoCmsProduct {
+                    ...ProductPageDetails
                   }
                 }
               }
             }
-          }
-          model {
-            apiKey
-          }
-        }
-
-        ... on DatoCmsPageCarousel {
-          id
-          title
-          pages {
-            ... on DatoCmsPage {
-              ...PageDetails
-              ...PageTreeParent
-              ...AllSlugLocales
-            }
-          }
-          model {
-            apiKey
           }
         }
         ... on DatoCmsContactForm {
@@ -414,82 +343,7 @@ export const query = graphql`
             apiKey
           }
         }
-        ... on DatoCmsItemCarousel {
-          id
-          items {
-            ... on DatoCmsRichContent {
-              ...RichContent
-            }
-          }
-          model {
-            apiKey
-          }
-        }
       }
-    }
-  }
-
-  fragment RichContent on DatoCmsRichContent {
-    title
-    label
-    subtitle
-    image {
-      gatsbyImageData(width: 1480, placeholder: BLURRED, forceBlurhash: false)
-    }
-    body {
-      blocks {
-        __typename
-        ... on DatoCmsImageGallery {
-          id: originalId
-          ...ImageGallery
-        }
-        ... on DatoCmsEmbed {
-          id: originalId
-          ...EmbedDetails
-        }
-        ... on DatoCmsNumbersGroup {
-          id: originalId
-          numbers {
-            legend
-            float
-            suffix
-            prefix
-          }
-        }
-      }
-      links {
-        __typename
-        ... on DatoCmsInternalLink {
-          id: originalId
-          anchor
-          locales
-          model {
-            apiKey
-          }
-          link {
-            ... on DatoCmsBlogPage {
-              ...BlogDetails
-            }
-            ... on DatoCmsPage {
-              ...PageDetails
-              ...PageTreeParent
-              ...AllSlugLocales
-            }
-            ... on DatoCmsArticle {
-              ...ArticleDetails
-              ...ArticleAllSlugLocales
-            }
-            ... on DatoCmsArticleCategory {
-              ...ArticleCategoryDetails
-              ...ArticleCategoryAllSlugLocales
-            }
-          }
-        }
-      }
-      value
-    }
-    model {
-      apiKey
     }
   }
 

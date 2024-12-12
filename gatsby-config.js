@@ -40,41 +40,45 @@ module.exports = {
         include_favicon: false,
       },
     },
-    {
-      resolve: "gatsby-plugin-google-tagmanager",
-      options: {
-        id: "GTM-5H69B7V", //"GTM-5H69B7V",
-        includeInDevelopment: false,
-        // core-web-vitals
-        enableWebVitalsTracking: true,
+    ...(process.env.CONTEXT === "production"
+      ? [
+          {
+            resolve: "gatsby-plugin-google-tagmanager",
+            options: {
+              id: "GTM-5H69B7V", //"GTM-5H69B7V",
+              includeInDevelopment: false,
+              // core-web-vitals
+              enableWebVitalsTracking: true,
 
-        //route change gatsby-route-change
+              //route change gatsby-route-change
 
-        // Include GTM in development.
-        //
-        // Defaults to false meaning GTM will only be loaded in production.
+              // Include GTM in development.
+              //
+              // Defaults to false meaning GTM will only be loaded in production.
 
-        // datalayer to be set before GTM is loaded
-        // should be an object or a function that is executed in the browser
-        //
-        // Defaults to null
-        // defaultDataLayer: { platform: "gatsby" },
+              // datalayer to be set before GTM is loaded
+              // should be an object or a function that is executed in the browser
+              //
+              // Defaults to null
+              // defaultDataLayer: { platform: "gatsby" },
 
-        // Specify optional GTM environment details.
-        // gtmAuth: "YOUR_GOOGLE_TAGMANAGER_ENVIRONMENT_AUTH_STRING",
-        // gtmPreview: "YOUR_GOOGLE_TAGMANAGER_ENVIRONMENT_PREVIEW_NAME",
-        // dataLayerName: "YOUR_DATA_LAYER_NAME",
+              // Specify optional GTM environment details.
+              // gtmAuth: "YOUR_GOOGLE_TAGMANAGER_ENVIRONMENT_AUTH_STRING",
+              // gtmPreview: "YOUR_GOOGLE_TAGMANAGER_ENVIRONMENT_PREVIEW_NAME",
+              // dataLayerName: "YOUR_DATA_LAYER_NAME",
 
-        // Name of the event that is triggered
-        // on every Gatsby route change.
-        //
-        // Defaults to gatsby-route-change
-        // routeChangeEventName: "YOUR_ROUTE_CHANGE_EVENT_NAME",
+              // Name of the event that is triggered
+              // on every Gatsby route change.
+              //
+              // Defaults to gatsby-route-change
+              // routeChangeEventName: "YOUR_ROUTE_CHANGE_EVENT_NAME",
 
-        // // Defaults to https://www.googletagmanager.com
-        // selfHostedOrigin: "YOUR_SELF_HOSTED_ORIGIN",
-      },
-    },
+              // // Defaults to https://www.googletagmanager.com
+              // selfHostedOrigin: "YOUR_SELF_HOSTED_ORIGIN",
+            },
+          },
+        ]
+      : []),
     // this (optional) plugin enables Progressive Web App + Offline functionality
     // To learn more, visit: https://gatsby.dev/offline
     // `gatsby-plugin-offline`,
@@ -90,7 +94,7 @@ module.exports = {
 
         // If you are working on development/staging environment, you might want to
         // preview the latest version of records instead of the published one:
-        previewMode: false,
+        previewMode: process.env.CONTEXT === "production" ? false : true,
 
         // Disable automatic reloading of content when some change occurs on DatoCMS:
         disableLiveReload: false,

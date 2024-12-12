@@ -1,10 +1,4 @@
-import React, {
-  useState,
-  useContext,
-  useRef,
-  useCallback,
-  useEffect,
-} from "react"
+import React, { useState, useContext } from "react"
 import { Box, Container, Flex } from "@theme-ui/components"
 import { getHomePath, getSearchPath } from "../utils/path"
 import { InboundLink } from "./link"
@@ -14,34 +8,11 @@ import LanguageSwitcher from "./languageSwitcher"
 import { debounce } from "lodash"
 import { LanguageSwitcherContext } from "../context/languageSwitcherContext"
 import { MenuContext } from "../context/menuContext"
+import { useEffect } from "react"
 
-const Nav = () => {
-  const [isVisible, setIsVisible] = useState(true)
-  const [isAtTop, setIsAtTop] = useState(true)
-  const lastScrollY = useRef(0)
+const FixedNav = () => {
   const menu = useContext(MenuContext)
   const { activeLocale: locale } = useContext(LanguageSwitcherContext)
-
-  const handleScroll = useCallback(() => {
-    const currentScrollY = window.scrollY
-
-    // Show/hide based on scroll direction
-    if (currentScrollY < lastScrollY.current) {
-      setIsVisible(true)
-    } else {
-      setIsVisible(false)
-    }
-
-    // Update top state
-    setIsAtTop(currentScrollY === 0)
-    lastScrollY.current = currentScrollY
-  }, [])
-
-  useEffect(() => {
-    window.addEventListener("scroll", handleScroll)
-    return () => window.removeEventListener("scroll", handleScroll)
-  }, [handleScroll])
-
   const Logo = () => (
     <svg
       width="50px"
@@ -72,20 +43,7 @@ const Nav = () => {
   })
 
   return (
-    <Box
-      as="nav"
-      sx={{
-        position: "fixed",
-        top: 0,
-        left: 0,
-        right: 0,
-        transform: isVisible ? "translateY(0)" : "translateY(-100%)",
-        transition:
-          "transform 0.3s ease-in-out, background-color 0.3s ease-in-out",
-        backgroundColor: isAtTop ? "transparent" : "primary",
-        zIndex: 1000,
-      }}
-    >
+    <Box as="nav">
       <Container variant="header" sx={{ paddingX: [3, 4] }}>
         <Flex
           sx={{
@@ -127,12 +85,7 @@ const MenuItems = ({ menu, locale }) => (
 
 const TextComponent = ({ item, locale }) => {
   const [show, setShow] = useState(false)
-  const debouncedHandleMouseEnterMenu = debounce(() => {
-    // Only show submenu if item has no link but has children
-    if (!item.link && item.treeChildren?.length > 0) {
-      setShow(true)
-    }
-  }, 200)
+  const debouncedHandleMouseEnterMenu = debounce(() => setShow(true), 200)
   const handleOnMouseLeaveMenu = () => {
     setShow(false)
     debouncedHandleMouseEnterMenu.cancel()
@@ -203,4 +156,4 @@ const MagicLinkOrAnchor = ({ item, locale }) =>
   </Flex>
 ) */
 
-export default Nav
+export default FixedNav

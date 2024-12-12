@@ -2,7 +2,8 @@ import * as React from "react"
 import { Box } from "@theme-ui/components"
 import Nav from "./nav"
 import MobileNav from "./mobileNav"
-
+import FixedNav from "./fixedNav"
+import FixedMobileNav from "./fixedMobileNav"
 const Header = ({ locale }) => {
   React.useEffect(() => {
     const updateNavbarHeight = () => {
@@ -23,6 +24,8 @@ const Header = ({ locale }) => {
     }
   }, [])
 
+  const fixed = false
+
   return (
     <Box
       as="header"
@@ -41,10 +44,14 @@ const Header = ({ locale }) => {
           zIndex: 4,
         }}
       >
-        <Nav locale={locale} />
+        {fixed === true ? <FixedNav /> : <Nav locale={locale} />}
       </Box>
       <Box sx={{ display: ["block", "block", "block", "none"], zIndex: 4 }}>
-        <MobileNav locale={locale} />
+        {fixed === true ? (
+          <FixedMobileNav />
+        ) : (
+          <MobileNav locale={locale} isAtTop={fixed} />
+        )}
       </Box>
     </Box>
   )

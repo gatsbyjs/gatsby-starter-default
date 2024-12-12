@@ -44,7 +44,9 @@ const RelatedCollection = ({ block }) => {
     <Container sx={{ mb: "90px", mt: ["44px", "44px", "136px"] }}>
       <Box>
         <Text variant="kicker">{block.kicker}</Text>
-        <Heading variant="h2">{block.title}</Heading>
+        <Heading as="h3" variant="h2">
+          {block.title}
+        </Heading>
       </Box>
 
       <Box sx={{ mt: "60px" }}>

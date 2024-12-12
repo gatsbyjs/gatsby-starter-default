@@ -6,6 +6,7 @@ import { MagicLink } from "../../utils/magicLink"
 import ImageBlockGallery from "./imageBlockGallery"
 import Accordion from "./accordion"
 import { LanguageSwitcherContext } from "../../context/languageSwitcherContext"
+import { renderNodeRule } from "react-datocms"
 
 const ImageAndText = ({
   title,
@@ -14,8 +15,12 @@ const ImageAndText = ({
   label,
   subtitle,
   rightAligned,
+  block,
 }) => {
   const { activeLocale } = useContext(LanguageSwitcherContext)
+
+  const validBody =
+    body && body.value && body.value.document && body.value.document.children
 
   return (
     <Container variant="fw">
@@ -31,10 +36,20 @@ const ImageAndText = ({
                 h3: { color: "dark", fontSize: "32px" },
               }}
             >
-              {body && (
+              {validBody && (
                 <StructuredText
                   data={body}
+                  customNodeRules={[
+                    renderNodeRule(
+                      // Match nodes with undefined type
+                      node => !node.type || node.type === undefined,
+                      // Return null for these nodes
+                      () => null
+                    ),
+                  ]}
                   renderBlock={({ record }) => {
+                    if (!record || !record.__typename) return null
+
                     switch (record.__typename) {
                       case "DatoCmsImageGallery":
                         return (
@@ -125,12 +140,13 @@ const ImageAndText = ({
                             </Flex>
                           </Flex>
                         )
-
                       default:
                         return null
                     }
                   }}
                   renderInlineRecord={({ record }) => {
+                    if (!record || !record.__typename) return null
+
                     switch (record.__typename) {
                       case "DatoCmsInternalLink":
                         return (
@@ -202,10 +218,20 @@ const ImageAndText = ({
                 h3: { color: "dark", fontSize: "32px" },
               }}
             >
-              {body && (
+              {validBody && (
                 <StructuredText
                   data={body}
+                  customNodeRules={[
+                    renderNodeRule(
+                      // Match nodes with undefined type
+                      node => !node.type || node.type === undefined,
+                      // Return null for these nodes
+                      () => null
+                    ),
+                  ]}
                   renderBlock={({ record }) => {
+                    if (!record || !record.__typename) return null
+
                     switch (record.__typename) {
                       case "DatoCmsImageGallery":
                         return (
@@ -296,12 +322,13 @@ const ImageAndText = ({
                             </Flex>
                           </Flex>
                         )
-
                       default:
                         return null
                     }
                   }}
                   renderInlineRecord={({ record }) => {
+                    if (!record || !record.__typename) return null
+
                     switch (record.__typename) {
                       case "DatoCmsInternalLink":
                         return (
