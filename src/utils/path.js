@@ -42,10 +42,12 @@ export function getPagePath(page, locale) {
   return lang + `${path}/`
 }
 export function getCategoryPath(category, locale) {
+  const localeSlug = category._allSlugLocales.find(x => x.locale === locale)
+  if (!localeSlug) return null // Return null if locale is not found
+
   let lang = locale === defaultLocale ? "/" : `/${locale.toLowerCase()}/`
-  let path = `${category._allSlugLocales.find(x => x.locale === locale).value}`
-  let categoryPath = i18nPath[locale].products.toLowerCase()
-  return lang + `${categoryPath}/${path}/`
+  let categoryPath = i18nPath[locale].category.toLowerCase()
+  return lang + `${categoryPath}/${localeSlug.value}/`
 }
 export function getProductPath(page, locale) {
   let lang = locale === defaultLocale ? "/" : `/${locale.toLowerCase()}/`

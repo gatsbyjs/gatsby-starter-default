@@ -103,7 +103,7 @@ export const query = graphql`
   query ArticleQuery($id: String!, $locale: String!) {
     page: datoCmsArticle(id: { eq: $id }, locale: $locale) {
       ...ArticleDetails
-      ...ArticleAllSlugLocales
+
       ...ArticleMeta
       meta {
         firstPublishedAt(locale: $locale, formatString: "DD MMMM Y")
@@ -140,15 +140,12 @@ export const query = graphql`
     }
   }
 
-  fragment ArticleAllSlugLocales on DatoCmsArticle {
+  fragment ArticleDetails on DatoCmsArticle {
+    id
     _allSlugLocales {
       value
       locale
     }
-  }
-
-  fragment ArticleDetails on DatoCmsArticle {
-    id
     locales
     title
     slug

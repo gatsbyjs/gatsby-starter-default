@@ -91,7 +91,10 @@ export const query = graphql`
               }
               ... on DatoCmsArticle {
                 ...ArticleDetails
-                ...ArticleAllSlugLocales
+              }
+              ... on DatoCmsArticleCategory {
+                ...ArticleCategoryDetails
+                ...ArticleCategoryAllSlugLocales
               }
             }
           }
@@ -137,11 +140,9 @@ export const query = graphql`
                   ... on DatoCmsPage {
                     ...PageDetails
                     ...PageTreeParent
-                    ...AllSlugLocales
                   }
                   ... on DatoCmsArticle {
                     ...ArticleDetails
-                    ...ArticleAllSlugLocales
                   }
                   ... on DatoCmsProductCategory {
                     ...ProductCategoryPageDetails
@@ -199,7 +200,6 @@ export const query = graphql`
                   ... on DatoCmsPage {
                     ...PageDetails
                     ...PageTreeParent
-                    ...AllSlugLocales
                   }
                 }
               }
@@ -282,7 +282,6 @@ export const query = graphql`
           }
           ... on DatoCmsProduct {
             ...ProductPageDetails
-            ...AllProductSlugLocales
           }
           ... on DatoCmsBlogPage {
             ...BlogDetails
@@ -297,7 +296,10 @@ export const query = graphql`
               apiKey
             }
             ...PageTreeParent
-            ...AllSlugLocales
+            _allSlugLocales {
+              value
+              locale
+            }
           }
           ... on DatoCmsArticle {
             id
@@ -312,7 +314,10 @@ export const query = graphql`
               slug
               ...ArticleCategoryAllSlugLocales
             }
-            ...ArticleAllSlugLocales
+            _allSlugLocales {
+              value
+              locale
+            }
           }
           ... on DatoCmsArticleCategory {
             ...ArticleCategoryDetails
@@ -359,7 +364,6 @@ export const query = graphql`
             }
             ... on DatoCmsProduct {
               ...ProductPageDetails
-              ...AllProductSlugLocales
             }
             ... on DatoCmsBlogPage {
               ...BlogDetails
@@ -374,7 +378,10 @@ export const query = graphql`
                 apiKey
               }
               ...PageTreeParent
-              ...AllSlugLocales
+              _allSlugLocales {
+                value
+                locale
+              }
             }
             ... on DatoCmsArticle {
               id
@@ -389,7 +396,10 @@ export const query = graphql`
                 slug
                 ...ArticleCategoryAllSlugLocales
               }
-              ...ArticleAllSlugLocales
+              _allSlugLocales {
+                value
+                locale
+              }
             }
             ... on DatoCmsArticleCategory {
               ...ArticleCategoryDetails
@@ -436,7 +446,6 @@ export const query = graphql`
               }
               ... on DatoCmsProduct {
                 ...ProductPageDetails
-                ...AllProductSlugLocales
               }
               ... on DatoCmsBlogPage {
                 ...BlogDetails
@@ -451,7 +460,10 @@ export const query = graphql`
                   apiKey
                 }
                 ...PageTreeParent
-                ...AllSlugLocales
+                _allSlugLocales {
+                  value
+                  locale
+                }
               }
               ... on DatoCmsArticle {
                 id
@@ -466,7 +478,10 @@ export const query = graphql`
                   slug
                   ...ArticleCategoryAllSlugLocales
                 }
-                ...ArticleAllSlugLocales
+                _allSlugLocales {
+                  value
+                  locale
+                }
               }
               ... on DatoCmsArticleCategory {
                 ...ArticleCategoryDetails
@@ -569,7 +584,6 @@ export const query = graphql`
       }
       ... on DatoCmsProduct {
         ...ProductPageDetails
-        ...AllProductSlugLocales
       }
       ... on DatoCmsBlogPage {
         ...BlogDetails
@@ -577,11 +591,13 @@ export const query = graphql`
       ... on DatoCmsPage {
         ...PageDetails
         ...PageTreeParent
-        ...AllSlugLocales
       }
       ... on DatoCmsArticle {
         ...ArticleDetails
-        ...ArticleAllSlugLocales
+        _allSlugLocales {
+          value
+          locale
+        }
       }
       ... on DatoCmsArticleCategory {
         ...ArticleCategoryDetails

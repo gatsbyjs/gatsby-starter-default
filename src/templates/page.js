@@ -149,7 +149,10 @@ export const query = graphql`
     page: datoCmsPage(id: { eq: $id }, locale: $locale) {
       ...PageDetails
       ...PageTreeParent
-      ...AllSlugLocales
+      _allSlugLocales {
+        value
+        locale
+      }
       seoMetaTags {
         ...GatsbyDatoCmsSeoMetaTags
       }
@@ -174,7 +177,6 @@ export const query = graphql`
               }
               ... on DatoCmsArticle {
                 ...ArticleDetails
-                ...ArticleAllSlugLocales
               }
             }
           }
@@ -236,11 +238,9 @@ export const query = graphql`
                   ... on DatoCmsPage {
                     ...PageDetails
                     ...PageTreeParent
-                    ...AllSlugLocales
                   }
                   ... on DatoCmsArticle {
                     ...ArticleDetails
-                    ...ArticleAllSlugLocales
                   }
                   ... on DatoCmsProductCategory {
                     ...ProductCategoryPageDetails
@@ -319,7 +319,6 @@ export const query = graphql`
                   ... on DatoCmsPage {
                     ...PageDetails
                     ...PageTreeParent
-                    ...AllSlugLocales
                   }
                   ... on DatoCmsProductCategory {
                     ...ProductCategoryPageDetails
@@ -347,20 +346,16 @@ export const query = graphql`
     }
   }
 
-  fragment AllSlugLocales on DatoCmsPage {
-    _allSlugLocales {
-      value
-      locale
-    }
-  }
-
   fragment PageDetails on DatoCmsPage {
     id
     locales
     title
     slug
     root
-    ...AllSlugLocales
+    _allSlugLocales {
+      value
+      locale
+    }
     model {
       apiKey
     }
@@ -391,14 +386,20 @@ export const query = graphql`
       slug
       root
       locales
-      ...AllSlugLocales
+      _allSlugLocales {
+        value
+        locale
+      }
       treeParent {
         id
         title
         slug
         root
         locales
-        ...AllSlugLocales
+        _allSlugLocales {
+          value
+          locale
+        }
       }
     }
   }

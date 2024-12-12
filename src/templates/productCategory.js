@@ -7,6 +7,7 @@ import { HelmetDatoCms } from "gatsby-source-datocms"
 import PageHero from "./pageHero"
 import ProductThumb from "../components/productThumb.js"
 import { InboundLink } from "../components/link"
+import { LanguageSwitcherContext } from "../context/languageSwitcherContext"
 
 const Page = ({
   data: {
@@ -16,8 +17,11 @@ const Page = ({
     site,
     articles,
     contactFooter,
-    pageContext,
+
+    menu,
+    footer,
   },
+  pageContext,
 }) => {
   const locale = pageContext.locale
   const pageAllSlugLocales = page._allSlugLocales.sort(function (a, b) {
@@ -35,7 +39,12 @@ const Page = ({
   })
 
   return (
-    <Layout locale={locale} i18nPaths={i18nPaths}>
+    <Layout
+      locale={locale}
+      i18nPaths={i18nPaths}
+      menuData={menu.nodes}
+      footerData={footer.nodes}
+    >
       <HelmetDatoCms seo={page.seoMetaTags}>
         <html lang={page.locale} />
       </HelmetDatoCms>
@@ -110,9 +119,27 @@ export const query = graphql`
     site: datoCmsSite {
       locales
     }
+    footer: allDatoCmsFooter(locale: $locale) {
+      nodes {
+        ...FooterDetails
+      }
+    }
+    menu: allDatoCmsMenu(
+      locale: $locale
+      filter: { root: { eq: true }, locales: { eq: $locale } }
+      sort: { position: ASC }
+    ) {
+      nodes {
+        ...MenuDetails
+      }
+    }
     page: datoCmsProductCategory(id: { eq: $id }, locale: $locale) {
       id
       locales
+      _allSlugLocales {
+        value
+        locale
+      }
       title
       slug
       description
@@ -185,7 +212,10 @@ export const query = graphql`
     ) {
       nodes {
         id
-        ...AllProductSlugLocales
+        _allSlugLocales {
+          value
+          locale
+        }
         title
         slug
         position

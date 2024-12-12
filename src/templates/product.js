@@ -114,7 +114,10 @@ export const query = graphql`
     }
     page: datoCmsProduct(id: { eq: $id }, locale: $locale) {
       id
-      ...AllProductSlugLocales
+      _allSlugLocales {
+        value
+        locale
+      }
       title
       slug
       description
@@ -171,7 +174,10 @@ export const query = graphql`
         id
         slug
         locales
-        ...AllProductSlugLocales
+        _allSlugLocales {
+          value
+          locale
+        }
         title
         category {
           id
@@ -201,13 +207,6 @@ export const query = graphql`
     locales
     model {
       apiKey
-    }
-  }
-
-  fragment AllProductSlugLocales on DatoCmsProduct {
-    _allSlugLocales {
-      value
-      locale
     }
   }
 `

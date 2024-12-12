@@ -63,7 +63,7 @@ export const query = graphql`
     ) {
       nodes {
         ...ArticleDetails
-        ...ArticleAllSlugLocales
+
         ...ArticleMeta
       }
     }
