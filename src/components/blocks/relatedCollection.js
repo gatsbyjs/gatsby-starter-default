@@ -39,7 +39,9 @@ const RelatedCollection = ({ block }) => {
   }, [])
 
   if (!block?.related) return null
-  if (!block.related.some(item => item.link.locale === locale)) return null
+  console.log(block.related)
+  if (!block.related.some(item => item.link.locales.includes(locale)))
+    return null
 
   console.log(block.related)
   return (
@@ -75,7 +77,7 @@ const RelatedCollection = ({ block }) => {
           }}
         >
           {block.related.map((item, index) =>
-            item.link.locale == locale ? (
+            item.link.locales.includes(locale) ? (
               <SwiperSlide key={item.link.id}>
                 <Box
                   sx={{
