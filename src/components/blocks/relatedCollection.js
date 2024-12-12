@@ -39,7 +39,9 @@ const RelatedCollection = ({ block }) => {
   }, [])
 
   if (!block?.related) return null
+  if (!block.related.some(item => item.link.locale === locale)) return null
 
+  console.log(block.related)
   return (
     <Container sx={{ mb: "90px", mt: ["44px", "44px", "136px"] }}>
       <Box>
@@ -72,43 +74,45 @@ const RelatedCollection = ({ block }) => {
             },
           }}
         >
-          {block.related.map((item, index) => (
-            <SwiperSlide key={item.link.id}>
-              <Box
-                sx={{
-                  height: "450px",
-                  backgroundImage: item.link.heroImage?.url
-                    ? `url(${item.link.heroImage.url})`
-                    : "none",
-                  backgroundColor: "primary",
-                  borderRadius: "12px",
-                  overflow: "hidden",
-                  position: "relative",
-                  a: {
-                    display: "flex",
-                    flexDirection: "column",
-                    padding: "40px",
-                    height: "100%",
-                    width: "100%",
+          {block.related.map((item, index) =>
+            item.link.locale == locale ? (
+              <SwiperSlide key={item.link.id}>
+                <Box
+                  sx={{
+                    height: "450px",
+                    backgroundImage: item.link.heroImage?.url
+                      ? `url(${item.link.heroImage.url})`
+                      : "none",
+                    backgroundColor: "primary",
+                    borderRadius: "12px",
+                    overflow: "hidden",
                     position: "relative",
-                    color: "white",
-                    textDecoration: "none",
-                    "&:hover .overlay": {
-                      opacity: 1,
+                    a: {
+                      display: "flex",
+                      flexDirection: "column",
+                      padding: "40px",
+                      height: "100%",
+                      width: "100%",
+                      position: "relative",
+                      color: "white",
+                      textDecoration: "none",
+                      "&:hover .overlay": {
+                        opacity: 1,
+                      },
                     },
-                  },
-                }}
-              >
-                <MagicLink
-                  item={{
-                    link: item.link,
-                    anchor: item.anchor,
                   }}
-                  locale={locale}
-                />
-              </Box>
-            </SwiperSlide>
-          ))}
+                >
+                  <MagicLink
+                    item={{
+                      link: item.link,
+                      anchor: item.anchor,
+                    }}
+                    locale={locale}
+                  />
+                </Box>
+              </SwiperSlide>
+            ) : null
+          )}
         </Swiper>
 
         {/* <Flex

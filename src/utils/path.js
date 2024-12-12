@@ -20,25 +20,33 @@ const i18nPath = {
 
 export function getPagePath(page, locale) {
   const pageLocale = locale || page.locale
+  const localeSlug = page._allSlugLocales.find(x => x.locale === pageLocale)
+  if (!localeSlug) return null
+
   let lang =
     pageLocale === defaultLocale ? "/" : `/${pageLocale.toLowerCase()}/`
 
-  let path = `${page._allSlugLocales.find(x => x.locale === pageLocale).value}`
   if (page.root) {
-    return lang + `${path}/`
+    return lang + `${localeSlug.value}/`
   }
 
-  path = `${
-    page.treeParent._allSlugLocales.find(x => x.locale === pageLocale).value
-  }/${path}`
+  const parentLocaleSlug = page.treeParent._allSlugLocales.find(
+    x => x.locale === pageLocale
+  )
+  if (!parentLocaleSlug) return null
+
+  let path = `${parentLocaleSlug.value}/${localeSlug.value}`
+
   if (page.treeParent.root) {
     return lang + `${path}/`
   }
-  path = `${
-    page.treeParent.treeParent._allSlugLocales.find(
-      x => x.locale === pageLocale
-    ).value
-  }${path}`
+
+  const grandParentLocaleSlug = page.treeParent.treeParent._allSlugLocales.find(
+    x => x.locale === pageLocale
+  )
+  if (!grandParentLocaleSlug) return null
+
+  path = `${grandParentLocaleSlug.value}${path}`
   return lang + `${path}/`
 }
 export function getCategoryPath(category, locale) {
@@ -74,17 +82,21 @@ export function getBlogPath(locale) {
 }
 
 export function getArticlePath(page, locale) {
+  const localeSlug = page._allSlugLocales.find(x => x.locale === locale)
+  if (!localeSlug) return null
+
   return locale === defaultLocale
-    ? `/blog/${page.slug}`
-    : `/${locale.toLowerCase()}/blog/${page.slug}/`
+    ? `/blog/${localeSlug.value}`
+    : `/${locale.toLowerCase()}/blog/${localeSlug.value}/`
 }
 
 export function getArticleCategoryPath(page, locale) {
+  const localeSlug = page._allSlugLocales.find(x => x.locale === locale)
+  if (!localeSlug) return null
+
   return locale === defaultLocale
-    ? `/blog/${i18nPath[locale].category}/${
-        page._allSlugLocales.find(x => x.locale === locale).value
-      }/`
+    ? `/blog/${i18nPath[locale].category}/${localeSlug.value}/`
     : `/${locale.toLowerCase()}/blog/${i18nPath[locale].category}/${
-        page._allSlugLocales.find(x => x.locale === locale).value
+        localeSlug.value
       }/`
 }
