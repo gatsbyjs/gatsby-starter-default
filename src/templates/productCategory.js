@@ -97,13 +97,14 @@ const Page = ({
                   )
                 })}
               </Box>
-              <Grid columns={[1, 2, 3, 3]} gap={[2, 2, 2, 4]}>
+              {/* <Grid columns={[1, 2, 3, 3]} gap={[2, 2, 2, 4]}>
                 {products.nodes.map(product => {
+
                   page.title == product.category.title && (
                     <ProductThumb product={product} category={page.title} />
                   )
                 })}
-              </Grid>
+              </Grid> */}
             </Grid>
           </Box>
         </Container>
