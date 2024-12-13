@@ -20,7 +20,7 @@ const Nav = () => {
   const [isAtTop, setIsAtTop] = useState(true)
   const lastScrollY = useRef(0)
   const menu = useContext(MenuContext)
-  const { activeLocale: locale } = useContext(LanguageSwitcherContext)
+  const locale = useContext(LanguageSwitcherContext).activeLocale
 
   const handleScroll = useCallback(() => {
     const currentScrollY = window.scrollY

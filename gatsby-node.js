@@ -28,6 +28,17 @@ exports.createPages = async ({ actions, graphql }) => {
           value
         }
       }
+      job: allDatoCmsJob {
+        nodes {
+          id
+          slug
+          locales
+          _allSlugLocales {
+            value
+            locale
+          }
+        }
+      }
       article: allDatoCmsArticle {
         nodes {
           id
@@ -108,16 +119,19 @@ exports.createPages = async ({ actions, graphql }) => {
       category: "categoria",
       search: "cerca",
       products: "prodotti",
+      jobs: "lavori",
     },
     en: {
       category: "category",
       search: "search",
       products: "products",
+      jobs: "jobs",
     },
     "en-us": {
       category: "category",
       search: "search",
       products: "products",
+      jobs: "jobs",
     },
   }
   const defaultLocale = data.site.locales[0]
@@ -172,6 +186,14 @@ exports.createPages = async ({ actions, graphql }) => {
     return locale === defaultLocale
       ? `/blog/`
       : `/${locale.toLowerCase()}/blog/`
+  }
+
+  function getJobPath(page, locale) {
+    return locale === defaultLocale
+      ? `/${i18nPath[locale.toLowerCase()].jobs}/${page.slug}/`
+      : `/${locale.toLowerCase()}/${i18nPath[locale.toLowerCase()].jobs}/${
+          page.slug
+        }/`
   }
 
   function getArticleCategoryPath(page, locale) {
@@ -243,6 +265,16 @@ exports.createPages = async ({ actions, graphql }) => {
       })
     )
   )
+  data.job.nodes.map(page =>
+    page._allSlugLocales.map(slug =>
+      actions.createPage({
+        path: getJobPath(page, slug.locale),
+        component: require.resolve(`./src/templates/job.js`),
+        context: { id: page.id, locale: slug.locale },
+      })
+    )
+  )
+
   // data.articleCategory.nodes.map(page =>
   //   page._allSlugLocales.map(slug =>
   //     actions.createPage({

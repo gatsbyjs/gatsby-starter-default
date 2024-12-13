@@ -19,7 +19,8 @@ import ImageAndText from "../components/blocks/imageAndText"
 import NumbersCollection from "../components/blocks/numbersCollections"
 import ContactForm from "../components/blocks/contactFrom"
 import RelatedCollection from "../components/blocks/relatedCollection"
-
+import JobCollection from "../components/blocks/jobCollection"
+import JobForm from "../components/blocks/jobForm"
 const LocationsMap = loadable(
   () => import("../components/blocks/locationMap"),
   { ssr: false }
@@ -86,6 +87,11 @@ const Page = ({ data: { page, site, footer, menu }, pageContext }) => {
               newsletterDescription={block.newsletterDescription}
             />
           )}
+          {block.model.apiKey === "job_form" && <JobForm block={block} />}
+          {block.model.apiKey === "job_collection" && (
+            <JobCollection block={block} />
+          )}
+
           {/*   {block.model.apiKey === "image_gallery" && (
             <Container>
               <ImageGallery images={block.images} />
@@ -157,6 +163,35 @@ export const query = graphql`
         ...GatsbyDatoCmsSeoMetaTags
       }
       content {
+        ... on DatoCmsJobForm {
+          id
+          kicker
+          title
+          subtitle
+          privacyPolicyDescription
+          newsletterDescription
+          model {
+            apiKey
+          }
+        }
+        ... on DatoCmsJobCollection {
+          id
+          title
+          jobs {
+            id
+            locales
+            _allSlugLocales {
+              value
+              locale
+            }
+            name
+            description
+            link
+          }
+          model {
+            apiKey
+          }
+        }
         ... on DatoCmsRelated {
           model {
             apiKey

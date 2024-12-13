@@ -5,16 +5,19 @@ const i18nPath = {
     category: "categoria",
     search: "cerca",
     products: "prodotti",
+    jobs: "lavori",
   },
   en: {
     category: "category",
     search: "search",
     products: "products",
+    jobs: "jobs",
   },
   "en-US": {
     category: "category",
     search: "search",
     products: "products",
+    jobs: "jobs",
   },
 }
 
@@ -56,6 +59,16 @@ export function getCategoryPath(category, locale) {
   let lang = locale === defaultLocale ? "/" : `/${locale.toLowerCase()}/`
   let categoryPath = i18nPath[locale].category.toLowerCase()
   return lang + `${categoryPath}/${localeSlug.value}/`
+}
+export function getJobPath(page, locale) {
+  const localeSlug = page._allSlugLocales.find(x => x.locale === locale)
+  if (!localeSlug) return null
+
+  return locale === defaultLocale
+    ? `/${i18nPath[locale.toLowerCase()].jobs}/${localeSlug.value}/`
+    : `/${locale.toLowerCase()}/${i18nPath[locale.toLowerCase()].jobs}/${
+        localeSlug.value
+      }/`
 }
 export function getProductPath(page, locale) {
   let lang = locale === defaultLocale ? "/" : `/${locale.toLowerCase()}/`
