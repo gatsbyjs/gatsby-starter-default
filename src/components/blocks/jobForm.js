@@ -11,10 +11,8 @@ import {
   Label,
 } from "@theme-ui/components"
 import { Textarea, Checkbox } from "theme-ui"
-import { useGoogleReCaptcha } from "react-google-recaptcha-v3"
 
 const JobForm = ({ title, jobPosition, privacyPolicyDescription }) => {
-  const { executeRecaptcha } = useGoogleReCaptcha()
   const isBrowser = typeof window !== "undefined"
 
   const [formData, setFormData] = useState({
@@ -45,51 +43,11 @@ const JobForm = ({ title, jobPosition, privacyPolicyDescription }) => {
     event.preventDefault()
     setLoading(true)
 
-    const result = await executeRecaptcha("jobApplication")
-    const data = { ...formData, selectedFile: selectedFile }
-
-    if (result) {
-      new Promise((resolve, reject) => {
-        const reader = new FileReader()
-        reader.readAsDataURL(selectedFile[0])
-        reader.onload = () => resolve(reader.result)
-        reader.onerror = error => reject(error)
-      }).then(file => {
-        fetch("/.netlify/functions/sendApplicationMail", {
-          body: JSON.stringify({
-            file: file,
-            ...data,
-          }),
-          headers: {
-            "content-type": "application/json",
-          },
-          method: "post",
-        })
-          .then(response => {
-            if (response.status === 404) {
-              setLoading(false)
-              setSuccess(false)
-            } else {
-              setSuccess(true)
-              setLoading(false)
-
-              if (typeof window !== "undefined" && window.gtag !== undefined) {
-                window.gtag("event", "Submit", {
-                  event_category: "Form",
-                  event_label: "Job Application",
-                })
-              }
-            }
-          })
-          .catch(error => {
-            setLoading(false)
-            setSuccess(false)
-          })
-      })
-    } else {
+    // Simula invio form
+    setTimeout(() => {
+      setSuccess(true)
       setLoading(false)
-      setSuccess(false)
-    }
+    }, 1000)
   }
 
   return (

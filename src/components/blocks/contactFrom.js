@@ -13,8 +13,6 @@ import {
 
 import "leaflet/dist/leaflet.css"
 import { i18nContext } from "../../context/i18nContext"
-import axios from "axios"
-import { useGoogleReCaptcha } from "react-google-recaptcha-v3"
 
 const ContactForm = ({
   block,
@@ -23,8 +21,6 @@ const ContactForm = ({
   privacyPolicyDescription,
   newsletterDescription,
 }) => {
-  const { executeRecaptcha } = useGoogleReCaptcha()
-
   const isBrowser = typeof window !== "undefined"
 
   const [formData, setFormData] = useState({
@@ -45,33 +41,13 @@ const ContactForm = ({
 
   const sendMail = async event => {
     event.preventDefault()
-
-    const result = await executeRecaptcha("dynamicAction")
-
     setLoading(true)
 
-    const data = formData
-
-    if (result)
-      axios
-        .post("/.netlify/functions/sendMail", data)
-        .then(function (response) {
-          setSuccess(true)
-          setLoading(false)
-
-          if (typeof window !== "undefined" && window.dataLayer !== undefined) {
-            window.dataLayer = window.dataLayer || []
-
-            window.dataLayer.push({
-              event: "formSubmission",
-              formType: "Contact",
-            })
-          }
-        })
-        .catch(function (error) {
-          setLoading(false)
-        })
-    else setLoading(false)
+    // Simula invio form
+    setTimeout(() => {
+      setSuccess(true)
+      setLoading(false)
+    }, 1000)
   }
 
   return (
