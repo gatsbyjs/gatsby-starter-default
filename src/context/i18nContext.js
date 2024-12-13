@@ -51,6 +51,8 @@ export const languages = {
     download: "Scarica",
     latestArticles: "Ultime news",
     formInputTexts: {
+      policy:
+        "Acconsento al trattamento dei dati personali per finalità di marketing e di comunicazione",
       fullName: "Full name",
       company: "Company",
       address: "Street",
