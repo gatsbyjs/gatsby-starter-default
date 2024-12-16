@@ -100,7 +100,18 @@ export const query = graphql`
           }
         }
         ... on DatoCmsTitleAndBody {
-          centered
+          leftAligned
+          image {
+            alt
+            title
+            url
+            gatsbyImageData(width: 1920, placeholder: BLURRED)
+            mobile: gatsbyImageData(
+              width: 700
+              placeholder: BLURRED
+              imgixParams: { fit: "crop", ar: "1:2", fpZ: 0.7 }
+            )
+          }
 
           model {
             apiKey
