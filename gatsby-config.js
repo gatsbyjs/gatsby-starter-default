@@ -15,6 +15,7 @@ module.exports = {
     siteUrl: `https://www.example.com`,
   },
   plugins: [
+    `gatsby-plugin-react-helmet`,
     `gatsby-plugin-image`,
     {
       resolve: `gatsby-source-filesystem`,

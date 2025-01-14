@@ -155,8 +155,8 @@ const ImageAndText = ({
                               a: {
                                 color: "primary",
                                 ":hover": {
-                                  color: "secondary",
-                                  textDecoration: "underline",
+                                  color: "primary",
+                                  backgroundColor: "secondary",
                                 },
                               },
                             }}

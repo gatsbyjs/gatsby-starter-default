@@ -10,7 +10,7 @@ const HomeIntro = ({ page }) => {
         </Heading>
       </Box>
       <Heading variant="h1" as="h1">
-        {page.title} [h1]
+        {page.title}
       </Heading>
       <Box
         sx={{

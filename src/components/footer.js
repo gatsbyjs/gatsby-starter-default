@@ -213,7 +213,7 @@ const Footer = () => {
               {company && (
                 <Box sx={{ mt: [4, 6] }}>
                   <Text sx={{ fontSize: [0] }}>
-                    © 2022 {company.legalName} |
+                    © {new Date().getFullYear()} {company.legalName} |
                     {company.vatId && " P.IVA " + company.vatId}{" "}
                     {company.shareCapital &&
                       " C.S. " + company.shareCapital + "€"}
