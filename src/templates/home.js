@@ -218,8 +218,20 @@ export const query = graphql`
           }
         }
       }
+      mobileImage {
+        gatsbyImageData(
+          width: 700
+          placeholder: BLURRED
+          imgixParams: { fit: "crop", ar: "1:2", fpZ: 0.7 }
+        )
+      }
 
       heroImage {
+        mobile: gatsbyImageData(
+          width: 700
+          placeholder: BLURRED
+          imgixParams: { fit: "crop", ar: "1:2", fpZ: 0.7 }
+        )
         alt
         title
         mimeType

@@ -1,34 +1,78 @@
 import { GatsbyImage } from "gatsby-plugin-image"
 import React from "react"
-import { Box, Image } from "theme-ui"
+import { Box, Container, Flex, Image } from "theme-ui"
 import BackgroundVideo from "../components/blocks/backgroundVideo"
 
-const HomeHero = ({ page }) => (
-  <Box
-    sx={{
-      position: "relative",
-      backgroundColor: "primary",
-      height: `calc(100vh - var(--navbar-height))`,
-      minHeight: ["300px", "400px", `calc(100vh - var(--navbar-height))`],
-    }}
-  >
+const HomeHero = ({ page, image }) => {
+  return (
     <Box
       sx={{
-        ".gatsby-image-wrapper": {
-          width: "100%",
-          height: "100%",
-        },
+        position: "relative",
+        backgroundColor: "primary",
+        height: `calc(100vh - var(--navbar-height))`,
+        minHeight: ["300px", "400px", `calc(100vh - var(--navbar-height))`],
+        overflow: "hidden",
       }}
     >
-      {page.heroImage.mimeType === "video/mp4" ? (
-        <BackgroundVideo media={page.heroImage} />
-      ) : page.heroImage.gatsbyImageData ? (
-        <GatsbyImage image={page.heroImage.gatsbyImageData} alt="" />
-      ) : (
-        <Image src={page.heroImage.url} alt="" />
+      {image && (
+        <>
+          {/* Desktop version */}
+          <Box
+            sx={{
+              display: ["none", "none", "block"],
+              position: "absolute",
+              top: 0,
+              left: 0,
+              right: 0,
+              bottom: 0,
+              height: "100%",
+              width: "100%",
+              ".gatsby-image-wrapper": {
+                height: "100%",
+                width: "100%",
+              },
+            }}
+          >
+            {image.mimeType === "video/mp4" ? (
+              <BackgroundVideo media={image} />
+            ) : image.gatsbyImageData ? (
+              <GatsbyImage image={image.gatsbyImageData} alt="" />
+            ) : (
+              <Image src={image.url} alt="" />
+            )}
+          </Box>
+
+          {/* Mobile version with fallback logic */}
+          <Box
+            sx={{
+              display: ["block", "block", "none", "none"],
+              position: "absolute",
+              top: 0,
+              left: 0,
+              right: 0,
+              bottom: 0,
+              height: "100%",
+              width: "100%",
+              ".gatsby-image-wrapper": {
+                height: "100%",
+                width: "100%",
+              },
+            }}
+          >
+            {page.mobileImage ? (
+              image.mimeType === "video/mp4" ? (
+                <BackgroundVideo media={page.mobileImage} />
+              ) : (
+                <GatsbyImage image={page.mobileImage.gatsbyImageData} alt="" />
+              )
+            ) : (
+              <GatsbyImage image={image.mobile} alt="" />
+            )}
+          </Box>
+        </>
       )}
     </Box>
-  </Box>
-)
+  )
+}
 
 export default HomeHero
