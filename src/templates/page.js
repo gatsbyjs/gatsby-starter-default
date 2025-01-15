@@ -51,9 +51,12 @@ const Page = ({ data: { page, site, footer, menu }, pageContext }) => {
       <HelmetDatoCms seo={page.seoMetaTags}>
         <html lang={page.locale} />
       </HelmetDatoCms>
-      <PageHero page={page} image={page.heroImage} />
+
       {page.content.map(block => (
         <Box as="section" key={block.id}>
+          {block.model && block.model.apiKey === "page_hero" && (
+            <PageHero page={page} block={block} />
+          )}
           {block.model && block.model.apiKey === "title_and_body" && (
             <TitleAndBody block={block} />
           )}
@@ -163,6 +166,42 @@ export const query = graphql`
         ...GatsbyDatoCmsSeoMetaTags
       }
       content {
+        ... on DatoCmsPageHero {
+          id
+          title
+
+          model {
+            apiKey
+          }
+          body {
+            value
+          }
+          heroImage {
+            gatsbyImageData(
+              width: 1920
+              placeholder: BLURRED
+              imgixParams: { fit: "crop", ar: "16:9" }
+            )
+            alt
+            title
+            mimeType
+            blurhash
+            customData
+            video {
+              streamingUrl
+              thumbnailUrl(format: jpg)
+              mp4Url(exactRes: low)
+              muxPlaybackId
+            }
+          }
+          mobile {
+            gatsbyImageData(
+              width: 500
+              placeholder: BLURRED
+              imgixParams: { fit: "crop", fpZ: 1 }
+            )
+          }
+        }
         ... on DatoCmsJobForm {
           id
           kicker

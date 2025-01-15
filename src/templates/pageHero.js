@@ -3,8 +3,8 @@ import React from "react"
 import { Box, Container, Flex, Image, Heading } from "theme-ui"
 import Breadcrumbs from "../components/breadcrumbs"
 import BackgroundVideo from "../components/blocks/backgroundVideo"
-
-const PageHero = ({ page, image }) => {
+import PageIntro from "../components/blocks/pageIntro"
+const PageHero = ({ block, page }) => {
   return (
     <Box
       sx={{
@@ -15,7 +15,7 @@ const PageHero = ({ page, image }) => {
         overflow: "hidden",
       }}
     >
-      {image && (
+      {block.heroImage && (
         <>
           {/* Desktop version */}
           <Box
@@ -34,12 +34,12 @@ const PageHero = ({ page, image }) => {
               },
             }}
           >
-            {image.mimeType === "video/mp4" ? (
-              <BackgroundVideo media={image} />
-            ) : image.gatsbyImageData ? (
-              <GatsbyImage image={image.gatsbyImageData} alt="" />
+            {block.heroImage.mimeType === "video/mp4" ? (
+              <BackgroundVideo media={block.heroImage} />
+            ) : block.heroImage.gatsbyImageData ? (
+              <GatsbyImage image={block.heroImage.gatsbyImageData} alt="" />
             ) : (
-              <Image src={image.url} alt="" />
+              <Image src={block.heroImage.url} alt="" />
             )}
           </Box>
 
@@ -60,14 +60,14 @@ const PageHero = ({ page, image }) => {
               },
             }}
           >
-            {page.mobileImage ? (
-              image.mimeType === "video/mp4" ? (
-                <BackgroundVideo media={page.mobileImage} />
+            {block.mobile ? (
+              block.mobile.mimeType === "video/mp4" ? (
+                <BackgroundVideo media={block.mobile} />
               ) : (
-                <GatsbyImage image={page.mobileImage.gatsbyImageData} alt="" />
+                <GatsbyImage image={block.mobile.gatsbyImageData} alt="" />
               )
             ) : (
-              <GatsbyImage image={image.mobile} alt="" />
+              <GatsbyImage image={block.heroImage.mobile} alt="" />
             )}
           </Box>
         </>
@@ -82,37 +82,15 @@ const PageHero = ({ page, image }) => {
             height: ["100%"],
           }}
         >
-          <Heading as="h1">{page.title}</Heading>
-          {page.subtitle && (
-            <Box
-              dangerouslySetInnerHTML={{ __html: page.subtitle }}
-              as="h2"
-              sx={{
-                width: ["100%", "100%", "75%", "40%"],
-                mt: "40px",
-                lineHeight: 0.9,
-                color: "light",
-                fontSize: ["50px", "50px", "80px"],
-                "@media screen and (max-height: 720px) and (min-width: 769px)":
-                  {
-                    fontSize: ["30px", "40px", "60px"],
-                  },
-                fontWeight: 300,
-                m: [0],
-              }}
-            />
-          )}
-          <Box
+          <Flex
             sx={{
-              pt: ["40px", "40px", "40px", "80px"],
-              ml: "3px",
-              "@media screen and (max-width: 768px)": {
-                pt: ["20px", "20px", "20px", "20px"],
-              },
+              width: "100%",
+              position: "absolute",
+              height: "100%",
             }}
           >
-            <Breadcrumbs page={page} />
-          </Box>
+            {block.body && <PageIntro page={page} block={block} />}
+          </Flex>
         </Flex>
       </Container>
     </Box>
