@@ -1,6 +1,6 @@
 import { GatsbyImage } from "gatsby-plugin-image"
 import React from "react"
-import { Box, Container, Flex, Image } from "theme-ui"
+import { Box, Container, Flex, Image, Heading } from "theme-ui"
 import BackgroundVideo from "../components/blocks/backgroundVideo"
 
 const HomeHero = ({ page, image }) => {
