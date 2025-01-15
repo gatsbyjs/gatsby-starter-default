@@ -3,18 +3,18 @@ import React from "react"
 import { Box, Container, Flex, Image, Heading } from "theme-ui"
 import BackgroundVideo from "../components/blocks/backgroundVideo"
 
-const HomeHero = ({ page, image }) => {
+const HomeHero = ({ block }) => {
   return (
     <Box
       sx={{
         position: "relative",
-        backgroundColor: "primary",
+
         height: `calc(100vh - var(--navbar-height))`,
         minHeight: ["300px", "400px", `calc(100vh - var(--navbar-height))`],
         overflow: "hidden",
       }}
     >
-      {image && (
+      {block.heroImage && (
         <>
           {/* Desktop version */}
           <Box
@@ -33,12 +33,12 @@ const HomeHero = ({ page, image }) => {
               },
             }}
           >
-            {image.mimeType === "video/mp4" ? (
-              <BackgroundVideo media={image} />
-            ) : image.gatsbyImageData ? (
-              <GatsbyImage image={image.gatsbyImageData} alt="" />
+            {block.heroImage.mimeType === "video/mp4" ? (
+              <BackgroundVideo media={block.heroImage} />
+            ) : block.heroImage.gatsbyImageData ? (
+              <GatsbyImage image={block.heroImage.gatsbyImageData} alt="" />
             ) : (
-              <Image src={image.url} alt="" />
+              <Image src={block.heroImage.url} alt="" />
             )}
           </Box>
 
@@ -59,14 +59,14 @@ const HomeHero = ({ page, image }) => {
               },
             }}
           >
-            {page.mobileImage ? (
-              image.mimeType === "video/mp4" ? (
-                <BackgroundVideo media={page.mobileImage} />
+            {block.mobile ? (
+              block.mobile.mimeType === "video/mp4" ? (
+                <BackgroundVideo media={block.mobile} />
               ) : (
-                <GatsbyImage image={page.mobileImage.gatsbyImageData} alt="" />
+                <GatsbyImage image={block.mobile.gatsbyImageData} alt="" />
               )
             ) : (
-              <GatsbyImage image={image.mobile} alt="" />
+              <GatsbyImage image={block.heroImage.mobile} alt="" />
             )}
           </Box>
         </>

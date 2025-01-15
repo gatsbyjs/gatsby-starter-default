@@ -30,12 +30,17 @@ const Home = ({ data: { page, site, footer, menu }, pageContext }) => {
       <HelmetDatoCms seo={page.seoMetaTags}>
         <html lang={locale} />
       </HelmetDatoCms>
-      <HomeHero page={page} />
-      <HomeIntro page={page} />
+
       {page &&
         page.content &&
         page.content.map(block => (
           <Box as="section" key={block.id}>
+            {block.model && block.model.apiKey === "home_hero" && (
+              <>
+                <HomeHero block={block} />
+                <Box sx={{ mt: ["40px", "40px", "90px", "90px"] }}></Box>
+              </>
+            )}
             {block.model && block.model.apiKey === "title_and_body" && (
               <TitleAndBody block={block} />
             )}
@@ -63,14 +68,47 @@ export const query = graphql`
     page: datoCmsHomePage(locale: $locale) {
       id
       kicker
-      body {
-        value
-      }
       title
       model {
         apiKey
       }
       content {
+        ... on DatoCmsHomeHero {
+          model {
+            apiKey
+          }
+          title
+          body {
+            value
+          }
+          mobile {
+            gatsbyImageData(
+              width: 700
+              placeholder: BLURRED
+              imgixParams: { fit: "crop", ar: "1:2", fpZ: 0.7 }
+            )
+          }
+
+          heroImage {
+            mobile: gatsbyImageData(
+              width: 700
+              placeholder: BLURRED
+              imgixParams: { fit: "crop", ar: "1:2", fpZ: 0.7 }
+            )
+            alt
+            title
+            mimeType
+            blurhash
+            customData
+            video {
+              streamingUrl
+              thumbnailUrl(format: jpg)
+              mp4Url(exactRes: low)
+              muxPlaybackId
+            }
+            gatsbyImageData(width: 1920, placeholder: BLURRED)
+          }
+        }
         ... on DatoCmsRelated {
           model {
             apiKey
@@ -218,33 +256,7 @@ export const query = graphql`
           }
         }
       }
-      mobileImage {
-        gatsbyImageData(
-          width: 700
-          placeholder: BLURRED
-          imgixParams: { fit: "crop", ar: "1:2", fpZ: 0.7 }
-        )
-      }
 
-      heroImage {
-        mobile: gatsbyImageData(
-          width: 700
-          placeholder: BLURRED
-          imgixParams: { fit: "crop", ar: "1:2", fpZ: 0.7 }
-        )
-        alt
-        title
-        mimeType
-        blurhash
-        customData
-        video {
-          streamingUrl
-          thumbnailUrl(format: jpg)
-          mp4Url(exactRes: low)
-          muxPlaybackId
-        }
-        gatsbyImageData(width: 1920, placeholder: BLURRED)
-      }
       locales
       seoMetaTags {
         ...GatsbyDatoCmsSeoMetaTags
