@@ -10,6 +10,17 @@ export const languages = {
     noResults: "No results",
     download: "Download",
     latestArticles: "Latest news",
+    vatId: "VAT ID",
+    policies: {
+      privacy: {
+        url: "https://www.google.com/privacy",
+        anchor: "Privacy Policy",
+      },
+      cookie: {
+        url: "https://www.google.com/cookies",
+        anchor: "Cookie Policy",
+      },
+    },
     formInputTexts: {
       fullName: "Full name",
       company: "Company",
@@ -30,6 +41,17 @@ export const languages = {
     noResults: "No results",
     download: "Download",
     latestArticles: "Latest news",
+    vatId: "VAT ID",
+    policies: {
+      privacy: {
+        url: "https://www.google.com/privacy",
+        anchor: "Privacy Policy",
+      },
+      cookie: {
+        url: "https://www.google.com/cookies",
+        anchor: "Cookie Policy",
+      },
+    },
     formInputTexts: {
       fullName: "Full name",
       company: "Company",
@@ -50,6 +72,17 @@ export const languages = {
     noResults: "Nessun risultato",
     download: "Scarica",
     latestArticles: "Ultime news",
+    vatId: "P.IVA",
+    policies: {
+      privacy: {
+        url: "https://www.google.com/privacy",
+        anchor: "Privacy Policy",
+      },
+      cookie: {
+        url: "https://www.google.com/cookies",
+        anchor: "Cookie Policy",
+      },
+    },
     formInputTexts: {
       policy:
         "Acconsento al trattamento dei dati personali per finalità di marketing e di comunicazione",

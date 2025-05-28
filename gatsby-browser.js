@@ -9,12 +9,17 @@
 import "./src/assets/style/layout.css"
 
 import React from "react"
-import {
-    GoogleReCaptchaProvider
-  } from 'react-google-recaptcha-v3';
+import { GoogleReCaptchaProvider } from "react-google-recaptcha-v3"
 
 export const wrapRootElement = ({ element }) => (
-    <GoogleReCaptchaProvider reCaptchaKey="6Lfb1fwcAAAAADmyEPNghVeB3dowQdIP23wDh_G2">
-        {element}
-    </GoogleReCaptchaProvider>
+  <GoogleReCaptchaProvider
+    reCaptchaKey={process.env.GATSBY_RECAPTCHA_SITE_KEY}
+    scriptProps={{
+      async: false, // Load synchronously for better reliability
+      defer: false,
+      appendTo: "head", // Append to head for better loading
+    }}
+  >
+    {element}
+  </GoogleReCaptchaProvider>
 )
